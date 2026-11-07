@@ -1,0 +1,15 @@
+# Cinematic pentest teaser
+
+An 18-second dramatization made after feedback that the initial benchmark was too plain. The hooded figure and six red symbols are generated key art, not footage of an attacker or a representation that six attacks occurred. The camera move, light sweep, typography and scene changes are seekable HyperFrames animation over the still illustration, rather than independently animated character footage. An original synthesized tension bed accompanies locally generated male Kokoro narration; captions are burned in and provided as SRT.
+
+The repository's [demo documentation](https://github.com/kcloud1/agentic-pentest-poc/blob/main/docs/DEMO.md) describes a tool-less model proposing actions from a finite list; the deterministic executor and policy gate control tools and targets. The recorded Juice Shop report groups six Nikto/ZAP alerts into one CORS finding (`grp-d382cb1578`). This is an isolated, recorded training example. The teaser does not assert that a live attack or exploitation occurred, or that human approval is an automated enforcement gate.
+
+## Re-render
+
+From `benchmarks/hyperframes`, after `npm ci`:
+
+```sh
+npx hyperframes render cinematic -o cinematic/cyber-cinema.mp4 --fps 30 --quality looks
+```
+
+The included art, WAV clips, HTML and timeline are enough for re-rendering without an image or voice API. To regenerate narration, use the Kokoro ONNX environment and model files described in the parent README and run `python cinematic/build.py --model /path/to/kokoro-v1.0.onnx --voices /path/to/voices-v1.0.bin`. The generator writes the composition, captions, audio and storyboard; edit the generator for durable changes. The artwork was created with the built-in image generation tool and is preserved as an asset. The depicted soundtrack was synthesized locally. HyperFrames/GSAP dependencies and license notes are in the parent README.

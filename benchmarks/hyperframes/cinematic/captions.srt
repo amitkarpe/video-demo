@@ -1,0 +1,11 @@
+1
+00:00:00,600 --> 00:00:03,181
+What if an attack leaves a trail of noise?
+
+2
+00:00:05,100 --> 00:00:10,007
+Six scanner alerts. One hidden weakness. AI connects the evidence.
+
+3
+00:00:11,000 --> 00:00:16,236
+Policy controls the tools. A human gets a finding, ready to review.

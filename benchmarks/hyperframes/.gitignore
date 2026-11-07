@@ -2,3 +2,4 @@ node_modules/
 renders/
 .hyperframes/
 assets/gsap.min.js
+cinematic/assets/gsap.min.js
