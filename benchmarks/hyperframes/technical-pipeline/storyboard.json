@@ -1,0 +1,69 @@
+{
+  "duration": 139,
+  "scenes": [
+    {
+      "number": "01",
+      "title": "THE SIGNAL PROBLEM",
+      "tag": "FIVE SCANNERS \u2192 DISCONNECTED ALERTS",
+      "words": "Five scanners can produce hundreds of disconnected alerts. Duplicates obscure what matters. This proof of concept turns raw signals into reviewable findings.",
+      "start": 0.6,
+      "duration": 11.341
+    },
+    {
+      "number": "02",
+      "title": "ISOLATED TRAINING LAB",
+      "tag": "IDENTITY  \u00b7  LABELS  \u00b7  PINNED IMAGES  \u00b7  ISOLATION",
+      "words": "It begins inside deliberately vulnerable Docker labs. Preflight checks target identity, container labels, pinned images and network isolation. Unknown targets fail closed. No corporate systems are in scope.",
+      "start": 12.391,
+      "duration": 15.48
+    },
+    {
+      "number": "03",
+      "title": "THE TRUST BOUNDARY",
+      "tag": "MODEL SELECTS  \u00b7  PYTHON VALIDATES",
+      "words": "A deterministic baseline is planned first. Then tool-less OpenCode sees sanitized findings and chooses only a fixed action ID and profile. Python validates the choice, budgets and timeouts. Model-written commands never execute.",
+      "start": 28.321,
+      "duration": 17.474
+    },
+    {
+      "number": "04",
+      "title": "RECORDED DEMO REALITY",
+      "tag": "MAKE DEMO  =  RECORDED INPUT  \u00b7  NO LIVE SCAN",
+      "words": "The repeatable demo replays recorded ZAP, Nuclei, Nikto, Trivy and npm audit output. It runs no new scans. Agent follow-up choices are logged, not executed by the default runner. Normalizers produce a common finding schema.",
+      "start": 46.245,
+      "duration": 18.431
+    },
+    {
+      "number": "05",
+      "title": "FROM ALERTS TO EVIDENCE",
+      "tag": "480 ALERTS  \u2192  69 DISTINCT GROUPS",
+      "words": "The Juice Shop sample groups 480 alerts into 69 findings. Six ZAP and Nikto alerts become one CORS finding with retained evidence. Code maps OWASP categories, computes CVSS from proposed vectors, and adds remediation.",
+      "start": 65.125,
+      "duration": 18.629
+    },
+    {
+      "number": "06",
+      "title": "OUTPUTS AND CHAIN OF CUSTODY",
+      "tag": "VERDICT  \u00b7  EVIDENCE  \u00b7  AUDIT",
+      "words": "For web findings, the model classifies probable issues, noise, or items needing human review. Model exchanges are recorded in a hash-chained audit trail. The output is HTML, JSON and optional deduplicated private GitHub issues.",
+      "start": 84.204,
+      "duration": 18.279
+    },
+    {
+      "number": "07",
+      "title": "HONEST LAB MEASUREMENT",
+      "tag": "PROVISIONAL GROUND TRUTH  \u00b7  HUMAN REVIEW",
+      "words": "The sample shows 92 percent precision and 64 percent overall recall against provisional ground truth. Triage time was mostly model latency, not verified analyst time saved. Human review remains necessary.",
+      "start": 102.933,
+      "duration": 16.929
+    },
+    {
+      "number": "08",
+      "title": "PHASED DELIVERY",
+      "tag": "CONTROLLED  \u00b7  MEASURED  \u00b7  AUDITABLE",
+      "words": "Phase one built the lab pipeline. Phase two added accuracy measurement and more scanners. Phase three extended coverage to lab networks and Terraform code. This is a controlled, auditable scanner-to-report pipeline, not an autonomous hacker.",
+      "start": 120.311,
+      "duration": 16.925
+    }
+  ]
+}

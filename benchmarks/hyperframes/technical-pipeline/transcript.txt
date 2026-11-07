@@ -1,0 +1,23 @@
+01 — THE SIGNAL PROBLEM
+Five scanners can produce hundreds of disconnected alerts. Duplicates obscure what matters. This proof of concept turns raw signals into reviewable findings.
+
+02 — ISOLATED TRAINING LAB
+It begins inside deliberately vulnerable Docker labs. Preflight checks target identity, container labels, pinned images and network isolation. Unknown targets fail closed. No corporate systems are in scope.
+
+03 — THE TRUST BOUNDARY
+A deterministic baseline is planned first. Then tool-less OpenCode sees sanitized findings and chooses only a fixed action ID and profile. Python validates the choice, budgets and timeouts. Model-written commands never execute.
+
+04 — RECORDED DEMO REALITY
+The repeatable demo replays recorded ZAP, Nuclei, Nikto, Trivy and npm audit output. It runs no new scans. Agent follow-up choices are logged, not executed by the default runner. Normalizers produce a common finding schema.
+
+05 — FROM ALERTS TO EVIDENCE
+The Juice Shop sample groups 480 alerts into 69 findings. Six ZAP and Nikto alerts become one CORS finding with retained evidence. Code maps OWASP categories, computes CVSS from proposed vectors, and adds remediation.
+
+06 — OUTPUTS AND CHAIN OF CUSTODY
+For web findings, the model classifies probable issues, noise, or items needing human review. Model exchanges are recorded in a hash-chained audit trail. The output is HTML, JSON and optional deduplicated private GitHub issues.
+
+07 — HONEST LAB MEASUREMENT
+The sample shows 92 percent precision and 64 percent overall recall against provisional ground truth. Triage time was mostly model latency, not verified analyst time saved. Human review remains necessary.
+
+08 — PHASED DELIVERY
+Phase one built the lab pipeline. Phase two added accuracy measurement and more scanners. Phase three extended coverage to lab networks and Terraform code. This is a controlled, auditable scanner-to-report pipeline, not an autonomous hacker.
