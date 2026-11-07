@@ -1,0 +1,31 @@
+{
+  "voice": "Samantha",
+  "rate": 145,
+  "scenes": [
+    {
+      "step": "DETECT", "title": "A vulnerability is detected", "eyebrow": "01  /  SECURITY FINDING",
+      "status": "HIGH SEVERITY", "cardTitle": "A fictional EC2 server needs attention", "cardBody": "An example finding flags an outdated package.", "detail": "INSTANCE  /  demo-server-01", "result": "Finding captured for review",
+      "captions": ["An EC2 server has a high severity vulnerability. The security workflow captures the alert.", "This is a simulated example, using fictional findings and no live AWS data."]
+    },
+    {
+      "step": "INVESTIGATE", "title": "AI investigates the finding", "eyebrow": "02  /  ASSISTED ANALYSIS",
+      "status": "RISK REVIEW", "cardTitle": "Understand the risk before acting", "cardBody": "The assistant summarizes impact and proposes a patch.", "detail": "INPUT  /  fictional vulnerability", "result": "Proposed fix ready for human review",
+      "captions": ["An AI assistant checks the finding and explains the security risk in plain language.", "It prepares a proposed patch and makes the reasoning visible for review."]
+    },
+    {
+      "step": "APPROVE", "title": "A person decides", "eyebrow": "03  /  HUMAN APPROVAL",
+      "status": "APPROVE ONCE", "cardTitle": "Review the proposed change", "cardBody": "A human checks the plan and approves this one action.", "detail": "CONTROL  /  explicit approval", "result": "No automatic production change",
+      "captions": ["Before anything changes, a person reviews the plan and approves the proposed action once.", "The human approval gate keeps production changes from running automatically."]
+    },
+    {
+      "step": "REMEDIATE", "title": "A patch would be applied", "eyebrow": "04  /  SIMULATED ACTION",
+      "status": "MOCK SSM", "cardTitle": "Systems Manager would run the patch", "cardBody": "After approval, the workflow shows a simulated action.", "detail": "ACTION  /  fictional patch execution", "result": "No AWS resources are changed",
+      "captions": ["After approval, AWS Systems Manager would apply the patch to the affected server.", "This video is a simulation. No command runs and nothing is changed in AWS."]
+    },
+    {
+      "step": "VERIFY", "title": "Close the loop with evidence", "eyebrow": "05  /  VERIFICATION & AUDIT",
+      "status": "AUDIT TRAIL", "cardTitle": "Verify the outcome and record it", "cardBody": "Capture the approval, action, and verification result.", "detail": "EVIDENCE  /  fictional incident record", "result": "Detection to decision, visibly connected",
+      "captions": ["Finally, the workflow would verify the result and record evidence for the audit trail.", "Detection, human approval, action, and verification stay connected and visible."]
+    }
+  ]
+}

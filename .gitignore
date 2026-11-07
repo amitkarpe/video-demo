@@ -9,3 +9,6 @@ __pycache__/
 .terraform/
 .AGENTS-temp/
 tmp/
+
+# Generated local video exports
+demo/output/

@@ -1,14 +1,3 @@
 # Roadmap
 
-## Now
-
-- Define and prove one small outcome.
-
-## Next
-
-- Record the next validated milestone.
-
-## Later
-
-- Keep only ideas that still matter after the current milestone.
-
+- [Issue #1](https://github.com/amitkarpe/video-demo/issues/1): create and revise one narrated local mock demonstration video. Further milestones have not been selected.
