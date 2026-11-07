@@ -56,3 +56,20 @@ demo/output/venv/bin/python demo/generate_kokoro_onnx.py \
 Expected SHA-256 values for the downloaded model and voice files are `beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a` and `bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d`, respectively. These are the model-files-v1.1 release assets. Kokoro weights are Apache-2.0 and the [ONNX runtime wrapper](https://github.com/thewh1teagle/kokoro-onnx) is MIT. Downloading the files requires network access; inference is local. Do not commit the generated model, environment, or intermediate audio files.
 
 The candidate is 65.64 seconds at 1920 × 1080, SHA-256 `f08faa669bfd91acb9e0bc3c4fe402f33cf9cb2ec4b1681353ddbed3bcc6a94f`. A second Kokoro export changed “security risk” to “potential risk”; its regenerated captions and full decode verified the edit and export without paid services. FFmpeg decoded it without errors. Local Whisper transcription of the complete initial Kokoro export matched all storyboard words after normalization of capitalization and punctuation. The final export uses the same speech and captions with 4 dB gain; measured peak is −2.7 dBFS. Transcription is an automated check, not a substitute for a human listening review. The current M5/macOS 26.1 combination rejected MLX GPU kernels; ONNX Runtime on CPU provided a working, fast alternative without an OS change.
+
+## Optional Qwen3 voice experiment
+
+The [Qwen3-TTS CustomVoice model](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice) is another Apache-2.0 local option, with selectable English voices and an instruction for delivery. Its MLX 4-bit model download is approximately 2.3 GB. On the tested M5/macOS 26.1, `mlx-audio` 0.4.0 with MLX 0.30.6 generated speech on the GPU; the newer MLX 0.32.4 hit a Metal compiler error. This older environment emitted a tokenizer/model compatibility warning, and automated transcription raised possible wording differences in some generated clips. Treat Qwen output as experimental and listen against the captions; generated speech can vary between runs.
+
+```sh
+uv venv --python 3.12 demo/output/qwen-venv
+uv pip install --python demo/output/qwen-venv/bin/python 'mlx-audio==0.4.0' 'mlx==0.30.6'
+HF_HUB_DISABLE_IMPLICIT_TOKEN=1 HF_HUB_DISABLE_XET=1 demo/output/qwen-venv/bin/hf download \
+  mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-4bit \
+  --revision f35faf19b0cc2160865af64ecf0f22f83d335135 --local-dir demo/output/qwen-model
+HF_HUB_OFFLINE=1 HF_HUB_DISABLE_IMPLICIT_TOKEN=1 demo/output/qwen-venv/bin/python demo/generate_qwen_speech.py \
+  --model demo/output/qwen-model --voice Ryan --output-dir demo/output/qwen-speech
+/usr/bin/python3 demo/build.py --speech-dir demo/output/qwen-speech --output-dir demo/output/qwen
+```
+
+`Aiden` is another English preset. The model files are downloaded from Hugging Face without an account; the speech synthesis itself runs locally. Model-generated audio and caption alignment should be checked after each revision.
