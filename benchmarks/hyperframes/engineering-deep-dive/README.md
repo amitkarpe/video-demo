@@ -1,0 +1,22 @@
+# Inside Agentic Pentest — engineering deep dive
+
+An 8:53 engineering film following recorded evidence through the implementation and its failure boundaries. Earlier videos are preserved. Source main matched reviewed baseline `5f815709f846b868248d681a4c0016fa2f85aae5` on 8 Nov 2026 SGT; source access was read only.
+
+`script.json` retains the issue's narration. `build.py` generates local Kokoro `am_michael` sentence clips, measured captions, transcript and chapter markers. `compose.py` builds editable HTML/SVG/GSAP diagrams with a persistent map and CORS group identity. Runtime follows natural narration without acceleration or padding.
+
+## Evidence and rebuild
+
+See `evidence.md` for immutable source links and chapter times. The WebGoat 17/17 retained precision is arithmetic from the recorded 21 true groups and four true groups labelled noise, not a new scan or benchmark. Ground truth is provisional. The audit hashes shown are abbreviated from real adjacent records; broken links/missing endings and diff cases illustrate source predicates, not executed attacks or remediation tests.
+
+The CORS contextual warning follows [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#access-control-allow-origin); the distinction between severity and organizational risk follows [FIRST's CVSS guide](https://www.first.org/cvss/v3.1/user-guide).
+
+From the parent `benchmarks/hyperframes` project with its existing dependencies:
+
+```sh
+python3 engineering-deep-dive/compose.py
+./node_modules/.bin/hyperframes render engineering-deep-dive -o engineering-deep-dive/engineering-deep-dive.mp4 --fps 30 --quality looks
+ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of json engineering-deep-dive/engineering-deep-dive.mp4
+ffmpeg -v error -i engineering-deep-dive/engineering-deep-dive.mp4 -f null -
+```
+
+`compose.py --proof` generates a twelve-second silent WebGoat sequence, rendered with `--composition proof.html` and inspected before full production. Sentence WAVs are retained; visual changes need no new TTS generation. To change speech, edit `script.json`, run `build.py --model ... --voices ...` in the existing Kokoro environment documented in `demo/README.md`, then compose again. `--reuse-audio` preserves sentence files when words are unchanged. The voice is synthetic. Pronunciation and audience comprehension require listener review. GSAP has its own no-charge license; see parent documentation.
