@@ -34,8 +34,10 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", type=Path, default=ROOT / "output")
     parser.add_argument("--storyboard", type=Path, default=ROOT / "storyboard.json")
+    parser.add_argument("--speech-dir", type=Path, help="Directory containing speech-<scene>-<caption>.wav files")
+    parser.add_argument("--audio-gain-db", type=float, default=0.0, help="Optional output gain in decibels")
     args = parser.parse_args()
-    for tool in ("say", "swiftc", "ffmpeg", "ffprobe"):
+    for tool in (("swiftc", "ffmpeg", "ffprobe") if args.speech_dir else ("say", "swiftc", "ffmpeg", "ffprobe")):
         if not shutil.which(tool):
             raise SystemExit(f"Missing required tool: {tool}")
     story = json.loads(args.storyboard.read_text())
@@ -52,8 +54,13 @@ def main():
         for i, scene in enumerate(story["scenes"], 1):
             clips = []
             for j, caption in enumerate(scene["captions"], 1):
-                sound = temp / f"speech-{i}-{j}.aiff"
-                run(["say", "-v", story["voice"], "-r", str(story["rate"]), "-o", sound, caption])
+                if args.speech_dir:
+                    sound = args.speech_dir / f"speech-{i}-{j}.wav"
+                    if not sound.is_file():
+                        raise SystemExit(f"Missing speech clip: {sound}")
+                else:
+                    sound = temp / f"speech-{i}-{j}.aiff"
+                    run(["say", "-v", story["voice"], "-r", str(story["rate"]), "-o", sound, caption])
                 clips.append((j, caption, sound, duration(sound)))
             padding = max(0.7, (13.0 - sum(c[3] for c in clips)) / 2)
             for j, caption, sound, _ in clips:
@@ -75,7 +82,7 @@ def main():
         if not 60 <= position <= 90:
             raise SystemExit(f"Narration duration {position:.1f}s is outside the 60–90 second acceptance range")
         movie = out / "video-demo.mp4"
-        run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", image_list, "-i", audio, "-vf", "fps=30,format=yuv420p", "-c:v", "libx264", "-preset", "fast", "-crf", "20", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", "-t", f"{position:.3f}", movie])
+        run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", image_list, "-i", audio, "-vf", "fps=30,format=yuv420p", "-c:v", "libx264", "-preset", "fast", "-crf", "20", "-af", f"volume={args.audio_gain_db}dB", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", "-t", f"{position:.3f}", movie])
         print(f"Created {movie} ({duration(movie):.2f} seconds); captions: {out / 'captions.srt'}")
 
 
