@@ -3,3 +3,4 @@ renders/
 .hyperframes/
 assets/gsap.min.js
 cinematic/assets/gsap.min.js
+story/assets/gsap.min.js

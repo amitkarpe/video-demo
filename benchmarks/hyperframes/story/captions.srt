@@ -1,0 +1,35 @@
+1
+00:00:00,450 --> 00:00:04,034
+NARRATOR: Monday morning. A company discovers an intrusion.
+
+2
+00:00:04,584 --> 00:00:06,684
+CEO: How did we miss this?
+
+3
+00:00:07,234 --> 00:00:10,264
+CISO: We had alerts. Too many to investigate in time.
+
+4
+00:00:10,814 --> 00:00:16,354
+NARRATOR: Attackers can use AI to move faster. Defenders need help connecting the clues.
+
+5
+00:00:16,904 --> 00:00:21,114
+ENGINEER: Give me evidence I can trust, not another mountain of alerts.
+
+6
+00:00:21,664 --> 00:00:31,294
+NARRATOR: In an isolated training lab, the agentic pentest proof of concept groups scanner findings and uses AI to propose the next action.
+
+7
+00:00:31,844 --> 00:00:33,944
+CISO: And who controls the tools?
+
+8
+00:00:34,494 --> 00:00:37,865
+ENGINEER: A fixed policy gate. The model never gets them.
+
+9
+00:00:38,415 --> 00:00:41,874
+NARRATOR: People review the findings. The audit keeps the trail.

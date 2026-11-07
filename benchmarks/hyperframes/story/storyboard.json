@@ -1,0 +1,87 @@
+{
+  "fictional": true,
+  "duration": 44,
+  "segments": [
+    {
+      "start": 0.45,
+      "duration": 3.584,
+      "caption_duration": 3.584,
+      "speaker": "NARRATOR",
+      "text": "Monday morning. A company discovers an intrusion.",
+      "image": "boardroom.png",
+      "focus": "50%"
+    },
+    {
+      "start": 4.584,
+      "duration": 1.364625,
+      "caption_duration": 2.1,
+      "speaker": "CEO",
+      "text": "How did we miss this?",
+      "image": "boardroom.png",
+      "focus": "18%"
+    },
+    {
+      "start": 7.234,
+      "duration": 3.03,
+      "caption_duration": 3.03,
+      "speaker": "CISO",
+      "text": "We had alerts. Too many to investigate in time.",
+      "image": "ciso.png",
+      "focus": "50%"
+    },
+    {
+      "start": 10.814,
+      "duration": 5.54,
+      "caption_duration": 5.54,
+      "speaker": "NARRATOR",
+      "text": "Attackers can use AI to move faster. Defenders need help connecting the clues.",
+      "image": "threat.png",
+      "focus": "50%"
+    },
+    {
+      "start": 16.904,
+      "duration": 4.209958333333334,
+      "caption_duration": 4.209958333333334,
+      "speaker": "ENGINEER",
+      "text": "Give me evidence I can trust, not another mountain of alerts.",
+      "image": "engineer.png",
+      "focus": "40%"
+    },
+    {
+      "start": 21.664,
+      "duration": 9.63,
+      "caption_duration": 9.63,
+      "speaker": "NARRATOR",
+      "text": "In an isolated training lab, the agentic pentest proof of concept groups scanner findings and uses AI to propose the next action.",
+      "image": "engineer.png",
+      "focus": "65%"
+    },
+    {
+      "start": 31.844,
+      "duration": 1.7086666666666666,
+      "caption_duration": 2.1,
+      "speaker": "CISO",
+      "text": "And who controls the tools?",
+      "image": "ciso.png",
+      "focus": "50%"
+    },
+    {
+      "start": 34.494,
+      "duration": 3.3706666666666667,
+      "caption_duration": 3.3706666666666667,
+      "speaker": "ENGINEER",
+      "text": "A fixed policy gate. The model never gets them.",
+      "image": "engineer.png",
+      "focus": "40%"
+    },
+    {
+      "start": 38.415,
+      "duration": 3.4592916666666667,
+      "caption_duration": 3.4592916666666667,
+      "speaker": "NARRATOR",
+      "text": "People review the findings. The audit keeps the trail.",
+      "image": "boardroom.png",
+      "focus": "65%"
+    }
+  ]
+}
