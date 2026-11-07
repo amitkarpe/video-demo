@@ -7,7 +7,7 @@
     "check": "npx --yes hyperframes@0.9.20 check",
     "render": "npx --yes hyperframes@0.9.20 render",
     "publish": "npx --yes hyperframes@0.9.20 publish",
-    "postinstall": "mkdir -p assets cinematic/assets story/assets && cp node_modules/gsap/dist/gsap.min.js assets/gsap.min.js && cp node_modules/gsap/dist/gsap.min.js cinematic/assets/gsap.min.js && cp node_modules/gsap/dist/gsap.min.js story/assets/gsap.min.js"
+    "postinstall": "mkdir -p assets cinematic/assets story/assets && cp node_modules/gsap/dist/gsap.min.js assets/gsap.min.js && cp node_modules/gsap/dist/gsap.min.js cinematic/assets/gsap.min.js && cp node_modules/gsap/dist/gsap.min.js story/assets/gsap.min.js && mkdir -p cartoon-phase1/assets && cp node_modules/gsap/dist/gsap.min.js cartoon-phase1/assets/gsap.min.js"
   },
   "dependencies": {
     "gsap": "3.15.0",
