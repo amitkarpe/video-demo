@@ -9,3 +9,5 @@
 - **Reproducibility and cost:** sentence audio and editable sources are retained; content hashes allow unchanged speech to be reused. No paid API/service, live scan, AWS operation, source-repository mutation or public deployment was used. First renderer cancellation exposed a delayed shutdown/lock; the final render was allowed to complete normally.
 
 The engineering conclusion is bounded: these records make grouping, model proposals, filtering and changes inspectable. They do not prove exploitability, comprehensive recall, safe suppression or analyst-hours saved. The next evaluation is expert ground-truth review, false-suppression analysis, grouping review and a measured manual baseline. This production is not evidence of client engagement readiness.
+
+Actual-player review used samples from the opening, the WebGoat suppression sequence and the audit section through the ending. This is sampled `ffplay` playback plus a complete FFmpeg decode, not a claim that the agent listened to the entire narration. Human technical, creative, pronunciation and comprehension review remains outstanding. The PR is intentionally draft and unmerged.
