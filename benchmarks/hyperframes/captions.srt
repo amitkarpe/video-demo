@@ -1,0 +1,23 @@
+1
+00:00:00,500 --> 00:00:05,364
+In a Juice Shop lab, six scanner alerts reveal one potential issue.
+
+2
+00:00:05,914 --> 00:00:11,319
+Nikto and ZAP results are grouped, bringing the evidence together for review.
+
+3
+00:00:11,869 --> 00:00:17,791
+The common evidence is a wildcard cross origin header, returned on multiple paths.
+
+4
+00:00:18,341 --> 00:00:25,616
+AI assists the triage. Fixed policy gates constrain actions, and a human reviews the finding.
+
+5
+00:00:26,166 --> 00:00:33,276
+The recorded report scores the proposed finding at four point three. This is not proof of exploitation.
+
+6
+00:00:33,826 --> 00:00:41,847
+The recommended fix: allow only trusted origins, then test that untrusted origins receive no approval.
