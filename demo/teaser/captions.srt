@@ -1,0 +1,15 @@
+1
+00:00:00,650 --> 00:00:02,600
+An alert becomes a decision.
+
+2
+00:00:02,600 --> 00:00:04,080
+Investigate the risk.
+
+3
+00:00:04,080 --> 00:00:05,450
+Approve the fix.
+
+4
+00:00:05,450 --> 00:00:09,750
+Verify every action.
