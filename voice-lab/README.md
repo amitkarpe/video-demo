@@ -11,3 +11,5 @@ To launch from repository root: `node voice-lab/server.mjs`. Open **http://127.0
 **Billing:** OpenAI Realtime is metered. The 7 Nov $61 grant expires on 23 Nov 2026. Auto-reload should remain OFF. Never buy credits or change billing settings as part of this lab.
 
 **Editing boundary:** This is separate from draft PR #2's local-video implementation; do not overwrite that work.
+
+**Local feedback (7 Nov 2026):** The owner listened to a Realtime sample and preferred the Cedar voice. The test uses text input and audio output; it does not capture microphone audio. Actual API billing for the test was not independently verified.

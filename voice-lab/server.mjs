@@ -17,7 +17,7 @@ createServer(async (req,res)=>{
   if(issued) return send(res,429,{error:"One session per server start. Restart for a new test."});
   issued=true;
   try {
-   const api=await fetch("https://api.openai.com/v1/realtime/client_secrets",{method:"POST",headers:{"Authorization":"Bearer "+KEY,"Content-Type":"application/json"},body:JSON.stringify({session:{type:"realtime",model:"gpt-realtime-2.1-mini",audio:{output:{voice:"marin"}}}})});
+   const api=await fetch("https://api.openai.com/v1/realtime/client_secrets",{method:"POST",headers:{"Authorization":"Bearer "+KEY,"Content-Type":"application/json"},body:JSON.stringify({session:{type:"realtime",model:"gpt-realtime-2.1-mini",audio:{output:{voice:"cedar"}}}})});
    const data=await api.json();
    if(!api.ok) return send(res,502,{error:data?.error?.message||"Realtime session unavailable"});
    return send(res,200,{value:data.value,model:"gpt-realtime-2.1-mini"});
