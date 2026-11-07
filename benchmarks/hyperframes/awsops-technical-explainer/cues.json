@@ -1,0 +1,602 @@
+[
+  {
+    "start": 0.6,
+    "duration": 4.597,
+    "words": "An AWS compliance finding tells us something may be wrong.",
+    "path": "assets/voice-1-1.wav"
+  },
+  {
+    "start": 5.357,
+    "duration": 8.673,
+    "words": "It does not tell us who may change it, which exact change is approved, or whether the result has been independently verified.",
+    "path": "assets/voice-1-2.wav"
+  },
+  {
+    "start": 14.19,
+    "duration": 5.757,
+    "words": "AWSOps, the backend of the Defence Factory prototype, is built around that gap.",
+    "path": "assets/voice-1-3.wav"
+  },
+  {
+    "start": 20.107,
+    "duration": 5.417,
+    "words": "The interesting part is not a model generating an AWS command.",
+    "path": "assets/voice-1-4.wav"
+  },
+  {
+    "start": 25.685,
+    "duration": 8.835,
+    "words": "It is the boundary between evidence, an exact proposed action, a genuine human decision, and an outcome we can defend.",
+    "path": "assets/voice-1-5.wav"
+  },
+  {
+    "start": 34.68,
+    "duration": 2.24,
+    "words": "A finding is not authority.",
+    "path": "assets/voice-1-6.wav"
+  },
+  {
+    "start": 37.08,
+    "duration": 2.411,
+    "words": "Approval is not execution.",
+    "path": "assets/voice-1-7.wav"
+  },
+  {
+    "start": 39.651,
+    "duration": 4.127,
+    "words": "A successful operation is not fresh compliance evidence.",
+    "path": "assets/voice-1-8.wav"
+  },
+  {
+    "start": 43.938,
+    "duration": 3.392,
+    "words": "We will follow one disposable S3 canary.",
+    "path": "assets/voice-1-9.wav"
+  },
+  {
+    "start": 47.49,
+    "duration": 8.436,
+    "words": "This walkthrough is synthetic and grounded in repository code, not a recording of a successful AWS change.",
+    "path": "assets/voice-1-10.wav"
+  },
+  {
+    "start": 56.086,
+    "duration": 9.1,
+    "words": "Keep four questions separate: what ran, what the provider observed, what compliance evaluated, and how fresh that evaluation is.",
+    "path": "assets/voice-1-11.wav"
+  },
+  {
+    "start": 65.346,
+    "duration": 2.389,
+    "words": "Missing answers should stay unknown.",
+    "path": "assets/voice-1-12.wav"
+  },
+  {
+    "start": 68.345,
+    "duration": 8.419,
+    "words": "The shared contract distinguishes findings, controls, target registrations, batches, decisions, runs, and evidence.",
+    "path": "assets/voice-2-1.wav"
+  },
+  {
+    "start": 76.925,
+    "duration": 2.269,
+    "words": "These records make different claims.",
+    "path": "assets/voice-2-2.wav"
+  },
+  {
+    "start": 79.353,
+    "duration": 3.943,
+    "words": "An envelope has a schema version, a kind, and a record.",
+    "path": "assets/voice-2-3.wav"
+  },
+  {
+    "start": 83.456,
+    "duration": 2.197,
+    "words": "Unknown fields are rejected.",
+    "path": "assets/voice-2-4.wav"
+  },
+  {
+    "start": 85.813,
+    "duration": 9.471,
+    "words": "The bounded synthetic intake limits bytes and rows, rejects duplicate keys and conflicting identities, and keeps imported content inert.",
+    "path": "assets/voice-2-5.wav"
+  },
+  {
+    "start": 95.444,
+    "duration": 2.901,
+    "words": "Its supported accounts are mock aliases.",
+    "path": "assets/voice-2-6.wav"
+  },
+  {
+    "start": 98.505,
+    "duration": 6.258,
+    "words": "Our public resource alias represents a disposable canary, never a private bucket name.",
+    "path": "assets/voice-2-7.wav"
+  },
+  {
+    "start": 104.923,
+    "duration": 4.587,
+    "words": "Even a structurally valid finding remains an imported assertion.",
+    "path": "assets/voice-2-8.wav"
+  },
+  {
+    "start": 109.67,
+    "duration": 3.435,
+    "words": "It cannot attest an AWS observation.",
+    "path": "assets/voice-2-9.wav"
+  },
+  {
+    "start": 113.265,
+    "duration": 5.864,
+    "words": "A target registration is a public projection, not an IAM trust relationship.",
+    "path": "assets/voice-2-10.wav"
+  },
+  {
+    "start": 119.289,
+    "duration": 5.341,
+    "words": "A private backend must separately resolve the approved identity and resource.",
+    "path": "assets/voice-2-11.wav"
+  },
+  {
+    "start": 124.789,
+    "duration": 8.32,
+    "words": "The companion Agent Core Two interface consumes evidence; its presence does not prove a live integrated deployment.",
+    "path": "assets/voice-2-12.wav"
+  },
+  {
+    "start": 133.269,
+    "duration": 3.939,
+    "words": "The offline planner and the canary adapter are separate paths.",
+    "path": "assets/voice-2-13.wav"
+  },
+  {
+    "start": 137.368,
+    "duration": 10.71,
+    "words": "The same public alias connects our explanation, but imported evidence does not become permission or a trusted provider read by moving across the diagram.",
+    "path": "assets/voice-2-14.wav"
+  },
+  {
+    "start": 148.688,
+    "duration": 4.419,
+    "words": "Approval is meaningful only when it names an exact operation.",
+    "path": "assets/voice-3-1.wav"
+  },
+  {
+    "start": 153.267,
+    "duration": 6.293,
+    "words": "Here we enter the canary adapter's separate preparation path, using a synthetic observation.",
+    "path": "assets/voice-3-2.wav"
+  },
+  {
+    "start": 159.72,
+    "duration": 8.571,
+    "words": "The batch binds one target, its revision and evidence digest, the registry version, mode, frozen time, and expiry.",
+    "path": "assets/voice-3-3.wav"
+  },
+  {
+    "start": 168.452,
+    "duration": 6.72,
+    "words": "Its capability is require TLS; its expected change is deny insecure transport.",
+    "path": "assets/voice-3-4.wav"
+  },
+  {
+    "start": 175.332,
+    "duration": 4.811,
+    "words": "The scope digest covers the complete batch with that digest field omitted.",
+    "path": "assets/voice-3-5.wav"
+  },
+  {
+    "start": 180.302,
+    "duration": 4.841,
+    "words": "Canonical object keys are sorted; target array order is retained.",
+    "path": "assets/voice-3-6.wav"
+  },
+  {
+    "start": 185.304,
+    "duration": 4.905,
+    "words": "Change the target or evidence revision and the seal no longer matches.",
+    "path": "assets/voice-3-7.wav"
+  },
+  {
+    "start": 190.369,
+    "duration": 5.589,
+    "words": "The adapter also checks the private binding and current evidence before execution.",
+    "path": "assets/voice-3-8.wav"
+  },
+  {
+    "start": 196.118,
+    "duration": 7.061,
+    "words": "Expired preparation or changed provider state cannot silently inherit the earlier approval.",
+    "path": "assets/voice-3-9.wav"
+  },
+  {
+    "start": 203.34,
+    "duration": 7.296,
+    "words": "The canary reuses a maximum five minute preparation window and a sixty second observation age check.",
+    "path": "assets/voice-3-10.wav"
+  },
+  {
+    "start": 210.796,
+    "duration": 3.563,
+    "words": "These limits do not turn a hash into authentication.",
+    "path": "assets/voice-3-11.wav"
+  },
+  {
+    "start": 214.518,
+    "duration": 5.524,
+    "words": "The older single finding Frozen Scope is a different type, not this batch schema.",
+    "path": "assets/voice-3-12.wav"
+  },
+  {
+    "start": 220.202,
+    "duration": 8.724,
+    "words": "The application additionally binds the principal, source revision, fixed setup actions, cost bound, and any conditional cleanup.",
+    "path": "assets/voice-3-13.wav"
+  },
+  {
+    "start": 229.536,
+    "duration": 3.967,
+    "words": "The decision must come from a trusted authenticated backend.",
+    "path": "assets/voice-4-1.wav"
+  },
+  {
+    "start": 233.663,
+    "duration": 8.965,
+    "words": "Possessing the digest, typing a phrase, or importing a document that says approve does not identify an authorized person.",
+    "path": "assets/voice-4-2.wav"
+  },
+  {
+    "start": 242.788,
+    "duration": 10.595,
+    "words": "Inside the canary adapter, an immediate database transaction selects the saved batch and checks the principal, binding, scope, mode, and expiry.",
+    "path": "assets/voice-4-3.wav"
+  },
+  {
+    "start": 253.543,
+    "duration": 5.867,
+    "words": "It commits the winning decision and initial run together, before any provider operation.",
+    "path": "assets/voice-4-4.wav"
+  },
+  {
+    "start": 259.57,
+    "duration": 3.456,
+    "words": "Approve Once and Reject both consume that slot.",
+    "path": "assets/voice-4-5.wav"
+  },
+  {
+    "start": 263.186,
+    "duration": 3.029,
+    "words": "A competing choice cannot replace the winner.",
+    "path": "assets/voice-4-6.wav"
+  },
+  {
+    "start": 266.375,
+    "duration": 4.712,
+    "words": "In this illustrative race, Reject wins: zero provider writes.",
+    "path": "assets/voice-4-7.wav"
+  },
+  {
+    "start": 271.247,
+    "duration": 10.553,
+    "words": "The application also claims a verified approval packet once; replay of the same packet reopens the same result instead of creating another run.",
+    "path": "assets/voice-4-8.wav"
+  },
+  {
+    "start": 281.96,
+    "duration": 8.591,
+    "words": "Now the important current boundary: the legacy native store records rejected or approve blocked, with dispatch disabled.",
+    "path": "assets/voice-4-9.wav"
+  },
+  {
+    "start": 290.711,
+    "duration": 9.817,
+    "words": "The ordinary live canary operator refuses approval before constructing a provider because its trusted human approval binding is missing.",
+    "path": "assets/voice-4-10.wav"
+  },
+  {
+    "start": 300.687,
+    "duration": 4.417,
+    "words": "The injected test verifier authorizes only a mock provider.",
+    "path": "assets/voice-4-11.wav"
+  },
+  {
+    "start": 305.264,
+    "duration": 6.799,
+    "words": "Our approved branch is a synthetic explanation of the implementation, not a real owner's decision.",
+    "path": "assets/voice-4-12.wav"
+  },
+  {
+    "start": 312.673,
+    "duration": 7.687,
+    "words": "The canary is deliberately narrow: a new, empty, task owned lab bucket and a fixed TLS only policy.",
+    "path": "assets/voice-5-1.wav"
+  },
+  {
+    "start": 320.52,
+    "duration": 9.373,
+    "words": "The provider checks the selected personal lab profile and Region, then compares a fresh non root identity with the private expected account.",
+    "path": "assets/voice-5-2.wav"
+  },
+  {
+    "start": 330.053,
+    "duration": 3.072,
+    "words": "A preexisting bucket is not eligible.",
+    "path": "assets/voice-5-3.wav"
+  },
+  {
+    "start": 333.285,
+    "duration": 10.681,
+    "words": "The fixed setup sequence creates the bucket, writes task tags, enables all four public access block flags, and applies the reviewed transport policy.",
+    "path": "assets/voice-5-4.wav"
+  },
+  {
+    "start": 344.126,
+    "duration": 5.995,
+    "words": "Public access blocking and denying non TLS transport are different protections.",
+    "path": "assets/voice-5-5.wav"
+  },
+  {
+    "start": 350.281,
+    "duration": 3.179,
+    "words": "This is not encryption at rest remediation.",
+    "path": "assets/voice-5-6.wav"
+  },
+  {
+    "start": 353.619,
+    "duration": 4.753,
+    "words": "The policy denies S3 actions when secure transport is false.",
+    "path": "assets/voice-5-7.wav"
+  },
+  {
+    "start": 358.533,
+    "duration": 5.385,
+    "words": "There is no model accessible arbitrary AWS method in this path.",
+    "path": "assets/voice-5-8.wav"
+  },
+  {
+    "start": 364.077,
+    "duration": 14.451,
+    "words": "Before the policy write, fresh reads require acknowledged task creation, exact tags, an empty object listing, no versions or delete markers, the expected public block, and no existing policy.",
+    "path": "assets/voice-5-9.wav"
+  },
+  {
+    "start": 378.688,
+    "duration": 3.2,
+    "words": "Each mutation has a durable ledger row.",
+    "path": "assets/voice-5-10.wav"
+  },
+  {
+    "start": 382.048,
+    "duration": 7.371,
+    "words": "Intent becomes calling immediately before the SDK boundary, and an acknowledged call becomes ACK.",
+    "path": "assets/voice-5-11.wav"
+  },
+  {
+    "start": 389.579,
+    "duration": 5.264,
+    "words": "A merged IAM proposal alone does not prove its role is installed.",
+    "path": "assets/voice-5-12.wav"
+  },
+  {
+    "start": 395.453,
+    "duration": 6.177,
+    "words": "Suppose the policy request crosses the SDK boundary, but its response disappears.",
+    "path": "assets/voice-6-1.wav"
+  },
+  {
+    "start": 401.79,
+    "duration": 3.84,
+    "words": "That is not proof AWS rejected the request.",
+    "path": "assets/voice-6-2.wav"
+  },
+  {
+    "start": 405.79,
+    "duration": 4.085,
+    "words": "The operation stays calling and execution stays unknown.",
+    "path": "assets/voice-6-3.wav"
+  },
+  {
+    "start": 410.035,
+    "duration": 4.836,
+    "words": "Automatically replaying it would turn uncertainty into another mutation.",
+    "path": "assets/voice-6-4.wav"
+  },
+  {
+    "start": 415.031,
+    "duration": 8.855,
+    "words": "The provider disables automatic mutation retries, and reconciliation reads the same run instead of minting a fresh batch.",
+    "path": "assets/voice-6-5.wav"
+  },
+  {
+    "start": 424.046,
+    "duration": 9.053,
+    "words": "If every setup row is acknowledged, reconciliation can recover execution succeeded after a crash before the final result save.",
+    "path": "assets/voice-6-6.wav"
+  },
+  {
+    "start": 433.259,
+    "duration": 2.377,
+    "words": "A calling row remains uncertain.",
+    "path": "assets/voice-6-7.wav"
+  },
+  {
+    "start": 435.795,
+    "duration": 8.026,
+    "words": "The exported write count counts conservative SDK mutation attempts, not independently proven cloud changes.",
+    "path": "assets/voice-6-8.wav"
+  },
+  {
+    "start": 443.981,
+    "duration": 3.797,
+    "words": "A known pre call refusal adds no attempted write.",
+    "path": "assets/voice-6-9.wav"
+  },
+  {
+    "start": 447.939,
+    "duration": 6.705,
+    "words": "In our mock example, those attempts belong in simulated writes and real writes remains zero.",
+    "path": "assets/voice-6-10.wav"
+  },
+  {
+    "start": 454.803,
+    "duration": 2.304,
+    "words": "Cleanup is not an escape hatch.",
+    "path": "assets/voice-6-11.wav"
+  },
+  {
+    "start": 457.267,
+    "duration": 9.036,
+    "words": "One authenticated packet may cover both setup and exact conditional cleanup, but omitting cleanup grants no deletion authority.",
+    "path": "assets/voice-6-12.wav"
+  },
+  {
+    "start": 466.463,
+    "duration": 5.369,
+    "words": "Fresh ownership, emptiness, operation state, and cleanup expiry still matter.",
+    "path": "assets/voice-6-13.wav"
+  },
+  {
+    "start": 471.993,
+    "duration": 7.922,
+    "words": "An uncertain operation blocks destructive cleanup; a task tag or time to live does not schedule deletion.",
+    "path": "assets/voice-6-14.wav"
+  },
+  {
+    "start": 480.525,
+    "duration": 6.091,
+    "words": "Even when the SDK sequence succeeds, the result is not automatically verified.",
+    "path": "assets/voice-7-1.wav"
+  },
+  {
+    "start": 486.775,
+    "duration": 5.831,
+    "words": "The adapter reads provider state independently and checks the intended transport policy.",
+    "path": "assets/voice-7-2.wav"
+  },
+  {
+    "start": 492.767,
+    "duration": 3.973,
+    "words": "A matching policy proves only what that readback observed.",
+    "path": "assets/voice-7-3.wav"
+  },
+  {
+    "start": 496.899,
+    "duration": 5.12,
+    "words": "It does not trigger or prove a fresh AWS Config evaluation.",
+    "path": "assets/voice-7-4.wav"
+  },
+  {
+    "start": 502.179,
+    "duration": 11.007,
+    "words": "Our synthetic successful branch therefore has execution succeeded and provider readback match, while compliance stays unknown and freshness stays not verified.",
+    "path": "assets/voice-7-5.wav"
+  },
+  {
+    "start": 513.346,
+    "duration": 2.016,
+    "words": "The run remains needs review.",
+    "path": "assets/voice-7-6.wav"
+  },
+  {
+    "start": 515.522,
+    "duration": 4.715,
+    "words": "These are real schema values, not four names for the same green light.",
+    "path": "assets/voice-7-7.wav"
+  },
+  {
+    "start": 520.397,
+    "duration": 11.655,
+    "words": "The shared contract requires the selected targets and independent evidence before verified can be justified; this adapter deliberately does not make that claim.",
+    "path": "assets/voice-7-8.wav"
+  },
+  {
+    "start": 532.212,
+    "duration": 5.385,
+    "words": "The evidence also separates the source revision from an observed hosted version.",
+    "path": "assets/voice-7-9.wav"
+  },
+  {
+    "start": 537.756,
+    "duration": 2.176,
+    "words": "Here hosted version is null.",
+    "path": "assets/voice-7-10.wav"
+  },
+  {
+    "start": 540.092,
+    "duration": 4.885,
+    "words": "The schema's mock version suffix alone is not a deployment receipt.",
+    "path": "assets/voice-7-11.wav"
+  },
+  {
+    "start": 545.138,
+    "duration": 13.324,
+    "words": "A private durable ledger preserves recovery information, but a privileged host writer is still a trust assumption; a digest or local hash chain is not an independent tamper proof signature.",
+    "path": "assets/voice-7-12.wav"
+  },
+  {
+    "start": 559.072,
+    "duration": 14.994,
+    "words": "The repository contains concrete engineering: bounded intake, shared contracts, exact scope binding, durable decisions, a fixed provider, uncertainty handling, and evidence that refuses to overclaim.",
+    "path": "assets/voice-8-1.wav"
+  },
+  {
+    "start": 574.226,
+    "duration": 9.777,
+    "words": "The source tests assert approval, rejection, drift, expiry, replay exclusion, and uncertain acknowledgement behavior with fake providers.",
+    "path": "assets/voice-8-2.wav"
+  },
+  {
+    "start": 584.163,
+    "duration": 3.797,
+    "words": "That is synthetic proof, not a live owner approval.",
+    "path": "assets/voice-8-3.wav"
+  },
+  {
+    "start": 588.12,
+    "duration": 6.208,
+    "words": "There is also accepted historical AWS Config read proof from October eleventh.",
+    "path": "assets/voice-8-4.wav"
+  },
+  {
+    "start": 594.488,
+    "duration": 7.083,
+    "words": "It establishes bounded account local acquisition, not evaluation freshness or remediation.",
+    "path": "assets/voice-8-5.wav"
+  },
+  {
+    "start": 601.731,
+    "duration": 13.823,
+    "words": "The later transfer record still retains ledger provenance and initialization, exact deployed pins, genuine normal login Reject, and provider and compliance verification as pending outcomes.",
+    "path": "assets/voice-8-6.wav"
+  },
+  {
+    "start": 615.714,
+    "duration": 5.811,
+    "words": "The old execution issue closed as transferred, not completed product acceptance.",
+    "path": "assets/voice-8-7.wav"
+  },
+  {
+    "start": 621.685,
+    "duration": 6.12,
+    "words": "We checked the source at the reviewed revision; this film performed no AWS calls.",
+    "path": "assets/voice-8-8.wav"
+  },
+  {
+    "start": 627.965,
+    "duration": 4.303,
+    "words": "The proposition is controlled change with inspectable evidence.",
+    "path": "assets/voice-8-9.wav"
+  },
+  {
+    "start": 632.428,
+    "duration": 9.326,
+    "words": "The next useful test is to close the exact remaining live acceptance gap, not add another model or turn missing evidence green.",
+    "path": "assets/voice-8-10.wav"
+  },
+  {
+    "start": 641.914,
+    "duration": 5.877,
+    "words": "What was approved, what ran, and what the evidence proves must remain separate questions.",
+    "path": "assets/voice-8-11.wav"
+  }
+]

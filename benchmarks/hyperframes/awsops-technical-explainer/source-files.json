@@ -1,0 +1,92 @@
+[
+  {
+    "path": "CONTEXT.md",
+    "gitBlob": "1c6fe18de55de1d00b6fa8eda4e816fe0721e018",
+    "sha256": "d8b214c69919e74ca8fc555b315d36f98d1eb6f401442be2877a3bbf20ac5a5b"
+  },
+  {
+    "path": "SPEC.md",
+    "gitBlob": "df816bbb7bda08c64b9bb63606c2d88b489e80aa",
+    "sha256": "546a264e72fe79f7eb8b69edbd214549ca2f0814b70ff00d318a3c19f112bf46"
+  },
+  {
+    "path": "tests/test_issue90_approval_e2e.py",
+    "gitBlob": "50ca1fdf516f905fddcf3d5907471f2c628eb3b0",
+    "sha256": "eb2a6ae0ca37414927f223735c9353318b9a174c8ce29c739722f86a2292bc97"
+  },
+  {
+    "path": "tests/test_s3_canary.py",
+    "gitBlob": "2fe93f2f74f28bc2c58c2fb8bd5be360cb822a83",
+    "sha256": "8cc1e9c7e1425768224174d169387632bef6190b5f3e118ba287954fae2995cf"
+  },
+  {
+    "path": "scripts/s3_canary_operator.py",
+    "gitBlob": "4663b55f7a3b72b84ae588dd0fa37bdbae0dec4b",
+    "sha256": "534cf7d026c744f8f03b2790c34dcadddadf3ad83e4cc2df3fc3f27eb1cf9cb9"
+  },
+  {
+    "path": "src/awsops/controls/s3_ssl.py",
+    "gitBlob": "6aa1295eca52083c24e9250146899a587eefc91d",
+    "sha256": "8bcf805fd4090e77897e2678433b8035e5c83e460566403962853a653725985e"
+  },
+  {
+    "path": "src/awsops/execution/s3_canary.py",
+    "gitBlob": "02b0d7e80497402e9ba3683e83f78a7a2ed3595b",
+    "sha256": "d20c0aa54b56c56c0bbaee1aa28f05f6c0e3d7a7b911e92bdbf18ef9925a6311"
+  },
+  {
+    "path": "src/awsops/aws/boto3_s3_canary.py",
+    "gitBlob": "872f417a260cbaaf1abf07f1795607733cd6494d",
+    "sha256": "bf12e340e9298422c1963892f23ded172096c19f5a02249937d680e981793bf0"
+  },
+  {
+    "path": "src/awsops/application/s3_canary_approval.py",
+    "gitBlob": "005b0fcd2dbf98bf8dcf28b37bd459663480ae1a",
+    "sha256": "c00749bd90d930347d071ed167653c6f22c3ee1cee55bd78e207bb22cfdfe4df"
+  },
+  {
+    "path": "src/awsops/domain/models.py",
+    "gitBlob": "9adf70022b5571dc9b026350f4c6a104feafeeaf",
+    "sha256": "45b5a87287c6c3e5469f2cb29363c02e9f3c176db1d9b466597d86b2ac9172dd"
+  },
+  {
+    "path": "src/awsops/domain/freeze.py",
+    "gitBlob": "b7c7cd864ffe469acff8c89b00ea741bbb8b9014",
+    "sha256": "32322c0497809603a85a88577dffc7510a92870da24fad231cf4aaa71f836dfe"
+  },
+  {
+    "path": "src/awsops/approval/decisions.py",
+    "gitBlob": "7d4c027ce5853d10f04306af813adc2d90487536",
+    "sha256": "5594a1f56c73d2373f6ca527bd974835fc44fd54af9b3e532340fb023c350e44"
+  },
+  {
+    "path": "docs/current/S3_CANARY_ADAPTER.md",
+    "gitBlob": "8a5dd0fc4904eefe28a0fba5b8d0130de53485a5",
+    "sha256": "3b4573c93da9d670a66cdd0fb1935f7740c9eccf017084e2f39d029c34e07a28"
+  },
+  {
+    "path": "contracts/defence-factory/v1.schema.json",
+    "gitBlob": "a307d6a8a76307d90401602003066aa7280ab222",
+    "sha256": "819998567b2c40b90c1bae744476b050e1c8a213a99c2917068b761e89dac2e2"
+  },
+  {
+    "path": "contracts/defence-factory/intake.cjs",
+    "gitBlob": "c372c867c3e34062890631361cf583d35282ba5a",
+    "sha256": "30b31b1f901118ef776234ee9296f205aebd8b288d0b55e1657bd929e54aa824"
+  },
+  {
+    "path": "contracts/defence-factory/plan.cjs",
+    "gitBlob": "628a6afb0265a5f7d70cf22876e1b0580cec6e6d",
+    "sha256": "e5a2f5d86078e22eb1834cc63600425c5eeb671f3a469a5c727d0d368bdf7969"
+  },
+  {
+    "path": "contracts/defence-factory/README.md",
+    "gitBlob": "1fa6a4cebc8f5404d78ca57fb3be6c23b8522f2a",
+    "sha256": "4c96b13b152c96f6eb61eae322c88eade7a746c01c6ff551196d82a9330cc738"
+  },
+  {
+    "path": "contracts/defence-factory/scope.cjs",
+    "gitBlob": "5e3d2e6ce5229fd006c6cf481dbc8264deb2c09c",
+    "sha256": "edc264d5d94f83bad4edadac5acad08ae8dedae6e8b08ca0dbcb7408bb6adb1b"
+  }
+]

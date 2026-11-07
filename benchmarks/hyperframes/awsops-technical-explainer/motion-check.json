@@ -1,0 +1,67 @@
+[
+  {
+    "sequence": "scope_revision_drift",
+    "seconds": [
+      183,
+      190
+    ],
+    "cropXYWH": [
+      750,
+      408,
+      620,
+      73
+    ],
+    "meanAbsoluteRGBDifference": 8.6392,
+    "fractionPixelsChangingBy12": 0.07948,
+    "captionsExcluded": true
+  },
+  {
+    "sequence": "reject_request_motion",
+    "seconds": [
+      266,
+      268
+    ],
+    "cropXYWH": [
+      105,
+      540,
+      660,
+      125
+    ],
+    "meanAbsoluteRGBDifference": 15.2061,
+    "fractionPixelsChangingBy12": 0.52186,
+    "captionsExcluded": true
+  },
+  {
+    "sequence": "outbound_request_motion",
+    "seconds": [
+      397,
+      398.3
+    ],
+    "cropXYWH": [
+      475,
+      390,
+      1100,
+      125
+    ],
+    "meanAbsoluteRGBDifference": 0.8573,
+    "fractionPixelsChangingBy12": 0.00658,
+    "captionsExcluded": true,
+    "note": "After the chapter-entry camera transform has settled; isolates request-packet movement."
+  },
+  {
+    "sequence": "independent_evidence_reveal",
+    "seconds": [
+      501,
+      507
+    ],
+    "cropXYWH": [
+      105,
+      350,
+      1115,
+      380
+    ],
+    "meanAbsoluteRGBDifference": 16.8443,
+    "fractionPixelsChangingBy12": 0.38701,
+    "captionsExcluded": true
+  }
+]
