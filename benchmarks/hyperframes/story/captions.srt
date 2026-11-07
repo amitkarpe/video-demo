@@ -15,21 +15,21 @@ CISO: We had alerts. Too many to investigate in time.
 NARRATOR: Attackers can use AI to move faster. Defenders need help connecting the clues.
 
 5
-00:00:16,904 --> 00:00:21,114
+00:00:16,904 --> 00:00:21,123
 ENGINEER: Give me evidence I can trust, not another mountain of alerts.
 
 6
-00:00:21,664 --> 00:00:31,294
+00:00:21,673 --> 00:00:31,304
 NARRATOR: In an isolated training lab, the agentic pentest proof of concept groups scanner findings and uses AI to propose the next action.
 
 7
-00:00:31,844 --> 00:00:33,944
+00:00:31,854 --> 00:00:33,954
 CISO: And who controls the tools?
 
 8
-00:00:34,494 --> 00:00:37,865
+00:00:34,504 --> 00:00:37,875
 ENGINEER: A fixed policy gate. The model never gets them.
 
 9
-00:00:38,415 --> 00:00:41,874
+00:00:38,425 --> 00:00:41,873
 NARRATOR: People review the findings. The audit keeps the trail.
