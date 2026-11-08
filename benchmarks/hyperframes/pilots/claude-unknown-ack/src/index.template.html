@@ -40,6 +40,7 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--i
 #hud{position:absolute;inset:0;pointer-events:none}
 #pill{position:absolute;left:36px;top:30px;padding:10px 22px;border:2px solid var(--amber);border-radius:999px;color:var(--amber);font:800 24px var(--mono);letter-spacing:3px;background:#1a1204cc}
 #runtag{position:absolute;right:36px;top:30px;padding:10px 20px;border:2px solid var(--line);border-radius:999px;color:var(--dim);font:700 22px var(--mono);letter-spacing:2px;background:#0a1626cc}
+#aitag{position:absolute;right:36px;top:92px;padding:6px 16px;border:2px solid var(--line);border-radius:999px;color:var(--dim);font:700 20px var(--mono);letter-spacing:2px;background:#0a1626cc}
 .caption{position:absolute;left:150px;width:1620px;bottom:62px;text-align:center;padding:18px 30px;border-radius:14px;background:#02070ed9;color:#fff;font:600 41px/1.25 var(--sans)}
 /* ladder */
 #ladder{position:absolute;left:396px;top:104px;width:980px;opacity:0;transform:scale(1.15);transform-origin:0 0}
@@ -209,8 +210,9 @@ if SecureTransport=false</div>
   <!-- ============ HUD ============ -->
   <div id="hud">
     <div id="pill">SYNTHETIC / MOCK WALKTHROUGH</div>
+    <div id="aitag">AI-GENERATED VOICE</div>
     <div id="runtag">RUN A · run-canary-3f9c… · SYNTHETIC ID</div>
-    <div id="credit" data-layout-ignore>AWS service icons: AWS Architecture Icons, unmodified · https://aws.amazon.com/architecture/icons/</div>
+    <div id="credit" data-layout-ignore>Narration: AI-generated voice (OpenAI TTS, gpt-4o-mini-tts, cedar) · AWS service icons: AWS Architecture Icons, unmodified · aws.amazon.com/architecture/icons</div>
   </div>
   <!--__CAPTIONS__-->
   <div id="fade"></div>
@@ -226,13 +228,14 @@ const tl = gsap.timeline({paused:true, defaults:{ease:"power2.inOut"}});
 // camera: centre (cx,cy) at scale z
 const cam = (cx, cy, z) => ({x: 960 - cx*z, y: 470 - cy*z, scale: z});
 gsap.set("#world", cam(450, 480, 1.22));
-gsap.set(["#hud #pill","#hud #runtag"], {opacity:0});
+gsap.set(["#hud #pill","#hud #runtag","#hud #aitag"], {opacity:0});
 
 /* ---------- 0. cold open ---------- */
 tl.to("#fade", {opacity:0, duration:1.0, ease:"power1.out"}, 0.05);
 tl.to("#lblSdk", {opacity:1, duration:.5}, S("s01")+1.4);
 tl.to("#hud #pill", {opacity:1, duration:.6}, 0.7);
 tl.to("#hud #runtag", {opacity:1, duration:.6}, 0.9);
+tl.to("#hud #aitag", {opacity:1, duration:.6}, 1.0);
 tl.to("#backend", {opacity:1, duration:.01}, 0);
 tl.to("#decision", {opacity:1, duration:.5}, 0.4);
 tl.to("#dcheck", {strokeDashoffset:0, duration:.5, ease:"power1.out"}, 0.7);

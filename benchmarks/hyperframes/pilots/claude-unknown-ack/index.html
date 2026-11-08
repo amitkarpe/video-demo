@@ -40,6 +40,7 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--i
 #hud{position:absolute;inset:0;pointer-events:none}
 #pill{position:absolute;left:36px;top:30px;padding:10px 22px;border:2px solid var(--amber);border-radius:999px;color:var(--amber);font:800 24px var(--mono);letter-spacing:3px;background:#1a1204cc}
 #runtag{position:absolute;right:36px;top:30px;padding:10px 20px;border:2px solid var(--line);border-radius:999px;color:var(--dim);font:700 22px var(--mono);letter-spacing:2px;background:#0a1626cc}
+#aitag{position:absolute;right:36px;top:92px;padding:6px 16px;border:2px solid var(--line);border-radius:999px;color:var(--dim);font:700 20px var(--mono);letter-spacing:2px;background:#0a1626cc}
 .caption{position:absolute;left:150px;width:1620px;bottom:62px;text-align:center;padding:18px 30px;border-radius:14px;background:#02070ed9;color:#fff;font:600 41px/1.25 var(--sans)}
 /* ladder */
 #ladder{position:absolute;left:396px;top:104px;width:980px;opacity:0;transform:scale(1.15);transform-origin:0 0}
@@ -56,7 +57,7 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--i
 </style>
 </head>
 <body>
-<div id="stage" class="clip" data-composition-id="main" data-start="0" data-duration="57.602" data-width="1920" data-height="1080" data-track-index="0">
+<div id="stage" class="clip" data-composition-id="main" data-start="0" data-duration="53.714" data-width="1920" data-height="1080" data-track-index="0">
   <div id="bg"></div>
 
   <div id="world" data-layout-allow-overflow>
@@ -209,44 +210,45 @@ if SecureTransport=false</div>
   <!-- ============ HUD ============ -->
   <div id="hud">
     <div id="pill">SYNTHETIC / MOCK WALKTHROUGH</div>
+    <div id="aitag">AI-GENERATED VOICE</div>
     <div id="runtag">RUN A · run-canary-3f9c… · SYNTHETIC ID</div>
-    <div id="credit" data-layout-ignore>AWS service icons: AWS Architecture Icons, unmodified · https://aws.amazon.com/architecture/icons/</div>
+    <div id="credit" data-layout-ignore>Narration: AI-generated voice (OpenAI TTS, gpt-4o-mini-tts, cedar) · AWS service icons: AWS Architecture Icons, unmodified · aws.amazon.com/architecture/icons</div>
   </div>
-  <div id="cap-s01" class="clip caption" data-start="1.250" data-duration="4.709" data-track-index="10">In this simulated branch, an approved request leaves the backend.</div>
-<div id="cap-s02" class="clip caption" data-start="6.109" data-duration="2.372" data-track-index="10">The reply never arrives.</div>
-<div id="cap-s03" class="clip caption" data-start="9.381" data-duration="1.855" data-track-index="10">Did the change fail?</div>
-<div id="cap-s04" class="clip caption" data-start="11.286" data-duration="2.733" data-track-index="10">Or did only the reply fail?</div>
-<div id="cap-s05" class="clip caption" data-start="14.519" data-duration="3.457" data-track-index="10">The SQLite ledger already says CALLING.</div>
-<div id="cap-s06" class="clip caption" data-start="18.076" data-duration="2.608" data-track-index="10">It was committed before the call.</div>
-<div id="cap-s07" class="clip caption" data-start="21.084" data-duration="3.933" data-track-index="10">So AWSOps does not send that write again.</div>
-<div id="cap-s08" class="clip caption" data-start="25.117" data-duration="3.257" data-track-index="10">It reconciles the same run, read-only.</div>
-<div id="cap-s09" class="clip caption" data-start="28.774" data-duration="6.057" data-track-index="10">A matching S3 policy, independently read back, answers one question only.</div>
-<div id="cap-s10" class="clip caption" data-start="35.131" data-duration="2.809" data-track-index="10">Execution is still unknown.</div>
-<div id="cap-s11" class="clip caption" data-start="37.940" data-duration="2.358" data-track-index="10">Compliance is unknown.</div>
-<div id="cap-s12" class="clip caption" data-start="40.298" data-duration="2.505" data-track-index="10">Freshness is not verified.</div>
-<div id="cap-s13" class="clip caption" data-start="42.903" data-duration="3.207" data-track-index="10">No Config evaluation has run.</div>
-<div id="cap-s14" class="clip caption" data-start="46.610" data-duration="5.157" data-track-index="10">Until the missing evidence is resolved, the outcome stays NEEDS_REVIEW.</div>
-<div id="cap-s15" class="clip caption" data-start="52.167" data-duration="4.085" data-track-index="10">This demonstrates control logic, not live acceptance.</div>
+  <div id="cap-s01" class="clip caption" data-start="1.250" data-duration="3.936" data-track-index="10">In this simulated branch, an approved request leaves the backend.</div>
+<div id="cap-s02" class="clip caption" data-start="5.336" data-duration="2.295" data-track-index="10">The reply never arrives.</div>
+<div id="cap-s03" class="clip caption" data-start="8.531" data-duration="1.649" data-track-index="10">Did the change fail?</div>
+<div id="cap-s04" class="clip caption" data-start="10.230" data-duration="2.007" data-track-index="10">Or did only the reply fail?</div>
+<div id="cap-s05" class="clip caption" data-start="12.737" data-duration="3.557" data-track-index="10">The SQLite ledger already says CALLING.</div>
+<div id="cap-s06" class="clip caption" data-start="16.394" data-duration="1.898" data-track-index="10">It was committed before the call.</div>
+<div id="cap-s07" class="clip caption" data-start="18.692" data-duration="4.054" data-track-index="10">So AWSOps does not send that write again.</div>
+<div id="cap-s08" class="clip caption" data-start="22.846" data-duration="3.675" data-track-index="10">It reconciles the same run, read-only.</div>
+<div id="cap-s09" class="clip caption" data-start="26.921" data-duration="5.300" data-track-index="10">A matching S3 policy, independently read back, answers one question only.</div>
+<div id="cap-s10" class="clip caption" data-start="32.521" data-duration="2.546" data-track-index="10">Execution is still unknown.</div>
+<div id="cap-s11" class="clip caption" data-start="35.067" data-duration="2.184" data-track-index="10">Compliance is unknown.</div>
+<div id="cap-s12" class="clip caption" data-start="37.251" data-duration="2.315" data-track-index="10">Freshness is not verified.</div>
+<div id="cap-s13" class="clip caption" data-start="39.666" data-duration="2.954" data-track-index="10">No AWS Config evaluation has run.</div>
+<div id="cap-s14" class="clip caption" data-start="43.120" data-duration="4.991" data-track-index="10">Until the missing evidence is resolved, the outcome stays NEEDS_REVIEW.</div>
+<div id="cap-s15" class="clip caption" data-start="48.511" data-duration="3.853" data-track-index="10">This demonstrates control logic, not live acceptance.</div>
   <div id="fade"></div>
 </div>
-<audio id="aud-s01" class="clip" data-start="1.300" data-duration="4.509" data-track-index="20" src="assets/voice-s01.wav"></audio>
-<audio id="aud-s02" class="clip" data-start="6.159" data-duration="2.172" data-track-index="20" src="assets/voice-s02.wav"></audio>
-<audio id="aud-s03" class="clip" data-start="9.431" data-duration="1.655" data-track-index="20" src="assets/voice-s03.wav"></audio>
-<audio id="aud-s04" class="clip" data-start="11.336" data-duration="2.533" data-track-index="20" src="assets/voice-s04.wav"></audio>
-<audio id="aud-s05" class="clip" data-start="14.569" data-duration="3.257" data-track-index="20" src="assets/voice-s05.wav"></audio>
-<audio id="aud-s06" class="clip" data-start="18.126" data-duration="2.408" data-track-index="20" src="assets/voice-s06.wav"></audio>
-<audio id="aud-s07" class="clip" data-start="21.134" data-duration="3.733" data-track-index="20" src="assets/voice-s07.wav"></audio>
-<audio id="aud-s08" class="clip" data-start="25.167" data-duration="3.057" data-track-index="20" src="assets/voice-s08.wav"></audio>
-<audio id="aud-s09" class="clip" data-start="28.824" data-duration="5.857" data-track-index="20" src="assets/voice-s09.wav"></audio>
-<audio id="aud-s10" class="clip" data-start="35.181" data-duration="2.609" data-track-index="20" src="assets/voice-s10.wav"></audio>
-<audio id="aud-s11" class="clip" data-start="37.990" data-duration="2.158" data-track-index="20" src="assets/voice-s11.wav"></audio>
-<audio id="aud-s12" class="clip" data-start="40.348" data-duration="2.305" data-track-index="20" src="assets/voice-s12.wav"></audio>
-<audio id="aud-s13" class="clip" data-start="42.953" data-duration="3.007" data-track-index="20" src="assets/voice-s13.wav"></audio>
-<audio id="aud-s14" class="clip" data-start="46.660" data-duration="4.957" data-track-index="20" src="assets/voice-s14.wav"></audio>
-<audio id="aud-s15" class="clip" data-start="52.217" data-duration="3.885" data-track-index="20" src="assets/voice-s15.wav"></audio>
+<audio id="aud-s01" class="clip" data-start="1.300" data-duration="3.736" data-track-index="20" src="assets/voice-s01.wav"></audio>
+<audio id="aud-s02" class="clip" data-start="5.386" data-duration="2.095" data-track-index="20" src="assets/voice-s02.wav"></audio>
+<audio id="aud-s03" class="clip" data-start="8.581" data-duration="1.449" data-track-index="20" src="assets/voice-s03.wav"></audio>
+<audio id="aud-s04" class="clip" data-start="10.280" data-duration="1.807" data-track-index="20" src="assets/voice-s04.wav"></audio>
+<audio id="aud-s05" class="clip" data-start="12.787" data-duration="3.357" data-track-index="20" src="assets/voice-s05.wav"></audio>
+<audio id="aud-s06" class="clip" data-start="16.444" data-duration="1.698" data-track-index="20" src="assets/voice-s06.wav"></audio>
+<audio id="aud-s07" class="clip" data-start="18.742" data-duration="3.854" data-track-index="20" src="assets/voice-s07.wav"></audio>
+<audio id="aud-s08" class="clip" data-start="22.896" data-duration="3.475" data-track-index="20" src="assets/voice-s08.wav"></audio>
+<audio id="aud-s09" class="clip" data-start="26.971" data-duration="5.100" data-track-index="20" src="assets/voice-s09.wav"></audio>
+<audio id="aud-s10" class="clip" data-start="32.571" data-duration="2.346" data-track-index="20" src="assets/voice-s10.wav"></audio>
+<audio id="aud-s11" class="clip" data-start="35.117" data-duration="1.984" data-track-index="20" src="assets/voice-s11.wav"></audio>
+<audio id="aud-s12" class="clip" data-start="37.301" data-duration="2.115" data-track-index="20" src="assets/voice-s12.wav"></audio>
+<audio id="aud-s13" class="clip" data-start="39.716" data-duration="2.754" data-track-index="20" src="assets/voice-s13.wav"></audio>
+<audio id="aud-s14" class="clip" data-start="43.170" data-duration="4.791" data-track-index="20" src="assets/voice-s14.wav"></audio>
+<audio id="aud-s15" class="clip" data-start="48.561" data-duration="3.653" data-track-index="20" src="assets/voice-s15.wav"></audio>
 
 <script>
-const C = {"s01": {"s": 1.3, "e": 5.809, "d": 4.509}, "s02": {"s": 6.159, "e": 8.331, "d": 2.172}, "s03": {"s": 9.431, "e": 11.086, "d": 1.655}, "s04": {"s": 11.336, "e": 13.869, "d": 2.533}, "s05": {"s": 14.569, "e": 17.826, "d": 3.257}, "s06": {"s": 18.126, "e": 20.534, "d": 2.408}, "s07": {"s": 21.134, "e": 24.867, "d": 3.733}, "s08": {"s": 25.167, "e": 28.224, "d": 3.057}, "s09": {"s": 28.824, "e": 34.681, "d": 5.857}, "s10": {"s": 35.181, "e": 37.79, "d": 2.609}, "s11": {"s": 37.99, "e": 40.148, "d": 2.158}, "s12": {"s": 40.348, "e": 42.653, "d": 2.305}, "s13": {"s": 42.953, "e": 45.96, "d": 3.007}, "s14": {"s": 46.66, "e": 51.617, "d": 4.957}, "s15": {"s": 52.217, "e": 56.102, "d": 3.885}};            // per-line {s,e,d} injected by build.py
+const C = {"s01": {"s": 1.3, "e": 5.036, "d": 3.736}, "s02": {"s": 5.386, "e": 7.481, "d": 2.095}, "s03": {"s": 8.581, "e": 10.03, "d": 1.449}, "s04": {"s": 10.28, "e": 12.087, "d": 1.807}, "s05": {"s": 12.787, "e": 16.144, "d": 3.357}, "s06": {"s": 16.444, "e": 18.142, "d": 1.698}, "s07": {"s": 18.742, "e": 22.596, "d": 3.854}, "s08": {"s": 22.896, "e": 26.371, "d": 3.475}, "s09": {"s": 26.971, "e": 32.071, "d": 5.1}, "s10": {"s": 32.571, "e": 34.917, "d": 2.346}, "s11": {"s": 35.117, "e": 37.101, "d": 1.984}, "s12": {"s": 37.301, "e": 39.416, "d": 2.115}, "s13": {"s": 39.716, "e": 42.47, "d": 2.754}, "s14": {"s": 43.17, "e": 47.961, "d": 4.791}, "s15": {"s": 48.561, "e": 52.214, "d": 3.653}};            // per-line {s,e,d} injected by build.py
 const S = id => C[id].s, E = id => C[id].e;
 window.__timelines = window.__timelines || {};
 const tl = gsap.timeline({paused:true, defaults:{ease:"power2.inOut"}});
@@ -254,13 +256,14 @@ const tl = gsap.timeline({paused:true, defaults:{ease:"power2.inOut"}});
 // camera: centre (cx,cy) at scale z
 const cam = (cx, cy, z) => ({x: 960 - cx*z, y: 470 - cy*z, scale: z});
 gsap.set("#world", cam(450, 480, 1.22));
-gsap.set(["#hud #pill","#hud #runtag"], {opacity:0});
+gsap.set(["#hud #pill","#hud #runtag","#hud #aitag"], {opacity:0});
 
 /* ---------- 0. cold open ---------- */
 tl.to("#fade", {opacity:0, duration:1.0, ease:"power1.out"}, 0.05);
 tl.to("#lblSdk", {opacity:1, duration:.5}, S("s01")+1.4);
 tl.to("#hud #pill", {opacity:1, duration:.6}, 0.7);
 tl.to("#hud #runtag", {opacity:1, duration:.6}, 0.9);
+tl.to("#hud #aitag", {opacity:1, duration:.6}, 1.0);
 tl.to("#backend", {opacity:1, duration:.01}, 0);
 tl.to("#decision", {opacity:1, duration:.5}, 0.4);
 tl.to("#dcheck", {strokeDashoffset:0, duration:.5, ease:"power1.out"}, 0.7);
@@ -381,7 +384,7 @@ tl.fromTo("#stamp", {boxShadow:"0 0 0 0 #ffb02000"}, {boxShadow:"0 0 50px 6px #f
 /* ---------- 9. s15  honest ending ---------- */
 tl.to("#footer", {opacity:1, duration:.6}, S("s15")+0.15);
 tl.to("#credit", {opacity:1, duration:.6}, S("s15")+0.5);
-tl.to("#fade", {opacity:1, duration:1.1, ease:"power1.in"}, 57.602 - 1.15);
+tl.to("#fade", {opacity:1, duration:1.1, ease:"power1.in"}, 53.714 - 1.15);
 
 window.__timelines.main = tl;
 </script>

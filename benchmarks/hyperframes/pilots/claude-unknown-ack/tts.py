@@ -3,7 +3,7 @@
 
 Usage (inside a venv with kokoro-onnx==0.6.1 and soundfile==0.14.0):
   python tts.py --model kokoro-v1.0.onnx --voices voices-v1.0.bin
-Writes assets/voice-<id>.wav and timing.json (durations in seconds).
+Writes assets/kokoro/voice-<id>.wav and timing.kokoro.json (offline FALLBACK; copy to assets/ + timing.json to use) (durations in seconds).
 """
 import argparse, hashlib, json, pathlib, sys
 import numpy as np
@@ -37,9 +37,9 @@ script = json.loads((HERE / "script.json").read_text())
 voice, speed = script["voice"], script["speed"]
 lang = "en-us" if voice.startswith("a") else "en-gb"
 k = Kokoro(a.model, a.voices)
-out = HERE / "assets"
-out.mkdir(exist_ok=True)
-tfile = HERE / "timing.json"
+out = HERE / "assets" / "kokoro"
+out.mkdir(parents=True, exist_ok=True)
+tfile = HERE / "timing.kokoro.json"
 timing = json.loads(tfile.read_text()) if tfile.exists() else {}
 for line in script["lines"]:
     if a.only and line["id"] not in a.only:

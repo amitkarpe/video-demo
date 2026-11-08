@@ -24,16 +24,16 @@ Deliberate simplifications (not falsehoods): the animation draws a single policy
 Not claimed: live acceptance, a real AWS call, fresh Config compliance, `execution=SUCCEEDED` for the lost-reply branch, deployed AgentCore2 integration.
 
 ## 3. File / encoding (VERIFIED)
-- `out/claude-unknown-ack.mp4`: 15,131,083 bytes (14.4 MiB), SHA-256 `ae62a0100421214da3a28a248cc1a239a86d77568af558d77103de3b714fa8b1`.
-- ffprobe: H.264 High, yuv420p, **1920×1080**, 30 fps, 57.633 s; AAC LC 48 kHz stereo, 57.633 s. Audio levels: mean −23.1 dB, peak −5.4 dB (`volumedetect`).
-- `out/claude-unknown-ack-preview.mp4`: 865,762 bytes, 960×540, 20.0 s, SHA-256 `d0d0991b18350aa342a279e5bc7f9aa5a39c9adcb9c01dce9ead3a23388f5070`.
-- **Full decode:** `ffmpeg -v error -i out/claude-unknown-ack.mp4 -f null -` → no errors, exit 0 (both files).
-- **Playback:** opened in QuickTime Player on macOS; it loaded, played and advanced (5.8 s → 14.7 s → seek 34.2 s) with picture and sound track present. VERIFIED for opening and playing; see §5 for audibility.
-- **Changing frames:** the scene-score filter flagged 1,434 of 1,728 encoded frames as different from the previous frame (the rest are deliberate holds, e.g. the 1.1 s silent beat, final stamp). The film never freezes for more than a few seconds; the visual changes land on every narration line.
-- Audio/video sync: `silencedetect` shows speech onsets within ~0.05 s of the planned cues (e.g. s01 1.34 s vs 1.30 s, s02 6.20 s vs 6.16 s, s15 52.26 s vs 52.22 s).
+- `out/claude-unknown-ack.mp4`: 14,393,806 bytes (13.7 MiB), SHA-256 `e96384b9c60bba01d5ab2ad73646889ba037007e142caeac33f511cba309e9a6`.
+- ffprobe: H.264 High, yuv420p, **1920×1080**, 30 fps, 53.733 s; AAC LC 48 kHz stereo, 53.733 s. Audio levels: mean −23.5 dB, peak −2.9 dB (`volumedetect`).
+- `out/claude-unknown-ack-preview.mp4`: 751,263 bytes, 960×540, 20.0 s (4–24 s of the film), SHA-256 `ac02ce4dff15f205786dc18b5b7be6aa7b03d225fe2b49b05508e77dbcf8b31e`.
+- **Full decode:** `ffmpeg -v error -i <file> -f null -` → no errors, exit 0 (both files).
+- **Changing frames:** `mpdecimate` keeps 730 of 1,612 frames (the rest are exact repeats, i.e. deliberate holds between steps). Visual changes land on each narration line (contact sheet reviewed at 3, 14, 22, 30, 37, 46 s).
+- **Playback:** the final file opened in QuickTime Player (AppleScript), reported duration 53.73 s and advanced during playback (0 → 2.75 s). Picture/sound output itself is not observable by Claude; see §6.
+- Audio/video sync: `silencedetect` speech onsets are within ~0.06 s of planned cues (s01 1.31 s vs 1.30 s, s02 5.43 s vs 5.39 s, s09 26.98 s vs 26.97 s).
 
 ## 4. HyperFrames checks (VERIFIED)
-`npx hyperframes check` on the final composition: **0 errors**. Remaining warnings: three `escaped_container` notes on the scaled evidence ladder (coordinates look correct in rendered frames), and a type-floor note on secondary labels (smallest in-scene text 21 px, mono technical labels, plus the 17 px AWS-icon credit marked texture).
+`npx hyperframes check` on the final composition: **0 errors**. Remaining warnings: `escaped_container` notes on the scaled evidence ladder (coordinates look correct in rendered frames), and a type-floor note on secondary mono labels (smallest in-scene text 21 px; credit line marked texture).
 All 151 text/contrast checks pass WCAG AA. Lint ran clean after moving to transform-based motion.
 
 ## 5. Captions at 1280×720 (VERIFIED by viewing)
@@ -41,19 +41,20 @@ Frames scaled to 1280×720 (`review/frame-720p-s06.jpg`, `-s09.jpg`, `-s09b.jpg`
 
 ## 6. Narration — **NOT_VERIFIED by a human ear**
 Claude cannot hear audio. A human has not yet listened to the final file.
-Machine diagnostic only (faster-whisper `base.en` on the final MP4 audio): all 15 lines were transcribed correctly except the expected ASR confusions
-"SQLite" → "SQ light", "AWSOps" → "a WS ops" and the homophone "write" → "right". Spoken forms were tuned with spelled-out text
-(`S Q Lite`, `A W S Ops`, `S three`, `calling`, `needs review`) in `script.json` `speak`. Voice: Kokoro `bm_george`, speed 0.95.
-**Please listen once for pronunciation and naturalness, especially AWSOps, SQLite, S3, Config, CALLING and NEEDS_REVIEW.**
+Machine diagnostic only (faster-whisper `base.en` on the final MP4 audio): all 15 lines are transcribed correctly, including `SQLite`, `AWS Ops`, `S3` and `AWS Config`; the only miss is the homophone "write" → "right" in line 7.
+Voice: OpenAI `gpt-4o-mini-tts`, `cedar`, with a calm-engineer style instruction; spoken forms use `speak_openai` in `script.json` (`SQLite`, `AWS Ops`, `S3`, `CALLING`, `NEEDS REVIEW`). Captions use the written forms.
+**The voice is AI-generated; the film says so on screen (pill-style tag top right, plus end credit).**
+**Please listen once for pronunciation and naturalness, especially AWS Ops, SQLite, S3, CALLING and NEEDS_REVIEW, and compare with the Kokoro fallback if you prefer an offline voice.**
 
 ## 7. Dependencies (VERIFIED) — see README "Pins"
-hyperframes 0.9.20, gsap 3.15.0, FFmpeg 9.0.2, Node v26.12.1, Python 3.15.2, kokoro-onnx 0.6.1, soundfile 0.14.0; model SHA-256 checked by `tts.py`.
+hyperframes 0.9.20, gsap 3.15.0, FFmpeg 9.0.2, Node v26.12.1, Python 3.15.2 (build), OpenAI `gpt-4o-mini-tts` (final voice; shutdown listed 2027-01-06). Fallback: kokoro-onnx 0.6.1, soundfile 0.14.0; model SHA-256 checked by `tts.py`.
 
 ## 8. Factual limits
 - SYNTHETIC / MOCK walkthrough only; real acceptance is pending (manager#19). The film says so on screen and in the last line.
-- Narration length ≈ 48.1 s of speech in a 57.6 s film; the Issue asks ≈ 45–60 s.
+- Narration ≈ 44.2 s of speech in a 53.7 s film; the Issue asks ≈ 45–60 s.
 - Icons: only unmodified S3 and AWS Config icons from the AWS Architecture Icons package; custom shapes elsewhere.
 
 ## 9. Spend and effort
-Actual extra spend **USD 0**. No paid API, no OpenAI/Anthropic API call from the pipeline, no AWS operation, no cloud render, no external hosting.
-Local effort: ~4 narration generations, 3 snapshot-review rounds, 2 full renders (~40 s each). Agent: Claude Code, `claude-sonnet-5-5`.
+`OPENAI_API_SPEND_USD` **≤ 0.12** (estimated upper bound 0.1184, itemized per call in `spend-ledger.json`; 15 `gpt-4o-mini-tts` calls, all ACK, no retries). The API returns no usage counts, so this is a conservative estimate; the owner's dashboard is authoritative and was not checked by Claude (NOT_VERIFIED). Pilot cap USD 5 (shared cap USD 10): not approached.
+No Claude API, other paid service, AWS operation, cloud render or external hosting. Key never printed or committed.
+Local effort: Phase 1 free Kokoro build (≈4 narration generations, 3 snapshot rounds, 2 renders), Phase 2 one OpenAI narration, 2 renders. Agent: Claude Code, `claude-sonnet-5-5`.
