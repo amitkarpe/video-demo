@@ -17,8 +17,8 @@
   "layout": {
     "ok": true,
     "errorCount": 0,
-    "warningCount": 1,
-    "infoCount": 5
+    "warningCount": 5,
+    "infoCount": 71
   },
   "motion": {
     "ok": true,
@@ -33,13 +33,13 @@
     "warningCount": 0,
     "infoCount": 0,
     "enabled": true,
-    "checked": 169,
-    "passed": 169
+    "checked": 99,
+    "passed": 99
   },
   "craft": {
     "ok": true,
     "errorCount": 0,
-    "warningCount": 0,
+    "warningCount": 1,
     "infoCount": 0,
     "enabled": true
   },

@@ -1,0 +1,238 @@
+[
+  {
+    "chapter": 1,
+    "title": "WHAT DOES FIXED ACTUALLY PROVE?",
+    "start": 0.6,
+    "beats": [
+      {
+        "second": 0.6,
+        "mechanism": "Positive execution receipt"
+      },
+      {
+        "second": 1.8,
+        "mechanism": "Independent policy readback"
+      },
+      {
+        "second": 3.2,
+        "mechanism": "Config/freshness remain missing"
+      },
+      {
+        "second": 20.107,
+        "mechanism": "Architecture overview"
+      },
+      {
+        "second": 34.68,
+        "mechanism": "Return to evidence boundary"
+      }
+    ]
+  },
+  {
+    "chapter": 2,
+    "title": "IMPORT DATA, NEVER AUTHORITY",
+    "start": 68.345,
+    "beats": [
+      {
+        "second": 79.353,
+        "mechanism": "Field packets enter canonical record"
+      },
+      {
+        "second": 83.456,
+        "mechanism": "Extra field refused"
+      },
+      {
+        "second": 104.923,
+        "mechanism": "Imported assertion stays untrusted"
+      },
+      {
+        "second": 119.289,
+        "mechanism": "Private identity binding"
+      },
+      {
+        "second": 133.269,
+        "mechanism": "Separate preparation path"
+      }
+    ]
+  },
+  {
+    "chapter": 3,
+    "title": "FREEZE PRECISELY WHAT CAN CHANGE",
+    "start": 148.688,
+    "beats": [
+      {
+        "second": 159.72,
+        "mechanism": "Batch fields assemble"
+      },
+      {
+        "second": 175.332,
+        "mechanism": "Seal complete payload"
+      },
+      {
+        "second": 185.304,
+        "mechanism": "Revision flip / digest mismatch"
+      },
+      {
+        "second": 196.118,
+        "mechanism": "Expiry blocks"
+      },
+      {
+        "second": 210.796,
+        "mechanism": "Hash is not identity"
+      }
+    ]
+  },
+  {
+    "chapter": 4,
+    "title": "ONE DURABLE DECISION, BEFORE DISPATCH",
+    "start": 229.536,
+    "beats": [
+      {
+        "second": 229.536,
+        "mechanism": "Illustrative principal"
+      },
+      {
+        "second": 253.543,
+        "mechanism": "Atomic decision + Run commit"
+      },
+      {
+        "second": 263.186,
+        "mechanism": "Consumed choice"
+      },
+      {
+        "second": 266.375,
+        "mechanism": "Counterfactual Reject, zero writes"
+      },
+      {
+        "second": 271.247,
+        "mechanism": "Separate approved MOCK alternative"
+      },
+      {
+        "second": 281.96,
+        "mechanism": "Current live fail-closed boundary"
+      }
+    ]
+  },
+  {
+    "chapter": 5,
+    "title": "FOUR FIXED MUTATIONS, NO ARBITRARY AGENT",
+    "start": 312.673,
+    "beats": [
+      {
+        "second": 320.52,
+        "mechanism": "STS identity / exact private binding"
+      },
+      {
+        "second": 333.285,
+        "mechanism": "Four fixed SDK methods / states"
+      },
+      {
+        "second": 344.126,
+        "mechanism": "TLS-only condition graph"
+      },
+      {
+        "second": 364.077,
+        "mechanism": "Fresh preconditions"
+      },
+      {
+        "second": 378.688,
+        "mechanism": "Durable INTENT/CALLING/ACK"
+      }
+    ]
+  },
+  {
+    "chapter": 6,
+    "title": "UNKNOWN MEANS RECONCILE, NOT RETRY",
+    "start": 395.453,
+    "beats": [
+      {
+        "second": 395.453,
+        "mechanism": "Request crosses SDK boundary"
+      },
+      {
+        "second": 401.79,
+        "mechanism": "Reply lost"
+      },
+      {
+        "second": 405.79,
+        "mechanism": "Durable UNKNOWN"
+      },
+      {
+        "second": 410.035,
+        "mechanism": "Retry locked"
+      },
+      {
+        "second": 415.031,
+        "mechanism": "Same-run reconciliation"
+      },
+      {
+        "second": 424.046,
+        "mechanism": "Separate all-ACK recovery case"
+      },
+      {
+        "second": 435.795,
+        "mechanism": "Attempts versus cloud effects"
+      },
+      {
+        "second": 454.803,
+        "mechanism": "Conditional cleanup gates"
+      }
+    ]
+  },
+  {
+    "chapter": 7,
+    "title": "MATCH IS ONE LANE, NOT THE VERDICT",
+    "start": 480.525,
+    "beats": [
+      {
+        "second": 480.525,
+        "mechanism": "Execution receipt"
+      },
+      {
+        "second": 486.775,
+        "mechanism": "Independent S3 policy observation"
+      },
+      {
+        "second": 496.899,
+        "mechanism": "Config/freshness remain unverified"
+      },
+      {
+        "second": 513.346,
+        "mechanism": "NEEDS_REVIEW payoff"
+      },
+      {
+        "second": 520.397,
+        "mechanism": "VERIFIED gate stays closed"
+      },
+      {
+        "second": 532.212,
+        "mechanism": "Source revision is not hosted version"
+      }
+    ]
+  },
+  {
+    "chapter": 8,
+    "title": "SOURCE, SIMULATION, LIVE READ, PENDING PROOF",
+    "start": 559.072,
+    "beats": [
+      {
+        "second": 559.072,
+        "mechanism": "Source implementation"
+      },
+      {
+        "second": 574.226,
+        "mechanism": "Fake-SDK proof"
+      },
+      {
+        "second": 588.12,
+        "mechanism": "Dated Config read"
+      },
+      {
+        "second": 601.731,
+        "mechanism": "Pending live acceptance"
+      },
+      {
+        "second": 627.965,
+        "mechanism": "Architecture / bounded value proposition"
+      }
+    ]
+  }
+]

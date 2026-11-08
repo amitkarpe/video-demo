@@ -1,67 +1,178 @@
 [
   {
-    "sequence": "scope_revision_drift",
+    "sequence": "architecture_camera_journey",
+    "seconds": [
+      20.307,
+      22.207
+    ],
+    "cropXYWH": [
+      75,
+      184,
+      1770,
+      688
+    ],
+    "meanAbsoluteRGBDifference": 26.8039,
+    "fractionPixelsChangingBy12": 0.66043,
+    "captionsExcluded": true
+  },
+  {
+    "sequence": "import_field_packets",
+    "seconds": [
+      79.553,
+      80.453
+    ],
+    "cropXYWH": [
+      650,
+      360,
+      500,
+      270
+    ],
+    "meanAbsoluteRGBDifference": 9.6769,
+    "fractionPixelsChangingBy12": 0.09393,
+    "captionsExcluded": true
+  },
+  {
+    "sequence": "batch_field_assembly",
+    "seconds": [
+      160.02,
+      160.92
+    ],
+    "cropXYWH": [
+      135,
+      360,
+      1180,
+      420
+    ],
+    "meanAbsoluteRGBDifference": 4.5696,
+    "fractionPixelsChangingBy12": 0.04133,
+    "captionsExcluded": true
+  },
+  {
+    "sequence": "exact_revision_flip",
     "seconds": [
       183,
       190
     ],
     "cropXYWH": [
-      750,
-      408,
-      620,
-      73
+      740,
+      400,
+      570,
+      95
     ],
-    "meanAbsoluteRGBDifference": 8.6392,
-    "fractionPixelsChangingBy12": 0.07948,
+    "meanAbsoluteRGBDifference": 8.393,
+    "fractionPixelsChangingBy12": 0.07768,
     "captionsExcluded": true
   },
   {
-    "sequence": "reject_request_motion",
+    "sequence": "decision_request_motion",
     "seconds": [
-      266,
-      268
+      266.6,
+      267.2
     ],
     "cropXYWH": [
-      105,
-      540,
-      660,
-      125
+      150,
+      450,
+      600,
+      200
     ],
-    "meanAbsoluteRGBDifference": 15.2061,
-    "fractionPixelsChangingBy12": 0.52186,
+    "meanAbsoluteRGBDifference": 11.4941,
+    "fractionPixelsChangingBy12": 0.10285,
     "captionsExcluded": true
   },
   {
-    "sequence": "outbound_request_motion",
+    "sequence": "sdk_calling_to_ack",
+    "seconds": [
+      333.985,
+      334.585
+    ],
+    "cropXYWH": [
+      1155,
+      320,
+      260,
+      80
+    ],
+    "meanAbsoluteRGBDifference": 11.0108,
+    "fractionPixelsChangingBy12": 0.1024,
+    "captionsExcluded": true
+  },
+  {
+    "sequence": "request_crosses_sdk",
     "seconds": [
       397,
       398.3
     ],
     "cropXYWH": [
       475,
-      390,
+      380,
       1100,
-      125
+      145
     ],
-    "meanAbsoluteRGBDifference": 0.8573,
-    "fractionPixelsChangingBy12": 0.00658,
-    "captionsExcluded": true,
-    "note": "After the chapter-entry camera transform has settled; isolates request-packet movement."
+    "meanAbsoluteRGBDifference": 6.5489,
+    "fractionPixelsChangingBy12": 0.10325,
+    "captionsExcluded": true
   },
   {
-    "sequence": "independent_evidence_reveal",
+    "sequence": "lost_reply",
     "seconds": [
-      501,
-      507
+      400.2,
+      402.4
     ],
     "cropXYWH": [
-      105,
-      350,
-      1115,
-      380
+      975,
+      490,
+      450,
+      190
     ],
-    "meanAbsoluteRGBDifference": 16.8443,
-    "fractionPixelsChangingBy12": 0.38701,
+    "meanAbsoluteRGBDifference": 22.5751,
+    "fractionPixelsChangingBy12": 0.1947,
+    "captionsExcluded": true
+  },
+  {
+    "sequence": "retry_gate",
+    "seconds": [
+      410.2,
+      411.4
+    ],
+    "cropXYWH": [
+      580,
+      620,
+      880,
+      250
+    ],
+    "meanAbsoluteRGBDifference": 6.3726,
+    "fractionPixelsChangingBy12": 0.10294,
+    "captionsExcluded": true
+  },
+  {
+    "sequence": "four_independent_sources",
+    "seconds": [
+      495.5,
+      502.5
+    ],
+    "cropXYWH": [
+      135,
+      570,
+      1600,
+      270
+    ],
+    "meanAbsoluteRGBDifference": 11.7309,
+    "fractionPixelsChangingBy12": 0.08985,
+    "captionsExcluded": true
+  },
+  {
+    "sequence": "distinct_provenance_reveal",
+    "seconds": [
+      579,
+      603
+    ],
+    "cropXYWH": [
+      150,
+      300,
+      1560,
+      540
+    ],
+    "meanAbsoluteRGBDifference": 10.818,
+    "fractionPixelsChangingBy12": 0.06641,
     "captionsExcluded": true
   }
 ]
