@@ -28,6 +28,6 @@ Custom ledger, paths, motion and typography composition are newly authored edita
 
 - [HyperFrames](https://github.com/heygen-com/hyperframes): Apache-2.0, pinned 0.9.20 in parent lock.
 - [GSAP](https://gsap.com/standard-license/): standard no-charge license with its own restrictions; not represented as Apache. Runtime copied unchanged from pinned 3.15.0 npm distribution.
-- [Kokoro 82M](https://huggingface.co/hexgrad/Kokoro-82M): Apache-2.0 model weights. [Kokoro ONNX wrapper](https://github.com/thewh1teagle/kokoro-onnx): MIT. New speech synthesized locally; no voice cloning or old narration reuse.
-- [Model-files-v1.1 release](https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.1): model SHA-256 `beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a`; voices SHA-256 `bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d`. Both verified before inference. Models stay outside Git.
-- FFmpeg provides local H.264/AAC encode/decode. No music or sound library used; the sound is the new synthesized voice plus deliberate pauses.
+- v2 narration: [OpenAI TTS-1 HD](https://developers.openai.com/api/docs/models/tts-1-hd), Onyx, through the [Speech API](https://developers.openai.com/api/reference/resources/audio/subresources/speech/methods/create). Current published rate: USD 30 per million input characters. [Deprecation notice](https://developers.openai.com/api/docs/deprecations): retirement 6 January 2027. Returned audio is cached; no API use is required for video rebuilds. AI narration is disclosed on screen. No custom voice cloning.
+- v1 used Apache-2.0 Kokoro weights and MIT kokoro-onnx; its full source/provenance and voice dependencies remain preserved at commit ccc0807153da93006b55ce48b934351978ad78ed. V2 uses no Kokoro synthesis.
+- FFmpeg provides local H.264/AAC encode/decode. No music or sound library used; the sound is the new OpenAI synthesized voice plus deliberate pauses.

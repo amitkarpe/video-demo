@@ -1,77 +1,80 @@
-# Pilot A — The reply disappeared
+# Pilot A v2 — The reply disappeared
 
-One 53-second, source-grounded AWSOps simulation for experienced CloudOps / DevSecOps engineers. Owning [issue #15](https://github.com/amitkarpe/video-demo/issues/15). **Human creative and listening acceptance: PENDING.**
+One 45-second AWSOps technical short for experienced CloudOps / DevSecOps engineers. **Source-grounded simulation. Human listening and creative acceptance: PENDING.**
 
-[Download / play the full MP4](pilot.mp4) · [17-second mechanism preview](preview.mp4) · [Captions](captions.srt) · [Transcript](transcript.txt) · [Verification](verification.json) · [Sources and licenses](SOURCES.md)
+[Full MP4](pilot.mp4) · [Mechanism preview](preview.mp4) · [Captions](captions.srt) · [Transcript](transcript.txt) · [Verification](verification.json) · [Call-by-call OpenAI meter](openai-spend.json) · [Sources](SOURCES.md)
 
-GitHub may show a download button rather than an inline player. Download `pilot.mp4` and open it in QuickTime, VLC or a browser. The MP4 includes burned-in English captions and synthesized narration; the SRT is also supplied separately.
+Download the MP4 and open it in QuickTime/VLC if GitHub does not show an inline player. English captions are burned in; the separate SRT supports other players.
 
-## Accepted scope and goal
+## One approved improvement cycle
 
-Amit accepted the restated intent in the owning Codex conversation on 8 November 2026: “Accepted. Go ahead and complete the pilot and draft PR for issue #15.” The accepted intent is issue #15's independent short pilot, local setup/build/validation, and exactly one new draft PR. No merge, deployment, AWS operation, paid API call or full-film expansion.
+Owning [issue #15](https://github.com/amitkarpe/video-demo/issues/15), existing [draft PR #17](https://github.com/amitkarpe/video-demo/pull/17). The [Phase 1 report](https://github.com/amitkarpe/video-demo/issues/15#issuecomment-6719298666) preceded approval. Amit then wrote in the owning conversation: “Must Use up to USD 5 for an OpenAI text-to-speech voice for the narration only, with each call metered and stopped before the cap. go approved.” This approves Treatment A and supersedes the plan's local-voice / USD 0 choice. It does not approve other paid uses, AWS operations, deployment, merge or full-film expansion.
 
-**GOAL:** Make one consequential mechanism understandable in one viewing: uncertainty survives a lost acknowledgement; policy match is not fresh compliance proof. **REAL BLOCKER:** none for local delivery; human listening/taste remain unverified acceptance categories. **MINIMUM USEFUL ACTION:** source-grounded animated short and playable review artifact. **STOP CONDITION:** one pilot and one draft PR, followed by owner review.
+**GOAL:** Preserve the one-viewing technical lesson while improving continuity, text clarity and narration. **REAL BLOCKER:** agent lacks an audible input channel; Amit supplies listening/taste acceptance. **MINIMUM USEFUL ACTION:** one revised short on the existing branch/PR. **STOP CONDITION:** revised draft PR and final evidence comment on #15 for ChatGPT/owner review.
 
-The work starts from `995e8287847b77f81707e485f9767700bc98c162`, on `feat/pilot-codex-unknown-ack`. PR base: `feat/10-engineering-deep-dive`. All pilot additions live in this folder. No competitor source, narration or visual treatment was read or reused. The old AWSOps film was a factual and failed-aesthetic reference only.
+## What changed from v1
 
-## Two treatments considered
+| v1 | v2 |
+| --- | --- |
+| Local Kokoro narration, 53 seconds | OpenAI TTS-1 HD / Onyx, 45 seconds at natural speed 1.0; no speed-up to meet runtime. Same spoken message. |
+| Fixed system view | Controlled camera emphasis when the reply disappears and return to context for readback. |
+| Readback arc could intersect the backend label | Repositioned path/label and delayed directional arrow after the path finishes drawing. |
+| Direct map-to-evidence cut | The same S3 icon travels from the system map into READBACK. Titles fade sequentially to avoid collisions. |
+| Other evidence fields dimmed for focus | Every essential field keeps full readable contrast; a moving underline directs attention. |
 
-1. **Selected — signal-path cutaway.** Borrow the progressive mechanism reveal from HyperFrames' [explainer guidance](https://hyperframes.heygen.com/guides/faceless-explainer). A luminous request crosses a fixed SDK boundary; its return breaks; a durable cylinder retains Run A. A read-only arc returns to the same identity. Restrained teal signals observation; amber signals uncertainty. Large type and empty space keep the technical consequence readable.
-2. **Alternative — paper audit chronology.** Use the record separation in the [Defence Factory contract](https://github.com/amitkarpe/awsops/blob/15c12fb5362dd05fc4d8aaf10ebd31d3ce2935d9/contracts/defence-factory/README.md) as an editorial reference: dated evidence marks along a horizontal timeline, with a missing acknowledgement leaving a visible gap. This could teach ordering well, but offers less spatial continuity for a short pilot. No second video was built.
+[v1 MP4, preserved at ccc0807](https://raw.githubusercontent.com/amitkarpe/video-demo/ccc0807153da93006b55ce48b934351978ad78ed/benchmarks/hyperframes/pilots/codex-unknown-ack/pilot.mp4). v1 SHA-256: `e6c431badb0c0bf409abf9319335a1e87d73458931ce9d69d19766c66b261960`. No competitor source or creative work was inspected or reused. No second pilot or duplicate PR.
 
-These are references for teaching and composition, not copied footage or branded UI. The actual three-frame design board was captured before the full render. A narrated 17-second mechanism slice was rendered and visually inspected before the full export.
+## Creative treatment and shot list
 
-## Shot list
+**Selected: continuous technical cutaway.** Teal traces a request and provider observation; amber preserves uncertainty. A persistent run identity connects the SDK boundary, committed ledger and independent evidence fields. Reference: [HyperFrames teaching-led explainer guidance](https://hyperframes.heygen.com/guides/faceless-explainer).
+
+**Alternative considered: forensic audit timeline.** Commit → call → missing ACK → observation laid out chronologically. It clarifies ordering but gives less spatial continuity. Reference: the pinned [Defence Factory record separation](https://github.com/amitkarpe/awsops/blob/15c12fb5362dd05fc4d8aaf10ebd31d3ce2935d9/contracts/defence-factory/README.md). No alternative film was generated.
 
 | Time | Focus / change / consequence |
 | --- | --- |
-| 0–6.7 s | Request traces from the committed ledger toward S3; one controlled operation. |
-| 6.7–12.9 s | Return packet disappears at the SDK boundary; a question holds. |
-| 12.9–23.2 s | Ledger enlarges around CALLING; a crossed retry arc shows why another write is withheld. |
-| 23.2–28.1 s | Read-only observation traces back to the same Run A; no new write or run appears. |
-| 28.1–42.5 s | The diagram gives way to four independent evidence fields; MATCH never turns the other fields green. |
-| 42.5–53 s | NEEDS_REVIEW appears; a calm final hold keeps the missing evidence visible. |
+| 0–5.7s | One approved fixed request crosses the SDK boundary. CALLING is already durable. |
+| 5.7–11s | The return disappears; camera emphasis exposes uncertainty. |
+| 11–19.9s | Ledger enlarges around the same Run A. A crossed retry path blocks blind repetition. |
+| 19.9–23.8s | Read-only observation returns to the same identity. |
+| 23.8–35.6s | S3 identity carries into readback MATCH. All four independent fields stay readable. |
+| 35.6–45s | NEEDS_REVIEW holds. Missing evidence stays visible. |
+
+The three actual designed frames and narrated mechanism slice were checked before final delivery. Encoded-frame checks prompted one transition correction. No narration was regenerated for that correction.
 
 ![Problem](keyframes/problem.png)
 ![Mechanism](keyframes/mechanism.png)
 ![Payoff](keyframes/payoff.png)
 
-## Rebuild
+## OpenAI narration and hard spending boundary
 
-Requirements: Node 22+, npm, Python 3, FFmpeg / ffprobe, and compatible Chrome. From `benchmarks/hyperframes`:
+12 successful narration-only calls, 614 input characters. **Metered billable amount: USD 0.01842 at the published USD 30 / million-character rate.** The USD 5 lane cap leaves USD 4.98158 unused. Charges covered by credits still count. This is character-metered list-price cost; invoice reconciliation is not independently available. Account-wide balance changes are not attributed to this pilot.
+
+`openai-spend.json` records every input count/hash, pre-call reservation, request ID, returned audio hash, completion and cumulative amount. `generate_openai_voice.py` saves each reservation before sending one request. It refuses the next call if all reservations plus its known cost exceed USD 5. Any uncertain call retains its reservation and stops the whole chain without automatic retry. All successful audio is cached. No more calls are required.
+
+The model is documented as available until 6 January 2027; it was chosen here for explicit per-character billing and a bounded one-off narration. Cached audio makes future film rebuilds independent of endpoint retirement. Streaming WAV length headers were finalized locally; the returned PCM samples were unchanged. No API call was repeated for that repair.
+
+## Rebuild without API calls
+
+Requirements: Node 22+, npm, Python 3, FFmpeg/ffprobe and compatible Chrome. From `benchmarks/hyperframes`:
 
 ```sh
 npm ci
-cp node_modules/gsap/dist/gsap.min.js pilots/codex-unknown-ack/assets/gsap.min.js
-python3 pilots/codex-unknown-ack/build.py
-npx hyperframes lint pilots/codex-unknown-ack
+python3 pilots/codex-unknown-ack/check_voice_budget.py
 sh pilots/codex-unknown-ack/render.sh
 ffmpeg -v error -i pilots/codex-unknown-ack/pilot.mp4 -f null -
 ```
 
-`scene.html.template` is the editable vector/motion source. `build.py` combines it with measured audio durations and generates `index.html`, `timing.json`, the SRT and transcript. The committed WAVs allow visual edits without TTS dependencies or model downloads. `render.sh` renders once, then normalizes narration to a target −16 LUFS with FFmpeg while copying the encoded video unchanged. The delivered master measures -16.12 LUFS and -1.49 dBTP. The preview is the final master’s 12–29 second interval. After editing spoken text, regenerate speech explicitly with `--voice`; otherwise existing audio stays cached. Font rendering may vary across hosts; bit-identical encoding is not promised. The scene uses Arial and Menlo with system fallbacks.
+`scene.html.template` owns editable SVG/motion. `build.py` checks cached narration against the speech ledger and literal script, then generates HTML, timings, SRT and transcript. `render.sh` restores pinned GSAP, lints, renders and normalizes audio to a target −16 LUFS while copying the encoded video unchanged. Rebuilds do not load secrets or make speech calls. Font/codec differences across hosts can change output bytes.
 
-To regenerate the **new** narration locally:
+Paid speech generation is separate and requires explicit opt-in. The completed ledger prevents resending these calls. Do not delete/reset it to regenerate: a new voice iteration needs a separate bounded decision. The script reads only the process's `OPENAI_API_KEY` and sends only public narration to `https://api.openai.com/v1/audio/speech`. It never prints the key, copies env files or retries an uncertain request. No SDK or new dependency installation was required. `requirements-voice.lock` is retained only as the v1 Kokoro environment record.
 
-```sh
-uv venv --python 3.12 pilots/codex-unknown-ack/.build/venv
-uv pip install --python pilots/codex-unknown-ack/.build/venv/bin/python -r pilots/codex-unknown-ack/requirements-voice.lock
-curl -fL https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.0.onnx -o pilots/codex-unknown-ack/.build/kokoro-v1.0.onnx
-curl -fL https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/voices-v1.0.bin -o pilots/codex-unknown-ack/.build/voices-v1.0.bin
-pilots/codex-unknown-ack/.build/venv/bin/python pilots/codex-unknown-ack/build.py --voice
-```
+## Evidence and limits
 
-The generator verifies both model hashes before loading them. Model weights, environments and render logs stay ignored under `.build/`.
-
-## Review limits and production record
-
-- Toolchain: HyperFrames 0.9.20 and GSAP 3.15.0 from the unchanged baseline npm lock. Voice: Kokoro ONNX 0.6.1, `am_michael`, speed 0.98, CPU inference. Exact Python dependency lock included.
-- Agent: Codex, active runtime identity GPT-6; exact backend variant is not independently exposed. One writer, no delegated worker. One treatment; one voice generation; first slice exposed three lint defects, corrected slice passed; one full render was interrupted by the owner's new instruction and restarted after the worktree move. One final audio level adjustment preserved the encoded video stream and timing. No duration-driven narration regeneration.
-- Source verification: pinned implementation inspected; this is an authored illustration, not a live execution or an automatically generated trace. “Run A” is an editorial alias.
-- Voice text expands `S3` to “S three” and `AWSOps` to “A W S Ops.” State names use spoken forms. Grammar and text checked; independent audible pronunciation/prosody review of AWSOps, S3, CALLING, Config and NEEDS_REVIEW: **NOT_VERIFIED**. SQLite is visual only. No STS identity is depicted or spoken.
-- Captions follow complete measured voice clips with reading pauses. This is sentence-level timing, not independently verified word alignment. Final encoded 720p samples are inspected separately.
-- Desktop playback: final mastered MP4 played from 0 to 53 seconds in QuickTime, with final NEEDS_REVIEW visible. The agent observed controls and picture progression; this does not certify audible pronunciation.
-- Computer preflight: desktop inventory and QuickTime AX controls accessible. GitHub repo identity/permission readback and push dry run passed. Key presence check returned `set`; no key was printed or used. The local production needs no API credential.
-- The owner requested `/Users/apple/git/worktree/video-demo-15-unknown-ack`; native `git worktree move` preserved this lane. The app rejected reattachment because the moved checkout is not managed. Commands use the explicit new path.
-- Incremental paid API/software/cloud spend: **USD 0**. No AWS operations, no cloud rendering, no third-party video hosting. Codex subscription usage and existing equipment are not priced here.
-- Owner decides comprehension, beauty, motion, voice and subtitle clarity, each 1–5. This delivery does not certify those subjective scores or live AWSOps acceptance.
+- Actual source remains AWSOps `15c12fb5362dd05fc4d8aaf10ebd31d3ce2935d9`, read only. MATCH does not change unresolved execution UNKNOWN, compliance UNKNOWN or freshness NOT_VERIFIED. Read-only reconciliation means no provider mutation; it may persist evidence to SQLite. Run A is an editorial alias.
+- Toolchain: unchanged locked HyperFrames 0.9.20 / GSAP 3.15.0; Node 26.12.1; FFmpeg 9.0.2; Python standard library for v2 build/speech/metering.
+- Voice: OpenAI TTS-1 HD, Onyx, speed 1.0. Full-frame AI voice disclosure included. `S3` is spoken as “S three”; `AWSOps` as “A W S Ops.” State names use spoken forms. SQLite is visual only; no STS identity depicted.
+- The agent can inspect actual encoded pictures, seek/play QuickTime, measure audio and check caption structure. It has no audible input channel. Pronunciation/prosody and human comprehension remain NOT_VERIFIED / PENDING. Fallback: Amit listens to the 45-second file once and reports specific defects. Caption timing is measured per sentence, not independently verified word alignment.
+- Host-path repair: actual worktree remains `/Users/apple/git/worktree/video-demo-15-unknown-ack`. The old chat path is now a directory link to that same checkout. Default CLI commands resolve to the correct clean Git identity; no duplicate clone, app database/config edit or repo move.
+- Production: one approved revision cycle, 12 TTS calls, one narrated slice, full export and one local transition correction. No extra paid call for visual iteration. Model/agent choice: existing Codex desktop writer, no new worker.
+- Final QuickTime playback was observed starting and progressing, but end-of-file UI readback timed out after the owner interruption. Full-file FFmpeg decode passes; owner playback/listening is the final fallback.
+- Final mechanical metrics and separate human acceptance status are in `verification.json`. No paid images/text/review APIs, AWS operations, cloud rendering, third-party video hosting, merge or full-film expansion.

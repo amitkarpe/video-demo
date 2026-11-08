@@ -1,47 +1,47 @@
 1
-00:00:00,650 --> 00:00:06,377
+00:00:00,650 --> 00:00:05,400
 This is a simulation. An approved S3 policy request leaves the backend.
 
 2
-00:00:06,697 --> 00:00:08,638
+00:00:05,720 --> 00:00:07,295
 But the reply disappears.
 
 3
-00:00:09,288 --> 00:00:12,232
+00:00:07,945 --> 00:00:10,320
 Did the change fail? Or just the reply?
 
 4
-00:00:12,882 --> 00:00:16,920
+00:00:10,970 --> 00:00:14,645
 Before the call, the durable ledger already records CALLING.
 
 5
-00:00:17,240 --> 00:00:22,839
+00:00:14,965 --> 00:00:19,540
 AWSOps keeps that uncertainty. It does not blindly send another write.
 
 6
-00:00:23,159 --> 00:00:27,780
+00:00:19,860 --> 00:00:23,485
 It reconciles the same run, using read-only provider checks.
 
 7
-00:00:28,101 --> 00:00:30,533
+00:00:23,805 --> 00:00:25,793
 Here, the observed policy matches.
 
 8
-00:00:31,183 --> 00:00:35,172
+00:00:26,442 --> 00:00:29,754
 But a matching policy is not fresh Config compliance.
 
 9
-00:00:35,492 --> 00:00:39,673
+00:00:30,075 --> 00:00:33,113
 Execution stays UNKNOWN. Compliance stays UNKNOWN.
 
 10
-00:00:39,993 --> 00:00:42,212
+00:00:33,432 --> 00:00:35,257
 Freshness stays NOT_VERIFIED.
 
 11
-00:00:42,532 --> 00:00:44,637
+00:00:35,578 --> 00:00:37,128
 The outcome: NEEDS_REVIEW.
 
 12
-00:00:45,287 --> 00:00:51,858
+00:00:37,778 --> 00:00:43,090
 The missing evidence stays visible. This demonstrates control logic, not live acceptance.

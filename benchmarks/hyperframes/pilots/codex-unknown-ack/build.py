@@ -1,4 +1,4 @@
-"""Generate new, local narration and an editable deterministic SVG/GSAP film."""
+"""Build the editable SVG/GSAP film from verified, cached OpenAI speech."""
 import hashlib, json, math, pathlib, sys, wave
 P=pathlib.Path(__file__).resolve().parent
 rows=[
@@ -14,18 +14,20 @@ rows=[
 ('Freshness stays NOT_VERIFIED.','Freshness stays not verified.'),
 ('The outcome: NEEDS_REVIEW.','The outcome: needs review.'),
 ('The missing evidence stays visible. This demonstrates control logic, not live acceptance.',None)]
-k=None
-if '--voice' in sys.argv or any(not (P/f'assets/voice-{i:02}.wav').exists() for i in range(len(rows))):
- import soundfile as sf
- from kokoro_onnx import Kokoro
- for name,digest in [('kokoro-v1.0.onnx','beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a'),('voices-v1.0.bin','bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d')]:
-  assert hashlib.sha256((P/'.build'/name).read_bytes()).hexdigest()==digest, name+' integrity mismatch'
- k=Kokoro(str(P/'.build/kokoro-v1.0.onnx'),str(P/'.build/voices-v1.0.bin'))
+if '--voice' in sys.argv:
+ raise SystemExit('Use generate_openai_voice.py --approved-phase-2 for metered OpenAI narration')
+ledger=json.loads((P/'openai-spend.json').read_text())
+if len(ledger['calls']) != len(rows) or any(c['status'] != 'completed' for c in ledger['calls']):
+ raise SystemExit('Narration generation incomplete; stop before build')
+for i,(caption,spoken) in enumerate(rows):
+ call=next(c for c in ledger['calls'] if c['cue']==i)
+ if call['input_sha256'] != hashlib.sha256((spoken or caption).encode()).hexdigest():
+  raise SystemExit('Script changed; cached speech no longer matches')
+ if call['output_sha256'] != hashlib.sha256((P/f'assets/voice-{i:02}.wav').read_bytes()).hexdigest():
+  raise SystemExit('Speech asset hash mismatch')
 t=.65; cues=[]
 for i,(caption,spoken) in enumerate(rows):
  f=P/f'assets/voice-{i:02}.wav'
- if '--voice' in sys.argv or not f.exists():
-  samples,sr=k.create(spoken or caption,voice='am_michael',speed=.98,lang='en-us'); sf.write(f,samples,sr)
  with wave.open(str(f)) as w: dur=w.getnframes()/w.getframerate()
  cues.append(dict(text=caption,start=round(t,3),duration=round(dur,3)))
  t+=dur+(.65 if i in (1,2,6,10) else .32)

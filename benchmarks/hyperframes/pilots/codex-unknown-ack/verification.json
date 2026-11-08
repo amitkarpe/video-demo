@@ -1,5 +1,7 @@
 {
+  "version": 2,
   "baseline": "995e8287847b77f81707e485f9767700bc98c162",
+  "previousVersionCommit": "ccc0807153da93006b55ce48b934351978ad78ed",
   "awsopsSource": "15c12fb5362dd05fc4d8aaf10ebd31d3ce2935d9",
   "date": "2026-11-08",
   "media": {
@@ -19,14 +21,14 @@
       }
     ],
     "format": {
-      "duration": "53.000000",
-      "size": "5206944"
+      "duration": "45.000000",
+      "size": "5072330"
     }
   },
-  "mp4Sha256": "e6c431badb0c0bf409abf9319335a1e87d73458931ce9d69d19766c66b261960",
-  "renderInputSha256": "79481b894da43f9c32fc86e07069fbac9e43304ec58fef09722ad1f62b9bdb2e",
-  "fullDecode": "PASS: ffmpeg -v error -i pilot.mp4 -f null - returned 0",
-  "lint": "PASS: 0 errors, 0 warnings",
+  "mp4Sha256": "4659c2112dbe0e7dddb57bf2eb19d0df5901c59089c560be582b47bdebbe3c2e",
+  "renderInputSha256": "f36c7b73c28ae65065a1ef6a59061bbd6c6546914cc8f64ef51d5ae78e717f40",
+  "fullDecode": "PASS: entire final MP4 decoded with FFmpeg, exit 0",
+  "lint": "PASS: zero errors, zero warnings",
   "motion": [
     {
       "times": [
@@ -34,67 +36,90 @@
         4
       ],
       "crop": "1030:180:440:440",
-      "changed_channel_bytes": 52723,
-      "total_bytes": 556200,
-      "mechanism": "request packet / path"
+      "changedChannelBytes": 50662,
+      "totalBytes": 556200,
+      "purpose": "outbound request"
     },
     {
       "times": [
-        7,
-        8
+        6,
+        6.8
       ],
-      "crop": "550:220:1000:490",
-      "changed_channel_bytes": 55082,
-      "total_bytes": 363000,
-      "mechanism": "lost reply"
+      "crop": "1200:450:400:350",
+      "changedChannelBytes": 434900,
+      "totalBytes": 1620000,
+      "purpose": "lost reply/camera emphasis"
     },
     {
       "times": [
-        13,
-        14
-      ],
-      "crop": "550:460:180:360",
-      "changed_channel_bytes": 356216,
-      "total_bytes": 759000,
-      "mechanism": "ledger emphasis"
-    },
-    {
-      "times": [
-        23.5,
-        25
+        20,
+        22
       ],
       "crop": "1100:200:500:300",
-      "changed_channel_bytes": 97585,
-      "total_bytes": 660000,
-      "mechanism": "read-only reconciliation arc"
+      "changedChannelBytes": 57002,
+      "totalBytes": 660000,
+      "purpose": "same-run read-only arc"
+    },
+    {
+      "times": [
+        24,
+        24.5
+      ],
+      "crop": "1200:350:500:300",
+      "changedChannelBytes": 267043,
+      "totalBytes": 1260000,
+      "purpose": "S3 observation transfers into readback"
+    },
+    {
+      "times": [
+        27,
+        28
+      ],
+      "crop": "1680:50:120:620",
+      "changedChannelBytes": 7777,
+      "totalBytes": 252000,
+      "purpose": "focus underline; full field contrast retained"
     }
   ],
   "captions": {
     "count": 12,
     "overlaps": 0,
-    "timing": "Measured sentence-level audio durations; not independently verified word timing",
-    "visual": "Encoded mechanism and payoff sampled at 1280x720; overview sampled at 4-second intervals; essential text readable at settled frames"
+    "timing": "Measured full sentence clips; retimed to new OpenAI audio; independent word alignment NOT_VERIFIED",
+    "visual": "Final 720p mechanism, evidence transition and payoff samples; essential evidence fields retain full contrast"
   },
   "audio": {
-    "meanDb": "-18.3",
-    "peakDb": "-1.5",
-    "audibleReview": "NOT_VERIFIED",
-    "voice": "Kokoro am_michael / CPU",
-    "measuredIntegratedLUFS": "-16.12",
-    "measuredTruePeakDbTP": "-1.49",
-    "master": "FFmpeg loudnorm I=-16 TP=-1.5 LRA=11; 48kHz AAC; no time stretch"
+    "model": "tts-1-hd",
+    "voice": "onyx",
+    "speed": 1.0,
+    "integratedLUFS": "-16.39",
+    "truePeakDbTP": "-1.50",
+    "audibleReview": "NOT_VERIFIED: no agent audible input channel; Amit listening fallback",
+    "master": "FFmpeg loudnorm -16 LUFS / -1.5 dBTP target; encoded video stream unchanged"
   },
-  "render": "HyperFrames 0.9.20 / 2 workers / 30fps / 34.5s capture; ffmpeg 9.0.2; Node 26.12.1",
-  "extraPaidSpendUSD": 0,
-  "ownerCreativeAcceptance": "PENDING",
-  "videoStreamUnchangedByAudioMaster": true,
+  "openai": {
+    "calls": 12,
+    "inputCharacters": 614,
+    "meteredBillableUSD": "0.01842",
+    "capUSD": "5",
+    "unusedUSD": "4.98158",
+    "invoiceReconciliation": "NOT_VERIFIED",
+    "ledger": "openai-spend.json",
+    "guardChecks": [
+      "next call over cap: PASS, zero network",
+      "uncertain prior call: PASS, zero network"
+    ],
+    "pcmPayloadsUnchangedAfterHeaderRepair": true
+  },
+  "render": "HyperFrames 0.9.20, GSAP 3.15.0, Node 26.12.1, FFmpeg 9.0.2; final capture 29.3 seconds",
   "preview": {
     "file": "preview.mp4",
     "sourceIntervalSeconds": [
-      12,
+      19,
       29
     ],
-    "sha256": "f43e291faf91c6a9926a9f423873f387584b04704c54a5f65871272b263b182a"
+    "sha256": "5087b2453b685cf707c2b098e1dcc37ea875df1357f9a3bf35a5c5fcfcb7ba27"
   },
-  "desktopPlayback": "PASS: final mastered MP4 opened in QuickTime; play on at 0.116s, observed 37.228s, stopped at timeline 53s / duration 53s with NEEDS_REVIEW visible; audio enabled. No audible input channel for agent."
+  "hostPathRepair": "Old chat path is a directory symlink to the requested registered worktree; default CLI resolves to correct checkout",
+  "desktopPlayback": "PARTIAL: final 45-second file reopened from disk in QuickTime, play on at 0.098s and progression to 4.530s observed. After owner interruption, two Computer Use readbacks timed out; end-of-file UI observation not verified. Full final-file FFmpeg decode passed. Owner will play/listen for acceptance.",
+  "ownerCreativeAcceptance": "PENDING"
 }
