@@ -52,23 +52,34 @@ Prove each capability in the **selected session and execution location** (local,
 | Sources | `git ls-remote` / `git rev-parse <rev>` for the source; read one source file | Owner supplies material, or an explicit "story-only" brief | Required source unreadable |
 | Delivery | `git remote -v`; push permission to a new branch; existing authenticated `gh` (or the hosting CLI); output repo visibility; any push-triggered deploys | Deliver the files locally and report | Cannot write to the output location |
 | Node / npm | `node --version` (HyperFrames documents **Node 22+** as the minimum); `npm --version` | Use the project's existing compatible install; do not upgrade blindly | Below the minimum, with no approved install |
-| Renderer | Reuse the project's lock; a new project pins exact versions once (`npm install --save-exact hyperframes@<ver> gsap@<ver>`, commit `package-lock.json`). Then `npx hyperframes --version`; a 1–2 s test render, then `ffmpeg -v error -i out/preflight.mp4 -f null -` | Fix the browser download or path; reduce workers | The test render or decode fails |
+| Renderer | Reuse the project's lock; a new project pins exact versions once (`npm install --save-exact hyperframes@VERSION gsap@VERSION` (replace both `VERSION` tokens with verified compatible versions; never execute placeholders literally), commit `package-lock.json`). Then `npx hyperframes --version`; a 1–2 s test render, then `ffmpeg -v error -i out/preflight.mp4 -f null -` | Fix the browser download or path; reduce workers | The test render or decode fails |
 | FFmpeg | `ffmpeg -version`, `ffprobe -version` | Approved package manager | Missing |
 | Python helpers | `python3 --version` (Windows: `py --version`); a venv with only the packages the chosen helpers import | Rewrite the helper in Node | No interpreter and no alternative |
 | Resources | Free disk (`df -h .` / `Get-PSDrive`); RAM and CPU; fonts actually installed or fetched; H.264/AAC encode | Lower render concurrency; clear only *own* build outputs | Not enough disk for renders plus the final export |
-| OpenAI access | Credential **presence only** (below); a free model lookup that returns HTTP 200 for each required model; budget authorized in the goal | Owner provisions a key or budget | Missing key, budget or model, when the goal requires that media |
+| OpenAI access | Credential **presence only** (below); a non-generating model lookup for each required model, performed without exposing the key in process arguments; budget authorized in the goal (HTTP 200 confirms visibility, not that generation is permitted or billable) | Owner provisions a key or budget | Missing key, budget or model, when the goal requires that media |
 | Network | HTTPS to the API host; WebSocket only if the chosen narration path needs it | A Speech-API path, if the goal allows it | Required endpoint blocked by policy |
 | Review | Can the session view images? Watch a full playback (browser `<video>`)? **Perceive audio?** (Usually no.) | Machine QA plus the human listening checklist (§8.2) | Never assume hearing |
 
-**Credential presence check (never print the value):**
+**Credential presence and model lookup (never print the key):** Check only in the authorized generating process. These examples use a dated sample model ID; replace it with the actual required model ID.
 
 ```sh
-[ -n "$OPENAI_API_KEY" ] && echo present || echo missing            # macOS/Linux/WSL
-if ($env:OPENAI_API_KEY) {'present'} else {'missing'}               # Windows PowerShell
-curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer $OPENAI_API_KEY" \
-  https://api.openai.com/v1/models/<model-id>                        # 200 = visible to this key (no charge)
-(Invoke-WebRequest -Uri https://api.openai.com/v1/models/<model-id> -Headers @{Authorization="Bearer $env:OPENAI_API_KEY"} -SkipHttpErrorCheck).StatusCode   # PowerShell 7
+# macOS, Linux, WSL; the key is piped as an HTTP header, not placed in curl's process arguments.
+[ -n "$OPENAI_API_KEY" ] && echo present || echo missing
+MODEL_ID=gpt-image-2.6-sunburst
+printf 'Authorization: Bearer %s\n' "$OPENAI_API_KEY" |
+  curl --silent --show-error --output /dev/null --write-out '%{http_code}\n' \
+    --header @- "https://api.openai.com/v1/models/$MODEL_ID"
 ```
+
+```powershell
+# PowerShell 7; interpolate the credential in process memory, never paste its value.
+if ($env:OPENAI_API_KEY) {'present'} else {'missing'}
+$modelId = 'gpt-image-2.6-sunburst'
+$headers = @{ Authorization = "Bearer $env:OPENAI_API_KEY" }
+(Invoke-WebRequest -Uri "https://api.openai.com/v1/models/$modelId" -Headers $headers -SkipHttpErrorCheck).StatusCode
+```
+
+A model lookup is non-generating: **HTTP 200 only confirms model visibility**, not permission for a particular generation endpoint, quality tier or sufficient quota. After the owner approves a budget, make the first paid generation small and validate its actual model, response, and charge. Never enable verbose HTTP traces, log headers, or pass the expanded key in a CLI flag.
 
 **Secrets.**
 - Take the key from the process environment or approved secret storage. Use an ignored, protected `.env` only if the owner allows it, and read it inside the generating process.
@@ -109,8 +120,8 @@ Use relative paths inside the project. Never hard-code `/Users/...`. On any host
 | Need | Default observed | Notes |
 |---|---|---|
 | Images | `gpt-image-2.6-sunburst` via `/v1/images/generations` and `/v1/images/edits` | Custom sizes (multiples of 16), transparent background, returned `usage`; one image cost a few cents at "high" in Round 3 |
-| Narration, Speech API | `POST /v1/audio/speech` `{model, voice, input, instructions, response_format: "wav"}` with `gpt-4o-mini-tts` (voices incl. `cedar`, `marin`) | Returns audio with no usage counts, so reserve from a duration upper bound. `tts-1`, `tts-1-hd` and `gpt-4o-mini-tts` shut down **2027-01-06** |
-| Narration, Realtime | `gpt-realtime-2.1` (Round 3, voice `marin`); `gpt-realtime-2.1-mini` is the documented replacement | A **different integration** (WebSocket session). Not a `/audio/speech` model. It can generate saved files without building a voice app |
+| Narration, Speech API (legacy) | `POST /v1/audio/speech` `{model, voice, input, instructions, response_format: "wav"}` with `gpt-4o-mini-tts` (voices incl. `cedar`, `marin`) | Existing compatible workflows only; returns audio without usage counts, so reserve from an upper-bound estimate. `tts-1`, `tts-1-hd` and `gpt-4o-mini-tts` shut down **2027-01-06** |
+| Narration, Realtime (preferred for new work) | `gpt-realtime-2.1-mini` is the current documented migration target; Round 3 used `gpt-realtime-2.1` / `marin` | A **different integration** (WebSocket session), not a `/audio/speech` model. Test the selected voice/prosody early; Realtime can generate saved files without building a voice app |
 | Transcription QA | `gpt-transcribe` (or `gpt-live-transcribe`) | `whisper-1` and `gpt-4o-*-transcribe` are deprecated for 2027-02-26 |
 | Frame QA | Any supported image-input model (Round 3 used `gpt-5.5` and `gpt-4.1-mini`) | "GPT Vision" is not an endpoint name |
 
