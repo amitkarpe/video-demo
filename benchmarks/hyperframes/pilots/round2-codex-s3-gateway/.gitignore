@@ -1,0 +1,4 @@
+.build/
+.hyperframes/
+__pycache__/
+assets/gsap.min.js
