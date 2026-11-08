@@ -1,0 +1,22 @@
+{
+  "scope": "Best-available cumulative session counter delta from last counter before native issue-24 goal dispatch to capture. Includes goal work and protocol overhead; excludes later closeout tokens.",
+  "counter_start": "2026-11-08T09:26:00.647Z",
+  "counter_end": "2026-11-08T10:27:22.561Z",
+  "actual_runtime": {
+    "model": "gpt-6-astra",
+    "effort": "high"
+  },
+  "tokens": {
+    "input_tokens": 15220639,
+    "cached_input_tokens": 15004800,
+    "output_tokens": 68986,
+    "reasoning_output_tokens": 25606,
+    "total_tokens": 15289625
+  },
+  "inference_cost_usd": "UNAVAILABLE",
+  "inference_cost_reason": "No verified tariff or billed inference breakdown is exposed for this Codex subscription/model. Media API cost is separate.",
+  "STARTED_AT_SGT": "2026-11-08T17:58:33+08:00",
+  "ARTIFACT_COMPLETED_AT_SGT": "2026-11-08T18:27:35+08:00",
+  "artifact_elapsed_minutes": 29.03,
+  "finish_scope": "Final delivery timestamp is posted to issue 24 after draft PR and remote artifact verification."
+}

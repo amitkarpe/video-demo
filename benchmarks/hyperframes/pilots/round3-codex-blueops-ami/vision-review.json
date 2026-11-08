@@ -1,0 +1,45 @@
+{
+  "id": "chatcmpl-EhuCguyTQcvV2MJfWO76BYuSLYWOF",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "{\n  \"blocking_findings\": [\n    {\n      \"timestamp\": \"149s\",\n      \"visible_evidence\": \"Cluster state for MongoDB is marked as UNKNOWN; standalone Mongo evidence shown but no proof of cluster.\",\n      \"concrete_fix\": \"Provide replication and recovery evidence to confirm cluster readiness before promotion.\"\n    },\n    {\n      \"timestamp\": \"172s\",\n      \"visible_evidence\": \"ECS test tasks have no real placed tasks shown; only mocks and demos described.\",\n      \"concrete_fix\": \"Demonstrate exact candidate ECS tasks actually placed in test environment to prove runtime acceptance.\"\n    },\n    {\n      \"timestamp\": \"234s\",\n      \"visible_evidence\": \"Policy states no current unattended production automation; requires management, security, and change approval prior to PROD promotions.\",\n      \"concrete_fix\": \"Document and obtain explicit prior approvals before any unattended PROD promotion to comply with policy.\"\n    },\n    {\n      \"timestamp\": \"247s\",\n      \"visible_evidence\": \"Promotion blocked on missing approval, unhealthy PROD canary, missing access etc.\",\n      \"concrete_fix\": \"Ensure all required approvals, healthy PROD canary, effective access and policy compliance before promotion attempts.\"\n    }\n  ],\n  \"improvements\": [\n    {\n      \"timestamp\": \"30s\",\n      \"improvement\": \"The narrative clearly distinguishes build success from trusted release, highlighting distinctions at the start.\"\n    },\n    {\n      \"timestamp\": \"50s\",\n      \"improvement\": \"Use of immutable source and event bridge signaling clearly framed as proposed discovery, emphasizing evidence recording.\"\n    },\n    {\n      \"timestamp\": \"127s\",\n      \"improvement\": \"GitLab workflow proof scope explicitly limited to cold boot and reboot; helps maintain honest scope boundaries.\"\n    },\n    {\n      \"timestamp\": \"221s\",\n      \"improvement\": \"Explicit Ops approval and agent configuration with canary callouts support the requirement for human acceptance before rollout.\"\n    }\n  ],\n  \"strengths\": [\n    {\n      \"timestamp\": \"66s\",\n      \"strength\": \"Clear callout that Hardened Base OS is package-only with no PROD manager binding and partial CIS profile; honest about limitations.\"\n    },\n    {\n      \"timestamp\": \"84s\",\n      \"strength\": \"Visual lineage diagram explicitly shows Hardened Base OS as DEV only with three direct children, matching the required story.\"\n    },\n    {\n      \"timestamp\": \"107s\",\n      \"strength\": \"DEV test floor evidence includes private no public IP connectivity, SSM online/readback, and exact runtime configuration pointing toward effective shareability.\"\n    },\n    {\n      \"timestamp\": \"263s\",\n      \"strength\": \"Explicit reminder that rollback of image is not equivalent to data restoration, clearly distinguishing prior known-good state from rollback paths.\"\n    }\n  ],\n  \"limitations\": [\n    {\n      \"timestamp\": \"5s\",\n      \"limitation\": \"Introductory slide is visually clear, but lacks concrete evidence or distinctions between current and proposed states.\"\n    },\n    {\n      \"timestamp\": \"193s\",\n      \"limitation\": \"Phase A slide outlines effective access and KMS access but admits observation alone does not prove access; suggests missing concrete evidence.\"\n    },\n    {\n      \"timestamp\": \"127s\",\n      \"limitation\": \"GitLab workflow proof does not cover authenticated workflows or cutover; calls for separate proof but none shown yet.\"\n    },\n    {\n      \"timestamp\": \"234s\",\n      \"limitation\": \"Phase B policy is clearly stated as proposed, not current; film confirms unattended PROD is not established, so no evidence for it.\"\n    }\n  ]\n}",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": [],
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      }
+    }
+  ],
+  "created": 1794132858,
+  "model": "gpt-4.1-mini-2025-04-14",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": "default",
+  "system_fingerprint": "fp_3e00b34037",
+  "usage": {
+    "completion_tokens": 749,
+    "prompt_tokens": 21115,
+    "total_tokens": 21864,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    }
+  }
+}

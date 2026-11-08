@@ -1,0 +1,154 @@
+{
+  "assets/factory-day.png": {
+    "sha256": "58e5ce63711f11f83a01f32e5b576720ddeffeb1415a5bd5de0aed45260b651f",
+    "bytes": 2158632
+  },
+  "assets/factory-night.png": {
+    "sha256": "7f109dfc3a7c4042dcea5385fb56bd63b67410ff3d366bb95163437523a0c2b9",
+    "bytes": 2067673
+  },
+  "blueops-trust-factory.mp4": {
+    "sha256": "3e01ae8dd0e64708040999912d97f043f25235f0db1d78bb0099823bb38e8953",
+    "bytes": 57739637
+  },
+  "transcript.txt": {
+    "sha256": "2407cf19e47907b94919255ba14aaeea7cf7375b2bf7d90d479deb366889605c",
+    "bytes": 3607
+  },
+  "captions.srt": {
+    "sha256": "4ab3dce5f4591795699cb5d87a88fddc8a0107b8082b76bfc00d978b1c6d2c8c",
+    "bytes": 6258
+  },
+  "scene.html.template": {
+    "sha256": "1c54316a769e35b15a04b82e6cd207a66a4c6e05b748a37db41f9db9720c0217",
+    "bytes": 28136
+  },
+  "index.html": {
+    "sha256": "c4be8e910d3d35d965e7123372eeb0b95d6ad6bd3391ecba1fbd5c7f85fe6f77",
+    "bytes": 59396
+  },
+  "assets/voice-00.wav": {
+    "sha256": "8240a02b66c995061238f0d28294364728205c939d12ec4733c91cb46289c905",
+    "bytes": 264044
+  },
+  "assets/voice-01.wav": {
+    "sha256": "9c93d17167f625968c716e596222d933c6f113f9356326bbc55165ecc31b108a",
+    "bytes": 340844
+  },
+  "assets/voice-02.wav": {
+    "sha256": "39281cb03545eb3f8377144351e832e0035b00055b6f24ef0b2409f3982c793a",
+    "bytes": 434444
+  },
+  "assets/voice-03.wav": {
+    "sha256": "1c153541108df4b5475e2cece33bf7162e6a9924e1d42d3bed279a346e967ad1",
+    "bytes": 357644
+  },
+  "assets/voice-04.wav": {
+    "sha256": "8c422668d8ab13114f9ae453947a618f09d765707ba37f5d0d645531bed313ba",
+    "bytes": 547244
+  },
+  "assets/voice-05.wav": {
+    "sha256": "8e14816a5feb4dd0ccc8a33644dd923ca3c18d2ece30fea73beee136bf7e8995",
+    "bytes": 494444
+  },
+  "assets/voice-06.wav": {
+    "sha256": "c4b64e9810aa3cc56e2bb685819408da70b4a8d8d35c0a1d8a9c5eb8b9ef7a5a",
+    "bytes": 480044
+  },
+  "assets/voice-07.wav": {
+    "sha256": "f07231de9815fe99636397317cfa82083baa7fb36a9537e16e0078b53f7aa343",
+    "bytes": 516044
+  },
+  "assets/voice-08.wav": {
+    "sha256": "e71dbde6de9c4a3cfc054c054fb68aacb92aaec6264314c96cf53b681d44589f",
+    "bytes": 578444
+  },
+  "assets/voice-09.wav": {
+    "sha256": "0e3707e41a90c81a575fc0b2d2a33d69145352113e8337d6ecae50c3353a8ae1",
+    "bytes": 429644
+  },
+  "assets/voice-10.wav": {
+    "sha256": "f6f00e810514d400e46c6cce92a4307b7bd3de914dbf44f78b4f4abf5d249a20",
+    "bytes": 458444
+  },
+  "assets/voice-11.wav": {
+    "sha256": "3923c5a31ce68d703e6cd5fa154480d0ae1314273026f8c7481df7763bff2ea4",
+    "bytes": 518444
+  },
+  "assets/voice-12.wav": {
+    "sha256": "a11b72295b514c7c45e7b1b55e85757c5ec1c65cf5aa178e1c592910740c7661",
+    "bytes": 362444
+  },
+  "assets/voice-13.wav": {
+    "sha256": "afb6b0588a8dbbcdc96cb0e363609edaf9bd71dfada91e628ac449b9af1aab6f",
+    "bytes": 504044
+  },
+  "assets/voice-14.wav": {
+    "sha256": "31de938d141a6d8ab75bd3a43217127ffa7b5d32303b9bf1c4b5dc66907fbdfc",
+    "bytes": 664844
+  },
+  "assets/voice-15.wav": {
+    "sha256": "04d3e7c0d451316d4377758e0df677f659cecd53a01634e223155b1efe7bbf6e",
+    "bytes": 376844
+  },
+  "assets/voice-16.wav": {
+    "sha256": "84d7d67c1e66de8e5590211e52c0edfd5b4672138e45f4d171a2c6f942838154",
+    "bytes": 492044
+  },
+  "assets/voice-17.wav": {
+    "sha256": "456863f0469f91b04785eaa7d07fc8d858fbdfb95e1b764690a074d18504dfc2",
+    "bytes": 482444
+  },
+  "assets/voice-18.wav": {
+    "sha256": "d19cc328d55ac0797e5dd6e2d73b5e99eb44e740738dfd4574830f158ffefc9e",
+    "bytes": 477644
+  },
+  "assets/voice-19.wav": {
+    "sha256": "4aca7dea3214f230d95e76be7c91fd9ec456175c3b35d3bf4d5df3c729dea007",
+    "bytes": 468044
+  },
+  "assets/voice-20.wav": {
+    "sha256": "f234a1950f0b51c4004193999823b2216cd5eb6751dca50581c8fd493f879946",
+    "bytes": 412844
+  },
+  "assets/voice-21.wav": {
+    "sha256": "a84a0ce779b10fb268f19c0b320c1a47e4ee476dcc74bd4aaffbeb17bd46fcc3",
+    "bytes": 422444
+  },
+  "assets/voice-22.wav": {
+    "sha256": "0f58df7bfa9d7e2484941f94e677127541355e558ee963bd4e7927265499d43a",
+    "bytes": 494444
+  },
+  "assets/voice-23.wav": {
+    "sha256": "ec291526232a759fce718c657a67077f755fc56623e1f560000839d1f04d93bd",
+    "bytes": 475244
+  },
+  "assets/voice-24.wav": {
+    "sha256": "2dd2a348d052008453b4edb189103284f375cf662f93ec0328a04437582a25de",
+    "bytes": 434444
+  },
+  "assets/voice-25.wav": {
+    "sha256": "216807db6c334cadb47439df5a8ad63385e16bce2e146adcb6f2995ff256d595",
+    "bytes": 240044
+  },
+  "keyframes/01-factory.png": {
+    "sha256": "4c7a49e2893350bc4191d2386dad20e0692507b881b4029aae42d1de1a8f848a",
+    "bytes": 2057671
+  },
+  "keyframes/02-three-families.png": {
+    "sha256": "43424b0c5e2f9ca50b99efed8dd042e1ffe20b5c1cd6cd52bf61af00a9f9aa37",
+    "bytes": 987051
+  },
+  "keyframes/03-ecs-gate.png": {
+    "sha256": "711d68b01ceee920d47a5b9f74884f789f6ba94e89953405551bd41b5c725eb4",
+    "bytes": 920876
+  },
+  "keyframes/04-future-policy.png": {
+    "sha256": "e6b96e4afbabdfc96b24f07e1c28afa9270d62d6fea7c6a8585b1645b1443564",
+    "bytes": 1822530
+  },
+  "keyframes/05-recovery.png": {
+    "sha256": "29538eff4f7652b56706845ba3658a0095a408b53feaa973248fdae99a7a5ba2",
+    "bytes": 1017644
+  }
+}

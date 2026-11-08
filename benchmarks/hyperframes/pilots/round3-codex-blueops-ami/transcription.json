@@ -1,0 +1,2793 @@
+{
+  "duration": 268.0,
+  "language": "english",
+  "text": "A new, golden image arrives, but a successful build is not yet a trusted production release. BlueOps turns that gap into a controlled journey. Build a shared base, prove each workload, then earn the right to promote. The journey starts with a GovTech GCC golden Amazon Linux 2023 image, a baseline with hardening and some operations agents. An EventBridge discovery signal is part of the proposed design. Record the immutable source identity before the factory moves. ImageBuilder combines that approved source with approved GCC agent packages and a selected CIS hardening profile. The product is hardened base OS. Package only means no production manager registration baked into the image. Selected controls do not mean full CIS compliance or complete security scan acceptance. Free child families derive directly from that base, GitLab, MongoDB, and CloudOS ECS Worker. The shared base stays in development. GitLab carries its own required runtime. MongoDB is non-container by default. GitLab plus Nextflow is an optional extension, not a fourth core family. Now the test floor. Every result must identify the exact candidate. Private connectivity, no public IP, SSM readback, packages, configuration, and provenance all matter. For GitLab, demand healthy service. Representative clone and push, create, read, update, and delete, persistence, and reboot proof. Current private runtime checks cover cold boot and reboot. They do not by themselves prove authenticated repository workflows or a production cutover. MongoDB needs a running process, create, read, update, and delete, and backup restore smoke. Those standalone checks do not prove a healthy replica set. A proposed higher confidence cluster gate would test replication and recovery. Until it passes, cluster readiness remains unknown. CloudOS ECS Worker must place tasks on the exact candidate. Zero-place tasks is a failure, even when the image build is green. Our proposed demo suite adds mock workloads, service-to-service network flows, and scoped parameter store reads through authorized IAM. These are simulated tests, not live evidence. Phase A is a controlled release. Development proof comes first. Only validated child images move toward production acceptance. Verify encryption, AMI launch access, and usable backing snapshots and KMS access. A policy observation alone does not prove a successful private launch. Test the exact image consumed in production with that environment's own agent configuration. Development success cannot stand in for production runtime acceptance. The Ops Engineer reviews the evidence and gives explicit approval for this rollout. Build success, validation, and human approval are separate states. Phase B is a future operating policy. Candidates could build and validate weekly. The proposed promotion window is the first Saturday night each month. Promotion without per-release ops approval becomes possible only after management, security, and change governance approve that policy and its conditions. The current repository does not establish unattended monthly production rollout. A critical vulnerability can instead trigger an urgent ops-approved release. A failed or unknown check, missing approval or policy, missing access, or an unhealthy production cannery closes the gate. Nothing advances on an assumption. Keep the prior known good release and a tested data recovery path. Read back the rollout result. If the canary fails, stop and use the approved rollback plan. A few minutes of downtime may be acceptable if approved. Reversibility and observable acceptance matter more than a green build badge. Build once. Validate every workload. Promote only what is proven.",
+  "segments": null,
+  "usage": {
+    "seconds": 268.0,
+    "type": "duration"
+  },
+  "words": [
+    {
+      "end": 0.9200000166893005,
+      "start": 0.0,
+      "word": "A"
+    },
+    {
+      "end": 1.2799999713897705,
+      "start": 0.9200000166893005,
+      "word": "new"
+    },
+    {
+      "end": 1.6399999856948853,
+      "start": 1.6399999856948853,
+      "word": "golden"
+    },
+    {
+      "end": 1.9800000190734863,
+      "start": 1.6399999856948853,
+      "word": "image"
+    },
+    {
+      "end": 2.4600000381469727,
+      "start": 1.9800000190734863,
+      "word": "arrives"
+    },
+    {
+      "end": 3.119999885559082,
+      "start": 3.0399999618530273,
+      "word": "but"
+    },
+    {
+      "end": 3.299999952316284,
+      "start": 3.119999885559082,
+      "word": "a"
+    },
+    {
+      "end": 3.6600000858306885,
+      "start": 3.299999952316284,
+      "word": "successful"
+    },
+    {
+      "end": 4.0,
+      "start": 3.6600000858306885,
+      "word": "build"
+    },
+    {
+      "end": 4.179999828338623,
+      "start": 4.0,
+      "word": "is"
+    },
+    {
+      "end": 4.400000095367432,
+      "start": 4.179999828338623,
+      "word": "not"
+    },
+    {
+      "end": 4.619999885559082,
+      "start": 4.400000095367432,
+      "word": "yet"
+    },
+    {
+      "end": 4.820000171661377,
+      "start": 4.619999885559082,
+      "word": "a"
+    },
+    {
+      "end": 5.099999904632568,
+      "start": 4.820000171661377,
+      "word": "trusted"
+    },
+    {
+      "end": 5.619999885559082,
+      "start": 5.099999904632568,
+      "word": "production"
+    },
+    {
+      "end": 6.059999942779541,
+      "start": 5.619999885559082,
+      "word": "release"
+    },
+    {
+      "end": 7.360000133514404,
+      "start": 6.980000019073486,
+      "word": "BlueOps"
+    },
+    {
+      "end": 7.699999809265137,
+      "start": 7.360000133514404,
+      "word": "turns"
+    },
+    {
+      "end": 7.960000038146973,
+      "start": 7.699999809265137,
+      "word": "that"
+    },
+    {
+      "end": 8.220000267028809,
+      "start": 7.960000038146973,
+      "word": "gap"
+    },
+    {
+      "end": 8.399999618530273,
+      "start": 8.220000267028809,
+      "word": "into"
+    },
+    {
+      "end": 8.640000343322754,
+      "start": 8.399999618530273,
+      "word": "a"
+    },
+    {
+      "end": 8.979999542236328,
+      "start": 8.640000343322754,
+      "word": "controlled"
+    },
+    {
+      "end": 9.260000228881836,
+      "start": 8.979999542236328,
+      "word": "journey"
+    },
+    {
+      "end": 9.960000038146973,
+      "start": 9.960000038146973,
+      "word": "Build"
+    },
+    {
+      "end": 10.380000114440918,
+      "start": 9.960000038146973,
+      "word": "a"
+    },
+    {
+      "end": 10.380000114440918,
+      "start": 10.380000114440918,
+      "word": "shared"
+    },
+    {
+      "end": 10.720000267028809,
+      "start": 10.380000114440918,
+      "word": "base"
+    },
+    {
+      "end": 11.300000190734863,
+      "start": 11.260000228881836,
+      "word": "prove"
+    },
+    {
+      "end": 11.5600004196167,
+      "start": 11.300000190734863,
+      "word": "each"
+    },
+    {
+      "end": 11.859999656677246,
+      "start": 11.5600004196167,
+      "word": "workload"
+    },
+    {
+      "end": 12.520000457763672,
+      "start": 12.260000228881836,
+      "word": "then"
+    },
+    {
+      "end": 12.640000343322754,
+      "start": 12.520000457763672,
+      "word": "earn"
+    },
+    {
+      "end": 12.819999694824219,
+      "start": 12.640000343322754,
+      "word": "the"
+    },
+    {
+      "end": 13.0,
+      "start": 12.819999694824219,
+      "word": "right"
+    },
+    {
+      "end": 13.479999542236328,
+      "start": 13.0,
+      "word": "to"
+    },
+    {
+      "end": 13.479999542236328,
+      "start": 13.479999542236328,
+      "word": "promote"
+    },
+    {
+      "end": 15.140000343322754,
+      "start": 14.800000190734863,
+      "word": "The"
+    },
+    {
+      "end": 15.4399995803833,
+      "start": 15.140000343322754,
+      "word": "journey"
+    },
+    {
+      "end": 15.880000114440918,
+      "start": 15.4399995803833,
+      "word": "starts"
+    },
+    {
+      "end": 16.459999084472656,
+      "start": 15.880000114440918,
+      "word": "with"
+    },
+    {
+      "end": 16.68000030517578,
+      "start": 16.459999084472656,
+      "word": "a"
+    },
+    {
+      "end": 17.040000915527344,
+      "start": 16.68000030517578,
+      "word": "GovTech"
+    },
+    {
+      "end": 17.899999618530273,
+      "start": 17.040000915527344,
+      "word": "GCC"
+    },
+    {
+      "end": 18.6200008392334,
+      "start": 17.899999618530273,
+      "word": "golden"
+    },
+    {
+      "end": 19.100000381469727,
+      "start": 18.6200008392334,
+      "word": "Amazon"
+    },
+    {
+      "end": 19.3799991607666,
+      "start": 19.100000381469727,
+      "word": "Linux"
+    },
+    {
+      "end": 20.15999984741211,
+      "start": 19.3799991607666,
+      "word": "2023"
+    },
+    {
+      "end": 20.479999542236328,
+      "start": 20.15999984741211,
+      "word": "image"
+    },
+    {
+      "end": 21.260000228881836,
+      "start": 21.040000915527344,
+      "word": "a"
+    },
+    {
+      "end": 21.559999465942383,
+      "start": 21.260000228881836,
+      "word": "baseline"
+    },
+    {
+      "end": 22.040000915527344,
+      "start": 21.559999465942383,
+      "word": "with"
+    },
+    {
+      "end": 22.15999984741211,
+      "start": 22.040000915527344,
+      "word": "hardening"
+    },
+    {
+      "end": 22.639999389648438,
+      "start": 22.15999984741211,
+      "word": "and"
+    },
+    {
+      "end": 22.920000076293945,
+      "start": 22.639999389648438,
+      "word": "some"
+    },
+    {
+      "end": 23.280000686645508,
+      "start": 22.920000076293945,
+      "word": "operations"
+    },
+    {
+      "end": 23.639999389648438,
+      "start": 23.280000686645508,
+      "word": "agents"
+    },
+    {
+      "end": 24.68000030517578,
+      "start": 24.399999618530273,
+      "word": "An"
+    },
+    {
+      "end": 25.200000762939453,
+      "start": 24.68000030517578,
+      "word": "EventBridge"
+    },
+    {
+      "end": 25.799999237060547,
+      "start": 25.200000762939453,
+      "word": "discovery"
+    },
+    {
+      "end": 26.100000381469727,
+      "start": 25.799999237060547,
+      "word": "signal"
+    },
+    {
+      "end": 26.579999923706055,
+      "start": 26.100000381469727,
+      "word": "is"
+    },
+    {
+      "end": 26.760000228881836,
+      "start": 26.579999923706055,
+      "word": "part"
+    },
+    {
+      "end": 26.860000610351562,
+      "start": 26.760000228881836,
+      "word": "of"
+    },
+    {
+      "end": 27.079999923706055,
+      "start": 26.860000610351562,
+      "word": "the"
+    },
+    {
+      "end": 27.360000610351562,
+      "start": 27.079999923706055,
+      "word": "proposed"
+    },
+    {
+      "end": 27.799999237060547,
+      "start": 27.360000610351562,
+      "word": "design"
+    },
+    {
+      "end": 28.799999237060547,
+      "start": 28.360000610351562,
+      "word": "Record"
+    },
+    {
+      "end": 29.0,
+      "start": 28.799999237060547,
+      "word": "the"
+    },
+    {
+      "end": 29.420000076293945,
+      "start": 29.0,
+      "word": "immutable"
+    },
+    {
+      "end": 29.760000228881836,
+      "start": 29.420000076293945,
+      "word": "source"
+    },
+    {
+      "end": 30.219999313354492,
+      "start": 29.760000228881836,
+      "word": "identity"
+    },
+    {
+      "end": 30.8799991607666,
+      "start": 30.219999313354492,
+      "word": "before"
+    },
+    {
+      "end": 31.3799991607666,
+      "start": 30.8799991607666,
+      "word": "the"
+    },
+    {
+      "end": 31.3799991607666,
+      "start": 31.3799991607666,
+      "word": "factory"
+    },
+    {
+      "end": 31.940000534057617,
+      "start": 31.3799991607666,
+      "word": "moves"
+    },
+    {
+      "end": 33.7400016784668,
+      "start": 33.119998931884766,
+      "word": "ImageBuilder"
+    },
+    {
+      "end": 34.41999816894531,
+      "start": 33.7400016784668,
+      "word": "combines"
+    },
+    {
+      "end": 34.7400016784668,
+      "start": 34.41999816894531,
+      "word": "that"
+    },
+    {
+      "end": 35.099998474121094,
+      "start": 34.7400016784668,
+      "word": "approved"
+    },
+    {
+      "end": 35.47999954223633,
+      "start": 35.099998474121094,
+      "word": "source"
+    },
+    {
+      "end": 36.0,
+      "start": 35.47999954223633,
+      "word": "with"
+    },
+    {
+      "end": 36.52000045776367,
+      "start": 36.0,
+      "word": "approved"
+    },
+    {
+      "end": 37.36000061035156,
+      "start": 36.52000045776367,
+      "word": "GCC"
+    },
+    {
+      "end": 37.84000015258789,
+      "start": 37.36000061035156,
+      "word": "agent"
+    },
+    {
+      "end": 38.18000030517578,
+      "start": 37.84000015258789,
+      "word": "packages"
+    },
+    {
+      "end": 38.939998626708984,
+      "start": 38.18000030517578,
+      "word": "and"
+    },
+    {
+      "end": 39.58000183105469,
+      "start": 38.939998626708984,
+      "word": "a"
+    },
+    {
+      "end": 39.58000183105469,
+      "start": 39.58000183105469,
+      "word": "selected"
+    },
+    {
+      "end": 40.34000015258789,
+      "start": 39.58000183105469,
+      "word": "CIS"
+    },
+    {
+      "end": 40.7400016784668,
+      "start": 40.34000015258789,
+      "word": "hardening"
+    },
+    {
+      "end": 41.220001220703125,
+      "start": 40.7400016784668,
+      "word": "profile"
+    },
+    {
+      "end": 42.13999938964844,
+      "start": 42.099998474121094,
+      "word": "The"
+    },
+    {
+      "end": 42.52000045776367,
+      "start": 42.13999938964844,
+      "word": "product"
+    },
+    {
+      "end": 43.02000045776367,
+      "start": 42.52000045776367,
+      "word": "is"
+    },
+    {
+      "end": 43.29999923706055,
+      "start": 43.02000045776367,
+      "word": "hardened"
+    },
+    {
+      "end": 43.7400016784668,
+      "start": 43.29999923706055,
+      "word": "base"
+    },
+    {
+      "end": 44.540000915527344,
+      "start": 43.7400016784668,
+      "word": "OS"
+    },
+    {
+      "end": 45.29999923706055,
+      "start": 45.15999984741211,
+      "word": "Package"
+    },
+    {
+      "end": 45.58000183105469,
+      "start": 45.29999923706055,
+      "word": "only"
+    },
+    {
+      "end": 45.939998626708984,
+      "start": 45.58000183105469,
+      "word": "means"
+    },
+    {
+      "end": 46.279998779296875,
+      "start": 45.939998626708984,
+      "word": "no"
+    },
+    {
+      "end": 46.65999984741211,
+      "start": 46.279998779296875,
+      "word": "production"
+    },
+    {
+      "end": 47.15999984741211,
+      "start": 46.65999984741211,
+      "word": "manager"
+    },
+    {
+      "end": 47.7599983215332,
+      "start": 47.15999984741211,
+      "word": "registration"
+    },
+    {
+      "end": 48.15999984741211,
+      "start": 47.7599983215332,
+      "word": "baked"
+    },
+    {
+      "end": 48.400001525878906,
+      "start": 48.15999984741211,
+      "word": "into"
+    },
+    {
+      "end": 48.900001525878906,
+      "start": 48.400001525878906,
+      "word": "the"
+    },
+    {
+      "end": 48.900001525878906,
+      "start": 48.900001525878906,
+      "word": "image"
+    },
+    {
+      "end": 50.459999084472656,
+      "start": 50.220001220703125,
+      "word": "Selected"
+    },
+    {
+      "end": 50.7599983215332,
+      "start": 50.459999084472656,
+      "word": "controls"
+    },
+    {
+      "end": 51.060001373291016,
+      "start": 50.7599983215332,
+      "word": "do"
+    },
+    {
+      "end": 51.20000076293945,
+      "start": 51.060001373291016,
+      "word": "not"
+    },
+    {
+      "end": 51.459999084472656,
+      "start": 51.20000076293945,
+      "word": "mean"
+    },
+    {
+      "end": 51.720001220703125,
+      "start": 51.459999084472656,
+      "word": "full"
+    },
+    {
+      "end": 52.119998931884766,
+      "start": 51.720001220703125,
+      "word": "CIS"
+    },
+    {
+      "end": 52.619998931884766,
+      "start": 52.119998931884766,
+      "word": "compliance"
+    },
+    {
+      "end": 53.099998474121094,
+      "start": 52.619998931884766,
+      "word": "or"
+    },
+    {
+      "end": 53.5,
+      "start": 53.099998474121094,
+      "word": "complete"
+    },
+    {
+      "end": 53.91999816894531,
+      "start": 53.5,
+      "word": "security"
+    },
+    {
+      "end": 54.20000076293945,
+      "start": 53.91999816894531,
+      "word": "scan"
+    },
+    {
+      "end": 54.70000076293945,
+      "start": 54.20000076293945,
+      "word": "acceptance"
+    },
+    {
+      "end": 56.400001525878906,
+      "start": 55.63999938964844,
+      "word": "Free"
+    },
+    {
+      "end": 56.880001068115234,
+      "start": 56.400001525878906,
+      "word": "child"
+    },
+    {
+      "end": 57.2599983215332,
+      "start": 56.880001068115234,
+      "word": "families"
+    },
+    {
+      "end": 57.959999084472656,
+      "start": 57.2599983215332,
+      "word": "derive"
+    },
+    {
+      "end": 58.34000015258789,
+      "start": 57.959999084472656,
+      "word": "directly"
+    },
+    {
+      "end": 58.599998474121094,
+      "start": 58.34000015258789,
+      "word": "from"
+    },
+    {
+      "end": 58.81999969482422,
+      "start": 58.599998474121094,
+      "word": "that"
+    },
+    {
+      "end": 59.099998474121094,
+      "start": 58.81999969482422,
+      "word": "base"
+    },
+    {
+      "end": 59.900001525878906,
+      "start": 59.65999984741211,
+      "word": "GitLab"
+    },
+    {
+      "end": 60.900001525878906,
+      "start": 60.68000030517578,
+      "word": "MongoDB"
+    },
+    {
+      "end": 61.84000015258789,
+      "start": 61.439998626708984,
+      "word": "and"
+    },
+    {
+      "end": 62.41999816894531,
+      "start": 61.84000015258789,
+      "word": "CloudOS"
+    },
+    {
+      "end": 63.18000030517578,
+      "start": 62.41999816894531,
+      "word": "ECS"
+    },
+    {
+      "end": 63.599998474121094,
+      "start": 63.18000030517578,
+      "word": "Worker"
+    },
+    {
+      "end": 64.33999633789062,
+      "start": 64.19999694824219,
+      "word": "The"
+    },
+    {
+      "end": 64.55999755859375,
+      "start": 64.33999633789062,
+      "word": "shared"
+    },
+    {
+      "end": 64.9000015258789,
+      "start": 64.55999755859375,
+      "word": "base"
+    },
+    {
+      "end": 65.33999633789062,
+      "start": 64.9000015258789,
+      "word": "stays"
+    },
+    {
+      "end": 66.0,
+      "start": 65.33999633789062,
+      "word": "in"
+    },
+    {
+      "end": 66.0,
+      "start": 66.0,
+      "word": "development"
+    },
+    {
+      "end": 67.27999877929688,
+      "start": 66.86000061035156,
+      "word": "GitLab"
+    },
+    {
+      "end": 67.66000366210938,
+      "start": 67.27999877929688,
+      "word": "carries"
+    },
+    {
+      "end": 67.87999725341797,
+      "start": 67.66000366210938,
+      "word": "its"
+    },
+    {
+      "end": 68.19999694824219,
+      "start": 67.87999725341797,
+      "word": "own"
+    },
+    {
+      "end": 68.5999984741211,
+      "start": 68.19999694824219,
+      "word": "required"
+    },
+    {
+      "end": 69.04000091552734,
+      "start": 68.5999984741211,
+      "word": "runtime"
+    },
+    {
+      "end": 70.4800033569336,
+      "start": 69.95999908447266,
+      "word": "MongoDB"
+    },
+    {
+      "end": 70.87999725341797,
+      "start": 70.4800033569336,
+      "word": "is"
+    },
+    {
+      "end": 71.18000030517578,
+      "start": 70.87999725341797,
+      "word": "non"
+    },
+    {
+      "end": 71.54000091552734,
+      "start": 71.18000030517578,
+      "word": "container"
+    },
+    {
+      "end": 71.69999694824219,
+      "start": 71.54000091552734,
+      "word": "by"
+    },
+    {
+      "end": 72.41999816894531,
+      "start": 71.69999694824219,
+      "word": "default"
+    },
+    {
+      "end": 73.26000213623047,
+      "start": 72.91999816894531,
+      "word": "GitLab"
+    },
+    {
+      "end": 73.69999694824219,
+      "start": 73.26000213623047,
+      "word": "plus"
+    },
+    {
+      "end": 74.04000091552734,
+      "start": 73.69999694824219,
+      "word": "Nextflow"
+    },
+    {
+      "end": 74.58000183105469,
+      "start": 74.04000091552734,
+      "word": "is"
+    },
+    {
+      "end": 74.87999725341797,
+      "start": 74.58000183105469,
+      "word": "an"
+    },
+    {
+      "end": 75.0999984741211,
+      "start": 74.87999725341797,
+      "word": "optional"
+    },
+    {
+      "end": 75.58000183105469,
+      "start": 75.0999984741211,
+      "word": "extension"
+    },
+    {
+      "end": 76.19999694824219,
+      "start": 76.0999984741211,
+      "word": "not"
+    },
+    {
+      "end": 76.4800033569336,
+      "start": 76.19999694824219,
+      "word": "a"
+    },
+    {
+      "end": 76.5999984741211,
+      "start": 76.4800033569336,
+      "word": "fourth"
+    },
+    {
+      "end": 76.83999633789062,
+      "start": 76.5999984741211,
+      "word": "core"
+    },
+    {
+      "end": 77.16000366210938,
+      "start": 76.83999633789062,
+      "word": "family"
+    },
+    {
+      "end": 78.86000061035156,
+      "start": 78.4800033569336,
+      "word": "Now"
+    },
+    {
+      "end": 79.27999877929688,
+      "start": 78.86000061035156,
+      "word": "the"
+    },
+    {
+      "end": 79.62000274658203,
+      "start": 79.27999877929688,
+      "word": "test"
+    },
+    {
+      "end": 79.87999725341797,
+      "start": 79.62000274658203,
+      "word": "floor"
+    },
+    {
+      "end": 80.66000366210938,
+      "start": 80.5,
+      "word": "Every"
+    },
+    {
+      "end": 80.95999908447266,
+      "start": 80.66000366210938,
+      "word": "result"
+    },
+    {
+      "end": 81.30000305175781,
+      "start": 80.95999908447266,
+      "word": "must"
+    },
+    {
+      "end": 81.66000366210938,
+      "start": 81.30000305175781,
+      "word": "identify"
+    },
+    {
+      "end": 82.0,
+      "start": 81.66000366210938,
+      "word": "the"
+    },
+    {
+      "end": 82.36000061035156,
+      "start": 82.0,
+      "word": "exact"
+    },
+    {
+      "end": 82.76000213623047,
+      "start": 82.36000061035156,
+      "word": "candidate"
+    },
+    {
+      "end": 83.63999938964844,
+      "start": 82.76000213623047,
+      "word": "Private"
+    },
+    {
+      "end": 84.13999938964844,
+      "start": 83.63999938964844,
+      "word": "connectivity"
+    },
+    {
+      "end": 84.9000015258789,
+      "start": 84.72000122070312,
+      "word": "no"
+    },
+    {
+      "end": 85.16000366210938,
+      "start": 84.9000015258789,
+      "word": "public"
+    },
+    {
+      "end": 85.5199966430664,
+      "start": 85.16000366210938,
+      "word": "IP"
+    },
+    {
+      "end": 86.58000183105469,
+      "start": 86.16000366210938,
+      "word": "SSM"
+    },
+    {
+      "end": 87.04000091552734,
+      "start": 86.58000183105469,
+      "word": "readback"
+    },
+    {
+      "end": 87.91999816894531,
+      "start": 87.91999816894531,
+      "word": "packages"
+    },
+    {
+      "end": 88.87999725341797,
+      "start": 88.87999725341797,
+      "word": "configuration"
+    },
+    {
+      "end": 89.58000183105469,
+      "start": 89.22000122070312,
+      "word": "and"
+    },
+    {
+      "end": 89.77999877929688,
+      "start": 89.58000183105469,
+      "word": "provenance"
+    },
+    {
+      "end": 90.4800033569336,
+      "start": 89.77999877929688,
+      "word": "all"
+    },
+    {
+      "end": 90.4800033569336,
+      "start": 90.4800033569336,
+      "word": "matter"
+    },
+    {
+      "end": 92.0,
+      "start": 91.73999786376953,
+      "word": "For"
+    },
+    {
+      "end": 92.77999877929688,
+      "start": 92.0,
+      "word": "GitLab"
+    },
+    {
+      "end": 93.54000091552734,
+      "start": 93.23999786376953,
+      "word": "demand"
+    },
+    {
+      "end": 93.87999725341797,
+      "start": 93.54000091552734,
+      "word": "healthy"
+    },
+    {
+      "end": 94.36000061035156,
+      "start": 93.87999725341797,
+      "word": "service"
+    },
+    {
+      "end": 95.36000061035156,
+      "start": 95.19999694824219,
+      "word": "Representative"
+    },
+    {
+      "end": 95.69999694824219,
+      "start": 95.36000061035156,
+      "word": "clone"
+    },
+    {
+      "end": 96.16000366210938,
+      "start": 95.69999694824219,
+      "word": "and"
+    },
+    {
+      "end": 96.16000366210938,
+      "start": 96.16000366210938,
+      "word": "push"
+    },
+    {
+      "end": 96.9000015258789,
+      "start": 96.83999633789062,
+      "word": "create"
+    },
+    {
+      "end": 97.23999786376953,
+      "start": 97.22000122070312,
+      "word": "read"
+    },
+    {
+      "end": 97.63999938964844,
+      "start": 97.4000015258789,
+      "word": "update"
+    },
+    {
+      "end": 98.13999938964844,
+      "start": 97.68000030517578,
+      "word": "and"
+    },
+    {
+      "end": 98.13999938964844,
+      "start": 98.13999938964844,
+      "word": "delete"
+    },
+    {
+      "end": 99.04000091552734,
+      "start": 98.63999938964844,
+      "word": "persistence"
+    },
+    {
+      "end": 99.94000244140625,
+      "start": 99.45999908447266,
+      "word": "and"
+    },
+    {
+      "end": 99.94000244140625,
+      "start": 99.94000244140625,
+      "word": "reboot"
+    },
+    {
+      "end": 100.37999725341797,
+      "start": 99.94000244140625,
+      "word": "proof"
+    },
+    {
+      "end": 101.41999816894531,
+      "start": 101.19999694824219,
+      "word": "Current"
+    },
+    {
+      "end": 101.94000244140625,
+      "start": 101.41999816894531,
+      "word": "private"
+    },
+    {
+      "end": 102.33999633789062,
+      "start": 101.94000244140625,
+      "word": "runtime"
+    },
+    {
+      "end": 102.72000122070312,
+      "start": 102.33999633789062,
+      "word": "checks"
+    },
+    {
+      "end": 103.27999877929688,
+      "start": 102.72000122070312,
+      "word": "cover"
+    },
+    {
+      "end": 103.68000030517578,
+      "start": 103.27999877929688,
+      "word": "cold"
+    },
+    {
+      "end": 103.86000061035156,
+      "start": 103.68000030517578,
+      "word": "boot"
+    },
+    {
+      "end": 104.45999908447266,
+      "start": 103.86000061035156,
+      "word": "and"
+    },
+    {
+      "end": 104.73999786376953,
+      "start": 104.45999908447266,
+      "word": "reboot"
+    },
+    {
+      "end": 105.58000183105469,
+      "start": 105.36000061035156,
+      "word": "They"
+    },
+    {
+      "end": 105.72000122070312,
+      "start": 105.58000183105469,
+      "word": "do"
+    },
+    {
+      "end": 105.9000015258789,
+      "start": 105.72000122070312,
+      "word": "not"
+    },
+    {
+      "end": 106.16000366210938,
+      "start": 105.9000015258789,
+      "word": "by"
+    },
+    {
+      "end": 106.55999755859375,
+      "start": 106.16000366210938,
+      "word": "themselves"
+    },
+    {
+      "end": 107.08000183105469,
+      "start": 106.55999755859375,
+      "word": "prove"
+    },
+    {
+      "end": 107.69999694824219,
+      "start": 107.08000183105469,
+      "word": "authenticated"
+    },
+    {
+      "end": 108.31999969482422,
+      "start": 107.69999694824219,
+      "word": "repository"
+    },
+    {
+      "end": 108.83999633789062,
+      "start": 108.31999969482422,
+      "word": "workflows"
+    },
+    {
+      "end": 109.36000061035156,
+      "start": 108.83999633789062,
+      "word": "or"
+    },
+    {
+      "end": 109.87999725341797,
+      "start": 109.36000061035156,
+      "word": "a"
+    },
+    {
+      "end": 109.87999725341797,
+      "start": 109.87999725341797,
+      "word": "production"
+    },
+    {
+      "end": 110.5,
+      "start": 109.87999725341797,
+      "word": "cutover"
+    },
+    {
+      "end": 112.77999877929688,
+      "start": 112.0199966430664,
+      "word": "MongoDB"
+    },
+    {
+      "end": 113.4800033569336,
+      "start": 112.77999877929688,
+      "word": "needs"
+    },
+    {
+      "end": 113.68000030517578,
+      "start": 113.4800033569336,
+      "word": "a"
+    },
+    {
+      "end": 113.94000244140625,
+      "start": 113.68000030517578,
+      "word": "running"
+    },
+    {
+      "end": 114.4800033569336,
+      "start": 113.94000244140625,
+      "word": "process"
+    },
+    {
+      "end": 115.31999969482422,
+      "start": 115.05999755859375,
+      "word": "create"
+    },
+    {
+      "end": 115.83999633789062,
+      "start": 115.83999633789062,
+      "word": "read"
+    },
+    {
+      "end": 116.26000213623047,
+      "start": 116.0,
+      "word": "update"
+    },
+    {
+      "end": 116.73999786376953,
+      "start": 116.33999633789062,
+      "word": "and"
+    },
+    {
+      "end": 116.73999786376953,
+      "start": 116.73999786376953,
+      "word": "delete"
+    },
+    {
+      "end": 117.33999633789062,
+      "start": 117.16000366210938,
+      "word": "and"
+    },
+    {
+      "end": 117.66000366210938,
+      "start": 117.33999633789062,
+      "word": "backup"
+    },
+    {
+      "end": 118.04000091552734,
+      "start": 117.66000366210938,
+      "word": "restore"
+    },
+    {
+      "end": 118.41999816894531,
+      "start": 118.04000091552734,
+      "word": "smoke"
+    },
+    {
+      "end": 119.58000183105469,
+      "start": 119.4000015258789,
+      "word": "Those"
+    },
+    {
+      "end": 120.04000091552734,
+      "start": 119.58000183105469,
+      "word": "standalone"
+    },
+    {
+      "end": 120.33999633789062,
+      "start": 120.04000091552734,
+      "word": "checks"
+    },
+    {
+      "end": 120.77999877929688,
+      "start": 120.33999633789062,
+      "word": "do"
+    },
+    {
+      "end": 121.0,
+      "start": 120.77999877929688,
+      "word": "not"
+    },
+    {
+      "end": 121.26000213623047,
+      "start": 121.0,
+      "word": "prove"
+    },
+    {
+      "end": 121.5,
+      "start": 121.26000213623047,
+      "word": "a"
+    },
+    {
+      "end": 121.68000030517578,
+      "start": 121.5,
+      "word": "healthy"
+    },
+    {
+      "end": 122.04000091552734,
+      "start": 121.68000030517578,
+      "word": "replica"
+    },
+    {
+      "end": 122.31999969482422,
+      "start": 122.04000091552734,
+      "word": "set"
+    },
+    {
+      "end": 123.04000091552734,
+      "start": 122.9800033569336,
+      "word": "A"
+    },
+    {
+      "end": 123.55999755859375,
+      "start": 123.04000091552734,
+      "word": "proposed"
+    },
+    {
+      "end": 124.04000091552734,
+      "start": 123.55999755859375,
+      "word": "higher"
+    },
+    {
+      "end": 124.45999908447266,
+      "start": 124.04000091552734,
+      "word": "confidence"
+    },
+    {
+      "end": 124.81999969482422,
+      "start": 124.45999908447266,
+      "word": "cluster"
+    },
+    {
+      "end": 125.08000183105469,
+      "start": 124.81999969482422,
+      "word": "gate"
+    },
+    {
+      "end": 125.36000061035156,
+      "start": 125.08000183105469,
+      "word": "would"
+    },
+    {
+      "end": 125.66000366210938,
+      "start": 125.36000061035156,
+      "word": "test"
+    },
+    {
+      "end": 126.16000366210938,
+      "start": 125.66000366210938,
+      "word": "replication"
+    },
+    {
+      "end": 126.62000274658203,
+      "start": 126.16000366210938,
+      "word": "and"
+    },
+    {
+      "end": 126.87999725341797,
+      "start": 126.62000274658203,
+      "word": "recovery"
+    },
+    {
+      "end": 127.62000274658203,
+      "start": 127.5,
+      "word": "Until"
+    },
+    {
+      "end": 128.16000366210938,
+      "start": 127.62000274658203,
+      "word": "it"
+    },
+    {
+      "end": 128.16000366210938,
+      "start": 128.16000366210938,
+      "word": "passes"
+    },
+    {
+      "end": 128.82000732421875,
+      "start": 128.67999267578125,
+      "word": "cluster"
+    },
+    {
+      "end": 129.17999267578125,
+      "start": 128.82000732421875,
+      "word": "readiness"
+    },
+    {
+      "end": 129.6199951171875,
+      "start": 129.17999267578125,
+      "word": "remains"
+    },
+    {
+      "end": 130.0399932861328,
+      "start": 129.6199951171875,
+      "word": "unknown"
+    },
+    {
+      "end": 132.94000244140625,
+      "start": 132.17999267578125,
+      "word": "CloudOS"
+    },
+    {
+      "end": 133.6999969482422,
+      "start": 132.94000244140625,
+      "word": "ECS"
+    },
+    {
+      "end": 134.25999450683594,
+      "start": 133.6999969482422,
+      "word": "Worker"
+    },
+    {
+      "end": 134.75999450683594,
+      "start": 134.25999450683594,
+      "word": "must"
+    },
+    {
+      "end": 135.05999755859375,
+      "start": 134.75999450683594,
+      "word": "place"
+    },
+    {
+      "end": 135.39999389648438,
+      "start": 135.05999755859375,
+      "word": "tasks"
+    },
+    {
+      "end": 135.67999267578125,
+      "start": 135.39999389648438,
+      "word": "on"
+    },
+    {
+      "end": 135.89999389648438,
+      "start": 135.67999267578125,
+      "word": "the"
+    },
+    {
+      "end": 136.27999877929688,
+      "start": 135.89999389648438,
+      "word": "exact"
+    },
+    {
+      "end": 136.6999969482422,
+      "start": 136.27999877929688,
+      "word": "candidate"
+    },
+    {
+      "end": 138.0,
+      "start": 137.5800018310547,
+      "word": "Zero"
+    },
+    {
+      "end": 138.27999877929688,
+      "start": 138.0,
+      "word": "place"
+    },
+    {
+      "end": 138.66000366210938,
+      "start": 138.27999877929688,
+      "word": "tasks"
+    },
+    {
+      "end": 138.89999389648438,
+      "start": 138.66000366210938,
+      "word": "is"
+    },
+    {
+      "end": 139.36000061035156,
+      "start": 138.89999389648438,
+      "word": "a"
+    },
+    {
+      "end": 139.36000061035156,
+      "start": 139.36000061035156,
+      "word": "failure"
+    },
+    {
+      "end": 140.05999755859375,
+      "start": 139.89999389648438,
+      "word": "even"
+    },
+    {
+      "end": 140.22000122070312,
+      "start": 140.05999755859375,
+      "word": "when"
+    },
+    {
+      "end": 140.39999389648438,
+      "start": 140.22000122070312,
+      "word": "the"
+    },
+    {
+      "end": 140.60000610351562,
+      "start": 140.39999389648438,
+      "word": "image"
+    },
+    {
+      "end": 140.89999389648438,
+      "start": 140.60000610351562,
+      "word": "build"
+    },
+    {
+      "end": 141.13999938964844,
+      "start": 140.89999389648438,
+      "word": "is"
+    },
+    {
+      "end": 141.47999572753906,
+      "start": 141.13999938964844,
+      "word": "green"
+    },
+    {
+      "end": 142.75999450683594,
+      "start": 142.55999755859375,
+      "word": "Our"
+    },
+    {
+      "end": 143.36000061035156,
+      "start": 142.75999450683594,
+      "word": "proposed"
+    },
+    {
+      "end": 143.83999633789062,
+      "start": 143.36000061035156,
+      "word": "demo"
+    },
+    {
+      "end": 144.16000366210938,
+      "start": 143.83999633789062,
+      "word": "suite"
+    },
+    {
+      "end": 144.83999633789062,
+      "start": 144.16000366210938,
+      "word": "adds"
+    },
+    {
+      "end": 145.1999969482422,
+      "start": 144.83999633789062,
+      "word": "mock"
+    },
+    {
+      "end": 145.66000366210938,
+      "start": 145.1999969482422,
+      "word": "workloads"
+    },
+    {
+      "end": 146.55999755859375,
+      "start": 146.36000061035156,
+      "word": "service"
+    },
+    {
+      "end": 146.74000549316406,
+      "start": 146.55999755859375,
+      "word": "to"
+    },
+    {
+      "end": 147.0,
+      "start": 146.74000549316406,
+      "word": "service"
+    },
+    {
+      "end": 147.39999389648438,
+      "start": 147.0,
+      "word": "network"
+    },
+    {
+      "end": 147.72000122070312,
+      "start": 147.39999389648438,
+      "word": "flows"
+    },
+    {
+      "end": 149.0800018310547,
+      "start": 148.39999389648438,
+      "word": "and"
+    },
+    {
+      "end": 149.1199951171875,
+      "start": 149.0800018310547,
+      "word": "scoped"
+    },
+    {
+      "end": 149.67999267578125,
+      "start": 149.1199951171875,
+      "word": "parameter"
+    },
+    {
+      "end": 150.0399932861328,
+      "start": 149.67999267578125,
+      "word": "store"
+    },
+    {
+      "end": 150.39999389648438,
+      "start": 150.0399932861328,
+      "word": "reads"
+    },
+    {
+      "end": 151.0800018310547,
+      "start": 150.39999389648438,
+      "word": "through"
+    },
+    {
+      "end": 151.6199951171875,
+      "start": 151.0800018310547,
+      "word": "authorized"
+    },
+    {
+      "end": 152.25999450683594,
+      "start": 151.6199951171875,
+      "word": "IAM"
+    },
+    {
+      "end": 153.1199951171875,
+      "start": 152.94000244140625,
+      "word": "These"
+    },
+    {
+      "end": 153.3800048828125,
+      "start": 153.1199951171875,
+      "word": "are"
+    },
+    {
+      "end": 153.77999877929688,
+      "start": 153.3800048828125,
+      "word": "simulated"
+    },
+    {
+      "end": 154.13999938964844,
+      "start": 153.77999877929688,
+      "word": "tests"
+    },
+    {
+      "end": 154.97999572753906,
+      "start": 154.82000732421875,
+      "word": "not"
+    },
+    {
+      "end": 155.36000061035156,
+      "start": 154.97999572753906,
+      "word": "live"
+    },
+    {
+      "end": 155.75999450683594,
+      "start": 155.36000061035156,
+      "word": "evidence"
+    },
+    {
+      "end": 157.6999969482422,
+      "start": 157.4199981689453,
+      "word": "Phase"
+    },
+    {
+      "end": 158.0,
+      "start": 157.6999969482422,
+      "word": "A"
+    },
+    {
+      "end": 158.39999389648438,
+      "start": 158.0,
+      "word": "is"
+    },
+    {
+      "end": 158.60000610351562,
+      "start": 158.39999389648438,
+      "word": "a"
+    },
+    {
+      "end": 158.86000061035156,
+      "start": 158.60000610351562,
+      "word": "controlled"
+    },
+    {
+      "end": 159.3000030517578,
+      "start": 158.86000061035156,
+      "word": "release"
+    },
+    {
+      "end": 160.36000061035156,
+      "start": 160.3000030517578,
+      "word": "Development"
+    },
+    {
+      "end": 160.72000122070312,
+      "start": 160.36000061035156,
+      "word": "proof"
+    },
+    {
+      "end": 161.05999755859375,
+      "start": 160.72000122070312,
+      "word": "comes"
+    },
+    {
+      "end": 161.44000244140625,
+      "start": 161.05999755859375,
+      "word": "first"
+    },
+    {
+      "end": 162.32000732421875,
+      "start": 162.0399932861328,
+      "word": "Only"
+    },
+    {
+      "end": 162.8000030517578,
+      "start": 162.32000732421875,
+      "word": "validated"
+    },
+    {
+      "end": 163.24000549316406,
+      "start": 162.8000030517578,
+      "word": "child"
+    },
+    {
+      "end": 163.52000427246094,
+      "start": 163.24000549316406,
+      "word": "images"
+    },
+    {
+      "end": 163.94000244140625,
+      "start": 163.52000427246094,
+      "word": "move"
+    },
+    {
+      "end": 164.16000366210938,
+      "start": 163.94000244140625,
+      "word": "toward"
+    },
+    {
+      "end": 164.55999755859375,
+      "start": 164.16000366210938,
+      "word": "production"
+    },
+    {
+      "end": 165.0800018310547,
+      "start": 164.55999755859375,
+      "word": "acceptance"
+    },
+    {
+      "end": 166.13999938964844,
+      "start": 165.0800018310547,
+      "word": "Verify"
+    },
+    {
+      "end": 166.60000610351562,
+      "start": 166.13999938964844,
+      "word": "encryption"
+    },
+    {
+      "end": 167.6199951171875,
+      "start": 167.4600067138672,
+      "word": "AMI"
+    },
+    {
+      "end": 167.9199981689453,
+      "start": 167.6199951171875,
+      "word": "launch"
+    },
+    {
+      "end": 168.33999633789062,
+      "start": 167.9199981689453,
+      "word": "access"
+    },
+    {
+      "end": 169.0800018310547,
+      "start": 168.86000061035156,
+      "word": "and"
+    },
+    {
+      "end": 169.36000061035156,
+      "start": 169.0800018310547,
+      "word": "usable"
+    },
+    {
+      "end": 169.72000122070312,
+      "start": 169.36000061035156,
+      "word": "backing"
+    },
+    {
+      "end": 170.24000549316406,
+      "start": 169.72000122070312,
+      "word": "snapshots"
+    },
+    {
+      "end": 170.75999450683594,
+      "start": 170.24000549316406,
+      "word": "and"
+    },
+    {
+      "end": 171.13999938964844,
+      "start": 170.75999450683594,
+      "word": "KMS"
+    },
+    {
+      "end": 171.60000610351562,
+      "start": 171.13999938964844,
+      "word": "access"
+    },
+    {
+      "end": 172.4199981689453,
+      "start": 172.3800048828125,
+      "word": "A"
+    },
+    {
+      "end": 172.77999877929688,
+      "start": 172.4199981689453,
+      "word": "policy"
+    },
+    {
+      "end": 173.1999969482422,
+      "start": 172.77999877929688,
+      "word": "observation"
+    },
+    {
+      "end": 173.72000122070312,
+      "start": 173.1999969482422,
+      "word": "alone"
+    },
+    {
+      "end": 174.13999938964844,
+      "start": 173.72000122070312,
+      "word": "does"
+    },
+    {
+      "end": 174.32000732421875,
+      "start": 174.13999938964844,
+      "word": "not"
+    },
+    {
+      "end": 174.55999755859375,
+      "start": 174.32000732421875,
+      "word": "prove"
+    },
+    {
+      "end": 174.75999450683594,
+      "start": 174.55999755859375,
+      "word": "a"
+    },
+    {
+      "end": 175.0800018310547,
+      "start": 174.75999450683594,
+      "word": "successful"
+    },
+    {
+      "end": 175.44000244140625,
+      "start": 175.0800018310547,
+      "word": "private"
+    },
+    {
+      "end": 175.77999877929688,
+      "start": 175.44000244140625,
+      "word": "launch"
+    },
+    {
+      "end": 177.33999633789062,
+      "start": 177.16000366210938,
+      "word": "Test"
+    },
+    {
+      "end": 177.67999267578125,
+      "start": 177.33999633789062,
+      "word": "the"
+    },
+    {
+      "end": 178.16000366210938,
+      "start": 177.67999267578125,
+      "word": "exact"
+    },
+    {
+      "end": 178.47999572753906,
+      "start": 178.16000366210938,
+      "word": "image"
+    },
+    {
+      "end": 178.89999389648438,
+      "start": 178.47999572753906,
+      "word": "consumed"
+    },
+    {
+      "end": 179.52000427246094,
+      "start": 178.89999389648438,
+      "word": "in"
+    },
+    {
+      "end": 179.52000427246094,
+      "start": 179.52000427246094,
+      "word": "production"
+    },
+    {
+      "end": 180.0399932861328,
+      "start": 179.52000427246094,
+      "word": "with"
+    },
+    {
+      "end": 180.27999877929688,
+      "start": 180.0399932861328,
+      "word": "that"
+    },
+    {
+      "end": 180.8000030517578,
+      "start": 180.27999877929688,
+      "word": "environment's"
+    },
+    {
+      "end": 181.0800018310547,
+      "start": 180.8000030517578,
+      "word": "own"
+    },
+    {
+      "end": 181.32000732421875,
+      "start": 181.0800018310547,
+      "word": "agent"
+    },
+    {
+      "end": 181.94000244140625,
+      "start": 181.32000732421875,
+      "word": "configuration"
+    },
+    {
+      "end": 183.1999969482422,
+      "start": 183.17999267578125,
+      "word": "Development"
+    },
+    {
+      "end": 183.72000122070312,
+      "start": 183.1999969482422,
+      "word": "success"
+    },
+    {
+      "end": 184.27999877929688,
+      "start": 183.72000122070312,
+      "word": "cannot"
+    },
+    {
+      "end": 184.60000610351562,
+      "start": 184.27999877929688,
+      "word": "stand"
+    },
+    {
+      "end": 184.8800048828125,
+      "start": 184.60000610351562,
+      "word": "in"
+    },
+    {
+      "end": 185.3000030517578,
+      "start": 184.8800048828125,
+      "word": "for"
+    },
+    {
+      "end": 185.63999938964844,
+      "start": 185.3000030517578,
+      "word": "production"
+    },
+    {
+      "end": 186.0399932861328,
+      "start": 185.63999938964844,
+      "word": "runtime"
+    },
+    {
+      "end": 186.5800018310547,
+      "start": 186.0399932861328,
+      "word": "acceptance"
+    },
+    {
+      "end": 187.82000732421875,
+      "start": 187.02000427246094,
+      "word": "The"
+    },
+    {
+      "end": 188.16000366210938,
+      "start": 187.82000732421875,
+      "word": "Ops"
+    },
+    {
+      "end": 188.75999450683594,
+      "start": 188.16000366210938,
+      "word": "Engineer"
+    },
+    {
+      "end": 189.4600067138672,
+      "start": 188.75999450683594,
+      "word": "reviews"
+    },
+    {
+      "end": 190.0399932861328,
+      "start": 189.4600067138672,
+      "word": "the"
+    },
+    {
+      "end": 190.0399932861328,
+      "start": 190.0399932861328,
+      "word": "evidence"
+    },
+    {
+      "end": 190.55999755859375,
+      "start": 190.0399932861328,
+      "word": "and"
+    },
+    {
+      "end": 190.72000122070312,
+      "start": 190.55999755859375,
+      "word": "gives"
+    },
+    {
+      "end": 191.24000549316406,
+      "start": 190.72000122070312,
+      "word": "explicit"
+    },
+    {
+      "end": 191.5800018310547,
+      "start": 191.24000549316406,
+      "word": "approval"
+    },
+    {
+      "end": 191.83999633789062,
+      "start": 191.5800018310547,
+      "word": "for"
+    },
+    {
+      "end": 192.13999938964844,
+      "start": 191.83999633789062,
+      "word": "this"
+    },
+    {
+      "end": 192.5800018310547,
+      "start": 192.13999938964844,
+      "word": "rollout"
+    },
+    {
+      "end": 193.32000732421875,
+      "start": 192.5800018310547,
+      "word": "Build"
+    },
+    {
+      "end": 193.82000732421875,
+      "start": 193.32000732421875,
+      "word": "success"
+    },
+    {
+      "end": 194.86000061035156,
+      "start": 194.86000061035156,
+      "word": "validation"
+    },
+    {
+      "end": 195.44000244140625,
+      "start": 195.24000549316406,
+      "word": "and"
+    },
+    {
+      "end": 195.72000122070312,
+      "start": 195.44000244140625,
+      "word": "human"
+    },
+    {
+      "end": 196.02000427246094,
+      "start": 195.72000122070312,
+      "word": "approval"
+    },
+    {
+      "end": 196.5399932861328,
+      "start": 196.02000427246094,
+      "word": "are"
+    },
+    {
+      "end": 196.8800048828125,
+      "start": 196.5399932861328,
+      "word": "separate"
+    },
+    {
+      "end": 197.32000732421875,
+      "start": 196.8800048828125,
+      "word": "states"
+    },
+    {
+      "end": 198.8800048828125,
+      "start": 198.6199951171875,
+      "word": "Phase"
+    },
+    {
+      "end": 199.27999877929688,
+      "start": 198.8800048828125,
+      "word": "B"
+    },
+    {
+      "end": 199.77999877929688,
+      "start": 199.27999877929688,
+      "word": "is"
+    },
+    {
+      "end": 199.9600067138672,
+      "start": 199.77999877929688,
+      "word": "a"
+    },
+    {
+      "end": 200.27999877929688,
+      "start": 199.9600067138672,
+      "word": "future"
+    },
+    {
+      "end": 200.6999969482422,
+      "start": 200.27999877929688,
+      "word": "operating"
+    },
+    {
+      "end": 201.13999938964844,
+      "start": 200.6999969482422,
+      "word": "policy"
+    },
+    {
+      "end": 202.36000061035156,
+      "start": 202.25999450683594,
+      "word": "Candidates"
+    },
+    {
+      "end": 202.6999969482422,
+      "start": 202.36000061035156,
+      "word": "could"
+    },
+    {
+      "end": 202.9199981689453,
+      "start": 202.6999969482422,
+      "word": "build"
+    },
+    {
+      "end": 203.27999877929688,
+      "start": 202.9199981689453,
+      "word": "and"
+    },
+    {
+      "end": 203.55999755859375,
+      "start": 203.27999877929688,
+      "word": "validate"
+    },
+    {
+      "end": 203.97999572753906,
+      "start": 203.55999755859375,
+      "word": "weekly"
+    },
+    {
+      "end": 204.8000030517578,
+      "start": 204.74000549316406,
+      "word": "The"
+    },
+    {
+      "end": 205.25999450683594,
+      "start": 204.8000030517578,
+      "word": "proposed"
+    },
+    {
+      "end": 205.72000122070312,
+      "start": 205.25999450683594,
+      "word": "promotion"
+    },
+    {
+      "end": 206.02000427246094,
+      "start": 205.72000122070312,
+      "word": "window"
+    },
+    {
+      "end": 206.5800018310547,
+      "start": 206.02000427246094,
+      "word": "is"
+    },
+    {
+      "end": 206.8800048828125,
+      "start": 206.5800018310547,
+      "word": "the"
+    },
+    {
+      "end": 207.0,
+      "start": 206.8800048828125,
+      "word": "first"
+    },
+    {
+      "end": 207.3000030517578,
+      "start": 207.0,
+      "word": "Saturday"
+    },
+    {
+      "end": 207.6199951171875,
+      "start": 207.3000030517578,
+      "word": "night"
+    },
+    {
+      "end": 207.97999572753906,
+      "start": 207.6199951171875,
+      "word": "each"
+    },
+    {
+      "end": 208.39999389648438,
+      "start": 207.97999572753906,
+      "word": "month"
+    },
+    {
+      "end": 209.25999450683594,
+      "start": 208.97999572753906,
+      "word": "Promotion"
+    },
+    {
+      "end": 209.6999969482422,
+      "start": 209.25999450683594,
+      "word": "without"
+    },
+    {
+      "end": 210.05999755859375,
+      "start": 209.6999969482422,
+      "word": "per"
+    },
+    {
+      "end": 210.32000732421875,
+      "start": 210.05999755859375,
+      "word": "release"
+    },
+    {
+      "end": 210.6199951171875,
+      "start": 210.32000732421875,
+      "word": "ops"
+    },
+    {
+      "end": 211.02000427246094,
+      "start": 210.6199951171875,
+      "word": "approval"
+    },
+    {
+      "end": 211.6199951171875,
+      "start": 211.02000427246094,
+      "word": "becomes"
+    },
+    {
+      "end": 212.13999938964844,
+      "start": 211.6199951171875,
+      "word": "possible"
+    },
+    {
+      "end": 212.52000427246094,
+      "start": 212.13999938964844,
+      "word": "only"
+    },
+    {
+      "end": 212.82000732421875,
+      "start": 212.52000427246094,
+      "word": "after"
+    },
+    {
+      "end": 213.22000122070312,
+      "start": 212.82000732421875,
+      "word": "management"
+    },
+    {
+      "end": 213.9600067138672,
+      "start": 213.6199951171875,
+      "word": "security"
+    },
+    {
+      "end": 214.24000549316406,
+      "start": 214.02000427246094,
+      "word": "and"
+    },
+    {
+      "end": 214.55999755859375,
+      "start": 214.24000549316406,
+      "word": "change"
+    },
+    {
+      "end": 214.9199981689453,
+      "start": 214.55999755859375,
+      "word": "governance"
+    },
+    {
+      "end": 215.5399932861328,
+      "start": 214.9199981689453,
+      "word": "approve"
+    },
+    {
+      "end": 215.83999633789062,
+      "start": 215.5399932861328,
+      "word": "that"
+    },
+    {
+      "end": 216.13999938964844,
+      "start": 215.83999633789062,
+      "word": "policy"
+    },
+    {
+      "end": 216.4199981689453,
+      "start": 216.13999938964844,
+      "word": "and"
+    },
+    {
+      "end": 216.63999938964844,
+      "start": 216.4199981689453,
+      "word": "its"
+    },
+    {
+      "end": 217.02000427246094,
+      "start": 216.63999938964844,
+      "word": "conditions"
+    },
+    {
+      "end": 218.02000427246094,
+      "start": 217.3000030517578,
+      "word": "The"
+    },
+    {
+      "end": 218.32000732421875,
+      "start": 218.02000427246094,
+      "word": "current"
+    },
+    {
+      "end": 218.8000030517578,
+      "start": 218.32000732421875,
+      "word": "repository"
+    },
+    {
+      "end": 219.16000366210938,
+      "start": 218.8000030517578,
+      "word": "does"
+    },
+    {
+      "end": 219.4199981689453,
+      "start": 219.16000366210938,
+      "word": "not"
+    },
+    {
+      "end": 219.83999633789062,
+      "start": 219.4199981689453,
+      "word": "establish"
+    },
+    {
+      "end": 220.4600067138672,
+      "start": 219.83999633789062,
+      "word": "unattended"
+    },
+    {
+      "end": 220.86000061035156,
+      "start": 220.4600067138672,
+      "word": "monthly"
+    },
+    {
+      "end": 221.3000030517578,
+      "start": 220.86000061035156,
+      "word": "production"
+    },
+    {
+      "end": 221.67999267578125,
+      "start": 221.3000030517578,
+      "word": "rollout"
+    },
+    {
+      "end": 222.47999572753906,
+      "start": 222.11000061035156,
+      "word": "A"
+    },
+    {
+      "end": 222.83999633789062,
+      "start": 222.47999572753906,
+      "word": "critical"
+    },
+    {
+      "end": 223.3800048828125,
+      "start": 222.83999633789062,
+      "word": "vulnerability"
+    },
+    {
+      "end": 223.72000122070312,
+      "start": 223.3800048828125,
+      "word": "can"
+    },
+    {
+      "end": 224.13999938964844,
+      "start": 223.72000122070312,
+      "word": "instead"
+    },
+    {
+      "end": 224.36000061035156,
+      "start": 224.13999938964844,
+      "word": "trigger"
+    },
+    {
+      "end": 224.66000366210938,
+      "start": 224.36000061035156,
+      "word": "an"
+    },
+    {
+      "end": 225.0399932861328,
+      "start": 224.66000366210938,
+      "word": "urgent"
+    },
+    {
+      "end": 225.5,
+      "start": 225.0399932861328,
+      "word": "ops"
+    },
+    {
+      "end": 225.8800048828125,
+      "start": 225.5,
+      "word": "approved"
+    },
+    {
+      "end": 226.25999450683594,
+      "start": 225.8800048828125,
+      "word": "release"
+    },
+    {
+      "end": 227.86000061035156,
+      "start": 227.83999633789062,
+      "word": "A"
+    },
+    {
+      "end": 228.3000030517578,
+      "start": 227.86000061035156,
+      "word": "failed"
+    },
+    {
+      "end": 228.83999633789062,
+      "start": 228.3000030517578,
+      "word": "or"
+    },
+    {
+      "end": 229.24000549316406,
+      "start": 228.83999633789062,
+      "word": "unknown"
+    },
+    {
+      "end": 229.60000610351562,
+      "start": 229.24000549316406,
+      "word": "check"
+    },
+    {
+      "end": 230.3000030517578,
+      "start": 230.25999450683594,
+      "word": "missing"
+    },
+    {
+      "end": 230.74000549316406,
+      "start": 230.3000030517578,
+      "word": "approval"
+    },
+    {
+      "end": 231.0,
+      "start": 230.74000549316406,
+      "word": "or"
+    },
+    {
+      "end": 231.3000030517578,
+      "start": 231.0,
+      "word": "policy"
+    },
+    {
+      "end": 231.9199981689453,
+      "start": 231.8800048828125,
+      "word": "missing"
+    },
+    {
+      "end": 232.36000061035156,
+      "start": 231.9199981689453,
+      "word": "access"
+    },
+    {
+      "end": 232.9600067138672,
+      "start": 232.74000549316406,
+      "word": "or"
+    },
+    {
+      "end": 233.22000122070312,
+      "start": 232.9600067138672,
+      "word": "an"
+    },
+    {
+      "end": 233.4600067138672,
+      "start": 233.22000122070312,
+      "word": "unhealthy"
+    },
+    {
+      "end": 233.9199981689453,
+      "start": 233.4600067138672,
+      "word": "production"
+    },
+    {
+      "end": 234.72000122070312,
+      "start": 233.9199981689453,
+      "word": "cannery"
+    },
+    {
+      "end": 235.05999755859375,
+      "start": 234.72000122070312,
+      "word": "closes"
+    },
+    {
+      "end": 235.44000244140625,
+      "start": 235.05999755859375,
+      "word": "the"
+    },
+    {
+      "end": 235.4600067138672,
+      "start": 235.44000244140625,
+      "word": "gate"
+    },
+    {
+      "end": 236.33999633789062,
+      "start": 236.32000732421875,
+      "word": "Nothing"
+    },
+    {
+      "end": 236.75999450683594,
+      "start": 236.33999633789062,
+      "word": "advances"
+    },
+    {
+      "end": 237.36000061035156,
+      "start": 236.75999450683594,
+      "word": "on"
+    },
+    {
+      "end": 237.94000244140625,
+      "start": 237.36000061035156,
+      "word": "an"
+    },
+    {
+      "end": 237.94000244140625,
+      "start": 237.94000244140625,
+      "word": "assumption"
+    },
+    {
+      "end": 239.25999450683594,
+      "start": 239.17999267578125,
+      "word": "Keep"
+    },
+    {
+      "end": 239.4600067138672,
+      "start": 239.25999450683594,
+      "word": "the"
+    },
+    {
+      "end": 239.83999633789062,
+      "start": 239.4600067138672,
+      "word": "prior"
+    },
+    {
+      "end": 240.16000366210938,
+      "start": 239.83999633789062,
+      "word": "known"
+    },
+    {
+      "end": 240.3800048828125,
+      "start": 240.16000366210938,
+      "word": "good"
+    },
+    {
+      "end": 240.67999267578125,
+      "start": 240.3800048828125,
+      "word": "release"
+    },
+    {
+      "end": 241.1999969482422,
+      "start": 240.67999267578125,
+      "word": "and"
+    },
+    {
+      "end": 241.63999938964844,
+      "start": 241.1999969482422,
+      "word": "a"
+    },
+    {
+      "end": 241.63999938964844,
+      "start": 241.63999938964844,
+      "word": "tested"
+    },
+    {
+      "end": 242.0,
+      "start": 241.63999938964844,
+      "word": "data"
+    },
+    {
+      "end": 242.3000030517578,
+      "start": 242.0,
+      "word": "recovery"
+    },
+    {
+      "end": 242.66000366210938,
+      "start": 242.3000030517578,
+      "word": "path"
+    },
+    {
+      "end": 243.47999572753906,
+      "start": 243.39999389648438,
+      "word": "Read"
+    },
+    {
+      "end": 243.6999969482422,
+      "start": 243.47999572753906,
+      "word": "back"
+    },
+    {
+      "end": 243.97999572753906,
+      "start": 243.6999969482422,
+      "word": "the"
+    },
+    {
+      "end": 244.1199951171875,
+      "start": 243.97999572753906,
+      "word": "rollout"
+    },
+    {
+      "end": 244.5,
+      "start": 244.1199951171875,
+      "word": "result"
+    },
+    {
+      "end": 245.24000549316406,
+      "start": 245.16000366210938,
+      "word": "If"
+    },
+    {
+      "end": 245.6199951171875,
+      "start": 245.24000549316406,
+      "word": "the"
+    },
+    {
+      "end": 245.6199951171875,
+      "start": 245.6199951171875,
+      "word": "canary"
+    },
+    {
+      "end": 245.97999572753906,
+      "start": 245.6199951171875,
+      "word": "fails"
+    },
+    {
+      "end": 246.77999877929688,
+      "start": 246.72000122070312,
+      "word": "stop"
+    },
+    {
+      "end": 247.1999969482422,
+      "start": 246.77999877929688,
+      "word": "and"
+    },
+    {
+      "end": 247.36000061035156,
+      "start": 247.1999969482422,
+      "word": "use"
+    },
+    {
+      "end": 247.5800018310547,
+      "start": 247.36000061035156,
+      "word": "the"
+    },
+    {
+      "end": 247.9199981689453,
+      "start": 247.5800018310547,
+      "word": "approved"
+    },
+    {
+      "end": 248.36000061035156,
+      "start": 247.9199981689453,
+      "word": "rollback"
+    },
+    {
+      "end": 248.67999267578125,
+      "start": 248.36000061035156,
+      "word": "plan"
+    },
+    {
+      "end": 249.52000427246094,
+      "start": 249.1199951171875,
+      "word": "A"
+    },
+    {
+      "end": 249.82000732421875,
+      "start": 249.52000427246094,
+      "word": "few"
+    },
+    {
+      "end": 250.0800018310547,
+      "start": 249.82000732421875,
+      "word": "minutes"
+    },
+    {
+      "end": 250.36000061035156,
+      "start": 250.0800018310547,
+      "word": "of"
+    },
+    {
+      "end": 250.77999877929688,
+      "start": 250.36000061035156,
+      "word": "downtime"
+    },
+    {
+      "end": 251.24000549316406,
+      "start": 250.77999877929688,
+      "word": "may"
+    },
+    {
+      "end": 251.4199981689453,
+      "start": 251.24000549316406,
+      "word": "be"
+    },
+    {
+      "end": 251.82000732421875,
+      "start": 251.4199981689453,
+      "word": "acceptable"
+    },
+    {
+      "end": 252.39999389648438,
+      "start": 251.82000732421875,
+      "word": "if"
+    },
+    {
+      "end": 252.77999877929688,
+      "start": 252.39999389648438,
+      "word": "approved"
+    },
+    {
+      "end": 254.17999267578125,
+      "start": 253.8000030517578,
+      "word": "Reversibility"
+    },
+    {
+      "end": 254.67999267578125,
+      "start": 254.17999267578125,
+      "word": "and"
+    },
+    {
+      "end": 255.17999267578125,
+      "start": 254.67999267578125,
+      "word": "observable"
+    },
+    {
+      "end": 255.74000549316406,
+      "start": 255.17999267578125,
+      "word": "acceptance"
+    },
+    {
+      "end": 256.3999938964844,
+      "start": 255.74000549316406,
+      "word": "matter"
+    },
+    {
+      "end": 256.9800109863281,
+      "start": 256.3999938964844,
+      "word": "more"
+    },
+    {
+      "end": 257.1600036621094,
+      "start": 256.9800109863281,
+      "word": "than"
+    },
+    {
+      "end": 257.3399963378906,
+      "start": 257.1600036621094,
+      "word": "a"
+    },
+    {
+      "end": 257.55999755859375,
+      "start": 257.3399963378906,
+      "word": "green"
+    },
+    {
+      "end": 257.7799987792969,
+      "start": 257.55999755859375,
+      "word": "build"
+    },
+    {
+      "end": 258.1199951171875,
+      "start": 257.7799987792969,
+      "word": "badge"
+    },
+    {
+      "end": 259.8999938964844,
+      "start": 259.82000732421875,
+      "word": "Build"
+    },
+    {
+      "end": 260.29998779296875,
+      "start": 259.8999938964844,
+      "word": "once"
+    },
+    {
+      "end": 261.3800048828125,
+      "start": 261.2799987792969,
+      "word": "Validate"
+    },
+    {
+      "end": 261.82000732421875,
+      "start": 261.3800048828125,
+      "word": "every"
+    },
+    {
+      "end": 262.17999267578125,
+      "start": 261.82000732421875,
+      "word": "workload"
+    },
+    {
+      "end": 262.9599914550781,
+      "start": 262.9599914550781,
+      "word": "Promote"
+    },
+    {
+      "end": 263.3800048828125,
+      "start": 262.9599914550781,
+      "word": "only"
+    },
+    {
+      "end": 263.55999755859375,
+      "start": 263.3800048828125,
+      "word": "what"
+    },
+    {
+      "end": 263.82000732421875,
+      "start": 263.55999755859375,
+      "word": "is"
+    },
+    {
+      "end": 263.94000244140625,
+      "start": 263.82000732421875,
+      "word": "proven"
+    }
+  ],
+  "task": "transcribe"
+}

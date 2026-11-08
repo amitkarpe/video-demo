@@ -1,0 +1,356 @@
+1
+00:00:00,850 --> 00:00:03,015
+A new golden image arrives.
+
+2
+00:00:03,040 --> 00:00:04,795
+But a successful build is not yet a
+
+3
+00:00:04,820 --> 00:00:06,300
+trusted production release.
+
+4
+00:00:06,980 --> 00:00:09,935
+BlueOps turns that gap
+into a controlled journey:
+
+5
+00:00:09,960 --> 00:00:12,615
+build a shared base, prove
+each workload, then earn
+
+6
+00:00:12,640 --> 00:00:13,880
+the right to promote.
+
+7
+00:00:14,930 --> 00:00:19,075
+The journey starts with a
+GovTech GCC Golden Amazon
+
+8
+00:00:19,100 --> 00:00:22,615
+Linux 2023 image: a
+baseline with hardening and
+
+9
+00:00:22,640 --> 00:00:23,980
+some operations agents.
+
+10
+00:00:24,460 --> 00:00:27,335
+An EventBridge discovery
+signal is part of the proposed
+
+11
+00:00:27,360 --> 00:00:30,855
+design. Record the immutable
+source identity before
+
+12
+00:00:30,880 --> 00:00:31,910
+the factory moves.
+
+13
+00:00:33,010 --> 00:00:37,335
+Image Builder combines that
+approved source with approved GCC
+
+14
+00:00:37,360 --> 00:00:42,075
+agent packages and a selected
+CIS hardening profile.
+
+15
+00:00:42,100 --> 00:00:44,360
+The product is Hardened Base OS.
+
+16
+00:00:44,890 --> 00:00:48,875
+Package-only means no production
+manager registration baked into the
+
+17
+00:00:48,900 --> 00:00:52,595
+image. Selected controls do
+not mean full CIS compliance
+
+18
+00:00:52,620 --> 00:00:55,140
+or complete security-scan acceptance.
+
+19
+00:00:56,240 --> 00:00:59,635
+Three child families derive
+directly from that base:
+
+20
+00:00:59,660 --> 00:01:04,175
+GitLab, MongoDB, and CloudOS ECS Worker.
+
+21
+00:01:04,200 --> 00:01:06,190
+The shared base stays in DEV.
+
+22
+00:01:06,860 --> 00:01:09,935
+GitLab carries its own required runtime.
+
+23
+00:01:09,960 --> 00:01:12,895
+MongoDB is non-container by default.
+
+24
+00:01:12,920 --> 00:01:16,455
+GitLab plus Nextflow is an
+optional extension, not a
+
+25
+00:01:16,480 --> 00:01:17,420
+fourth core family.
+
+26
+00:01:18,480 --> 00:01:20,475
+Now the test floor.
+
+27
+00:01:20,500 --> 00:01:22,735
+Every result must identify
+the exact candidate.
+
+28
+00:01:22,760 --> 00:01:29,195
+Private connectivity, no public IP,
+SSM readback, packages, configuration
+
+29
+00:01:29,220 --> 00:01:30,520
+and provenance all matter.
+
+30
+00:01:31,740 --> 00:01:37,375
+For GitLab, demand healthy service,
+representative clone and push,
+
+31
+00:01:37,400 --> 00:01:40,520
+CRUD, persistence, and reboot proof.
+
+32
+00:01:41,200 --> 00:01:45,335
+Current private runtime checks
+cover cold boot and reboot.
+
+33
+00:01:45,360 --> 00:01:48,815
+They do not by themselves prove
+authenticated repository workflows
+
+34
+00:01:48,840 --> 00:01:50,550
+or a production cutover.
+
+35
+00:01:52,020 --> 00:01:59,375
+MongoDB needs a running process,
+CRUD and backup-restore smoke.
+
+36
+00:01:59,400 --> 00:02:01,475
+Those standalone checks do not prove a
+
+37
+00:02:01,500 --> 00:02:02,400
+healthy replica set.
+
+38
+00:02:02,980 --> 00:02:06,595
+A proposed higher-confidence cluster
+gate would test replication and
+
+39
+00:02:06,620 --> 00:02:10,430
+recovery. Until it passes,
+cluster readiness remains unknown.
+
+40
+00:02:12,180 --> 00:02:16,255
+CloudOS ECS Worker must
+place tasks on the exact
+
+41
+00:02:16,280 --> 00:02:20,195
+candidate. Zero placed tasks
+is a failure, even when
+
+42
+00:02:20,220 --> 00:02:21,980
+the image build is green.
+
+43
+00:02:22,560 --> 00:02:27,375
+Our proposed demo suite adds mock
+workloads, service-to-service network
+
+44
+00:02:27,400 --> 00:02:32,915
+flows, and scoped Parameter Store
+reads through authorized IAM.
+
+45
+00:02:32,940 --> 00:02:36,310
+These are simulated tests, not live evidence.
+
+46
+00:02:37,420 --> 00:02:39,585
+Phase A is a controlled release.
+
+47
+00:02:39,610 --> 00:02:42,015
+DEV proof comes first.
+
+48
+00:02:42,040 --> 00:02:45,210
+Only validated child images move
+toward production acceptance.
+
+49
+00:02:45,690 --> 00:02:50,215
+Verify encryption, AMI launch
+access, and usable backing snapshots
+
+50
+00:02:50,240 --> 00:02:54,295
+and KMS access. A policy
+observation alone does not
+
+51
+00:02:54,320 --> 00:02:55,940
+prove a successful private launch.
+
+52
+00:02:57,160 --> 00:03:00,255
+Test the exact image
+consumed in PROD, with that
+
+53
+00:03:00,280 --> 00:03:02,235
+environment's own agent configuration.
+
+54
+00:03:02,260 --> 00:03:07,040
+DEV success cannot stand in
+for PROD runtime acceptance.
+
+55
+00:03:07,520 --> 00:03:11,215
+The Ops engineer reviews the
+evidence and gives explicit
+
+56
+00:03:11,240 --> 00:03:12,555
+approval for this rollout.
+
+57
+00:03:12,580 --> 00:03:17,470
+Build success, validation and
+human approval are separate states.
+
+58
+00:03:18,620 --> 00:03:22,235
+Phase B is a future operating policy.
+
+59
+00:03:22,260 --> 00:03:24,715
+Candidates could build and validate weekly.
+
+60
+00:03:24,740 --> 00:03:27,275
+The proposed promotion
+window is the first Saturday
+
+61
+00:03:27,300 --> 00:03:28,270
+night each month.
+
+62
+00:03:28,980 --> 00:03:32,795
+Promotion without per-release Ops
+approval becomes possible only after
+
+63
+00:03:32,820 --> 00:03:36,115
+management, security and change
+governance approve that policy
+
+64
+00:03:36,140 --> 00:03:37,350
+and its conditions.
+
+65
+00:03:37,830 --> 00:03:41,275
+The current repository does not
+establish unattended monthly PROD
+
+66
+00:03:41,300 --> 00:03:44,635
+rollout. A critical vulnerability
+can instead trigger an
+
+67
+00:03:44,660 --> 00:03:46,630
+urgent, Ops-approved release.
+
+68
+00:03:47,840 --> 00:03:51,855
+A failed or unknown check,
+missing approval or policy,
+
+69
+00:03:51,880 --> 00:03:55,415
+missing access, or an unhealthy
+PROD canary closes the
+
+70
+00:03:55,440 --> 00:03:57,980
+gate. Nothing advances on an assumption.
+
+71
+00:03:59,180 --> 00:04:02,275
+Keep the prior known-good release
+and a tested data-recovery
+
+72
+00:04:02,300 --> 00:04:05,135
+path. Read back the rollout result.
+
+73
+00:04:05,160 --> 00:04:07,555
+If the canary fails, stop and use the
+
+74
+00:04:07,580 --> 00:04:08,930
+approved rollback plan.
+
+75
+00:04:09,410 --> 00:04:12,375
+A few minutes of downtime
+may be acceptable, if
+
+76
+00:04:12,400 --> 00:04:17,315
+approved. Reversibility and observable
+acceptance matter more than a
+
+77
+00:04:17,340 --> 00:04:18,460
+green build badge.
+
+78
+00:04:19,820 --> 00:04:22,935
+Build once. Validate every workload.
+
+79
+00:04:22,960 --> 00:04:24,510
+Promote only what is proven.

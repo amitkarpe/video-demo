@@ -1,0 +1,969 @@
+{
+  "cap_usd": "10.00",
+  "authority": "video-demo issue 24",
+  "calls": [
+    {
+      "name": "factory-day",
+      "endpoint": "/v1/images/generations",
+      "model": "gpt-image-2.6-sunburst",
+      "reservation_usd": "3.00",
+      "status": "completed",
+      "at": "2026-11-08T10:01:15.012602+00:00",
+      "input_sha256": "935b109666fb9992380e325ed4db6de599d0755100e12d4bcc71c0a178e102b7",
+      "request_id": "req_77dc9486ee15496f97b38e8e4b527ce0",
+      "usage": {
+        "input_tokens": 298,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 298
+        },
+        "output_tokens": 1372,
+        "total_tokens": 1670,
+        "output_tokens_details": {
+          "image_tokens": 1372,
+          "text_tokens": 0
+        }
+      },
+      "returned_model": null,
+      "output_sha256": "58e5ce63711f11f83a01f32e5b576720ddeffeb1415a5bd5de0aed45260b651f",
+      "output_path": "assets/factory-day.png",
+      "charged_or_reserved_usd": "0.04265",
+      "cost_basis": "Provider usage at published text 5 / image input 8 / image output 30 USD per million; full reservation retained if usage absent.",
+      "cli_sha256": "b4345cf835e5b593b97df6bb2b70bda493b8a97eee4cabbc99b2fa57dba9b448"
+    },
+    {
+      "name": "factory-night",
+      "endpoint": "/v1/images/edits",
+      "model": "gpt-image-2.6-sunburst",
+      "reservation_usd": "3.00",
+      "status": "completed",
+      "at": "2026-11-08T10:02:48.615500+00:00",
+      "input_sha256": "694634aac440dfd5b003fbb9deed29a7bc738232fe61e60ce020d73f7245802d",
+      "request_id": "req_151091a349ea4d279e205c34e884126d",
+      "usage": {
+        "input_tokens": 1710,
+        "input_tokens_details": {
+          "image_tokens": 1536,
+          "text_tokens": 174
+        },
+        "output_tokens": 1372,
+        "total_tokens": 3082,
+        "output_tokens_details": {
+          "image_tokens": 1372,
+          "text_tokens": 0
+        }
+      },
+      "returned_model": null,
+      "output_sha256": "7f109dfc3a7c4042dcea5385fb56bd63b67410ff3d366bb95163437523a0c2b9",
+      "output_path": "assets/factory-night.png",
+      "charged_or_reserved_usd": "0.054318",
+      "cost_basis": "Provider usage at published text 5 / image input 8 / image output 30 USD per million; full reservation retained if usage absent.",
+      "cli_sha256": "b4345cf835e5b593b97df6bb2b70bda493b8a97eee4cabbc99b2fa57dba9b448"
+    },
+    {
+      "name": "voice-00",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:03:45.871874+00:00",
+      "input_sha256": "d26312704d0ff36aea356123ea2492884e51fdc9557d08fd710db6ec7f55adb0",
+      "request_id": "req_bba956eef7b4462fa9828c8d01ecfcf9",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "A new golden image arrives. But a successful build is not yet a trusted production release.",
+      "usage": {
+        "input_tokens": 75,
+        "output_tokens": 142,
+        "total_tokens": 217
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 75,
+            "output_tokens": 142,
+            "total_tokens": 217
+          }
+        }
+      ],
+      "audio_seconds": 5.5,
+      "output_sha256": "8240a02b66c995061238f0d28294364728205c939d12ec4733c91cb46289c905",
+      "charged_or_reserved_usd": "0.001749",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-01",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:03:54.912061+00:00",
+      "input_sha256": "344196c947217021314652934933cb5d5ffa5d6b97628172dd6879cec5723ec8",
+      "request_id": "req_2aad0347657543d6b4f3bdd00628f893",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Blue Ops turns that gap into a controlled journey: build a shared base, prove each workload, then earn the right to promote.",
+      "usage": {
+        "input_tokens": 83,
+        "output_tokens": 184,
+        "total_tokens": 267
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 83,
+            "output_tokens": 184,
+            "total_tokens": 267
+          }
+        }
+      ],
+      "audio_seconds": 7.1,
+      "output_sha256": "9c93d17167f625968c716e596222d933c6f113f9356326bbc55165ecc31b108a",
+      "charged_or_reserved_usd": "0.0022578",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-02",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:03:57.459004+00:00",
+      "input_sha256": "fcd9241608a1568d3477bbabcb2e3b64155e1ee643b775854b2a1c8b0de124e8",
+      "request_id": "req_16f6bc8226f148c590975115af4d2b3e",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "The journey starts with a Gov Tech G C C Golden Amazon Linux twenty twenty three image: a baseline with hardening and some operations agents.",
+      "usage": {
+        "input_tokens": 85,
+        "output_tokens": 225,
+        "total_tokens": 310
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 85,
+            "output_tokens": 225,
+            "total_tokens": 310
+          }
+        }
+      ],
+      "audio_seconds": 9.05,
+      "output_sha256": "39281cb03545eb3f8377144351e832e0035b00055b6f24ef0b2409f3982c793a",
+      "charged_or_reserved_usd": "0.002751",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-03",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:03:59.843616+00:00",
+      "input_sha256": "64d7d5cf39ad1b6c4a9ad5a723326117f439aaca41e1ec309565be3a1e96c167",
+      "request_id": "req_e65c34340f6649abb12c6a4b1f78b63c",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "An EventBridge discovery signal is part of the proposed design. Record the immutable source identity before the factory moves.",
+      "usage": {
+        "input_tokens": 79,
+        "output_tokens": 187,
+        "total_tokens": 266
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 79,
+            "output_tokens": 187,
+            "total_tokens": 266
+          }
+        }
+      ],
+      "audio_seconds": 7.45,
+      "output_sha256": "1c153541108df4b5475e2cece33bf7162e6a9924e1d42d3bed279a346e967ad1",
+      "charged_or_reserved_usd": "0.0022914",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-04",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:01.945463+00:00",
+      "input_sha256": "298e76870afc063ad0ed52442beed2fb2c26abacc79b91f08d98fc4198738813",
+      "request_id": "req_986a91d09599406c89c99dba9ff862f3",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Image Builder combines that approved source with approved G C C agent packages and a selected C I S hardening profile. The product is Hardened Base OS.",
+      "usage": {
+        "input_tokens": 88,
+        "output_tokens": 277,
+        "total_tokens": 365
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 88,
+            "output_tokens": 277,
+            "total_tokens": 365
+          }
+        }
+      ],
+      "audio_seconds": 11.4,
+      "output_sha256": "8c422668d8ab13114f9ae453947a618f09d765707ba37f5d0d645531bed313ba",
+      "charged_or_reserved_usd": "0.0033768",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-05",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:04.109083+00:00",
+      "input_sha256": "5772b00f8e9ae71dc7e77e761c111a43fb2112f5ffd35379fdc11ba3d7051726",
+      "request_id": "req_4d9ad12aa3b34d649ae91585be28bb95",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Package-only means no production manager registration baked into the image. Selected controls do not mean full C I S compliance or complete security-scan acceptance.",
+      "usage": {
+        "input_tokens": 86,
+        "output_tokens": 252,
+        "total_tokens": 338
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 86,
+            "output_tokens": 252,
+            "total_tokens": 338
+          }
+        }
+      ],
+      "audio_seconds": 10.3,
+      "output_sha256": "8e14816a5feb4dd0ccc8a33644dd923ca3c18d2ece30fea73beee136bf7e8995",
+      "charged_or_reserved_usd": "0.0030756",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-06",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:06.392514+00:00",
+      "input_sha256": "84d01c30486c43b7907061aa92eb08ba6c3da07097853894e90261b039c2ab62",
+      "request_id": "req_4a62dd3e0bd1404186bb7cd20f339390",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Three child families derive directly from that base: Git Lab, Mongo D B, and CloudOS E C S Worker. The shared base stays in development.",
+      "usage": {
+        "input_tokens": 88,
+        "output_tokens": 249,
+        "total_tokens": 337
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 88,
+            "output_tokens": 249,
+            "total_tokens": 337
+          }
+        }
+      ],
+      "audio_seconds": 10.0,
+      "output_sha256": "c4b64e9810aa3cc56e2bb685819408da70b4a8d8d35c0a1d8a9c5eb8b9ef7a5a",
+      "charged_or_reserved_usd": "0.0030408",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-07",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:08.464207+00:00",
+      "input_sha256": "91c53a3e381df045325c9b151cbb9b0df03eca836472154b0c46f53e03d39a30",
+      "request_id": "req_a0f34ff97c0d4eed9719eb9e82f43e0f",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Git Lab carries its own required runtime. Mongo D B is non-container by default. Git Lab plus Nextflow is an optional extension, not a fourth core family.",
+      "usage": {
+        "input_tokens": 90,
+        "output_tokens": 265,
+        "total_tokens": 355
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 90,
+            "output_tokens": 265,
+            "total_tokens": 355
+          }
+        }
+      ],
+      "audio_seconds": 10.75,
+      "output_sha256": "f07231de9815fe99636397317cfa82083baa7fb36a9537e16e0078b53f7aa343",
+      "charged_or_reserved_usd": "0.003234",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-08",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:10.498745+00:00",
+      "input_sha256": "cfa7f5a14857a880eebc4ef55ef4d4c4bde70be65dca48f1da0f7fd1877b977e",
+      "request_id": "req_f2ac1d17af5d48798825bfec18904334",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Now the test floor. Every result must identify the exact candidate. Private connectivity, no public I P, S S M readback, packages, configuration and provenance all matter.",
+      "usage": {
+        "input_tokens": 92,
+        "output_tokens": 296,
+        "total_tokens": 388
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 92,
+            "output_tokens": 296,
+            "total_tokens": 388
+          }
+        }
+      ],
+      "audio_seconds": 12.05,
+      "output_sha256": "e71dbde6de9c4a3cfc054c054fb68aacb92aaec6264314c96cf53b681d44589f",
+      "charged_or_reserved_usd": "0.0036072",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-09",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:13.160150+00:00",
+      "input_sha256": "0872c9c9dab8704a6d74ce5e985de928336df5e3d4ac6442e371d102a7776b45",
+      "request_id": "req_24a62028f9a6497884a00246a40b2c52",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "For Git Lab, demand healthy service, representative clone and push, create, read, update and delete, persistence, and reboot proof.",
+      "usage": {
+        "input_tokens": 84,
+        "output_tokens": 224,
+        "total_tokens": 308
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 84,
+            "output_tokens": 224,
+            "total_tokens": 308
+          }
+        }
+      ],
+      "audio_seconds": 8.95,
+      "output_sha256": "0e3707e41a90c81a575fc0b2d2a33d69145352113e8337d6ecae50c3353a8ae1",
+      "charged_or_reserved_usd": "0.0027384",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-10",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:14.946987+00:00",
+      "input_sha256": "5d831daee59303ea92db463df31ef99302cce12e2c00adec0fe62883bebe6d0d",
+      "request_id": "req_d5edae1ca109481a986fba89ef9d3465",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Current private runtime checks cover cold boot and reboot. They do not by themselves prove authenticated repository workflows or a production cutover.",
+      "usage": {
+        "input_tokens": 82,
+        "output_tokens": 234,
+        "total_tokens": 316
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 82,
+            "output_tokens": 234,
+            "total_tokens": 316
+          }
+        }
+      ],
+      "audio_seconds": 9.55,
+      "output_sha256": "f6f00e810514d400e46c6cce92a4307b7bd3de914dbf44f78b4f4abf5d249a20",
+      "charged_or_reserved_usd": "0.0028572",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-11",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:17.141005+00:00",
+      "input_sha256": "768618154ff8f1f94c8ece37ecb4947fd9358e457b31e448cf56cfa25719daac",
+      "request_id": "req_eb0cab7fe4284f4da12166543260974a",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Mongo D B needs a running process, create, read, update and delete and backup-restore smoke. Those standalone checks do not prove a healthy replica set.",
+      "usage": {
+        "input_tokens": 89,
+        "output_tokens": 267,
+        "total_tokens": 356
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 89,
+            "output_tokens": 267,
+            "total_tokens": 356
+          }
+        }
+      ],
+      "audio_seconds": 10.8,
+      "output_sha256": "3923c5a31ce68d703e6cd5fa154480d0ae1314273026f8c7481df7763bff2ea4",
+      "charged_or_reserved_usd": "0.0032574",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-12",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:19.295700+00:00",
+      "input_sha256": "e65bd6d979e881b38b19a89299d1d4cea91c9b6a794e95edf3896ea0633fc40b",
+      "request_id": "req_98be00be147d4153b0ed4d63683115b4",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "A proposed higher-confidence cluster gate would test replication and recovery. Until it passes, cluster readiness remains unknown.",
+      "usage": {
+        "input_tokens": 78,
+        "output_tokens": 188,
+        "total_tokens": 266
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 78,
+            "output_tokens": 188,
+            "total_tokens": 266
+          }
+        }
+      ],
+      "audio_seconds": 7.55,
+      "output_sha256": "a11b72295b514c7c45e7b1b55e85757c5ec1c65cf5aa178e1c592910740c7661",
+      "charged_or_reserved_usd": "0.0023028",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-13",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:21.617708+00:00",
+      "input_sha256": "941a8ee5f8ee3804bc9e024acd9c0603cb844b860575d12ed552a5a95583b01f",
+      "request_id": "req_fb2d1ffa414343d9b544ed27b3d61b2c",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "CloudOS E C S Worker must place tasks on the exact candidate. Zero placed tasks is a failure, even when the image build is green.",
+      "usage": {
+        "input_tokens": 86,
+        "output_tokens": 257,
+        "total_tokens": 343
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 86,
+            "output_tokens": 257,
+            "total_tokens": 343
+          }
+        }
+      ],
+      "audio_seconds": 10.5,
+      "output_sha256": "afb6b0588a8dbbcdc96cb0e363609edaf9bd71dfada91e628ac449b9af1aab6f",
+      "charged_or_reserved_usd": "0.0031356",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-14",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:23.927065+00:00",
+      "input_sha256": "ad4e93dc4bcec5a0ed318daf0762dc1e539c77fb33fcf727723ceb6675810f46",
+      "request_id": "req_7e1f917818364952988619e467b83388",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Our proposed demo suite adds mock workloads, service-to-service network flows, and scoped Parameter Store reads through authorized I A M. These are simulated tests, not live evidence.",
+      "usage": {
+        "input_tokens": 91,
+        "output_tokens": 331,
+        "total_tokens": 422
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 91,
+            "output_tokens": 331,
+            "total_tokens": 422
+          }
+        }
+      ],
+      "audio_seconds": 13.85,
+      "output_sha256": "31de938d141a6d8ab75bd3a43217127ffa7b5d32303b9bf1c4b5dc66907fbdfc",
+      "charged_or_reserved_usd": "0.0040266",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-15",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:26.617209+00:00",
+      "input_sha256": "d1e256ee861d6eb82b309b2cbc08468952608a6cf3d38e98141c91f8e268dc6a",
+      "request_id": "req_4b3f69382b344ec7b16d657f0e42045d",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Phase A is a controlled release. development proof comes first. Only validated child images move toward production acceptance.",
+      "usage": {
+        "input_tokens": 78,
+        "output_tokens": 194,
+        "total_tokens": 272
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 78,
+            "output_tokens": 194,
+            "total_tokens": 272
+          }
+        }
+      ],
+      "audio_seconds": 7.85,
+      "output_sha256": "04d3e7c0d451316d4377758e0df677f659cecd53a01634e223155b1efe7bbf6e",
+      "charged_or_reserved_usd": "0.0023748",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-16",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:28.501034+00:00",
+      "input_sha256": "a6ecee5dc7fbf87f3527850f71714e1a5e6bacec5a79e6821a6d106f5cc17990",
+      "request_id": "req_d14e8d131cbc4ced83b81555dfb434d7",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Verify encryption, A M I launch access, and usable backing snapshots and K M S access. A policy observation alone does not prove a successful private launch.",
+      "usage": {
+        "input_tokens": 88,
+        "output_tokens": 254,
+        "total_tokens": 342
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 88,
+            "output_tokens": 254,
+            "total_tokens": 342
+          }
+        }
+      ],
+      "audio_seconds": 10.25,
+      "output_sha256": "84d7d67c1e66de8e5590211e52c0edfd5b4672138e45f4d171a2c6f942838154",
+      "charged_or_reserved_usd": "0.0031008",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-17",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:30.661547+00:00",
+      "input_sha256": "d70fa05bed3cf274adcaed7bd59fca153bd0bbc20494c4b8533c2e9a47ffad75",
+      "request_id": "req_cfdb69f488b64c69bf037ecc62b7b1d3",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Test the exact image consumed in production, with that environment's own agent configuration. development success cannot stand in for production runtime acceptance.",
+      "usage": {
+        "input_tokens": 83,
+        "output_tokens": 245,
+        "total_tokens": 328
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 83,
+            "output_tokens": 245,
+            "total_tokens": 328
+          }
+        }
+      ],
+      "audio_seconds": 10.05,
+      "output_sha256": "456863f0469f91b04785eaa7d07fc8d858fbdfb95e1b764690a074d18504dfc2",
+      "charged_or_reserved_usd": "0.0029898",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-18",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:32.578636+00:00",
+      "input_sha256": "88e5da55498d92bd1825b099a8b64b521921395f36ffcb0efb2dde08b50a77c2",
+      "request_id": "req_87b45950e3dc4d369376e8986e135e5c",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "The Ops engineer reviews the evidence and gives explicit approval for this rollout. Build success, validation and human approval are separate states.",
+      "usage": {
+        "input_tokens": 82,
+        "output_tokens": 242,
+        "total_tokens": 324
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 82,
+            "output_tokens": 242,
+            "total_tokens": 324
+          }
+        }
+      ],
+      "audio_seconds": 9.95,
+      "output_sha256": "d19cc328d55ac0797e5dd6e2d73b5e99eb44e740738dfd4574830f158ffefc9e",
+      "charged_or_reserved_usd": "0.0029532",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-19",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:34.490055+00:00",
+      "input_sha256": "dd174e265b9bab1d7b779d156bf48e6f44746588ba423968bf5efd2fcc5055aa",
+      "request_id": "req_986720dd51b2407bae929110d3c48650",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Phase B is a future operating policy. Candidates could build and validate weekly. The proposed promotion window is the first Saturday night each month.",
+      "usage": {
+        "input_tokens": 84,
+        "output_tokens": 240,
+        "total_tokens": 324
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 84,
+            "output_tokens": 240,
+            "total_tokens": 324
+          }
+        }
+      ],
+      "audio_seconds": 9.75,
+      "output_sha256": "4aca7dea3214f230d95e76be7c91fd9ec456175c3b35d3bf4d5df3c729dea007",
+      "charged_or_reserved_usd": "0.0029304",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-20",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:36.401262+00:00",
+      "input_sha256": "3ef6c10901b551898985d22fd03fe0a782602d16997513f09f5522fd8ac0b12c",
+      "request_id": "req_5d6a6e406bd74cbdbc928615f8c5dcbc",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Promotion without per-release Ops approval becomes possible only after management, security and change governance approve that policy and its conditions.",
+      "usage": {
+        "input_tokens": 80,
+        "output_tokens": 212,
+        "total_tokens": 292
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 80,
+            "output_tokens": 212,
+            "total_tokens": 292
+          }
+        }
+      ],
+      "audio_seconds": 8.6,
+      "output_sha256": "f234a1950f0b51c4004193999823b2216cd5eb6751dca50581c8fd493f879946",
+      "charged_or_reserved_usd": "0.002592",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-21",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:38.248812+00:00",
+      "input_sha256": "57b50f806523c27f8e65166408f0f7a47a7268a150560297b036a2b1ac69d51a",
+      "request_id": "req_27964a54d3fc408fa4d9c0369b37052b",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "The current repository does not establish unattended monthly production rollout. A critical vulnerability can instead trigger an urgent, Ops-approved release.",
+      "usage": {
+        "input_tokens": 81,
+        "output_tokens": 216,
+        "total_tokens": 297
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 81,
+            "output_tokens": 216,
+            "total_tokens": 297
+          }
+        }
+      ],
+      "audio_seconds": 8.8,
+      "output_sha256": "a84a0ce779b10fb268f19c0b320c1a47e4ee476dcc74bd4aaffbeb17bd46fcc3",
+      "charged_or_reserved_usd": "0.0026406",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-22",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:40.091824+00:00",
+      "input_sha256": "c9f9ac09c62465046a3bdac67b29ede4cce12c02b93fd8f1a0ec18488435a8de",
+      "request_id": "req_6c7e79a92b7e499da855d68e2c35843a",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "A failed or unknown check, missing approval or policy, missing access, or an unhealthy production canary closes the gate. Nothing advances on an assumption.",
+      "usage": {
+        "input_tokens": 87,
+        "output_tokens": 254,
+        "total_tokens": 341
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 87,
+            "output_tokens": 254,
+            "total_tokens": 341
+          }
+        }
+      ],
+      "audio_seconds": 10.3,
+      "output_sha256": "0f58df7bfa9d7e2484941f94e677127541355e558ee963bd4e7927265499d43a",
+      "charged_or_reserved_usd": "0.0031002",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-23",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:42.464237+00:00",
+      "input_sha256": "962ce4f149f61762e02c555ad31d7d2f5336fff26876573c0dab247a362d96ac",
+      "request_id": "req_215f740124284de88314277b10e4d3d2",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Keep the prior known-good release and a tested data-recovery path. Read back the rollout result. If the canary fails, stop and use the approved rollback plan.",
+      "usage": {
+        "input_tokens": 91,
+        "output_tokens": 250,
+        "total_tokens": 341
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 91,
+            "output_tokens": 250,
+            "total_tokens": 341
+          }
+        }
+      ],
+      "audio_seconds": 9.9,
+      "output_sha256": "ec291526232a759fce718c657a67077f755fc56623e1f560000839d1f04d93bd",
+      "charged_or_reserved_usd": "0.0030546",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-24",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:44.513982+00:00",
+      "input_sha256": "de3b432efe2efc865db1f2f41780ff7edb8b8167a083550456c173eeaf81384e",
+      "request_id": "req_2af8ca9252f640819061c00dd425ffdf",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "A few minutes of downtime may be acceptable, if approved. Reversibility and observable acceptance matter more than a green build badge.",
+      "usage": {
+        "input_tokens": 83,
+        "output_tokens": 225,
+        "total_tokens": 308
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 83,
+            "output_tokens": 225,
+            "total_tokens": 308
+          }
+        }
+      ],
+      "audio_seconds": 9.05,
+      "output_sha256": "2dd2a348d052008453b4edb189103284f375cf662f93ec0328a04437582a25de",
+      "charged_or_reserved_usd": "0.0027498",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "voice-25",
+      "endpoint": "/v1/audio/speech",
+      "model": "gpt-4o-mini-tts",
+      "reservation_usd": "0.25",
+      "status": "completed",
+      "at": "2026-11-08T10:04:46.278271+00:00",
+      "input_sha256": "5a53c017826f5db3d1966c1611d0cd5c2688d1ac0380a04db7c4b28fab424db6",
+      "request_id": "req_f32d3243eca1465e9b10b9c338b15d9f",
+      "voice": "cedar",
+      "instructions": "Warm, precise cinematic documentary narration. Clear international English, natural connected phrasing, measured pace around 145 words per minute. Curious opening; confident explanation; firm safety gates. Read exactly the provided text. Do not add words, music, or sound effects. Avoid exaggerated announcer delivery.",
+      "input": "Build once. Validate every workload. Promote only what is proven.",
+      "usage": {
+        "input_tokens": 70,
+        "output_tokens": 127,
+        "total_tokens": 197
+      },
+      "event_metadata": [
+        {
+          "type": "speech.audio.done",
+          "usage": {
+            "input_tokens": 70,
+            "output_tokens": 127,
+            "total_tokens": 197
+          }
+        }
+      ],
+      "audio_seconds": 5.0,
+      "output_sha256": "216807db6c334cadb47439df5a8ad63385e16bce2e146adcb6f2995ff256d595",
+      "charged_or_reserved_usd": "0.001566",
+      "cost_basis": "SSE token usage: input 0.60 and output 12 USD per million. Full 0.25 reservation retained if usage missing."
+    },
+    {
+      "name": "narration-transcription",
+      "endpoint": "/v1/audio/transcriptions",
+      "model": "whisper-1",
+      "reservation_usd": "0.15",
+      "status": "completed",
+      "at": "2026-11-08T10:05:20.229785+00:00",
+      "input_sha256": "075bc664f72a398751db370c42c1aa4757d1cfa33e0b19f1e7a0b47b762dbd30",
+      "request_id": "req_7a37218d7c354193a11cdd56ea8e3a58",
+      "provider_duration": 268.0,
+      "audio_seconds": 268.0,
+      "charged_or_reserved_usd": "0.0268",
+      "cost_basis": "0.006 USD/minute; conservatively round submitted duration up to one second.",
+      "output_sha256": "4d39b69421c8034d4c8cc9f96bc19216e6a5b5a327e207687c7416cb2e116ac2"
+    },
+    {
+      "name": "pronunciation-crosscheck",
+      "endpoint": "/v1/audio/transcriptions",
+      "model": "gpt-4o-transcribe",
+      "reservation_usd": ".15",
+      "status": "completed",
+      "at": "2026-11-08T10:11:47.930217+00:00",
+      "input_sha256": "48955969dd0c4e00e011666c5ae6140a157994e264749387c56969085cf7e3be",
+      "request_id": "req_f6f01576bcf347faa7d7a8e1875ab020",
+      "usage": {
+        "input_tokens": 223,
+        "output_tokens": 63,
+        "total_tokens": 286,
+        "type": "tokens",
+        "input_token_details": {
+          "audio_tokens": 223,
+          "text_tokens": 0
+        }
+      },
+      "charged_or_reserved_usd": "0.0011875",
+      "pricing_source": "https://developers.openai.com/api/docs/models/gpt-4o-transcribe",
+      "output_sha256": "abd35bf461b65d95b5bb9d3d246b70ca4e6aff75b25b01cb4aea6d2921271c50"
+    },
+    {
+      "name": "encoded-frame-review",
+      "endpoint": "/v1/chat/completions",
+      "model": "gpt-4.1-mini",
+      "reservation_usd": ".30",
+      "status": "completed",
+      "at": "2026-11-08T10:14:15.946856+00:00",
+      "input_sha256": "ba22ee629518ef8296eccd62c79a65e6ef1e1c8597d89e974092fa8263008099",
+      "request_id": "req_d59be69a3cea4e40844f3a531389e125",
+      "usage": {
+        "completion_tokens": 749,
+        "prompt_tokens": 21115,
+        "total_tokens": 21864,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      },
+      "returned_model": "gpt-4.1-mini-2025-04-14",
+      "charged_or_reserved_usd": "0.0096444",
+      "pricing_source": "https://developers.openai.com/api/docs/models/gpt-4.1-mini",
+      "output_sha256": "3c1bbbfb57fd190fc6d3ebbfc572b8a28998befa76c2253fb2a3f4a171b32d24"
+    }
+  ],
+  "accounted_total_usd": "0.2083537",
+  "remaining_usd": "9.7916463"
+}

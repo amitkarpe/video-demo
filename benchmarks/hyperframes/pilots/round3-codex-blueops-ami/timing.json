@@ -1,0 +1,299 @@
+{
+  "duration": 268,
+  "cues": [
+    {
+      "index": 0,
+      "scene": "opening",
+      "start": 0.8,
+      "duration": 5.5,
+      "text": "A new golden image arrives. But a successful build is not yet a trusted production release.",
+      "spoken": "A new golden image arrives. But a successful build is not yet a trusted production release."
+    },
+    {
+      "index": 1,
+      "scene": "opening",
+      "start": 6.78,
+      "duration": 7.1,
+      "text": "BlueOps turns that gap into a controlled journey: build a shared base, prove each workload, then earn the right to promote.",
+      "spoken": "Blue Ops turns that gap into a controlled journey: build a shared base, prove each workload, then earn the right to promote."
+    },
+    {
+      "index": 2,
+      "scene": "upstream",
+      "start": 14.93,
+      "duration": 9.05,
+      "text": "The journey starts with a GovTech GCC Golden Amazon Linux 2023 image: a baseline with hardening and some operations agents.",
+      "spoken": "The journey starts with a Gov Tech G C C Golden Amazon Linux twenty twenty three image: a baseline with hardening and some operations agents."
+    },
+    {
+      "index": 3,
+      "scene": "upstream",
+      "start": 24.46,
+      "duration": 7.45,
+      "text": "An EventBridge discovery signal is part of the proposed design. Record the immutable source identity before the factory moves.",
+      "spoken": "An EventBridge discovery signal is part of the proposed design. Record the immutable source identity before the factory moves."
+    },
+    {
+      "index": 4,
+      "scene": "base",
+      "start": 32.96,
+      "duration": 11.4,
+      "text": "Image Builder combines that approved source with approved GCC agent packages and a selected CIS hardening profile. The product is Hardened Base OS.",
+      "spoken": "Image Builder combines that approved source with approved G C C agent packages and a selected C I S hardening profile. The product is Hardened Base OS."
+    },
+    {
+      "index": 5,
+      "scene": "base",
+      "start": 44.84,
+      "duration": 10.3,
+      "text": "Package-only means no production manager registration baked into the image. Selected controls do not mean full CIS compliance or complete security-scan acceptance.",
+      "spoken": "Package-only means no production manager registration baked into the image. Selected controls do not mean full C I S compliance or complete security-scan acceptance."
+    },
+    {
+      "index": 6,
+      "scene": "families",
+      "start": 56.19,
+      "duration": 10.0,
+      "text": "Three child families derive directly from that base: GitLab, MongoDB, and CloudOS ECS Worker. The shared base stays in DEV.",
+      "spoken": "Three child families derive directly from that base: Git Lab, Mongo D B, and CloudOS E C S Worker. The shared base stays in development."
+    },
+    {
+      "index": 7,
+      "scene": "families",
+      "start": 66.67,
+      "duration": 10.75,
+      "text": "GitLab carries its own required runtime. MongoDB is non-container by default. GitLab plus Nextflow is an optional extension, not a fourth core family.",
+      "spoken": "Git Lab carries its own required runtime. Mongo D B is non-container by default. Git Lab plus Nextflow is an optional extension, not a fourth core family."
+    },
+    {
+      "index": 8,
+      "scene": "dev",
+      "start": 78.47,
+      "duration": 12.05,
+      "text": "Now the test floor. Every result must identify the exact candidate. Private connectivity, no public IP, SSM readback, packages, configuration and provenance all matter.",
+      "spoken": "Now the test floor. Every result must identify the exact candidate. Private connectivity, no public I P, S S M readback, packages, configuration and provenance all matter."
+    },
+    {
+      "index": 9,
+      "scene": "gitlab",
+      "start": 91.57,
+      "duration": 8.95,
+      "text": "For GitLab, demand healthy service, representative clone and push, CRUD, persistence, and reboot proof.",
+      "spoken": "For Git Lab, demand healthy service, representative clone and push, create, read, update and delete, persistence, and reboot proof."
+    },
+    {
+      "index": 10,
+      "scene": "gitlab",
+      "start": 101.0,
+      "duration": 9.55,
+      "text": "Current private runtime checks cover cold boot and reboot. They do not by themselves prove authenticated repository workflows or a production cutover.",
+      "spoken": "Current private runtime checks cover cold boot and reboot. They do not by themselves prove authenticated repository workflows or a production cutover."
+    },
+    {
+      "index": 11,
+      "scene": "mongo",
+      "start": 111.6,
+      "duration": 10.8,
+      "text": "MongoDB needs a running process, CRUD and backup-restore smoke. Those standalone checks do not prove a healthy replica set.",
+      "spoken": "Mongo D B needs a running process, create, read, update and delete and backup-restore smoke. Those standalone checks do not prove a healthy replica set."
+    },
+    {
+      "index": 12,
+      "scene": "mongo",
+      "start": 122.88,
+      "duration": 7.55,
+      "text": "A proposed higher-confidence cluster gate would test replication and recovery. Until it passes, cluster readiness remains unknown.",
+      "spoken": "A proposed higher-confidence cluster gate would test replication and recovery. Until it passes, cluster readiness remains unknown."
+    },
+    {
+      "index": 13,
+      "scene": "ecs",
+      "start": 131.48,
+      "duration": 10.5,
+      "text": "CloudOS ECS Worker must place tasks on the exact candidate. Zero placed tasks is a failure, even when the image build is green.",
+      "spoken": "CloudOS E C S Worker must place tasks on the exact candidate. Zero placed tasks is a failure, even when the image build is green."
+    },
+    {
+      "index": 14,
+      "scene": "ecs",
+      "start": 142.46,
+      "duration": 13.85,
+      "text": "Our proposed demo suite adds mock workloads, service-to-service network flows, and scoped Parameter Store reads through authorized IAM. These are simulated tests, not live evidence.",
+      "spoken": "Our proposed demo suite adds mock workloads, service-to-service network flows, and scoped Parameter Store reads through authorized I A M. These are simulated tests, not live evidence."
+    },
+    {
+      "index": 15,
+      "scene": "approval",
+      "start": 157.36,
+      "duration": 7.85,
+      "text": "Phase A is a controlled release. DEV proof comes first. Only validated child images move toward production acceptance.",
+      "spoken": "Phase A is a controlled release. development proof comes first. Only validated child images move toward production acceptance."
+    },
+    {
+      "index": 16,
+      "scene": "approval",
+      "start": 165.69,
+      "duration": 10.25,
+      "text": "Verify encryption, AMI launch access, and usable backing snapshots and KMS access. A policy observation alone does not prove a successful private launch.",
+      "spoken": "Verify encryption, A M I launch access, and usable backing snapshots and K M S access. A policy observation alone does not prove a successful private launch."
+    },
+    {
+      "index": 17,
+      "scene": "prod",
+      "start": 176.99,
+      "duration": 10.05,
+      "text": "Test the exact image consumed in PROD, with that environment's own agent configuration. DEV success cannot stand in for PROD runtime acceptance.",
+      "spoken": "Test the exact image consumed in production, with that environment's own agent configuration. development success cannot stand in for production runtime acceptance."
+    },
+    {
+      "index": 18,
+      "scene": "prod",
+      "start": 187.52,
+      "duration": 9.95,
+      "text": "The Ops engineer reviews the evidence and gives explicit approval for this rollout. Build success, validation and human approval are separate states.",
+      "spoken": "The Ops engineer reviews the evidence and gives explicit approval for this rollout. Build success, validation and human approval are separate states."
+    },
+    {
+      "index": 19,
+      "scene": "future",
+      "start": 198.52,
+      "duration": 9.75,
+      "text": "Phase B is a future operating policy. Candidates could build and validate weekly. The proposed promotion window is the first Saturday night each month.",
+      "spoken": "Phase B is a future operating policy. Candidates could build and validate weekly. The proposed promotion window is the first Saturday night each month."
+    },
+    {
+      "index": 20,
+      "scene": "future",
+      "start": 208.75,
+      "duration": 8.6,
+      "text": "Promotion without per-release Ops approval becomes possible only after management, security and change governance approve that policy and its conditions.",
+      "spoken": "Promotion without per-release Ops approval becomes possible only after management, security and change governance approve that policy and its conditions."
+    },
+    {
+      "index": 21,
+      "scene": "future",
+      "start": 217.83,
+      "duration": 8.8,
+      "text": "The current repository does not establish unattended monthly PROD rollout. A critical vulnerability can instead trigger an urgent, Ops-approved release.",
+      "spoken": "The current repository does not establish unattended monthly production rollout. A critical vulnerability can instead trigger an urgent, Ops-approved release."
+    },
+    {
+      "index": 22,
+      "scene": "blocked",
+      "start": 227.68,
+      "duration": 10.3,
+      "text": "A failed or unknown check, missing approval or policy, missing access, or an unhealthy PROD canary closes the gate. Nothing advances on an assumption.",
+      "spoken": "A failed or unknown check, missing approval or policy, missing access, or an unhealthy production canary closes the gate. Nothing advances on an assumption."
+    },
+    {
+      "index": 23,
+      "scene": "rollback",
+      "start": 239.03,
+      "duration": 9.9,
+      "text": "Keep the prior known-good release and a tested data-recovery path. Read back the rollout result. If the canary fails, stop and use the approved rollback plan.",
+      "spoken": "Keep the prior known-good release and a tested data-recovery path. Read back the rollout result. If the canary fails, stop and use the approved rollback plan."
+    },
+    {
+      "index": 24,
+      "scene": "rollback",
+      "start": 249.41,
+      "duration": 9.05,
+      "text": "A few minutes of downtime may be acceptable, if approved. Reversibility and observable acceptance matter more than a green build badge.",
+      "spoken": "A few minutes of downtime may be acceptable, if approved. Reversibility and observable acceptance matter more than a green build badge."
+    },
+    {
+      "index": 25,
+      "scene": "payoff",
+      "start": 259.51,
+      "duration": 5.0,
+      "text": "Build once. Validate every workload. Promote only what is proven.",
+      "spoken": "Build once. Validate every workload. Promote only what is proven."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "opening",
+      "start": 0.35000000000000003,
+      "first_cue": 0,
+      "end": 14.48
+    },
+    {
+      "id": "upstream",
+      "start": 14.48,
+      "first_cue": 2,
+      "end": 32.51
+    },
+    {
+      "id": "base",
+      "start": 32.51,
+      "first_cue": 4,
+      "end": 55.739999999999995
+    },
+    {
+      "id": "families",
+      "start": 55.739999999999995,
+      "first_cue": 6,
+      "end": 78.02
+    },
+    {
+      "id": "dev",
+      "start": 78.02,
+      "first_cue": 8,
+      "end": 91.11999999999999
+    },
+    {
+      "id": "gitlab",
+      "start": 91.11999999999999,
+      "first_cue": 9,
+      "end": 111.14999999999999
+    },
+    {
+      "id": "mongo",
+      "start": 111.14999999999999,
+      "first_cue": 11,
+      "end": 131.03
+    },
+    {
+      "id": "ecs",
+      "start": 131.03,
+      "first_cue": 13,
+      "end": 156.91000000000003
+    },
+    {
+      "id": "approval",
+      "start": 156.91000000000003,
+      "first_cue": 15,
+      "end": 176.54000000000002
+    },
+    {
+      "id": "prod",
+      "start": 176.54000000000002,
+      "first_cue": 17,
+      "end": 198.07000000000002
+    },
+    {
+      "id": "future",
+      "start": 198.07000000000002,
+      "first_cue": 19,
+      "end": 227.23000000000002
+    },
+    {
+      "id": "blocked",
+      "start": 227.23000000000002,
+      "first_cue": 22,
+      "end": 238.58
+    },
+    {
+      "id": "rollback",
+      "start": 238.58,
+      "first_cue": 23,
+      "end": 259.06
+    },
+    {
+      "id": "payoff",
+      "start": 259.06,
+      "first_cue": 25,
+      "end": 268
+    }
+  ]
+}
