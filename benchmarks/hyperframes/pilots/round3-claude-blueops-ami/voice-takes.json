@@ -1,0 +1,1162 @@
+{
+  "s01": {
+    "seconds": 3.222,
+    "transcript": "Every month, a new golden image arrives.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 318,
+      "input_tokens": 213,
+      "output_tokens": 105,
+      "input_token_details": {
+        "text_tokens": 213,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 37,
+        "audio_tokens": 68,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.006092,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s02": {
+    "seconds": 4.749,
+    "transcript": "Building from it is easy. Proving it is safe to run in production is the hard part.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 377,
+      "input_tokens": 224,
+      "output_tokens": 153,
+      "input_token_details": {
+        "text_tokens": 224,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 54,
+        "audio_tokens": 99,
+        "reasoning_tokens": 18
+      }
+    },
+    "cost_usd": 0.008527999999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s03": {
+    "seconds": 3.069,
+    "transcript": "This is BlueOps: the AMI Factory.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 324,
+      "input_tokens": 214,
+      "output_tokens": 110,
+      "input_token_details": {
+        "text_tokens": 214,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 42,
+        "audio_tokens": 68,
+        "reasoning_tokens": 18
+      }
+    },
+    "cost_usd": 0.006216,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s04": {
+    "seconds": 8.752,
+    "transcript": "Upstream, GovTech publishes a Golden Amazon Linux 2023 image, already hardened, with some security and operations agents.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 478,
+      "input_tokens": 229,
+      "output_tokens": 249,
+      "input_token_details": {
+        "text_tokens": 229,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 70,
+        "audio_tokens": 179,
+        "reasoning_tokens": 27
+      }
+    },
+    "cost_usd": 0.0141032,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s05": {
+    "seconds": 6.21,
+    "transcript": "A discovery signal, proposed here as an EventBridge event, captures its exact image ID.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 408,
+      "input_tokens": 222,
+      "output_tokens": 186,
+      "input_token_details": {
+        "text_tokens": 222,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 57,
+        "audio_tokens": 129,
+        "reasoning_tokens": 23
+      }
+    },
+    "cost_usd": 0.010512,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s06": {
+    "seconds": 4.518,
+    "transcript": "From that moment, every step traces back to one immutable source.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 361,
+      "input_tokens": 217,
+      "output_tokens": 144,
+      "input_token_details": {
+        "text_tokens": 217,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 49,
+        "audio_tokens": 95,
+        "reasoning_tokens": 22
+      }
+    },
+    "cost_usd": 0.0081752,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s07": {
+    "seconds": 3.454,
+    "transcript": "Station one builds the Hardened Base OS.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 325,
+      "input_tokens": 213,
+      "output_tokens": 112,
+      "input_token_details": {
+        "text_tokens": 213,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 37,
+        "audio_tokens": 75,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.00654,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s08": {
+    "seconds": 6.184,
+    "transcript": "Image Builder starts from the approved golden image and installs the GCC agent packages.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 394,
+      "input_tokens": 219,
+      "output_tokens": 175,
+      "input_token_details": {
+        "text_tokens": 219,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 45,
+        "audio_tokens": 130,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.010275999999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s09": {
+    "seconds": 3.627,
+    "transcript": "Packages only: no production manager registration is baked in.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 332,
+      "input_tokens": 215,
+      "output_tokens": 117,
+      "input_token_details": {
+        "text_tokens": 215,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 40,
+        "audio_tokens": 77,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.0067480000000000005,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s10": {
+    "seconds": 7.141,
+    "transcript": "Then it applies a selected CIS hardening profile. Selected controls, not a claim of full benchmark compliance.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 427,
+      "input_tokens": 225,
+      "output_tokens": 202,
+      "input_token_details": {
+        "text_tokens": 225,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 55,
+        "audio_tokens": 147,
+        "reasoning_tokens": 16
+      }
+    },
+    "cost_usd": 0.0116792,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s11": {
+    "seconds": 9.17,
+    "transcript": "Checks run on a private instance: no public IP, SSM online, the expected packages, the recorded profile.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 473,
+      "input_tokens": 227,
+      "output_tokens": 246,
+      "input_token_details": {
+        "text_tokens": 227,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 58,
+        "audio_tokens": 188,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.014332,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s12": {
+    "seconds": 5.849,
+    "transcript": "The Hardened Base OS never goes to production. It is the parent for everything that does.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 398,
+      "input_tokens": 223,
+      "output_tokens": 175,
+      "input_token_details": {
+        "text_tokens": 223,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 52,
+        "audio_tokens": 123,
+        "reasoning_tokens": 17
+      }
+    },
+    "cost_usd": 0.010011999999999998,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s13": {
+    "seconds": 4.207,
+    "transcript": "From that one parent, three production families branch directly.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 347,
+      "input_tokens": 215,
+      "output_tokens": 132,
+      "input_token_details": {
+        "text_tokens": 215,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 43,
+        "audio_tokens": 89,
+        "reasoning_tokens": 18
+      }
+    },
+    "cost_usd": 0.0076392,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s14": {
+    "seconds": 3.063,
+    "transcript": "GitLab, which carries its own container runtime.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 339,
+      "input_tokens": 214,
+      "output_tokens": 125,
+      "input_token_details": {
+        "text_tokens": 214,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 56,
+        "audio_tokens": 69,
+        "reasoning_tokens": 32
+      }
+    },
+    "cost_usd": 0.0066672,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s15": {
+    "seconds": 3.003,
+    "transcript": "MongoDB, which runs without containers.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 314,
+      "input_tokens": 212,
+      "output_tokens": 102,
+      "input_token_details": {
+        "text_tokens": 212,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 37,
+        "audio_tokens": 65,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.0059472,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s16": {
+    "seconds": 5.495,
+    "transcript": "And the CloudOS ECS Worker, which adds the container engine and the ECS agent.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 393,
+      "input_tokens": 221,
+      "output_tokens": 172,
+      "input_token_details": {
+        "text_tokens": 221,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 55,
+        "audio_tokens": 117,
+        "reasoning_tokens": 22
+      }
+    },
+    "cost_usd": 0.009692,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s17": {
+    "seconds": 4.654,
+    "transcript": "GitLab with Nextflow is an optional extension, not a fourth family.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 368,
+      "input_tokens": 219,
+      "output_tokens": 149,
+      "input_token_details": {
+        "text_tokens": 219,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 50,
+        "audio_tokens": 99,
+        "reasoning_tokens": 19
+      }
+    },
+    "cost_usd": 0.008412,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s18": {
+    "seconds": 5.777,
+    "transcript": "A green build log is not confidence. So each family goes to its own DEV proving ground.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 404,
+      "input_tokens": 223,
+      "output_tokens": 181,
+      "input_token_details": {
+        "text_tokens": 223,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 59,
+        "audio_tokens": 122,
+        "reasoning_tokens": 24
+      }
+    },
+    "cost_usd": 0.0101672,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s19": {
+    "seconds": 6.477,
+    "transcript": "GitLab must come up healthy, accept a clone and a push, create and read data, and keep it after a reboot.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 430,
+      "input_tokens": 230,
+      "output_tokens": 200,
+      "input_token_details": {
+        "text_tokens": 230,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 66,
+        "audio_tokens": 134,
+        "reasoning_tokens": 24
+      }
+    },
+    "cost_usd": 0.01108,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s20": {
+    "seconds": 7.978,
+    "transcript": "MongoDB must listen only privately, answer a ping, and pass create, read, update, delete, and a dump and restore.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 455,
+      "input_tokens": 231,
+      "output_tokens": 224,
+      "input_token_details": {
+        "text_tokens": 231,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 59,
+        "audio_tokens": 165,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.0129512,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s21": {
+    "seconds": 6.967,
+    "transcript": "A single-node smoke test is not a cluster, so a replica-set gate is the proposed next level of confidence.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 450,
+      "input_tokens": 227,
+      "output_tokens": 223,
+      "input_token_details": {
+        "text_tokens": 227,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 80,
+        "audio_tokens": 143,
+        "reasoning_tokens": 39
+      }
+    },
+    "cost_usd": 0.0120312,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s22": {
+    "seconds": 8.37,
+    "transcript": "The ECS Worker must really place tasks on the exact candidate image. Zero placed tasks is a failure.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 444,
+      "input_tokens": 224,
+      "output_tokens": 220,
+      "input_token_details": {
+        "text_tokens": 224,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 47,
+        "audio_tokens": 173,
+        "reasoning_tokens": 9
+      }
+    },
+    "cost_usd": 0.013147200000000001,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s23": {
+    "seconds": 7.872,
+    "transcript": "The proposed next step runs mock services that talk over the expected ports and read only their own parameters, through scoped IAM.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 455,
+      "input_tokens": 228,
+      "output_tokens": 227,
+      "input_token_details": {
+        "text_tokens": 228,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 66,
+        "audio_tokens": 161,
+        "reasoning_tokens": 24
+      }
+    },
+    "cost_usd": 0.0128512,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s24": {
+    "seconds": 7.334,
+    "transcript": "Every candidate also proves its lineage, encrypted and shareable snapshots, and a clean private launch.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 428,
+      "input_tokens": 223,
+      "output_tokens": 205,
+      "input_token_details": {
+        "text_tokens": 223,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 53,
+        "audio_tokens": 152,
+        "reasoning_tokens": 16
+      }
+    },
+    "cost_usd": 0.0119432,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s25": {
+    "seconds": 3.057,
+    "transcript": "A fail, or an unknown, stops the line.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 338,
+      "input_tokens": 215,
+      "output_tokens": 123,
+      "input_token_details": {
+        "text_tokens": 215,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 56,
+        "audio_tokens": 67,
+        "reasoning_tokens": 31
+      }
+    },
+    "cost_usd": 0.006543200000000001,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s26": {
+    "seconds": 6.758,
+    "transcript": "Notice the separate states. Built is not verified. Verified in DEV is not accepted in production.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 417,
+      "input_tokens": 223,
+      "output_tokens": 194,
+      "input_token_details": {
+        "text_tokens": 223,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 53,
+        "audio_tokens": 141,
+        "reasoning_tokens": 16
+      }
+    },
+    "cost_usd": 0.0112392,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s27": {
+    "seconds": 2.39,
+    "transcript": "Phase A is the controlled rollout.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 307,
+      "input_tokens": 211,
+      "output_tokens": 96,
+      "input_token_details": {
+        "text_tokens": 211,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 42,
+        "audio_tokens": 54,
+        "reasoning_tokens": 23
+      }
+    },
+    "cost_usd": 0.0053592,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s28": {
+    "seconds": 7.468,
+    "transcript": "The validated child image is shared to production, launched privately, and checked again with production's own configuration.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 438,
+      "input_tokens": 225,
+      "output_tokens": 213,
+      "input_token_details": {
+        "text_tokens": 225,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 58,
+        "audio_tokens": 155,
+        "reasoning_tokens": 19
+      }
+    },
+    "cost_usd": 0.0122632,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s29": {
+    "seconds": 4.258,
+    "transcript": "An Ops engineer reviews the evidence, and gives explicit approval.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 360,
+      "input_tokens": 216,
+      "output_tokens": 144,
+      "input_token_details": {
+        "text_tokens": 216,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 54,
+        "audio_tokens": 90,
+        "reasoning_tokens": 28
+      }
+    },
+    "cost_usd": 0.00792,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s30": {
+    "seconds": 6.29,
+    "transcript": "Only then does the approved pointer move, and the previous release stays ready for rollback.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 407,
+      "input_tokens": 221,
+      "output_tokens": 186,
+      "input_token_details": {
+        "text_tokens": 221,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 56,
+        "audio_tokens": 130,
+        "reasoning_tokens": 23
+      }
+    },
+    "cost_usd": 0.0105992,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s31": {
+    "seconds": 3.976,
+    "transcript": "Phase B is a proposal for the future, not today's system.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 348,
+      "input_tokens": 217,
+      "output_tokens": 131,
+      "input_token_details": {
+        "text_tokens": 217,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 47,
+        "audio_tokens": 84,
+        "reasoning_tokens": 20
+      }
+    },
+    "cost_usd": 0.0074232,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s32": {
+    "seconds": 3.099,
+    "transcript": "Candidates could build and validate every week.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 327,
+      "input_tokens": 212,
+      "output_tokens": 115,
+      "input_token_details": {
+        "text_tokens": 212,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 47,
+        "audio_tokens": 68,
+        "reasoning_tokens": 25
+      }
+    },
+    "cost_usd": 0.006328,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s33": {
+    "seconds": 5.757,
+    "transcript": "On the first Saturday night of each month, a scheduled promotion could run without a per-release approval.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 407,
+      "input_tokens": 224,
+      "output_tokens": 183,
+      "input_token_details": {
+        "text_tokens": 224,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 63,
+        "audio_tokens": 120,
+        "reasoning_tokens": 27
+      }
+    },
+    "cost_usd": 0.010088,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s34": {
+    "seconds": 6.535,
+    "transcript": "But only after management, security and change governance approve that policy and its conditions.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 414,
+      "input_tokens": 220,
+      "output_tokens": 194,
+      "input_token_details": {
+        "text_tokens": 220,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 59,
+        "audio_tokens": 135,
+        "reasoning_tokens": 27
+      }
+    },
+    "cost_usd": 0.010987199999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s35": {
+    "seconds": 8.437,
+    "transcript": "A failed or unknown check, a missing approval, missing snapshot or key access, or an unhealthy production canary blocks it.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 465,
+      "input_tokens": 229,
+      "output_tokens": 236,
+      "input_token_details": {
+        "text_tokens": 229,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 62,
+        "audio_tokens": 174,
+        "reasoning_tokens": 19
+      }
+    },
+    "cost_usd": 0.0135912,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s36": {
+    "seconds": 4.472,
+    "transcript": "A critical vulnerability can still trigger an urgent, Ops-approved release.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 360,
+      "input_tokens": 217,
+      "output_tokens": 143,
+      "input_token_details": {
+        "text_tokens": 217,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 47,
+        "audio_tokens": 96,
+        "reasoning_tokens": 18
+      }
+    },
+    "cost_usd": 0.0081912,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s37": {
+    "seconds": 6.293,
+    "transcript": "And if the canary turns red, the rollout returns to the last known-good image, within a short, agreed maintenance window.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 417,
+      "input_tokens": 230,
+      "output_tokens": 187,
+      "input_token_details": {
+        "text_tokens": 230,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 55,
+        "audio_tokens": 132,
+        "reasoning_tokens": 13
+      }
+    },
+    "cost_usd": 0.010688,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s38": {
+    "seconds": 1.353,
+    "transcript": "Build once.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 269,
+      "input_tokens": 207,
+      "output_tokens": 62,
+      "input_token_details": {
+        "text_tokens": 207,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 29,
+        "audio_tokens": 33,
+        "reasoning_tokens": 16
+      }
+    },
+    "cost_usd": 0.0036872,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s39": {
+    "seconds": 2.465,
+    "transcript": "Validate every workload.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 294,
+      "input_tokens": 208,
+      "output_tokens": 86,
+      "input_token_details": {
+        "text_tokens": 208,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 30,
+        "audio_tokens": 56,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.0051871999999999995,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  },
+  "s40": {
+    "seconds": 2.21,
+    "transcript": "Promote only what is proven.",
+    "verbatim_match": true,
+    "usage": {
+      "total_tokens": 289,
+      "input_tokens": 211,
+      "output_tokens": 78,
+      "input_token_details": {
+        "text_tokens": 211,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 31,
+        "audio_tokens": 47,
+        "reasoning_tokens": 12
+      }
+    },
+    "cost_usd": 0.0046472,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin"
+  }
+}

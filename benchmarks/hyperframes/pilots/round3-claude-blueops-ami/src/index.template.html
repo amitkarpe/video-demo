@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920,height=1080">
+<title>BlueOps — the AMI Factory (ILLUSTRATIVE)</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+:root{
+  --ink:#050816; --ink2:#0a1030; --panel:#0b1230ee; --line:#2c3a78; --text:#eef2ff; --dim:#a3aed6; --faint:#6c78a8;
+  --gold:#ffc552; --gold2:#ffdf9a; --blue:#4ea3ff; --teal:#35e0c8; --amber:#ffb23f; --coral:#ff5d78; --violet:#9b7bff; --green:#5fe08f;
+  --sans:"Inter","Helvetica Neue",Arial,sans-serif; --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;background:var(--ink);overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;background:var(--ink);font-family:var(--sans);color:var(--text)}
+.abs{position:absolute}
+.scene{position:absolute;left:0;top:0;width:1920px;height:1080px;opacity:0;overflow:hidden}
+.world{position:absolute;left:0;top:0;width:2048px;height:1152px;transform-origin:0 0}
+.world img.plate{position:absolute;left:0;top:0;width:2048px;height:1152px}
+.shade{position:absolute;inset:0;pointer-events:none}
+.grid{position:absolute;inset:-200px;background:
+  radial-gradient(1200px 700px at 50% 40%, #16205a 0%, #050816 70%),
+  radial-gradient(circle at 1px 1px, #26316e 1.2px, transparent 1.7px) 0 0/40px 40px}
+.card{position:absolute;padding:20px 26px;border-radius:18px;background:var(--panel);border:2px solid var(--line);box-shadow:0 24px 60px #0009;white-space:nowrap}
+.card .h{font:800 30px var(--sans);letter-spacing:.3px}
+.card .r{font:500 26px var(--mono);color:var(--dim);margin-top:10px}
+.chip{display:inline-block;padding:6px 14px;border-radius:999px;font:800 20px var(--mono);letter-spacing:2px;vertical-align:middle}
+.cur{background:#06302acc;border:2px solid var(--teal);color:#bff8ee}
+.prop{background:#2a1a04cc;border:2px dashed var(--amber);color:#ffe0a8}
+.row{position:relative;display:flex;align-items:center;gap:14px;font:600 26px var(--sans);color:#dfe5ff;height:46px}
+.row .st{width:34px;height:34px;border-radius:50%;border:3px solid #48558f;display:flex;align-items:center;justify-content:center;font:900 22px var(--sans);color:#4a5690;flex:none}
+.row.p{color:#ffe0a8}
+.row.p .st{border-style:dashed;border-color:var(--amber);color:var(--amber)}
+.ok .st{border-color:var(--teal);background:#0b3a33;color:var(--teal)}
+.big{font:900 120px/1 var(--sans);letter-spacing:-2px}
+.pill{position:absolute;padding:14px 22px;border-radius:16px;font:800 30px var(--mono);letter-spacing:1px;border:2px solid #3a467f;background:#0c1334;color:#7f8bbb;white-space:nowrap}
+.neq{position:absolute;font:900 54px var(--sans);color:var(--coral);opacity:0}
+/* HUD */
+#hud{position:absolute;inset:0;pointer-events:none}
+#tag{position:absolute;left:30px;top:26px;padding:8px 16px;border-radius:999px;border:2px solid var(--amber);background:#1d1505dd;color:var(--amber);font:800 19px var(--mono);letter-spacing:2px;opacity:0}
+#aitag{position:absolute;left:530px;top:26px;padding:8px 14px!important;padding:5px 12px;border-radius:999px;border:2px solid #3a4475;background:#0b1024dd;color:var(--dim);font:700 17px var(--mono);letter-spacing:2px;opacity:0}
+.chap{position:absolute;right:30px;top:26px;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:#0b1024dd;color:var(--text);font:800 19px var(--mono);letter-spacing:3px;opacity:0}
+.caption{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);max-width:1640px;padding:10px 28px;border-radius:14px;background:#03050ee0;color:#fff;font:600 38px/1.28 var(--sans);text-align:center}
+#fade{position:absolute;inset:0;background:#000;opacity:1}
+#flash{position:absolute;inset:0;background:#fff4d6;opacity:0;mix-blend-mode:screen}
+#beam{position:absolute;left:-600px;top:0;width:500px;height:1080px;background:linear-gradient(90deg,transparent,#ffd98a66,#fff3d6aa,#ffd98a66,transparent);opacity:0;transform:skewX(-14deg)}
+.spark{position:absolute;width:6px;height:6px;border-radius:50%;background:#ffe1a0;box-shadow:0 0 12px 4px #ffc55288;opacity:0}
+</style>
+</head>
+<body>
+<div id="stage" class="clip" data-composition-id="main" data-start="0" data-duration="__TOTAL__" data-width="1920" data-height="1080" data-track-index="0">
+
+  <!-- ================= SCENE: HERO FACTORY (cold open, base station, payoff) ================= -->
+  <div id="scHero" class="scene" style="opacity:1">
+    <div id="wHero" class="world" data-layout-allow-overflow>
+      <img class="plate" src="assets/sprites/hero_factory.jpg" alt="AI-generated illustration of an automated AMI factory at night">
+      <div id="sparks" data-layout-ignore></div>
+    </div>
+    <div id="heroShade" class="shade" style="background:linear-gradient(180deg,#050816cc 0%,#05081600 35%,#05081600 70%,#050816aa 100%)" data-layout-ignore></div>
+    <div id="titleShade" class="shade" style="background:linear-gradient(180deg,#050816f0 0%,#050816d0 34%,#05081600 52%);opacity:0" data-layout-ignore></div>
+    <!-- cold-open overlays -->
+    <div id="easyHard" class="abs" style="left:0;top:150px;width:1920px;display:flex;justify-content:center;gap:40px;opacity:0">
+      <div class="card" style="position:relative;padding:14px 24px"><span class="h" style="font-size:30px;color:var(--dim)">BUILDING IT</span><span class="r" style="margin-left:14px;color:var(--teal)">easy</span></div>
+      <div class="card" style="position:relative;padding:14px 24px;border-color:var(--gold)"><span class="h" style="font-size:30px;color:var(--gold2)">PROVING IT SAFE FOR PROD</span><span class="r" style="margin-left:14px;color:var(--gold)">the hard part</span></div>
+    </div>
+    <div id="title" class="abs" style="left:0;top:110px;width:1920px;text-align:center;opacity:0">
+      <div style="font:900 150px/1 var(--sans);letter-spacing:6px;background:linear-gradient(180deg,#ffffff,#9fc6ff);-webkit-background-clip:text;background-clip:text;color:transparent">BLUEOPS</div>
+      <div style="margin-top:18px;font:800 40px var(--mono);letter-spacing:16px;color:var(--gold)">THE AMI FACTORY</div>
+      <div style="margin-top:20px;font:600 30px var(--sans);color:#d9e2ff">From GovTech / GCC Golden Amazon Linux 2023 to a trusted DEV → PROD rollout</div>
+    </div>
+    <!-- payoff -->
+    <div id="payDim" class="shade" style="background:#040712d0;opacity:0" data-layout-ignore></div>
+    <div id="pay" class="abs" style="left:0;top:170px;width:1920px;text-align:center">
+      <div id="p1" style="font:900 108px/1.1 var(--sans);color:#fff;opacity:0">Build once.</div>
+      <div id="p2" style="font:900 108px/1.1 var(--sans);color:var(--teal);opacity:0">Validate every workload.</div>
+      <div id="p3" style="font:900 108px/1.1 var(--sans);color:var(--gold);opacity:0">Promote only what is proven.</div>
+    </div>
+    <div id="endcard" class="abs" style="left:0;top:640px;width:1920px;text-align:center;opacity:0">
+      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;padding:0 120px">
+        <span class="chip cur" style="font-size:20px">IMAGE BUILD SUCCESS</span><span class="chip cur" style="font-size:20px">DEV VALIDATION</span>
+        <span class="chip cur" style="font-size:20px">PROD RUNTIME ACCEPTANCE</span><span class="chip cur" style="font-size:20px">HUMAN APPROVAL</span>
+        <span class="chip prop" style="font-size:20px">GOVERNANCE-APPROVED AUTO-PROMOTION (PROPOSED)</span>
+      </div>
+      <div style="margin-top:18px;font:700 30px var(--mono);color:#e6ebff">five separate decisions — none implies the next</div>
+    </div>
+    <div id="credit" class="abs" style="left:0;bottom:22px;width:1920px;text-align:center;font:500 20px var(--sans);color:#c3cbec;opacity:0" data-layout-ignore>ILLUSTRATIVE — not a live AWS run; no real IDs · Narration: AI-generated voice (OpenAI gpt-realtime-2.1, marin) · Artwork: OpenAI gpt-image-2.6-sunburst · Labels and diagrams: code · Technical source: AMI Factory current contracts</div>
+  </div>
+
+  <!-- ================= SCENE: UPSTREAM ================= -->
+  <div id="scUp" class="scene">
+    <div class="grid" data-layout-ignore></div>
+    <svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <circle id="ring1" cx="470" cy="470" r="200" fill="none" stroke="#ffc552" stroke-width="3" opacity="0"/>
+      <circle id="ring2" cx="470" cy="470" r="200" fill="none" stroke="#ffc552" stroke-width="2" opacity="0"/>
+      <path id="sigLine" d="M 640 470 C 760 470, 760 690, 840 690" fill="none" stroke="#ffb23f" stroke-width="4" stroke-dasharray="10 10" opacity="0"/>
+      <line id="lineage" x1="300" y1="852" x2="1640" y2="852" stroke="#ffc552" stroke-width="5" stroke-linecap="round" stroke-dasharray="1340" stroke-dashoffset="1340"/>
+    </svg>
+    <img id="upGold" class="abs" src="assets/sprites/golden.png" style="left:250px;top:250px;width:440px;height:440px" alt="AI-generated golden image artifact">
+    <div id="upCard" class="card" style="left:840px;top:150px;opacity:0;border-color:#7a6431">
+      <div class="h" style="color:var(--gold2)">GovTech / GCC Golden AMI</div>
+      <div class="r" style="color:#fff;font-size:30px">Amazon Linux 2023</div>
+      <div class="r" style="color:#d6defa;font-size:28px">baseline hardening</div>
+      <div class="r" style="color:#d6defa;font-size:28px">some security &amp; operations agents</div>
+      <div style="margin-top:14px"><span class="chip" style="border:2px solid #7a6431;color:var(--gold2);background:#211a08">UPSTREAM · PUBLISHED BY GOVTECH</span></div>
+    </div>
+    <div id="sigCard" class="card" style="left:840px;top:540px;opacity:0;border-color:var(--amber)">
+      <div><span class="h" style="color:#ffe0a8">DISCOVERY SIGNAL</span> <span class="chip prop" style="margin-left:12px">PROPOSED · EVENTBRIDGE-STYLE EVENT</span></div>
+      <div class="r"><span style="color:var(--faint)">source </span> govtech-gcc / golden-al2023</div>
+      <div class="r"><span style="color:var(--faint)">image  </span> ami-•••••••• <span style="color:var(--gold)">(exact ID, pinned)</span></div>
+    </div>
+    <div id="lin" class="abs" style="left:260px;top:880px;width:1420px;display:flex;justify-content:space-between;opacity:0">
+      <span class="chip" style="border:2px solid #7a6431;color:var(--gold2);background:#211a08">SOURCE</span>
+      <span class="chip" style="border:2px solid #34508f;color:#cfe0ff;background:#0d1838">HARDENED BASE</span>
+      <span class="chip" style="border:2px solid #34508f;color:#cfe0ff;background:#0d1838">CHILD FAMILY</span>
+      <span class="chip" style="border:2px solid #34508f;color:#cfe0ff;background:#0d1838">RELEASE</span>
+    </div>
+    <div id="linL" class="abs mono" style="left:300px;top:796px;font:700 22px var(--mono);color:var(--gold);opacity:0">LINEAGE — every artifact records its exact parent</div>
+  </div>
+
+  <!-- ================= SCENE: STATION 1 (recipe) ================= -->
+  <div id="scBase" class="scene">
+    <div class="grid" data-layout-ignore></div>
+    <div id="forgeGlow" class="abs" style="left:110px;top:200px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,#4ea3ff55,#4ea3ff00 65%)" data-layout-ignore></div>
+    <img id="bGold" class="abs" src="assets/sprites/golden.png" style="left:170px;top:260px;width:500px;height:500px" alt="golden image">
+    <img id="bHard" class="abs" src="assets/sprites/hardened.png" style="left:170px;top:260px;width:500px;height:500px;opacity:0" alt="AI-generated hardened base artifact">
+    <div class="abs" style="left:800px;top:110px"><span class="h" style="font:800 32px var(--sans)">STATION 1 · HARDENED BASE OS</span> <span class="chip cur" style="margin-left:14px">CURRENT CONTRACT</span></div>
+    <div id="L1" class="card" style="left:800px;top:600px;width:1000px;padding:16px 24px;border-color:#7a6431;opacity:0"><div class="h" style="font-size:28px;color:var(--gold2)">GovTech Golden AL2023 <span class="r" style="font-size:22px">· approved source image</span></div></div>
+    <div id="L2" class="card" style="left:800px;top:452px;width:1000px;padding:16px 24px;border-color:#34508f;opacity:0"><div class="h" style="font-size:28px;color:#cfe0ff">+ GCC agent packages <span class="chip cur" style="margin-left:8px;font-size:17px">PACKAGE-ONLY</span></div><div id="L2s" class="r" style="font-size:22px;margin-top:6px">no production manager registration baked in</div></div>
+    <div id="L3" class="card" style="left:800px;top:290px;width:1000px;padding:16px 24px;border-color:#34508f;opacity:0"><div class="h" style="font-size:28px;color:#cfe0ff">+ selected CIS hardening profile</div><div class="r" style="font-size:22px;margin-top:6px">a few selected controls — <span style="color:var(--amber)">not full benchmark compliance</span></div></div>
+    <div id="L4" class="card" style="left:800px;top:178px;width:1000px;padding:14px 24px;border-color:var(--teal);background:#06201dee;opacity:0"><div class="h" style="font-size:30px;color:#c9fff3">= Hardened Base OS</div></div>
+    <div id="checks" class="abs" style="left:800px;top:760px;width:1000px;display:flex;flex-wrap:wrap;gap:12px;opacity:0">
+      <span class="chip cur">✓ PRIVATE INSTANCE</span><span class="chip cur">✓ NO PUBLIC IP</span><span class="chip cur">✓ SSM ONLINE</span><span class="chip cur">✓ EXPECTED PACKAGES</span><span class="chip cur">✓ PROFILE RECORDED</span>
+    </div>
+    <div id="devOnly" class="card" style="left:110px;top:112px;opacity:0;border-color:var(--coral);background:#1c0b14ee"><div class="h" style="font-size:28px;color:#ffc3cf">✕ never shipped to PROD</div><div class="r" style="font-size:22px">DEV-only parent for every family</div></div>
+  </div>
+
+  <!-- ================= SCENE: THREE FAMILIES ================= -->
+  <div id="scFam" class="scene">
+    <div class="grid" data-layout-ignore></div>
+    <svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs><linearGradient id="br" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4ea3ff"/><stop offset="1" stop-color="#35e0c8"/></linearGradient></defs>
+      <path id="brL" d="M 960 250 C 960 330, 400 300, 400 392" fill="none" stroke="url(#br)" stroke-width="6" stroke-dasharray="720" stroke-dashoffset="720"/>
+      <path id="brM" d="M 960 250 L 960 392" fill="none" stroke="url(#br)" stroke-width="6" stroke-dasharray="150" stroke-dashoffset="150"/>
+      <path id="brR" d="M 960 250 C 960 330, 1520 300, 1520 392" fill="none" stroke="url(#br)" stroke-width="6" stroke-dasharray="720" stroke-dashoffset="720"/>
+      <path id="brN" d="M 260 470 C 160 470, 150 330, 230 262" fill="none" stroke="#ffb23f" stroke-width="4" stroke-dasharray="10 10" opacity="0"/>
+    </svg>
+    <img id="fCore" class="abs" src="assets/sprites/hardened.png" style="left:870px;top:62px;width:180px;height:180px" alt="hardened base">
+    <div id="fCoreL" class="abs mono" style="left:1070px;top:120px;font:700 22px var(--mono);color:#cfe0ff">Hardened Base OS <span style="color:var(--dim)">(parent)</span></div>
+    <div id="fNoMid" class="abs" style="left:1070px;top:160px;opacity:0"><span class="chip" style="border:2px dashed #ff8ea3;color:#ffc3cf;background:#1c0b14cc;text-decoration:line-through">CONTAINER-RUNTIME MIDDLE PARENT</span></div>
+    <img id="mG" class="abs" src="assets/sprites/m-gitlab.png" style="left:205px;top:470px;width:390px;opacity:0" alt="AI-generated GitLab family machine">
+    <img id="mM" class="abs" src="assets/sprites/m-mongodb.png" style="left:765px;top:470px;width:390px;opacity:0" alt="AI-generated MongoDB family machine">
+    <img id="mE" class="abs" src="assets/sprites/m-ecs.png" style="left:1325px;top:470px;width:390px;opacity:0" alt="AI-generated ECS worker family machine">
+    <div id="nG" class="abs" style="left:150px;top:396px;width:500px;text-align:center;opacity:0"><div style="font:900 36px var(--sans);color:#ffc49a">GitLab</div><div class="mono" style="font:600 22px var(--mono);color:var(--dim)">+ its own container runtime</div></div>
+    <div id="nM" class="abs" style="left:710px;top:396px;width:500px;text-align:center;opacity:0"><div style="font:900 36px var(--sans);color:#a8f5c0">MongoDB</div><div class="mono" style="font:600 22px var(--mono);color:var(--dim)">no containers</div></div>
+    <div id="nE" class="abs" style="left:1270px;top:396px;width:500px;text-align:center;opacity:0"><div style="font:900 36px var(--sans);color:#a6ecff">CloudOS ECS Worker</div><div class="mono" style="font:600 22px var(--mono);color:var(--dim)">+ container engine + ECS agent</div></div>
+    <div id="nN" class="card" style="left:40px;top:150px;opacity:0;border:2px dashed var(--amber);padding:12px 18px"><div class="h" style="font-size:24px;color:#ffe0a8">GitLab + Nextflow</div><div class="r" style="font-size:20px;margin-top:4px">optional extension · not a 4th family</div></div>
+  </div>
+
+  <!-- ================= SCENE: DEV PROVING GROUNDS ================= -->
+  <div id="scLab" class="scene">
+    <div id="wLab" class="world" data-layout-allow-overflow>
+      <img class="plate" src="assets/sprites/proving_grounds.jpg" alt="AI-generated testing hangar with three bays">
+      <img id="lG" class="abs" src="assets/sprites/m-gitlab.png" style="left:330px;top:520px;width:220px" alt="">
+      <img id="lM" class="abs" src="assets/sprites/m-mongodb.png" style="left:955px;top:520px;width:220px" alt="">
+      <img id="lE" class="abs" src="assets/sprites/m-ecs.png" style="left:1590px;top:520px;width:220px" alt="">
+      <div id="scanG" class="abs" style="left:250px;top:470px;width:380px;height:6px;background:#35e0c8;box-shadow:0 0 20px 6px #35e0c888;opacity:0" data-layout-ignore></div>
+      <div id="scanM" class="abs" style="left:875px;top:470px;width:380px;height:6px;background:#35e0c8;box-shadow:0 0 20px 6px #35e0c888;opacity:0" data-layout-ignore></div>
+      <div id="scanE" class="abs" style="left:1510px;top:470px;width:380px;height:6px;background:#35e0c8;box-shadow:0 0 20px 6px #35e0c888;opacity:0" data-layout-ignore></div>
+      <!-- panels (world coords: they move with the camera) -->
+      <div id="pG" class="card" style="left:110px;top:130px;width:560px;padding:16px 20px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span class="h" style="color:#ffc49a">GitLab</span><span class="chip cur">CURRENT</span></div>
+        <div style="margin-top:8px">
+          <div class="row" id="g1"><span class="st">✓</span>service healthy</div>
+          <div class="row" id="g2"><span class="st">✓</span>clone + push</div>
+          <div class="row" id="g3"><span class="st">✓</span>create + read data</div>
+          <div class="row" id="g4"><span class="st">✓</span>data kept after reboot</div>
+        </div>
+      </div>
+      <div id="pM" class="card" style="left:690px;top:130px;width:640px;padding:16px 20px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span class="h" style="color:#a8f5c0">MongoDB</span><span class="chip cur">CURRENT</span></div>
+        <div style="margin-top:8px">
+          <div class="row" id="m1"><span class="st">✓</span>listens privately only</div>
+          <div class="row" id="m2"><span class="st">✓</span>answers a ping</div>
+          <div class="row" id="m3"><span class="st">✓</span>create · read · update · delete</div>
+          <div class="row" id="m4"><span class="st">✓</span>dump + restore</div>
+          <div class="row p" id="m5" style="opacity:.35"><span class="st">◇</span>replica-set gate <span class="chip prop" style="margin-left:auto;font-size:17px">PROPOSED</span></div>
+        </div>
+      </div>
+      <div id="pE" class="card" style="left:1350px;top:130px;width:640px;padding:16px 20px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span class="h" style="color:#a6ecff">ECS Worker</span><span class="chip cur">CURRENT</span></div>
+        <div style="margin-top:8px">
+          <div class="row" id="e1"><span class="st">✓</span>tasks placed on exact image</div>
+          <div class="row" id="e1n" style="font-size:22px;color:var(--coral);height:34px;opacity:0;padding-left:48px">0 placed tasks = FAIL</div>
+          <div class="row p" id="e2" style="opacity:.35"><span class="st">◇</span>mock services ↔ ports <span class="chip prop" style="margin-left:auto;font-size:17px">PROPOSED</span></div>
+          <div class="row p" id="e3" style="opacity:.35"><span class="st">◇</span>scoped parameter reads <span class="chip prop" style="margin-left:auto;font-size:17px">PROPOSED</span></div>
+        </div>
+      </div>
+      <div id="flowE" class="abs" style="left:1520px;top:690px;opacity:0" data-layout-ignore>
+        <svg width="380" height="120" viewBox="0 0 380 120"><circle cx="40" cy="60" r="22" fill="#0d2a44" stroke="#4cc9ff" stroke-width="3"/><circle cx="340" cy="60" r="22" fill="#0d2a44" stroke="#4cc9ff" stroke-width="3"/><line x1="64" y1="60" x2="316" y2="60" stroke="#ffb23f" stroke-width="4" stroke-dasharray="10 8"/><circle id="flowDot" cx="64" cy="60" r="8" fill="#ffe0a8"/></svg>
+      </div>
+    </div>
+    <div id="shared" class="abs" style="left:0;top:836px;width:1920px;display:flex;justify-content:center;gap:14px;opacity:0">
+      <span class="chip cur" style="font-size:21px">✓ LINEAGE RECORDED</span><span class="chip cur" style="font-size:21px">✓ ENCRYPTED, SHAREABLE SNAPSHOT</span><span class="chip cur" style="font-size:21px">✓ PRIVATE LAUNCH · NO PUBLIC IP</span><span class="chip cur" style="font-size:21px">✓ SSM ONLINE</span>
+    </div>
+    <div id="stopBar" class="abs" style="left:-1920px;top:440px;width:1920px;height:150px;background:repeating-linear-gradient(-45deg,#ff5d78 0 40px,#3a0d18 40px 80px);opacity:.92" data-layout-ignore></div>
+    <div id="stopTxt" class="abs" style="left:0;top:470px;width:1920px;text-align:center;opacity:0"><span style="padding:12px 30px;border-radius:14px;background:#13040acc;font:900 60px var(--sans);color:#fff">FAIL or UNKNOWN → LINE STOPS</span></div>
+  </div>
+
+  <!-- ================= SCENE: SEPARATE STATES ================= -->
+  <div id="scStates" class="scene">
+    <div class="grid" data-layout-ignore></div>
+    <div class="abs" style="left:0;top:250px;width:1920px;text-align:center;font:800 44px var(--sans);color:#dfe5ff">A successful build is not a promotion.</div>
+    <div id="st1" class="pill" style="left:256px;top:470px">BUILT</div>
+    <div id="nq1" class="neq" style="left:414px;top:462px">≠</div>
+    <div id="st2" class="pill" style="left:465px;top:470px">VERIFIED IN DEV</div>
+    <div id="nq2" class="neq" style="left:813px;top:462px">≠</div>
+    <div id="st3" class="pill" style="left:864px;top:470px">ACCEPTED IN PROD</div>
+    <div id="st4" class="pill" style="left:1242px;top:470px">APPROVED</div>
+    <div id="st5" class="pill" style="left:1468px;top:470px">PROMOTED</div>
+    <div class="abs" style="left:256px;top:586px;width:1408px;height:4px;background:linear-gradient(90deg,#35e0c8,#ffc552)" data-layout-ignore></div>
+    <div class="abs mono" style="left:0;top:620px;width:1920px;text-align:center;font:600 26px var(--mono);color:var(--dim)">each state needs its own evidence</div>
+  </div>
+
+  <!-- ================= SCENE: NIGHT (Phase A + Phase B) ================= -->
+  <div id="scNight" class="scene">
+    <div id="wNight" class="world" data-layout-allow-overflow>
+      <img class="plate" src="assets/sprites/night_release.jpg" alt="AI-generated night city and production fortress">
+      <div id="capGlow" class="abs" style="left:1180px;top:800px;width:100px;height:80px;border-radius:50%;background:radial-gradient(circle,#ffd98acc,#ffd98a00 70%);opacity:0" data-layout-ignore></div>
+      <div id="calPulse" class="abs" style="left:1360px;top:20px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,#fff2c0,#ffc55200 70%);opacity:0" data-layout-ignore></div>
+    </div>
+    <div id="nightShade" class="shade" style="background:linear-gradient(90deg,#050816ee 0%,#050816cc 42%,#05081600 70%)" data-layout-ignore></div>
+    <!-- Phase A -->
+    <div id="phA" class="abs" style="left:60px;top:120px;opacity:0"><span style="font:900 52px var(--sans)">PHASE A</span> <span style="font:700 30px var(--sans);color:var(--dim);margin-left:10px">controlled rollout</span> <span class="chip cur" style="margin-left:12px">HUMAN-APPROVED</span></div>
+    <div id="aF1" class="card" style="left:60px;top:230px;width:330px;opacity:0"><div class="h" style="font-size:28px">DEV</div><div class="r" style="font-size:24px">validated child image</div></div>
+    <div id="aF2" class="card" style="left:450px;top:230px;width:340px;opacity:0;border-color:var(--teal)"><div class="h" style="font-size:28px">SHARE</div><div class="r" style="font-size:24px">launch + key access ✓</div></div>
+    <div id="aF3" class="card" style="left:60px;top:400px;opacity:0"><div class="h" style="font-size:28px">PROD · private launch</div><div class="r" style="font-size:24px">runtime checked with PROD's own configuration ✓</div><div class="r" style="font-size:22px;color:var(--dim)">agent settings come from PROD parameters — never baked, never guessed from DEV</div></div>
+    <div id="aEv" class="card" style="left:60px;top:600px;width:520px;opacity:0;border-color:#7a6431"><div class="h" style="font-size:28px;color:var(--gold2)">EVIDENCE PACKET</div><div class="r" style="font-size:24px">lineage · DEV gates · PROD runtime · snapshot/key</div></div>
+    <div id="aOk" class="abs" style="left:900px;top:600px;opacity:0;padding:12px 22px;border:4px solid var(--teal);border-radius:12px;font:900 34px var(--sans);color:#c9fff3;transform:rotate(-6deg);background:#06201dcc">APPROVED</div>
+    <img id="eng" class="abs" src="assets/sprites/engineer.png" style="left:1440px;top:300px;width:360px;opacity:0" alt="AI-generated operations engineer">
+    <div id="ptr" class="card" style="left:60px;top:230px;width:780px;opacity:0;border-color:var(--teal)">
+      <div class="h" style="font-size:28px">APPROVED POINTER</div>
+      <div style="position:relative;height:150px;margin-top:10px">
+        <div class="pill" style="left:0;top:40px;color:#dfe5ff;border-color:#4b5a95">release N</div>
+        <div id="rN1" class="pill" style="left:390px;top:40px;color:#c9fff3;border-color:var(--teal)">release N+1</div>
+        <div id="ptrArrow" class="abs" style="left:40px;top:-6px;font:900 34px var(--sans);color:var(--teal)">▼ approved</div>
+        <div id="prevL" class="abs mono" style="left:0;top:112px;font:700 24px var(--mono);color:var(--gold);opacity:0">previous → release N · rollback ready</div>
+      </div>
+    </div>
+    <!-- Phase B -->
+    <div id="phB" class="abs" style="left:60px;top:120px;opacity:0"><span style="font:900 52px var(--sans)">PHASE B</span> <span style="font:700 30px var(--sans);color:var(--dim);margin-left:10px">future monthly auto-promotion</span></div>
+    <div id="propBig" class="abs" style="left:60px;top:196px;opacity:0"><span class="chip prop" style="font-size:24px">PROPOSED — NOT TODAY'S SYSTEM</span></div>
+    <div id="month" class="abs" style="left:60px;top:300px;width:820px;height:150px;opacity:0">
+      <div class="abs" style="left:0;top:64px;width:820px;height:4px;background:#3a467f"></div>
+      <div id="wk1" class="abs" style="left:40px;top:50px;width:30px;height:30px;border-radius:50%;background:#0b1230;border:3px solid var(--teal)"></div>
+      <div id="wk2" class="abs" style="left:230px;top:50px;width:30px;height:30px;border-radius:50%;background:#0b1230;border:3px solid var(--teal)"></div>
+      <div id="wk3" class="abs" style="left:420px;top:50px;width:30px;height:30px;border-radius:50%;background:#0b1230;border:3px solid var(--teal)"></div>
+      <div id="wk4" class="abs" style="left:610px;top:50px;width:30px;height:30px;border-radius:50%;background:#0b1230;border:3px solid var(--teal)"></div>
+      <div class="abs mono" style="left:0;top:100px;font:600 24px var(--mono);color:var(--dim)">weekly: build + validate candidates</div>
+      <div id="sat" class="abs" style="left:740px;top:28px;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle,#fff2c0,#ffc552 60%,#a8741c);box-shadow:0 0 30px 8px #ffc55288;opacity:0"></div>
+      <div id="satL" class="abs mono" style="left:560px;top:-8px;font:800 22px var(--mono);color:var(--gold);opacity:0">1st SATURDAY · NIGHT</div>
+    </div>
+    <div id="gov" class="abs" style="left:60px;top:500px;display:flex;gap:14px;opacity:0">
+      <span class="chip prop" style="font-size:20px">MANAGEMENT ✓</span><span class="chip prop" style="font-size:20px">SECURITY ✓</span><span class="chip prop" style="font-size:20px">CHANGE GOVERNANCE ✓</span>
+    </div>
+    <div id="govL" class="abs mono" style="left:60px;top:556px;font:700 24px var(--mono);color:#ffe0a8;opacity:0">all three must approve the policy and its conditions first</div>
+    <div id="blk" class="abs" style="left:60px;top:300px;width:900px;opacity:0">
+      <div class="row" id="b1" style="color:#ffc3cf;opacity:0"><span class="st" style="border-color:var(--coral);color:var(--coral)">✕</span>failed or unknown check</div>
+      <div class="row" id="b2" style="color:#ffc3cf;opacity:0"><span class="st" style="border-color:var(--coral);color:var(--coral)">✕</span>missing governance or release approval</div>
+      <div class="row" id="b3" style="color:#ffc3cf;opacity:0"><span class="st" style="border-color:var(--coral);color:var(--coral)">✕</span>missing snapshot or KMS key access</div>
+      <div class="row" id="b4" style="color:#ffc3cf;opacity:0"><span class="st" style="border-color:var(--coral);color:var(--coral)">✕</span>unhealthy PROD canary</div>
+    </div>
+    <div id="blkS" class="abs" style="left:820px;top:350px;opacity:0;padding:12px 26px;border:5px solid var(--coral);border-radius:12px;font:900 64px var(--sans);color:#ffc3cf;transform:rotate(-8deg);background:#1c0b14cc">BLOCKED</div>
+    <div id="urg" class="card" style="left:60px;top:300px;opacity:0;border-color:var(--coral)"><div class="h" style="font-size:28px;color:#ffc3cf">! CRITICAL VULNERABILITY</div><div class="r" style="font-size:26px;color:#e6ebff">→ urgent out-of-band release · <span style="color:#c9fff3">explicit Ops approval</span></div></div>
+    <div id="rb" class="card" style="left:60px;top:470px;opacity:0;border-color:var(--gold)">
+      <div class="h" style="font-size:26px"><span style="color:var(--coral)">● canary red</span> → <span style="color:var(--gold2)">↺ last known-good image</span></div>
+      <div class="r" style="font-size:26px;color:#e6ebff">within an agreed maintenance window (minutes)</div>
+    </div>
+  </div>
+
+  <!-- ================= HUD ================= -->
+  <div id="hud">
+    <div id="tag">ILLUSTRATIVE · NOT A LIVE AWS RUN</div>
+    __CHAPTERS__
+    <div id="aitag">AI VOICE · AI ART</div>
+  </div>
+  <div id="beam" data-layout-ignore></div>
+  <div id="flash" data-layout-ignore></div>
+  <!--__CAPTIONS__-->
+  <div id="fade" data-layout-ignore></div>
+</div>
+<!--__AUDIO__-->
+
+<script>
+const C = __CUES__, CH = __CHAPTER_TIMES__, TOTAL = __TOTAL__;
+const S = id => C[id].s, E = id => C[id].e, D = id => C[id].d;
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({paused:true, defaults:{ease:"power2.inOut"}});
+// camera for 2048x1152 worlds: put plate point (cx,cy) at screen (960,540) with zoom z
+// clamp so the 2048x1152 plate always covers the 1920x1080 frame (no black edges)
+const clampc = (c, z, size, half) => Math.min(size - half / z, Math.max(half / z, c));
+const cam = (cx, cy, z) => { z = Math.max(z, 0.9375); cx = clampc(cx, z, 2048, 960); cy = clampc(cy, z, 1152, 540); return {x: 960 - cx*z, y: 540 - cy*z, scale: z}; };
+const FULL = cam(1024, 576, 0.9375);
+function move(sel, t, cx, cy, z, d=1.4, ease="power2.inOut"){ tl.to(sel, Object.assign(cam(cx,cy,z), {duration:d, ease}), t); }
+const fin  = (sel, t, d=.5, y=18) => tl.fromTo(sel, {opacity:0, y}, {opacity:1, y:0, duration:d, ease:"power2.out"}, t);
+const fout = (sel, t, d=.4) => tl.to(sel, {opacity:0, duration:d, ease:"power1.in"}, t);
+const pop  = (sel, t) => tl.fromTo(sel, {opacity:0, scale:.6}, {opacity:1, scale:1, duration:.45, ease:"back.out(2)"}, t);
+const draw = (sel, t, d=.8) => tl.to(sel, {strokeDashoffset:0, duration:d, ease:"power2.out"}, t);
+const tick = (sel, t) => { tl.to(sel+" .st", {borderColor:"#35e0c8", backgroundColor:"#0b3a33", color:"#35e0c8", duration:.2}, t); tl.fromTo(sel+" .st", {scale:.5}, {scale:1, duration:.35, ease:"back.out(3)"}, t); };
+function xfade(a, b, t, d=.8){ tl.to(a, {opacity:0, duration:d}, t); tl.to(b, {opacity:1, duration:d}, t); }
+function wipe(t){ tl.fromTo("#beam", {x:0, opacity:0}, {x:2900, opacity:1, duration:1.1, ease:"power2.inOut"}, t); tl.to("#beam", {opacity:0, duration:.2}, t+1.0); }
+// chapters
+CH.forEach((c, i) => { if (!c.label) return; tl.to(".chap", {opacity:0, duration:.25}, c.t - 0.3); tl.fromTo("#chap-"+c.id, {opacity:0, x:20}, {opacity:1, x:0, duration:.45, ease:"power2.out"}, c.t - 0.05); });
+
+gsap.set("#wHero", cam(430, 800, 2.3));
+gsap.set(["#wLab"], FULL); gsap.set("#wNight", cam(1024, 576, 0.9375));
+
+/* ===== 0. cold open ===== */
+tl.to("#fade", {opacity:0, duration:1.6, ease:"power1.out"}, 0.1);
+tl.to(["#tag","#aitag"], {opacity:1, duration:.6}, 1.2);
+move("#wHero", 0.1, 560, 760, 2.0, S("s02")-0.1, "power1.inOut");
+// sparks rising from the arriving golden image
+for (let i = 0; i < 14; i++) {
+  const el = document.createElement("div"); el.className = "spark"; el.style.left = (395 + (i*37)%80) + "px"; el.style.top = (820 - (i%5)*6) + "px";
+  document.getElementById("sparks").appendChild(el);
+  tl.fromTo(el, {opacity:0, y:0}, {opacity:.95, y:-60 - (i%4)*30, duration:1.2, ease:"power1.out"}, 0.6 + i*0.28);
+  tl.to(el, {opacity:0, duration:.6}, 1.8 + i*0.28);
+}
+move("#wHero", S("s02"), 1024, 600, 0.98, D("s02")+0.6, "power2.inOut");
+fin("#easyHard", S("s02")+0.4);
+fout("#easyHard", E("s02")+0.2);
+fin("#title", S("s03")-0.1, .8, 30);
+tl.to("#titleShade", {opacity:1, duration:.8}, S("s03")-0.2);
+tl.to("#titleShade", {opacity:0, duration:.3}, S("s04")-0.5);
+move("#wHero", S("s03")-0.2, 1024, 640, 1.02, 3.0, "power1.inOut");
+
+/* ===== 1. upstream ===== */
+wipe(S("s04")-0.9);
+xfade("#scHero", "#scUp", S("s04")-0.5, .7);
+tl.to("#title", {opacity:0, duration:.3}, S("s04")-0.5);
+tl.fromTo("#upGold", {scale:.7, rotation:-8}, {scale:1, rotation:0, duration:1.4, ease:"power3.out"}, S("s04")-0.5);
+tl.to("#upGold", {y:-16, duration:2.2, yoyo:true, repeat:5, ease:"sine.inOut"}, S("s04")+0.9);
+fin("#upCard", S("s04")+0.4);
+tl.fromTo("#ring1", {opacity:.9, attr:{r:200}}, {opacity:0, attr:{r:420}, duration:1.4, ease:"power1.out"}, S("s05")+0.1);
+tl.fromTo("#ring2", {opacity:.9, attr:{r:200}}, {opacity:0, attr:{r:420}, duration:1.4, ease:"power1.out"}, S("s05")+0.6);
+tl.to("#sigLine", {opacity:1, duration:.4}, S("s05")+0.3);
+fin("#sigCard", S("s05")+0.6);
+tl.to("#upCard", {opacity:.55, duration:.5}, S("s05")+0.6);
+draw("#lineage", S("s06")+0.1, 1.6);
+fin("#linL", S("s06")+0.3);
+tl.fromTo("#lin", {opacity:0}, {opacity:1, duration:.4}, S("s06")+0.5);
+tl.from("#lin .chip", {opacity:0, y:16, duration:.35, stagger:.35}, S("s06")+0.5);
+
+/* ===== 2. hardened base (forge) ===== */
+xfade("#scUp", "#scHero", S("s07")-0.6, .6);
+move("#wHero", S("s07")-0.6, 960, 700, 2.4, D("s07")+0.4, "power3.in");
+tl.to("#flash", {opacity:.7, duration:.12, yoyo:true, repeat:1}, E("s07")-0.05);
+xfade("#scHero", "#scBase", E("s07"), .3);
+fin("#L1", S("s08")+0.1);
+fin("#L2", S("s08")+2.6);
+tl.fromTo("#bHard", {opacity:0}, {opacity:.45, duration:.8}, S("s08")+2.6);
+tl.fromTo("#L2s", {color:"#a3aed6"}, {color:"#ffe0a8", duration:.4}, S("s09")+0.1);
+fin("#L3", S("s10")+0.1);
+tl.to("#bHard", {opacity:1, duration:1.0}, S("s10")+0.3);
+tl.to("#bGold", {opacity:0, duration:1.0}, S("s10")+0.3);
+tl.fromTo("#forgeGlow", {scale:.8, opacity:.6}, {scale:1.15, opacity:1, duration:.8, yoyo:true, repeat:1}, S("s10")+0.3);
+pop("#L4", E("s10")-0.6);
+tl.from("#checks .chip", {opacity:0, y:14, duration:.3, stagger:.55}, S("s11")+0.6);
+tl.to("#checks", {opacity:1, duration:.01}, S("s11")+0.6);
+pop("#devOnly", S("s12")+0.2);
+
+/* ===== 3. three families ===== */
+xfade("#scBase", "#scFam", S("s13")-0.5, .6);
+draw("#brM", S("s13")+1.2, .6); draw("#brL", S("s13")+1.2, .9); draw("#brR", S("s13")+1.2, .9);
+tl.fromTo("#fCore", {scale:1.6}, {scale:1, duration:.9, ease:"power3.out"}, S("s13")-0.4);
+fin("#nG", S("s14")); tl.fromTo("#mG", {opacity:0, y:40, scale:.85}, {opacity:1, y:0, scale:1, duration:.7, ease:"back.out(1.5)"}, S("s14"));
+fin("#nM", S("s15")); tl.fromTo("#mM", {opacity:0, y:40, scale:.85}, {opacity:1, y:0, scale:1, duration:.7, ease:"back.out(1.5)"}, S("s15"));
+fin("#nE", S("s16")); tl.fromTo("#mE", {opacity:0, y:40, scale:.85}, {opacity:1, y:0, scale:1, duration:.7, ease:"back.out(1.5)"}, S("s16"));
+fin("#fNoMid", E("s16")-0.4);
+tl.to("#brN", {opacity:1, duration:.4}, S("s17")+0.2);
+fin("#nN", S("s17")+0.4);
+
+/* ===== 4. DEV proving grounds ===== */
+wipe(S("s18")-0.9);
+xfade("#scFam", "#scLab", S("s18")-0.5, .7);
+tl.fromTo("#wLab", cam(1024, 576, 1.2), Object.assign(FULL, {duration:2.2, ease:"power2.out"}), S("s18")-0.5);
+tl.to(["#pM","#pE"], {opacity:.62, duration:.4}, S("s19")-0.2);
+move("#wLab", S("s19")-0.2, 1050, 560, 1.0, 1.0);
+tl.fromTo("#scanG", {opacity:1, y:0}, {y:300, duration:1.6, repeat:2, yoyo:true, ease:"sine.inOut"}, S("s19"));
+tl.to("#scanG", {opacity:0, duration:.3}, E("s19"));
+[["#g1",0.25],["#g2",0.38],["#g3",0.6],["#g4",0.86]].forEach(([s,f]) => tick(s, S("s19") + D("s19")*f));
+tl.to("#pG", {opacity:.62, duration:.4}, S("s20")-0.2); tl.to("#pM", {opacity:1, duration:.4}, S("s20")-0.2);
+move("#wLab", S("s20")-0.2, 1050, 545, 1.0, 1.0);
+tl.fromTo("#scanM", {opacity:1, y:0}, {y:300, duration:1.6, repeat:2, yoyo:true, ease:"sine.inOut"}, S("s20"));
+tl.to("#scanM", {opacity:0, duration:.3}, E("s20"));
+[["#m1",0.2],["#m2",0.42],["#m3",0.68],["#m4",0.9]].forEach(([s,f]) => tick(s, S("s20") + D("s20")*f));
+tl.to("#m5", {opacity:1, duration:.5}, S("s21")+D("s21")*0.45);
+tl.fromTo("#m5", {x:-10}, {x:0, duration:.4, ease:"back.out(3)"}, S("s21")+D("s21")*0.45);
+tl.to("#pM", {opacity:.62, duration:.4}, S("s22")-0.2); tl.to("#pE", {opacity:1, duration:.4}, S("s22")-0.2);
+move("#wLab", S("s22")-0.2, 1050, 530, 1.0, 1.0);
+tl.fromTo("#scanE", {opacity:1, y:0}, {y:300, duration:1.6, repeat:2, yoyo:true, ease:"sine.inOut"}, S("s22"));
+tl.to("#scanE", {opacity:0, duration:.3}, E("s22"));
+tick("#e1", S("s22") + D("s22")*0.45);
+fin("#e1n", S("s22") + D("s22")*0.75, .4, 6);
+tl.to("#e2", {opacity:1, duration:.5}, S("s23")+D("s23")*0.3);
+tl.to("#e3", {opacity:1, duration:.5}, S("s23")+D("s23")*0.62);
+tl.to("#flowE", {opacity:1, duration:.4}, S("s23")+D("s23")*0.3);
+tl.fromTo("#flowDot", {attr:{cx:64}}, {attr:{cx:316}, duration:1.1, repeat:3, yoyo:true, ease:"sine.inOut"}, S("s23")+D("s23")*0.3);
+tl.to(["#pG","#pM","#pE"], {opacity:1, duration:.4}, S("s24")-0.2);
+move("#wLab", S("s24")-0.2, 1050, 560, 0.97, 1.0);
+tl.to("#flowE", {opacity:0, duration:.3}, S("s24"));
+tl.from("#shared .chip", {opacity:0, y:14, duration:.3, stagger:.6}, S("s24")+0.4);
+tl.to("#shared", {opacity:1, duration:.01}, S("s24")+0.4);
+tl.fromTo("#stopBar", {x:0}, {x:1920, duration:.45, ease:"power4.out"}, S("s25")+0.2);
+fin("#stopTxt", S("s25")+0.5, .3, 0);
+tl.to("#wLab", {x:"+=8", duration:.05, yoyo:true, repeat:5}, S("s25")+0.62);
+
+tl.to(["#stopBar","#stopTxt"], {opacity:0, duration:.4}, S("s26")-1.0);
+/* ===== 5. separate states ===== */
+xfade("#scLab", "#scStates", S("s26")-0.6, .6);
+const lit = (s, c) => ({color:c, borderColor:c, backgroundColor:"#0d1a3a", duration:.35});
+tl.to("#st1", lit("#st1","#c9fff3"), S("s26")+D("s26")*0.32);
+tl.to("#nq1", {opacity:1, duration:.3}, S("s26")+D("s26")*0.40);
+tl.to("#st2", lit("#st2","#c9fff3"), S("s26")+D("s26")*0.45);
+tl.to("#nq2", {opacity:1, duration:.3}, S("s26")+D("s26")*0.72);
+tl.to("#st3", lit("#st3","#ffe0a8"), S("s26")+D("s26")*0.80);
+
+/* ===== 6. Phase A ===== */
+wipe(S("s27")-0.9);
+xfade("#scStates", "#scNight", S("s27")-0.5, .7);
+tl.fromTo("#wNight", cam(1250, 760, 1.25), Object.assign(cam(1150, 700, 1.05), {duration:4, ease:"power1.inOut"}), S("s27")-0.5);
+fin("#phA", S("s27"));
+fin("#aF1", S("s28")+0.2); fin("#aF2", S("s28")+D("s28")*0.3); fin("#aF3", S("s28")+D("s28")*0.55);
+tl.fromTo("#capGlow", {opacity:0}, {opacity:1, duration:.5, yoyo:true, repeat:3}, S("s28")+D("s28")*0.3);
+tl.fromTo("#eng", {opacity:0, x:120}, {opacity:1, x:0, duration:.8, ease:"power3.out"}, S("s29")-0.2);
+fin("#aEv", S("s29")+0.3);
+tl.fromTo("#aOk", {opacity:0, scale:2.2}, {opacity:1, scale:1, duration:.35, ease:"power4.in"}, S("s29")+D("s29")*0.72);
+tl.to(["#aF1","#aF2","#aF3","#aEv","#aOk"], {opacity:0, duration:.4}, S("s30")-0.2);
+fin("#ptr", S("s30"));
+tl.to("#ptrArrow", {x:390, duration:.8, ease:"power3.inOut"}, S("s30")+D("s30")*0.3);
+tl.fromTo("#rN1", {boxShadow:"0 0 0 0 #35e0c800"}, {boxShadow:"0 0 30px 6px #35e0c899", duration:.4}, S("s30")+D("s30")*0.42);
+fin("#prevL", S("s30")+D("s30")*0.6);
+
+/* ===== 7. Phase B ===== */
+tl.to(["#phA","#ptr","#eng"], {opacity:0, duration:.5}, S("s31")-0.4);
+move("#wNight", S("s31")-0.4, 1280, 380, 1.0, 2.0);
+fin("#phB", S("s31")); fin("#propBig", S("s31")+0.5);
+fin("#month", S("s32"));
+["#wk1","#wk2","#wk3","#wk4"].forEach((w, i) => tl.to(w, {backgroundColor:"#35e0c8", duration:.25}, S("s32")+0.5+i*0.45));
+tl.to(["#sat","#satL"], {opacity:1, duration:.5}, S("s33")+0.3);
+tl.fromTo("#calPulse", {opacity:0, scale:.6}, {opacity:1, scale:1.4, duration:.7, yoyo:true, repeat:3}, S("s33")+0.4);
+fin("#gov", S("s34")+0.2); fin("#govL", S("s34")+1.2);
+tl.to(["#month","#gov","#govL"], {opacity:0, duration:.4}, S("s35")-0.2);
+tl.to("#blk", {opacity:1, duration:.01}, S("s35"));
+[["#b1",0.05],["#b2",0.28],["#b3",0.5],["#b4",0.78]].forEach(([b,f]) => fin(b, S("s35")+D("s35")*f, .35, 0));
+tl.fromTo("#blkS", {opacity:0, scale:2.4}, {opacity:1, scale:1, duration:.3, ease:"power4.in"}, S("s35")+D("s35")*0.86);
+tl.to(["#blk","#blkS"], {opacity:0, duration:.4}, S("s36")+0.15);
+fin("#urg", S("s36")+0.4);
+tl.fromTo("#urg", {x:-6}, {x:6, duration:.06, repeat:5, yoyo:true}, S("s36")+0.1);
+fin("#rb", S("s37")+0.2);
+move("#wNight", S("s37"), 1200, 700, 1.1, 3.0);
+
+
+/* ===== ambient motion (continuous, subtle) ===== */
+const span = (a, b) => Math.max(1, b - a);
+tl.fromTo("#scUp .grid", {x:0}, {x:-60, duration:span(S("s04")-0.5, S("s07")), ease:"none"}, S("s04")-0.5);
+tl.fromTo("#scBase .grid", {x:0, y:0}, {x:-50, y:-20, duration:span(E("s07"), S("s13")), ease:"none"}, E("s07"));
+tl.to(["#bGold","#bHard"], {y:-14, rotation:4, duration:2.4, yoyo:true, repeat:Math.floor(span(E("s07"), S("s13"))/2.4), ease:"sine.inOut"}, E("s07"));
+tl.fromTo("#scFam .grid", {x:0}, {x:60, duration:span(S("s13")-0.5, S("s18")), ease:"none"}, S("s13")-0.5);
+tl.to(["#mG","#mM","#mE"], {y:"-=8", duration:1.6, yoyo:true, repeat:Math.floor(span(S("s16"), S("s18"))/1.6), ease:"sine.inOut", stagger:.3}, S("s16")+0.8);
+tl.to("#fCore", {rotation:8, duration:3, yoyo:true, repeat:Math.floor(span(S("s13"), S("s18"))/3), ease:"sine.inOut"}, S("s13")+0.5);
+tl.fromTo("#scStates .grid", {x:0}, {x:-50, duration:span(S("s26")-0.6, S("s27")), ease:"none"}, S("s26")-0.6);
+tl.fromTo("#scLab .world", {rotation:0}, {rotation:0, duration:.01}, S("s18"));
+tl.to("#lG", {y:-6, duration:1.4, yoyo:true, repeat:Math.floor(span(S("s18"), S("s26"))/1.4), ease:"sine.inOut"}, S("s18"));
+tl.to("#lM", {y:-6, duration:1.7, yoyo:true, repeat:Math.floor(span(S("s18"), S("s26"))/1.7), ease:"sine.inOut"}, S("s18"));
+tl.to("#lE", {y:-6, duration:1.5, yoyo:true, repeat:Math.floor(span(S("s18"), S("s26"))/1.5), ease:"sine.inOut"}, S("s18"));
+tl.to("#calPulse", {opacity:.5, duration:2.0, yoyo:true, repeat:Math.floor(span(S("s31"), S("s33"))/2), ease:"sine.inOut"}, S("s31"));
+tl.to("#capGlow", {opacity:.6, duration:1.6, yoyo:true, repeat:Math.floor(span(S("s29"), S("s31"))/1.6), ease:"sine.inOut"}, S("s29"));
+move("#wNight", S("s31")+1.6, 1300, 400, 1.06, span(S("s31")+1.6, S("s34")), "none");
+move("#wNight", S("s34"), 1240, 420, 1.04, span(S("s34"), S("s37")), "none");
+
+/* ===== 8. payoff ===== */
+wipe(S("s38")-1.0);
+xfade("#scNight", "#scHero", S("s38")-0.6, .7);
+tl.set("#wHero", cam(1024, 640, 1.2), S("s38")-0.6);
+move("#wHero", S("s38")-0.6, 1024, 576, 0.9375, 9, "power1.out");
+tl.to("#payDim", {opacity:1, duration:.6}, S("s38")-0.4);
+tl.fromTo("#p1", {opacity:0, y:40}, {opacity:1, y:0, duration:.5, ease:"power3.out"}, S("s38"));
+tl.fromTo("#p2", {opacity:0, y:40}, {opacity:1, y:0, duration:.5, ease:"power3.out"}, S("s39"));
+tl.fromTo("#p3", {opacity:0, y:40}, {opacity:1, y:0, duration:.5, ease:"power3.out"}, S("s40"));
+fin("#endcard", E("s40")+0.4);
+tl.to("#credit", {opacity:1, duration:.6}, E("s40")+0.8);
+tl.to("#fade", {opacity:1, duration:.8}, TOTAL-0.8);
+
+window.__timelines.main = tl;
+</script>
+</body>
+</html>

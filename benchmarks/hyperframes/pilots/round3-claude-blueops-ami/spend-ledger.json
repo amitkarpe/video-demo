@@ -1,0 +1,1468 @@
+{
+  "cap_usd": 10.0,
+  "entries": [
+    {
+      "t": "2026-11-08T10:00:41Z",
+      "endpoint": "images/generations",
+      "model": "gpt-image-2.6-sunburst",
+      "label": "image:hero_factory",
+      "reserved_usd": 1.201585,
+      "status": "ACK",
+      "cost_usd": 0.04338,
+      "usage": {
+        "input_tokens": 198,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 198
+        },
+        "output_tokens": 1413,
+        "output_tokens_details": {
+          "image_tokens": 1413,
+          "text_tokens": 0
+        },
+        "total_tokens": 1611
+      }
+    },
+    {
+      "t": "2026-11-08T10:01:44Z",
+      "endpoint": "images/generations",
+      "model": "gpt-image-2.6-sunburst",
+      "label": "image:golden_core",
+      "reserved_usd": 1.201113,
+      "status": "ACK",
+      "cost_usd": 0.05338,
+      "usage": {
+        "input_tokens": 140,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 140
+        },
+        "output_tokens": 1756,
+        "output_tokens_details": {
+          "image_tokens": 1756,
+          "text_tokens": 0
+        },
+        "total_tokens": 1896
+      }
+    },
+    {
+      "t": "2026-11-08T10:02:34Z",
+      "endpoint": "images/generations",
+      "model": "gpt-image-2.6-sunburst",
+      "label": "image:three_machines",
+      "reserved_usd": 1.201688,
+      "status": "ACK",
+      "cost_usd": 0.032665,
+      "usage": {
+        "input_tokens": 209,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 209
+        },
+        "output_tokens": 1054,
+        "output_tokens_details": {
+          "image_tokens": 1054,
+          "text_tokens": 0
+        },
+        "total_tokens": 1263
+      }
+    },
+    {
+      "t": "2026-11-08T10:03:12Z",
+      "endpoint": "images/generations",
+      "model": "gpt-image-2.6-sunburst",
+      "label": "image:proving_grounds",
+      "reserved_usd": 1.20123,
+      "status": "ACK",
+      "cost_usd": 0.04318,
+      "usage": {
+        "input_tokens": 158,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 158
+        },
+        "output_tokens": 1413,
+        "output_tokens_details": {
+          "image_tokens": 1413,
+          "text_tokens": 0
+        },
+        "total_tokens": 1571
+      }
+    },
+    {
+      "t": "2026-11-08T10:03:54Z",
+      "endpoint": "images/generations",
+      "model": "gpt-image-2.6-sunburst",
+      "label": "image:ops_engineer",
+      "reserved_usd": 1.201123,
+      "status": "ACK",
+      "cost_usd": 0.04187,
+      "usage": {
+        "input_tokens": 142,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 142
+        },
+        "output_tokens": 1372,
+        "output_tokens_details": {
+          "image_tokens": 1372,
+          "text_tokens": 0
+        },
+        "total_tokens": 1514
+      }
+    },
+    {
+      "t": "2026-11-08T10:04:38Z",
+      "endpoint": "images/generations",
+      "model": "gpt-image-2.6-sunburst",
+      "label": "image:night_release",
+      "reserved_usd": 1.20137,
+      "status": "ACK",
+      "cost_usd": 0.04325,
+      "usage": {
+        "input_tokens": 172,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 172
+        },
+        "output_tokens": 1413,
+        "output_tokens_details": {
+          "image_tokens": 1413,
+          "text_tokens": 0
+        },
+        "total_tokens": 1585
+      }
+    },
+    {
+      "t": "2026-11-08T10:05:25Z",
+      "endpoint": "images/edits",
+      "model": "gpt-image-2.6-sunburst",
+      "label": "image:hardened_core",
+      "reserved_usd": 1.265197,
+      "status": "ACK",
+      "cost_usd": 0.061697,
+      "usage": {
+        "input_tokens": 1189,
+        "input_tokens_details": {
+          "image_tokens": 1024,
+          "text_tokens": 165
+        },
+        "output_tokens": 1756,
+        "output_tokens_details": {
+          "image_tokens": 1756,
+          "text_tokens": 0
+        },
+        "total_tokens": 2945
+      }
+    },
+    {
+      "t": "2026-11-08T10:07:25Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s01",
+      "reserved_usd": 0.02688,
+      "status": "ACK",
+      "cost_usd": 0.006092,
+      "usage": {
+        "total_tokens": 318,
+        "input_tokens": 213,
+        "output_tokens": 105,
+        "input_token_details": {
+          "text_tokens": 213,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 37,
+          "audio_tokens": 68,
+          "reasoning_tokens": 14
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:07:30Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s02",
+      "reserved_usd": 0.04992,
+      "status": "ACK",
+      "cost_usd": 0.008528,
+      "usage": {
+        "total_tokens": 377,
+        "input_tokens": 224,
+        "output_tokens": 153,
+        "input_token_details": {
+          "text_tokens": 224,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 54,
+          "audio_tokens": 99,
+          "reasoning_tokens": 18
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:07:35Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s03",
+      "reserved_usd": 0.02688,
+      "status": "ACK",
+      "cost_usd": 0.006216,
+      "usage": {
+        "total_tokens": 324,
+        "input_tokens": 214,
+        "output_tokens": 110,
+        "input_token_details": {
+          "text_tokens": 214,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 42,
+          "audio_tokens": 68,
+          "reasoning_tokens": 18
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:07:46Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s04",
+      "reserved_usd": 0.04992,
+      "status": "ACK",
+      "cost_usd": 0.014103,
+      "usage": {
+        "total_tokens": 478,
+        "input_tokens": 229,
+        "output_tokens": 249,
+        "input_token_details": {
+          "text_tokens": 229,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 70,
+          "audio_tokens": 179,
+          "reasoning_tokens": 27
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:07:52Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s05",
+      "reserved_usd": 0.04224,
+      "status": "ACK",
+      "cost_usd": 0.010512,
+      "usage": {
+        "total_tokens": 408,
+        "input_tokens": 222,
+        "output_tokens": 186,
+        "input_token_details": {
+          "text_tokens": 222,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 57,
+          "audio_tokens": 129,
+          "reasoning_tokens": 23
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:07:57Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s06",
+      "reserved_usd": 0.03456,
+      "status": "ACK",
+      "cost_usd": 0.008175,
+      "usage": {
+        "total_tokens": 361,
+        "input_tokens": 217,
+        "output_tokens": 144,
+        "input_token_details": {
+          "text_tokens": 217,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 49,
+          "audio_tokens": 95,
+          "reasoning_tokens": 22
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:02Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s07",
+      "reserved_usd": 0.02688,
+      "status": "ACK",
+      "cost_usd": 0.00654,
+      "usage": {
+        "total_tokens": 325,
+        "input_tokens": 213,
+        "output_tokens": 112,
+        "input_token_details": {
+          "text_tokens": 213,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 37,
+          "audio_tokens": 75,
+          "reasoning_tokens": 14
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:06Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s08",
+      "reserved_usd": 0.04224,
+      "status": "ACK",
+      "cost_usd": 0.010276,
+      "usage": {
+        "total_tokens": 394,
+        "input_tokens": 219,
+        "output_tokens": 175,
+        "input_token_details": {
+          "text_tokens": 219,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 45,
+          "audio_tokens": 130,
+          "reasoning_tokens": 14
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:12Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s09",
+      "reserved_usd": 0.02944,
+      "status": "ACK",
+      "cost_usd": 0.006748,
+      "usage": {
+        "total_tokens": 332,
+        "input_tokens": 215,
+        "output_tokens": 117,
+        "input_token_details": {
+          "text_tokens": 215,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 40,
+          "audio_tokens": 77,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:16Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s10",
+      "reserved_usd": 0.04992,
+      "status": "ACK",
+      "cost_usd": 0.011679,
+      "usage": {
+        "total_tokens": 427,
+        "input_tokens": 225,
+        "output_tokens": 202,
+        "input_token_details": {
+          "text_tokens": 225,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 55,
+          "audio_tokens": 147,
+          "reasoning_tokens": 16
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:21Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s11",
+      "reserved_usd": 0.04992,
+      "status": "ACK",
+      "cost_usd": 0.014332,
+      "usage": {
+        "total_tokens": 473,
+        "input_tokens": 227,
+        "output_tokens": 246,
+        "input_token_details": {
+          "text_tokens": 227,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 58,
+          "audio_tokens": 188,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:27Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s12",
+      "reserved_usd": 0.04736,
+      "status": "ACK",
+      "cost_usd": 0.010012,
+      "usage": {
+        "total_tokens": 398,
+        "input_tokens": 223,
+        "output_tokens": 175,
+        "input_token_details": {
+          "text_tokens": 223,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 52,
+          "audio_tokens": 123,
+          "reasoning_tokens": 17
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:32Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s13",
+      "reserved_usd": 0.02944,
+      "status": "ACK",
+      "cost_usd": 0.007639,
+      "usage": {
+        "total_tokens": 347,
+        "input_tokens": 215,
+        "output_tokens": 132,
+        "input_token_details": {
+          "text_tokens": 215,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 43,
+          "audio_tokens": 89,
+          "reasoning_tokens": 18
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:36Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s14",
+      "reserved_usd": 0.02688,
+      "status": "ACK",
+      "cost_usd": 0.006667,
+      "usage": {
+        "total_tokens": 339,
+        "input_tokens": 214,
+        "output_tokens": 125,
+        "input_token_details": {
+          "text_tokens": 214,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 56,
+          "audio_tokens": 69,
+          "reasoning_tokens": 32
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:41Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s15",
+      "reserved_usd": 0.02688,
+      "status": "ACK",
+      "cost_usd": 0.005947,
+      "usage": {
+        "total_tokens": 314,
+        "input_tokens": 212,
+        "output_tokens": 102,
+        "input_token_details": {
+          "text_tokens": 212,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 37,
+          "audio_tokens": 65,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:45Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s16",
+      "reserved_usd": 0.04224,
+      "status": "ACK",
+      "cost_usd": 0.009692,
+      "usage": {
+        "total_tokens": 393,
+        "input_tokens": 221,
+        "output_tokens": 172,
+        "input_token_details": {
+          "text_tokens": 221,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 55,
+          "audio_tokens": 117,
+          "reasoning_tokens": 22
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:50Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s17",
+      "reserved_usd": 0.03456,
+      "status": "ACK",
+      "cost_usd": 0.008412,
+      "usage": {
+        "total_tokens": 368,
+        "input_tokens": 219,
+        "output_tokens": 149,
+        "input_token_details": {
+          "text_tokens": 219,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 50,
+          "audio_tokens": 99,
+          "reasoning_tokens": 19
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:08:54Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s18",
+      "reserved_usd": 0.04992,
+      "status": "ACK",
+      "cost_usd": 0.010167,
+      "usage": {
+        "total_tokens": 404,
+        "input_tokens": 223,
+        "output_tokens": 181,
+        "input_token_details": {
+          "text_tokens": 223,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 59,
+          "audio_tokens": 122,
+          "reasoning_tokens": 24
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:00Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s19",
+      "reserved_usd": 0.06016,
+      "status": "ACK",
+      "cost_usd": 0.01108,
+      "usage": {
+        "total_tokens": 430,
+        "input_tokens": 230,
+        "output_tokens": 200,
+        "input_token_details": {
+          "text_tokens": 230,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 66,
+          "audio_tokens": 134,
+          "reasoning_tokens": 24
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:05Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s20",
+      "reserved_usd": 0.05504,
+      "status": "ACK",
+      "cost_usd": 0.012951,
+      "usage": {
+        "total_tokens": 455,
+        "input_tokens": 231,
+        "output_tokens": 224,
+        "input_token_details": {
+          "text_tokens": 231,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 59,
+          "audio_tokens": 165,
+          "reasoning_tokens": 14
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:10Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s21",
+      "reserved_usd": 0.05504,
+      "status": "ACK",
+      "cost_usd": 0.012031,
+      "usage": {
+        "total_tokens": 450,
+        "input_tokens": 227,
+        "output_tokens": 223,
+        "input_token_details": {
+          "text_tokens": 227,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 80,
+          "audio_tokens": 143,
+          "reasoning_tokens": 39
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:15Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s22",
+      "reserved_usd": 0.05248,
+      "status": "ACK",
+      "cost_usd": 0.013147,
+      "usage": {
+        "total_tokens": 444,
+        "input_tokens": 224,
+        "output_tokens": 220,
+        "input_token_details": {
+          "text_tokens": 224,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 47,
+          "audio_tokens": 173,
+          "reasoning_tokens": 9
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:21Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s23",
+      "reserved_usd": 0.06272,
+      "status": "ACK",
+      "cost_usd": 0.012851,
+      "usage": {
+        "total_tokens": 455,
+        "input_tokens": 228,
+        "output_tokens": 227,
+        "input_token_details": {
+          "text_tokens": 228,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 66,
+          "audio_tokens": 161,
+          "reasoning_tokens": 24
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:26Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s24",
+      "reserved_usd": 0.0448,
+      "status": "ACK",
+      "cost_usd": 0.011943,
+      "usage": {
+        "total_tokens": 428,
+        "input_tokens": 223,
+        "output_tokens": 205,
+        "input_token_details": {
+          "text_tokens": 223,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 53,
+          "audio_tokens": 152,
+          "reasoning_tokens": 16
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:32Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s25",
+      "reserved_usd": 0.02688,
+      "status": "ACK",
+      "cost_usd": 0.006543,
+      "usage": {
+        "total_tokens": 338,
+        "input_tokens": 215,
+        "output_tokens": 123,
+        "input_token_details": {
+          "text_tokens": 215,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 56,
+          "audio_tokens": 67,
+          "reasoning_tokens": 31
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:36Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s26",
+      "reserved_usd": 0.04736,
+      "status": "ACK",
+      "cost_usd": 0.011239,
+      "usage": {
+        "total_tokens": 417,
+        "input_tokens": 223,
+        "output_tokens": 194,
+        "input_token_details": {
+          "text_tokens": 223,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 53,
+          "audio_tokens": 141,
+          "reasoning_tokens": 16
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:41Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s27",
+      "reserved_usd": 0.02688,
+      "status": "ACK",
+      "cost_usd": 0.005359,
+      "usage": {
+        "total_tokens": 307,
+        "input_tokens": 211,
+        "output_tokens": 96,
+        "input_token_details": {
+          "text_tokens": 211,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 42,
+          "audio_tokens": 54,
+          "reasoning_tokens": 23
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:46Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s28",
+      "reserved_usd": 0.04992,
+      "status": "ACK",
+      "cost_usd": 0.012263,
+      "usage": {
+        "total_tokens": 438,
+        "input_tokens": 225,
+        "output_tokens": 213,
+        "input_token_details": {
+          "text_tokens": 225,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 58,
+          "audio_tokens": 155,
+          "reasoning_tokens": 19
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:51Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s29",
+      "reserved_usd": 0.032,
+      "status": "ACK",
+      "cost_usd": 0.00792,
+      "usage": {
+        "total_tokens": 360,
+        "input_tokens": 216,
+        "output_tokens": 144,
+        "input_token_details": {
+          "text_tokens": 216,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 54,
+          "audio_tokens": 90,
+          "reasoning_tokens": 28
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:09:55Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s30",
+      "reserved_usd": 0.0448,
+      "status": "ACK",
+      "cost_usd": 0.010599,
+      "usage": {
+        "total_tokens": 407,
+        "input_tokens": 221,
+        "output_tokens": 186,
+        "input_token_details": {
+          "text_tokens": 221,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 56,
+          "audio_tokens": 130,
+          "reasoning_tokens": 23
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:10:00Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s31",
+      "reserved_usd": 0.03456,
+      "status": "ACK",
+      "cost_usd": 0.007423,
+      "usage": {
+        "total_tokens": 348,
+        "input_tokens": 217,
+        "output_tokens": 131,
+        "input_token_details": {
+          "text_tokens": 217,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 47,
+          "audio_tokens": 84,
+          "reasoning_tokens": 20
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:10:05Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s32",
+      "reserved_usd": 0.02688,
+      "status": "ACK",
+      "cost_usd": 0.006328,
+      "usage": {
+        "total_tokens": 327,
+        "input_tokens": 212,
+        "output_tokens": 115,
+        "input_token_details": {
+          "text_tokens": 212,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 47,
+          "audio_tokens": 68,
+          "reasoning_tokens": 25
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:10:10Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s33",
+      "reserved_usd": 0.04992,
+      "status": "ACK",
+      "cost_usd": 0.010088,
+      "usage": {
+        "total_tokens": 407,
+        "input_tokens": 224,
+        "output_tokens": 183,
+        "input_token_details": {
+          "text_tokens": 224,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 63,
+          "audio_tokens": 120,
+          "reasoning_tokens": 27
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:10:15Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s34",
+      "reserved_usd": 0.04224,
+      "status": "ACK",
+      "cost_usd": 0.010987,
+      "usage": {
+        "total_tokens": 414,
+        "input_tokens": 220,
+        "output_tokens": 194,
+        "input_token_details": {
+          "text_tokens": 220,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 59,
+          "audio_tokens": 135,
+          "reasoning_tokens": 27
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:10:20Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s35",
+      "reserved_usd": 0.0576,
+      "status": "ACK",
+      "cost_usd": 0.013591,
+      "usage": {
+        "total_tokens": 465,
+        "input_tokens": 229,
+        "output_tokens": 236,
+        "input_token_details": {
+          "text_tokens": 229,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 62,
+          "audio_tokens": 174,
+          "reasoning_tokens": 19
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:10:25Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s36",
+      "reserved_usd": 0.032,
+      "status": "ACK",
+      "cost_usd": 0.008191,
+      "usage": {
+        "total_tokens": 360,
+        "input_tokens": 217,
+        "output_tokens": 143,
+        "input_token_details": {
+          "text_tokens": 217,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 47,
+          "audio_tokens": 96,
+          "reasoning_tokens": 18
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:10:30Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s37",
+      "reserved_usd": 0.0576,
+      "status": "ACK",
+      "cost_usd": 0.010688,
+      "usage": {
+        "total_tokens": 417,
+        "input_tokens": 230,
+        "output_tokens": 187,
+        "input_token_details": {
+          "text_tokens": 230,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 55,
+          "audio_tokens": 132,
+          "reasoning_tokens": 13
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:10:34Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s38",
+      "reserved_usd": 0.02688,
+      "status": "ACK",
+      "cost_usd": 0.003687,
+      "usage": {
+        "total_tokens": 269,
+        "input_tokens": 207,
+        "output_tokens": 62,
+        "input_token_details": {
+          "text_tokens": 207,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 29,
+          "audio_tokens": 33,
+          "reasoning_tokens": 16
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:10:39Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s39",
+      "reserved_usd": 0.02688,
+      "status": "ACK",
+      "cost_usd": 0.005187,
+      "usage": {
+        "total_tokens": 294,
+        "input_tokens": 208,
+        "output_tokens": 86,
+        "input_token_details": {
+          "text_tokens": 208,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 30,
+          "audio_tokens": 56,
+          "reasoning_tokens": 14
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:10:43Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s40",
+      "reserved_usd": 0.02688,
+      "status": "ACK",
+      "cost_usd": 0.004647,
+      "usage": {
+        "total_tokens": 289,
+        "input_tokens": 211,
+        "output_tokens": 78,
+        "input_token_details": {
+          "text_tokens": 211,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 31,
+          "audio_tokens": 47,
+          "reasoning_tokens": 12
+        }
+      },
+      "response_status": "completed"
+    },
+    {
+      "t": "2026-11-08T10:26:57Z",
+      "endpoint": "responses",
+      "model": "gpt-5.5",
+      "label": "qa-vision:15 frames",
+      "reserved_usd": 0.5575,
+      "status": "ACK",
+      "cost_usd": 0.18867,
+      "usage": {
+        "input_tokens": 16950,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 3464,
+        "output_tokens_details": {
+          "reasoning_tokens": 2018
+        },
+        "total_tokens": 20414
+      }
+    },
+    {
+      "t": "2026-11-08T10:28:02Z",
+      "endpoint": "audio/transcriptions",
+      "model": "gpt-transcribe",
+      "label": "qa-transcribe",
+      "reserved_usd": 0.04446,
+      "status": "ACK",
+      "cost_usd": 0.017775,
+      "usage": {
+        "type": "duration",
+        "seconds": 237
+      }
+    },
+    {
+      "t": "2026-11-08T10:34:56Z",
+      "endpoint": "responses",
+      "model": "gpt-5.5",
+      "label": "qa-vision:10 frames",
+      "reserved_usd": 0.495,
+      "status": "ACK",
+      "cost_usd": 0.172555,
+      "usage": {
+        "input_tokens": 11405,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 3851,
+        "output_tokens_details": {
+          "reasoning_tokens": 2745
+        },
+        "total_tokens": 15256
+      }
+    },
+    {
+      "t": "2026-11-08T10:35:37Z",
+      "endpoint": "audio/transcriptions",
+      "model": "gpt-transcribe",
+      "label": "qa-transcribe",
+      "reserved_usd": 0.04446,
+      "status": "ACK",
+      "cost_usd": 0.017775,
+      "usage": {
+        "type": "duration",
+        "seconds": 237
+      }
+    }
+  ],
+  "committed_usd": 1.086677
+}

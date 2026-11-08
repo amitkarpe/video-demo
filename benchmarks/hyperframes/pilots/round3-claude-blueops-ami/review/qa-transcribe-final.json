@@ -1,0 +1,34 @@
+{
+  "model": "gpt-transcribe",
+  "usage": {
+    "type": "duration",
+    "seconds": 237
+  },
+  "cost_usd": 0.017775,
+  "ref_words": 517,
+  "word_errors": 7,
+  "wer": 0.0135,
+  "diffs": [
+    [
+      "replace",
+      "eventbridge",
+      "event bridge"
+    ],
+    [
+      "replace",
+      "cloudos",
+      "cloud os"
+    ],
+    [
+      "replace",
+      "through",
+      "they re"
+    ],
+    [
+      "replace",
+      "the",
+      "a"
+    ]
+  ],
+  "text": "Every month, a new golden image arrives. Building from it is easy. Proving it is safe to run in production is the hard part. This is BlueOps, the AMI factory. Upstream, GovTech publishes a golden Amazon Linux 2023 image, already hardened with some security and operations agents. A discovery signal proposed here as an event bridge event captures its exact image ID. From that moment, every step traces back to one immutable source. Station one builds the hardened base OS. Image builder starts from the approved golden image and installs the GCC agent packages. Packages only, no production manager registration is baked in. Then it applies a selected CIS hardening profile. Selected controls, not a claim of full benchmark compliance. Checks run on a private instance, no public IP, SSM online. The expected packages, the recorded profile. The hardened base OS never goes to production. It is the parent for everything that does. From that one parent, three production families branch directly. GitLab, which carries its own container runtime. MongoDB, which runs without containers. And the Cloud OS ECS worker, which adds the container engine and the ECS agent. GitLab with Nextflow is an optional extension, not a fourth family. A green build log is not confidence, so each family goes to its own dev proving ground. GitLab must come up healthy, accept a clone and a push, create and read data, and keep it after a reboot. MongoDB must listen only privately, answer a ping, and pass create, read, update, delete, and a dump and restore. A single node smoke test is not a cluster, so a replica set gate is the proposed next level of confidence. The ECS worker must really place tasks on the exact candidate image. Zero placed tasks is a failure. The proposed next step runs mock services that talk over the expected ports and read only their own parameters. They're scoped IAM. Every candidate also proves its lineage, encrypted and shareable snapshots, and a clean private launch. A fail or an unknown stops the line. Notice the separate states. Built is not verified. Verified in dev is not accepted in production. Phase A is the controlled rollout. A validated child image is shared to production, launched privately, and checked again with production's own configuration. An ops engineer reviews the evidence and gives explicit approval. Only then does the approved pointer move, and the previous release stays ready for rollback. Phase B is a proposal for the future, not today's system. Candidates could build and validate every week on the first Saturday night of each month. A scheduled promotion could run without a per-release approval, but only after management, security, and change governance approve that policy and its conditions. A failed or unknown check, a missing approval, missing snapshot or key access, or an unhealthy production canary blocks it. A critical vulnerability can still trigger an urgent ops-approved release. And if the canary turns red, the rollout returns to the last known good image within a short agreed maintenance window. Build once. Validate every workload. Promote only what is proven."
+}
