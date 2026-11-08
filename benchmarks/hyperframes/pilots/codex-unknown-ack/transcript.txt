@@ -1,0 +1,12 @@
+This is a simulation. An approved S3 policy request leaves the backend.
+But the reply disappears.
+Did the change fail? Or just the reply?
+Before the call, the durable ledger already records CALLING.
+AWSOps keeps that uncertainty. It does not blindly send another write.
+It reconciles the same run, using read-only provider checks.
+Here, the observed policy matches.
+But a matching policy is not fresh Config compliance.
+Execution stays UNKNOWN. Compliance stays UNKNOWN.
+Freshness stays NOT_VERIFIED.
+The outcome: NEEDS_REVIEW.
+The missing evidence stays visible. This demonstrates control logic, not live acceptance.
