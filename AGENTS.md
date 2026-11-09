@@ -103,9 +103,9 @@ owning Issue/PR
 
 Do not reread all root context files before every PR, handoff, or continuation.
 
-## Film work (this repository's main job)
+## Film work
 
-Any request to make, revise or reuse a video in this repository:
+**New films are made in the private factory `amitkarpe/video-factory`; follow its `AGENTS.md` start protocol.** This repository is the public showcase and archive. Approved factory films arrive here only as releases, via the factory's `toolkit/publish_showcase.sh`. Work in this repository only to revise an archived film, and then:
 
 1. **Intake first:** run [`docs/VIDEO_INTAKE.md`](docs/VIDEO_INTAKE.md). Pre-fill from the request and the source, then ask only what is missing, as answer cards with defaults. Always confirm the **style** and the **exact names**.
 2. **Reuse first:** use a house look from [`docs/STYLE_CATALOG.md`](docs/STYLE_CATALOG.md) (default `toy-world-3d`) and the shared [`toolkit/`](toolkit/README.md). **Never invent a new theme or style** unless Amit explicitly asks for a new one. "Three.js" or "3D" means the toy-world kit, not a new world.
