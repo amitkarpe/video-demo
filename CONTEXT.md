@@ -22,7 +22,7 @@ Status: INITIALIZED
 - Owner reviews pending: `cis-hardening`, `offline-validation`, `claude-film` (human listening not yet done).
 
 ## Next Action
-- Next film request: run `docs/VIDEO_INTAKE.md`, reuse a house look, start with `toolkit/new_film.py`.
+- New film requests go to the private factory `amitkarpe/video-factory`. This repository is the public showcase and archive.
 
 ## Restart
 Begin with `AGENTS.md`, then the active Issue/PR. For a film request, read `docs/VIDEO_INTAKE.md` and `docs/STYLE_CATALOG.md` first.
