@@ -1,0 +1,189 @@
+{
+  "model": "gpt-5.5",
+  "usage": {
+    "input_tokens": 25345,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 3359,
+    "output_tokens_details": {
+      "reasoning_tokens": 1785
+    },
+    "total_tokens": 28704
+  },
+  "cost_usd": 0.227495,
+  "review": {
+    "frames": [
+      {
+        "file": "t0004.0-s01.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0012.5-s02.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0017.0-s03.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0024.0-s04.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0034.0-s05.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0039.0-s06.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0044.0-s07.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0058.0-s08.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0064.0-s09.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The curved-loop label, \u201cruns again on every new parent image or new patches,\u201d is small and sits low against the grid, making it marginal at 720p.",
+            "fix": "Increase the label size and weight, or place it in a small white label box above the loop."
+          }
+        ]
+      },
+      {
+        "file": "t0066.6-wipe.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The curved-loop label remains small and low-contrast for 720p viewing.",
+            "fix": "Increase size/weight or put the label in a high-contrast callout."
+          }
+        ]
+      },
+      {
+        "file": "t0069.0-s10.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0074.0-s11.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "The first two buckets show many square counts, but there is no visible label saying those counts are illustrative. This can imply exact counts, which breaks the accuracy rule.",
+            "fix": "Add a readable note near the buckets: \u201cSquare counts in the first two buckets are illustrative; accepted risk is exact: 6.\u201d"
+          }
+        ]
+      },
+      {
+        "file": "t0085.0-s12.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "The first two buckets still show square counts without a visible \u201cillustrative\u201d label, so the visual can be read as exact.",
+            "fix": "Add a readable, high-contrast note that the upstream/fixed square counts are illustrative and the accepted bucket is exactly 6."
+          }
+        ]
+      },
+      {
+        "file": "t0091.0-s13.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The required explanatory note about square counts is tiny, grey, and partly covered by the subtitle bar, making it unreadable at 720p.",
+            "fix": "Move the note above the subtitle safe area and increase contrast/size. It should clearly state that the first two bucket counts are illustrative and the accepted bucket is exactly 6."
+          },
+          {
+            "severity": "medium",
+            "issue": "The accepted-risk bullet says \u201cone file-permission check,\u201d but the required exception is specifically one user start-up file permission check.",
+            "fix": "Change the bullet to \u201cone user start-up file permission check\u201d or equivalent code-style wording."
+          }
+        ]
+      },
+      {
+        "file": "t0097.0-s14.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0105.0-s15.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0111.0-s16.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0117.0-s17.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The right-hand code panel uses singular wording, \u201c5\u00d7 separate disk partition,\u201d which reads awkwardly and is less clear than the earlier \u201cpartitions \u00d75.\u201d",
+            "fix": "Use \u201c5\u00d7 separate disk partitions\u201d for consistency and clarity."
+          }
+        ]
+      },
+      {
+        "file": "t0128.0-s19.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The chapter counter \u201c06 / 06\u201d is overlapped by the clay illustration in the top right, so the required counter is not reliably readable.",
+            "fix": "Move the illustration down/left or reserve a clear top-right counter area above the illustration."
+          },
+          {
+            "severity": "medium",
+            "issue": "A small navy square appears under the Reboot step with no label or connection, reading as a stray artefact.",
+            "fix": "Remove the square or connect/label it if it is meant to represent a scan result."
+          }
+        ]
+      },
+      {
+        "file": "t0139.0-s20.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The clay illustration overlaps the \u201c06 / 06\u201d chapter counter, making the required counter partially obscured.",
+            "fix": "Reposition the illustration or counter so both are fully visible."
+          },
+          {
+            "severity": "medium",
+            "issue": "A small navy square below \u201cCompare with the approved list\u201d is unlabeled and visually confusing.",
+            "fix": "Remove it or label it as part of the flow."
+          }
+        ]
+      },
+      {
+        "file": "t0143.0-s21.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The chapter counter remains partially hidden behind the clay illustration, violating the requirement that the counter be shown top right.",
+            "fix": "Keep the chapter counter in a clear protected area, separate from the illustration."
+          },
+          {
+            "severity": "low",
+            "issue": "The white explanatory panel at lower left competes with the subtitle bar and makes the lower third visually crowded.",
+            "fix": "Raise the explanatory panel slightly or shorten it so the subtitle area has more breathing room."
+          }
+        ]
+      },
+      {
+        "file": "t0150.0-s22.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The final frame has the AI disclosure but no visible chapter counter, despite the rule requiring a 01/06..06/06 counter.",
+            "fix": "Add the \u201c06 / 06\u201d counter in the top-right area, with adequate clearance from the AI disclosure."
+          }
+        ]
+      }
+    ],
+    "overall": "Main compliance risks are the bucket-count labelling and the final chapter counter. The accepted-risk bucket shows exactly six items, and owner approval is stated correctly, but the required note that the first two square counts are illustrative is missing or unreadable across the bucket sequence. In the release-gate chapter, the 06/06 counter is obscured by the clay illustration and then absent on the final frame. No prohibited IDs, dates, credential details, or CIS control numbers are visible."
+  }
+}

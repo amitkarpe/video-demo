@@ -1,0 +1,143 @@
+1
+00:00:01,400 --> 00:00:05,174
+Every server image ships with hundreds of security settings.
+
+2
+00:00:05,574 --> 00:00:13,561
+For Amazon Linux 2023, the CIS Benchmark lists 243 checks. So, do we fix them all?
+
+3
+00:00:13,961 --> 00:00:18,540
+The honest answer is no — and that is a decision, not an accident.
+
+4
+00:00:19,540 --> 00:00:22,361
+CIS, the Center for Internet Security,
+
+5
+00:00:22,361 --> 00:00:26,148
+publishes a public checklist for hardening servers.
+
+6
+00:00:26,548 --> 00:00:29,979
+Level 1 covers the essentials every server should have.
+
+7
+00:00:29,979 --> 00:00:33,846
+Level 2 goes further: stricter settings for sensitive systems,
+
+8
+00:00:33,846 --> 00:00:35,904
+some of which cost more to apply.
+
+9
+00:00:36,304 --> 00:00:40,503
+Think of it as a building-safety code, written for servers.
+
+10
+00:00:41,503 --> 00:00:45,368
+In AWS Factory, hardening happens on one production line.
+
+11
+00:00:45,768 --> 00:00:48,943
+It starts from the GovTech parent image.
+
+12
+00:00:48,943 --> 00:00:54,500
+The base image adds CIS fixes, security agents and the latest patches.
+
+13
+00:00:54,500 --> 00:00:59,183
+Then the ECS, MongoDB and GitLab images are built from that
+
+14
+00:00:59,183 --> 00:01:01,168
+base, tested, and shared.
+
+15
+00:01:01,568 --> 00:01:06,148
+The line runs again whenever there is a new parent image or new patches.
+
+16
+00:01:07,148 --> 00:01:10,932
+Every check the scanner can test lands in one of three buckets.
+
+17
+00:01:11,332 --> 00:01:15,038
+Many arrive already hardened by the GovTech parent image.
+
+18
+00:01:15,438 --> 00:01:20,241
+Others we fix ourselves in the base image: login lockout and password rules,
+
+19
+00:01:20,241 --> 00:01:24,728
+file and log permissions, audit rules, switching off unused networking,
+
+20
+00:01:24,728 --> 00:01:27,572
+and checking that package sources are signed.
+
+21
+00:01:27,972 --> 00:01:32,077
+And a small set we accept as a risk — with the owner's approval.
+
+22
+00:01:33,077 --> 00:01:38,210
+Why accept a risk at all? Because some fixes cost more than the risk they remove.
+
+23
+00:01:38,610 --> 00:01:42,246
+Five controls ask for separate disk partitions for system folders.
+
+24
+00:01:42,246 --> 00:01:45,441
+Meeting them would mean a new disk layout for every image,
+
+25
+00:01:45,441 --> 00:01:47,314
+and moving every running workload.
+
+26
+00:01:47,714 --> 00:01:50,942
+One more checks the permissions of user start-up files,
+
+27
+00:01:50,942 --> 00:01:52,938
+which installed agents can change.
+
+28
+00:01:53,338 --> 00:01:56,447
+Each accepted control is named in the factory's code,
+
+29
+00:01:56,447 --> 00:01:59,145
+so the trade-off stays visible and reviewable.
+
+30
+00:02:00,145 --> 00:02:03,071
+That list is also the release gate.
+
+31
+00:02:03,471 --> 00:02:08,043
+Every release builds the base image, reboots a test host,
+
+32
+00:02:08,043 --> 00:02:12,054
+and scans it against CIS Level 2, plus HCR checks.
+
+33
+00:02:12,454 --> 00:02:17,760
+The results are compared with the approved list. A new failure stops the release;
+
+34
+00:02:17,760 --> 00:02:20,380
+only the approved exceptions may remain.
+
+35
+00:02:20,780 --> 00:02:23,639
+And scanner results are never relabelled to look green.
+
+36
+00:02:24,639 --> 00:02:31,327
+Fix what we can. Accept what we must — on purpose, in writing, and re-checked every release.

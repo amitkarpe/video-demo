@@ -1,0 +1,101 @@
+{
+  "safety.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "1024x1024",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "transparent"
+    },
+    "prompt_sha256": "e4d2e6ef00291c66488ef96d1fe499183abfa53ebdfe146a88432aef9446ba4e",
+    "usage": {
+      "input_tokens": 129,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 129
+      },
+      "output_tokens": 1756,
+      "output_tokens_details": {
+        "image_tokens": 1756,
+        "text_tokens": 0
+      },
+      "total_tokens": 1885
+    },
+    "cost_usd": 0.053325000000000004,
+    "output": "media/original/images/safety.t1.png",
+    "output_sha256": "fef2579279337ad369ec6d1324b6bd877be0b20b49f4b82867cd987e111738aa",
+    "revised_prompt": null,
+    "created": 1794225296,
+    "request_id": "req_8071ec44a29d458f8a609b1def1b72b9"
+  },
+  "factory.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "1536x1024",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "transparent"
+    },
+    "prompt_sha256": "4daa59981364f55729fd74e047dce914d3db48e3252dcb1d0edc2195577a7a49",
+    "usage": {
+      "input_tokens": 125,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 125
+      },
+      "output_tokens": 1372,
+      "output_tokens_details": {
+        "image_tokens": 1372,
+        "text_tokens": 0
+      },
+      "total_tokens": 1497
+    },
+    "cost_usd": 0.041785,
+    "output": "media/original/images/factory.t1.png",
+    "output_sha256": "9b1cc85b1efdecc693e00ec01df058777f4e43f8fc242f25c61c26758c2b9b38",
+    "revised_prompt": null,
+    "created": 1794225339,
+    "request_id": "req_f6d84f72cb4f48228d738467874478ae"
+  },
+  "gate.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "1536x1024",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "transparent"
+    },
+    "prompt_sha256": "89a41eba93d09465729f3f6bce91768c3e56b9aec5a783389c6fb18b7adf9707",
+    "usage": {
+      "input_tokens": 121,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 121
+      },
+      "output_tokens": 1372,
+      "output_tokens_details": {
+        "image_tokens": 1372,
+        "text_tokens": 0
+      },
+      "total_tokens": 1493
+    },
+    "cost_usd": 0.041765000000000004,
+    "output": "media/original/images/gate.t1.png",
+    "output_sha256": "98d1d944bb04b35031cd403d9cb789353b7b21b87161e6c178af2f42c390bb23",
+    "revised_prompt": null,
+    "created": 1794225382,
+    "request_id": "req_8ae6ce8e82f44504ac3df3d2323e8d45"
+  }
+}

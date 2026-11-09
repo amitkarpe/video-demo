@@ -1,0 +1,59 @@
+{
+  "model": "gpt-transcribe",
+  "usage": {
+    "type": "duration",
+    "seconds": 157
+  },
+  "cost_usd": 0.011774999999999999,
+  "ref_words": 363,
+  "word_errors": 17,
+  "wer": 0.0468,
+  "diffs": [
+    [
+      "replace",
+      "two hundred and forty three",
+      "243"
+    ],
+    [
+      "replace",
+      "one",
+      "1"
+    ],
+    [
+      "replace",
+      "two",
+      "2"
+    ],
+    [
+      "replace",
+      "ask",
+      "asked"
+    ],
+    [
+      "replace",
+      "start up",
+      "startup"
+    ],
+    [
+      "replace",
+      "two",
+      "2"
+    ],
+    [
+      "replace",
+      "h c r",
+      "hcr"
+    ],
+    [
+      "replace",
+      "relabelled",
+      "relabeled"
+    ],
+    [
+      "replace",
+      "re checked",
+      "rechecked"
+    ]
+  ],
+  "text": "Every server image ships with hundreds of security settings. For Amazon Linux 2023, the CIS benchmark lists 243 checks. So, do we fix them all? The honest answer is no, and that is a decision, not an accident. CIS, the Center for Internet Security, publishes a public checklist for hardening servers. Level 1 covers the essentials every server should have. Level 2 goes further, stricter settings for sensitive systems, some of which cost more to apply. Think of it as a building safety code, written for servers. In AWS Factory, hardening happens on one production line. It starts from the GovTech parent image. The base image adds CIS fixes, security agents, and the latest patches. Then the ECS, MongoDB, and GitLab images are built from that base, tested, and shared. The line runs again whenever there is a new parent image or new patches. Every check the scanner can test lands in one of three buckets. Many arrive already hardened by the GovTech parent image. Others we fix ourselves in the base image: login lockout and password rules, file and log permissions, audit rules, switching off unused networking, and checking that package sources are signed. And a small set we accept as a risk, with the owner's approval. Why accept a risk at all? Because some fixes cost more than the risk they remove. Five controls asked for separate disk partitions for system folders. Meeting them would mean a new disk layout for every image and moving every running workload. One more checks the permissions of user startup files, which installed agents can change. Each accepted control is named in the factory's code, so the trade-off stays visible and reviewable. That list is also the release gate. Every release builds the base image, reboots a test host, and scans it against CIS Level 2 plus HCR checks. The results are compared with the approved list. A new failure stops the release; only the approved exceptions may remain. And scanner results are never relabeled to look green. Fix what we can, accept what we must, on purpose, in writing, and rechecked every release."
+}
