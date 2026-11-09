@@ -1,5 +1,7 @@
 # Verification and QA record — "Patching Running Servers in AWS Factory" (revision 2)
 
+**OWNER ACCEPTANCE:** Amit Karpe replied "Accept the film" on 9 Nov 2026 for revision 2 (`out/ssm-patch.mp4`, sha256 `d5c40f5e…debbb34f9`). Whether the owner listened at 1× is not recorded here.
+
 **VERIFIED** means measured here on the final file. **NOT_VERIFIED** means not done or not possible here. A mechanical pass is not owner acceptance.
 
 ## 1. Identity and workflow
