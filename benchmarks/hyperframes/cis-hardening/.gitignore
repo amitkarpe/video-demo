@@ -1,0 +1,11 @@
+.venv/
+.hyperframes/
+assets/gsap.min.js
+assets/mix.wav
+out/master-delivery.mp4
+out/*-draft*.mp4
+out/slice*.mp4
+review/tmp/
+assets/mix-prenorm.wav
+phase1/_snap/
+phase1/*/assets/gsap.min.js

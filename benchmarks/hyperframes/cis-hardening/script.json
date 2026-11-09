@@ -1,0 +1,50 @@
+{
+ "title": "CIS Hardening in AWS Factory — Fix What We Can, Accept What We Must",
+ "status": "Phase 1 draft for owner review",
+ "voice": {
+  "model": "gpt-realtime-2.1",
+  "voice": "marin",
+  "instructions": "You are the narrator of a clear, friendly, confident explainer for both engineers and managers. Read the user's text aloud exactly as written, word for word: do not add, drop, reorder or paraphrase any word, and do not answer or comment. Voice: warm, calm and well paced, with natural pauses at full stops, colons and dashes. Pronounce: CIS, AWS, HCR, ECS and GovTech's 'Gov' as written letters where they are capitals (C-I-S, A-W-S, H-C-R, E-C-S); GovTech as 'GUV-tech'; MongoDB as 'mongo D-B'; GitLab as 'GIT-lab'."
+ },
+ "lead_in": 1.4,
+ "tail": 5.0,
+ "chapters": [
+  {"id": "c1", "label": "THE QUESTION", "start": "s01", "slide": 1},
+  {"id": "c2", "label": "WHAT IS CIS", "start": "s04", "slide": 2},
+  {"id": "c3", "label": "WHERE HARDENING HAPPENS", "start": "s07", "slide": 3},
+  {"id": "c4", "label": "THREE BUCKETS", "start": "s10", "slide": 4},
+  {"id": "c5", "label": "WHY ACCEPT A RISK", "start": "s14", "slide": 5},
+  {"id": "c6", "label": "THE RELEASE GATE", "start": "s18", "slide": 6},
+  {"id": "c7", "label": "", "start": "s22", "slide": 7}
+ ],
+ "lines": [
+  {"id": "s01", "gap_after": 0.4, "caption": "Every server image ships with hundreds of security settings."},
+  {"id": "s02", "gap_after": 0.4, "caption": "For Amazon Linux 2023, the CIS Benchmark lists 243 checks. So, do we fix them all?", "say": "For Amazon Linux 2023, the CIS Benchmark lists two hundred and forty-three checks. So, do we fix them all?"},
+  {"id": "s03", "gap_after": 1.0, "caption": "The honest answer is no — and that is a decision, not an accident."},
+
+  {"id": "s04", "gap_after": 0.4, "caption": "CIS, the Center for Internet Security, publishes a public checklist for hardening servers."},
+  {"id": "s05", "gap_after": 0.4, "caption": "Level 1 covers the essentials every server should have. Level 2 goes further: stricter settings for sensitive systems, some of which cost more to apply.", "say": "Level one covers the essentials every server should have. Level two goes further: stricter settings for sensitive systems, some of which cost more to apply."},
+  {"id": "s06", "gap_after": 1.0, "caption": "Think of it as a building-safety code, written for servers."},
+
+  {"id": "s07", "gap_after": 0.4, "caption": "In AWS Factory, hardening happens on one production line."},
+  {"id": "s08", "gap_after": 0.4, "caption": "It starts from the GovTech parent image. The base image adds CIS fixes, security agents and the latest patches. Then the ECS, MongoDB and GitLab images are built from that base, tested, and shared."},
+  {"id": "s09", "gap_after": 1.0, "caption": "The line runs again whenever there is a new parent image or new patches."},
+
+  {"id": "s10", "gap_after": 0.4, "caption": "Every CIS control lands in one of three buckets."},
+  {"id": "s11", "gap_after": 0.4, "caption": "Many arrive already hardened by the GovTech parent image."},
+  {"id": "s12", "gap_after": 0.4, "caption": "Others we fix ourselves in the base image: login lockout and password rules, file and log permissions, audit rules, switching off unused networking, and checking that package sources are signed."},
+  {"id": "s13", "gap_after": 1.0, "caption": "And a small set we accept as a risk — with the owner's approval."},
+
+  {"id": "s14", "gap_after": 0.4, "caption": "Why accept a risk at all? Because some fixes cost more than the risk they remove."},
+  {"id": "s15", "gap_after": 0.4, "caption": "Five controls ask for separate disk partitions for system folders. Meeting them would mean a new disk layout for every image, and moving every running workload."},
+  {"id": "s16", "gap_after": 0.4, "caption": "One more checks the permissions of user start-up files, which installed agents can change."},
+  {"id": "s17", "gap_after": 1.0, "caption": "Each accepted control is named in the factory's code, so the trade-off stays visible and reviewable."},
+
+  {"id": "s18", "gap_after": 0.4, "caption": "That list is also the release gate."},
+  {"id": "s19", "gap_after": 0.4, "caption": "Every release builds the base image, reboots a test host, and scans it against CIS Level 2, plus HCR checks.", "say": "Every release builds the base image, reboots a test host, and scans it against CIS Level two, plus H-C-R checks."},
+  {"id": "s20", "gap_after": 0.4, "caption": "The results are compared with the approved list. A new failure stops the release; only the approved exceptions may remain."},
+  {"id": "s21", "gap_after": 1.0, "caption": "And scanner results are never relabelled to look green."},
+
+  {"id": "s22", "gap_after": 0.0, "caption": "Fix what we can. Accept what we must — on purpose, in writing, and re-checked every release."}
+ ]
+}

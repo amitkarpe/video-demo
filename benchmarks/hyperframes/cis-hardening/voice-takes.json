@@ -1,0 +1,32 @@
+{
+  "s02.t1": {
+    "seconds_raw": 8.25,
+    "provider_transcript": "For Amazon Linux 2023, the CIS Benchmark lists two hundred and forty-three checks. So, do we fix them all?",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 402,
+      "input_tokens": 178,
+      "output_tokens": 224,
+      "input_token_details": {
+        "text_tokens": 178,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 59,
+        "audio_tokens": 165,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.012688,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  }
+}
