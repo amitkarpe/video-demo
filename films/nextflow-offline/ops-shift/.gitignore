@@ -1,0 +1,9 @@
+.venv/
+.hyperframes/
+__pycache__/
+assets/gsap.min.js
+assets/mix.wav
+assets/mix-prenorm.wav
+out/*.mp4
+review/tmp/
+phase1/_snap/
