@@ -1,5 +1,5 @@
 {
- "about": "Every film made so far (research inventory, 10 Nov 2026). The site builds only entries with public: true. Durations, sizes and resolutions were measured with ffprobe from the release asset. Dates are when the film was first delivered (its PR or factory record). Comparison films are named by lane, without model or vendor names (POLICY).",
+ "about": "Every film released to this public showcase (inventory of 10 Nov 2026). Durations, sizes and resolutions were measured with ffprobe from the release asset. Dates are when the film was first delivered. Comparison films are named by lane, without model or vendor names (POLICY). Films not yet approved for publication are listed in the private video-factory, not here.",
  "repos": {
   "aws-factory": {
    "name": "AWS Factory",
@@ -9,11 +9,6 @@
   "awsops": {
    "name": "AWSOps",
    "url": "https://github.com/amitkarpe/awsops",
-   "visibility": "public"
-  },
-  "agentcore2": {
-   "name": "agentCore2",
-   "url": "https://github.com/mytestlab123/agentcore2",
    "visibility": "public"
   },
   "nextflow-offline": {
@@ -618,176 +613,6 @@
    "made": "video-demo",
    "short": "Free Mac Video Demo",
    "film": "films/demos/mac-local-voice"
-  },
-  {
-   "slug": "aws-factory-intro-b",
-   "public": false,
-   "title": "AWS Factory — One Image, the Whole Loop (intro, entry B)",
-   "revision": "Intro · entry B",
-   "status": "Accepted by Amit; private",
-   "summary": "A 1:48 introduction to AWS Factory in the toy world: build only when something changed, prove on real test servers, rehearse the swap, approve, and feed findings back.",
-   "repo": "aws-factory",
-   "family": "aws-factory",
-   "look": "toy-world-3d",
-   "date": "2026-11-10",
-   "durationSec": 108.3,
-   "width": 1920,
-   "height": 1080,
-   "release": "https://github.com/amitkarpe/video-factory/releases/tag/film-aws-factory-intro-b",
-   "series": "aws-factory",
-   "order": 6,
-   "made": "video-factory",
-   "notes": "Private factory release. Not published: waiting for Amit's word."
-  },
-  {
-   "slug": "aws-factory-intro-a",
-   "public": false,
-   "title": "AWS Factory: Build, Prove, Rehearse (intro, entry A)",
-   "revision": "Intro · entry A",
-   "status": "Not chosen; private",
-   "summary": "The rival 1:43 introduction: one approved image, hardened, proved on throwaway test hosts, rehearsed, and approved by a person at the last step.",
-   "repo": "aws-factory",
-   "family": "aws-factory",
-   "look": "toy-world-3d",
-   "date": "2026-11-10",
-   "durationSec": 102.6,
-   "width": 1920,
-   "height": 1080,
-   "release": "https://github.com/amitkarpe/video-factory/releases/tag/film-aws-factory-intro",
-   "series": "aws-factory",
-   "order": 5,
-   "made": "video-factory"
-  },
-  {
-   "slug": "awsops-operations-r1-b",
-   "public": false,
-   "title": "Operations, Reimagined — Round 1, entry B",
-   "revision": "Round 1 · entry B",
-   "status": "Selected (Round 1 winner); private",
-   "summary": "An AI operations workforce under human control: one finding becomes one controlled change, signals guide the next improvement, and a small team runs a growing estate.",
-   "repo": "awsops",
-   "repos": [
-    "awsops",
-    "agentcore2",
-    "aws-factory"
-   ],
-   "family": "awsops",
-   "look": "toy-world-3d",
-   "date": "2026-11-10",
-   "durationSec": 145.7,
-   "width": 1920,
-   "height": 1080,
-   "release": "https://github.com/amitkarpe/video-factory/releases/tag/film-awsops-operations-vision-r1-b",
-   "series": "awsops",
-   "order": 5,
-   "made": "video-factory"
-  },
-  {
-   "slug": "awsops-operations-r1-a",
-   "public": false,
-   "title": "Operations, Reimagined — Round 1, entry A",
-   "revision": "Round 1 · entry A",
-   "status": "Not selected; private",
-   "summary": "The same brief, entry A: one signal, one approved change, and one connected operating loop.",
-   "repo": "awsops",
-   "repos": [
-    "awsops",
-    "agentcore2",
-    "aws-factory"
-   ],
-   "family": "awsops",
-   "look": "toy-world-3d",
-   "date": "2026-11-10",
-   "durationSec": 130.7,
-   "width": 1920,
-   "height": 1080,
-   "release": "https://github.com/amitkarpe/video-factory/releases/tag/film-awsops-operations-vision-r1-a",
-   "series": "awsops",
-   "order": 4,
-   "made": "video-factory"
-  },
-  {
-   "slug": "awsops-operations-r1-c",
-   "public": false,
-   "title": "Operations, Reimagined — Round 1, entry C",
-   "revision": "Round 1 · entry C",
-   "status": "Not selected; private",
-   "summary": "The same brief, entry C: from one finding to a verified fix, with AWS Factory rehearsing recovery.",
-   "repo": "awsops",
-   "repos": [
-    "awsops",
-    "agentcore2",
-    "aws-factory"
-   ],
-   "family": "awsops",
-   "look": "toy-world-3d",
-   "date": "2026-11-10",
-   "durationSec": 133.0,
-   "width": 1920,
-   "height": 1080,
-   "release": "https://github.com/amitkarpe/video-factory/releases/tag/film-awsops-operations-vision-r1-c",
-   "series": "awsops",
-   "order": 6,
-   "made": "video-factory"
-  },
-  {
-   "slug": "toy-world-kit-previews",
-   "public": false,
-   "kind": "stills",
-   "title": "Toy world 3D — kit and map previews",
-   "revision": "Kit",
-   "status": "Stills only; private",
-   "summary": "Preview sheets of the reusable toy-world 3D kit, its parts and the aws-factory-loop map (no video).",
-   "repo": "video-demo",
-   "family": "tooling",
-   "look": "toy-world-3d",
-   "date": "2026-11-10",
-   "made": "video-factory",
-   "notes": "In amitkarpe/video-factory styles/toy-world-3d/ (preview.jpg, preview-2.jpg, parts.jpg, maps/aws-factory-loop/preview.jpg)."
-  },
-  {
-   "slug": "nextflow-ops-sample",
-   "public": false,
-   "title": "Nextflow Offline — 52 s ops sample (three islands)",
-   "revision": "Sample",
-   "status": "Sample; no released video",
-   "summary": "The 52-second three-island sample that led to Nextflow Offline revision 2. Its work is kept in the video-demo tag archive/feat/ops-nextflow-offline-film; no MP4 was released.",
-   "repo": "nextflow-offline",
-   "family": "nextflow",
-   "look": "island-3d",
-   "date": "2026-11-09",
-   "durationSec": 52,
-   "series": "nextflow",
-   "order": 1.5,
-   "made": "video-demo"
-  },
-  {
-   "slug": "voxel-kingdom",
-   "public": false,
-   "kind": "interactive",
-   "title": "Voxel Kingdom — Three.js flythrough",
-   "revision": "Interactive demo",
-   "status": "HTML demo; no video",
-   "summary": "A self-contained procedural voxel world with a looping camera, built for iPhone Safari. An interactive HTML page, not a film.",
-   "repo": "video-demo",
-   "family": "tooling",
-   "look": "native-hyperframes",
-   "date": "2026-11-09",
-   "made": "video-demo",
-   "notes": "In video-demo films/demos/voxel-kingdom/index.html."
-  },
-  {
-   "slug": "pentest-source-walkthrough",
-   "public": false,
-   "title": "Agentic Pentest POC — walkthrough and phase demo recordings",
-   "revision": "Source repo recordings",
-   "status": "In the private source repository",
-   "summary": "Two screen recordings kept in the source repository's docs/demo folder (walkthrough.mp4 and phases/video/demo.mp4). Not films from the factory.",
-   "repo": "agentic-pentest-poc",
-   "family": "pentest",
-   "look": "native-hyperframes",
-   "date": null,
-   "made": "source-repo"
   }
  ]
 }
