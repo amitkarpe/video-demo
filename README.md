@@ -2,7 +2,6 @@
 
 > **New films are made in the private factory [`amitkarpe/video-factory`](https://github.com/amitkarpe/video-factory)** (start protocol, toolkit, house styles). This public repository is the **showcase and archive**: the 20 films made here between 7 and 10 Nov 2026, plus factory films that Amit approves for public release (as GitHub Releases `film-<source-repo>-<film>`).
 
-
 Short, narrated, captioned films that explain Amit's engineering work (AWS Factory, AWSOps, Nextflow offline, the agentic pentest PoC) to engineers and managers. Each film is built as code: HyperFrames compositions (HTML, GSAP and Three.js), an OpenAI voice, a synthesized score, and a checked evidence map.
 
 ![House looks](styles/catalog.jpg)
@@ -10,7 +9,8 @@ Short, narrated, captioned films that explain Amit's engineering work (AWS Facto
 ## Start here
 | You want to… | Read |
 |---|---|
-| **Make a new film** | [Intake card](docs/VIDEO_INTAKE.md) → [Style catalog](docs/STYLE_CATALOG.md) → [Agent Video Playbook](docs/AGENT_VIDEO_PLAYBOOK.md) |
+| **Make a new film** | The private factory [`amitkarpe/video-factory`](https://github.com/amitkarpe/video-factory): its `AGENTS.md` start protocol |
+| Revise an archived film here | [Intake card](docs/VIDEO_INTAKE.md) → [Style catalog](docs/STYLE_CATALOG.md) → [Agent Video Playbook](docs/AGENT_VIDEO_PLAYBOOK.md) |
 | Watch or reuse a finished film | [`films/`](films/README.md): one folder per source repository and film; videos on GitHub Releases |
 | Reuse a look | [`styles/`](styles/): `toy-world-3d` (default), `swiss-grid`, `clay-diorama`, `cinematic-night` (archived) |
 | Use the shared scripts | [`toolkit/`](toolkit/README.md) |
