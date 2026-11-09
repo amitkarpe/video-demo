@@ -137,7 +137,7 @@ export function buildWorld(styleName) {
   const lights = [];
   const district = (key, cx, cz, cols, rows, flagHex) => {
     const g = new THREE.Group(); put(g, cx, 0, cz);
-    const w = cols * 1.5 + 0.8, d = rows * 1.6 + 0.9;
+    const w = cols * 1.5 + 0.8, d = rows * 1.6 + 0.9, l0 = lights.length, r0 = racks.length;
     put(box(w, 0.16, d, S.pad[key], 0.07), 0, 0.08, 0, g);
     for (let c = 0; c < cols; c++) for (let r = 0; r < rows; r++) {
       const rk = new THREE.Group();
@@ -151,7 +151,7 @@ export function buildWorld(styleName) {
     }
     const pole = cyl(0.05, 0.05, 2.6, S.trim, 8); put(pole, -w / 2 + 0.25, 1.3, -d / 2 + 0.25, g);
     const flag = box(0.9, 0.55, 0.05, flagHex, 0.03); put(flag, -w / 2 + 0.72, 2.3, -d / 2 + 0.25, g);
-    return { g, w, d, flag };
+    return { g, w, d, flag, leds: () => lights.slice(l0, l0 + cols * rows), racks: () => racks.slice(r0, r0 + cols * rows) };
   };
   const D = {
     db: district("db", 6.2, -3.4, 3, 1, S.pad.db),
@@ -178,10 +178,13 @@ export function buildWorld(styleName) {
   const CAM = {
     wide: [[1, 17, 31], [1.0, 2.8, -1.5]],
     factory: [[-6, 9, 15], [-6.5, 1.2, -1.5]],
-    districts: [[13.5, 13, 21], [7.4, 0.2, -0.6]],
+    districts: [[13.5, 13, 21], [7.4, 1.9, -0.6]],
     gate: [[-5.8, 8.2, 12], [-1.6, 1.0, -2.0]],
-    night: [[6, 11, 19], [7.4, 1.4, -0.4]],
+    night: [[6, 11, 19], [7.4, 2.4, -0.4]],
     lonely: [[18, 9.5, 12.5], [9.6, 0.6, -1.0]],
+    intro: [[-3, 34, 46], [1.0, 0.0, -0.5]],
+    check: [[5, 14, 25], [5.5, 1.2, -0.6]],
+    belt: [[-6.5, 9.5, 15], [-8.2, 1.4, -1.8]],
     close: [[-1, 12, 24], [2.5, 0.8, -0.5]],
   };
   if (styleName === "blueprint") for (const k in CAM) { const [pos, tgt] = CAM[k]; CAM[k] = [[tgt[0] + (pos[0] - tgt[0]) * 2.1, tgt[1] + (pos[1] - tgt[1]) * 2.4, tgt[2] + (pos[2] - tgt[2]) * 2.1], tgt]; }
@@ -198,7 +201,7 @@ export function buildWorld(styleName) {
 
   // anchors for HTML labels (world positions)
   const anchors = {
-    factory: new THREE.Vector3(-10.5, 4.4, -2.2), gate: new THREE.Vector3(-0.4, 4.0, -1.0), shelf: new THREE.Vector3(-3.6, 2.6, -4.4),
+    factory: new THREE.Vector3(-10.0, 3.4, -0.6), gate: new THREE.Vector3(-0.4, 4.0, -1.0), shelf: new THREE.Vector3(-3.6, 2.6, -4.4),
     db: new THREE.Vector3(6.2, 2.9, -3.4), code: new THREE.Vector3(4.6, 2.9, 2.9), backup: new THREE.Vector3(10.6, 2.9, 2.9),
     lonely: new THREE.Vector3(11.6, 2.9, -3.2), barrier: new THREE.Vector3(0.4, 1.6, -0.4),
   };
@@ -267,6 +270,81 @@ export function buildWorld(styleName) {
       }
     }
   }
+  // ---------- film: continuous state as a pure function of time (used by the Phase 2 composition)
+  scene.updateMatrixWorld(true);
+  const bgCanvas = document.createElement("canvas"); bgCanvas.width = 4; bgCanvas.height = 256;
+  const bgTex = new THREE.CanvasTexture(bgCanvas); bgTex.colorSpace = THREE.SRGBColorSpace;
+  let bgKey = -1;
+  const ca = new THREE.Color(), cb = new THREE.Color(), cc = new THREE.Color();
+  const mix = (h1, h2, k) => ca.set(h1).lerp(cb.set(h2), k).getHexString();
+  const paintSky = (n) => {
+    const key = Math.round(n * 200); if (key === bgKey) return; bgKey = key;
+    const g = bgCanvas.getContext("2d"), gr = g.createLinearGradient(0, 0, 0, 256);
+    gr.addColorStop(0, "#" + mix(S.sky[0], S.night[0], n)); gr.addColorStop(1, "#" + mix(S.sky[1], S.night[1], n));
+    g.fillStyle = gr; g.fillRect(0, 0, 4, 256); bgTex.needsUpdate = true;
+  };
+  const AMB = new THREE.Color(AMBER), GRN = new THREE.Color(GREEN);
+  const ledTo = (m, k) => { cc.copy(AMB).lerp(GRN, k); m.material.color.copy(cc); m.material.emissive.copy(cc); };
+  // one install drop above every rack (and one for the lonely host)
+  const drops = {};
+  const dropMat = mat(S.sec);
+  for (const key of ["db", "code", "backup"]) drops[key] = D[key].racks().map((rk) => {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.42, 0.42), dropMat); m.castShadow = true;
+    const p = new THREE.Vector3(); rk.getWorldPosition(p); m.userData.p = p; scene.add(m); return m; });
+  const lonelyDrop = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.42, 0.42), new THREE.MeshStandardMaterial({ color: S.sec, transparent: true, flatShading: S.flat }));
+  lonelyDrop.castShadow = true; scene.add(lonelyDrop);
+  const camAt = (spec) => { // spec: [preset, dolly]
+    const [pos, tgt] = CAM[spec[0]], d = spec[1] ?? 1;
+    return [tgt.map((x, i) => x + (pos[i] - x) * d), tgt];
+  };
+  function apply(st, t) {
+    const n = st.night || 0;
+    paintSky(n); scene.background = bgTex;
+    hemi.intensity = S.hemi * (1 - 0.6 * n); hemi.color.set("#" + mix("#ffffff", "#9fa8ff", n));
+    sun.intensity = S.sun * (1 - 0.65 * n);
+    // camera: blend two specs, plus a slow drift so the frame never freezes
+    const [pa, ta] = camAt(st.cam[0]), [pb, tb] = camAt(st.cam[1]), k = st.cam[2];
+    const drift = Math.sin(t * 0.31) * 0.45, lift = Math.sin(t * 0.23) * 0.25;
+    camera.position.set(lerp(pa[0], pb[0], k) + drift, lerp(pa[1], pb[1], k) + lift, lerp(pa[2], pb[2], k));
+    camera.lookAt(lerp(ta[0], tb[0], k), lerp(ta[1], tb[1], k), lerp(ta[2], tb[2], k));
+    camera.updateMatrixWorld();
+    images.forEach((m, i) => { const u = ((t * 0.5 + i * 1.35) % 5.4); m.position.set(-8.3 + u, 0.82, -1.6); m.rotation.y = u * 0.4; });
+    // update crates: arrive from the sky (crateIn), then meet the gate
+    const fall = (k0, x, z, y0) => y0 + (1 - ease(k0)) * 9;
+    const ci = st.crateIn ?? 1;
+    crates.sec.position.set(-0.4, 0.5, lerp(-5.5, 1.6, ease(st.sec || 0)));
+    crates.sec.position.y = (st.sec || 0) > 0 ? 0.5 : fall(seg(ci, 0, 0.6), 0, 0, 0.5);
+    crates.other.position.set(lerp(-0.4, -3.6, ease(st.other || 0)), lerp(0.5, 1.48, ease(st.other || 0)), lerp(-6.6, -4.4, ease(st.other || 0)));
+    if (!(st.other > 0)) crates.other.position.y = fall(seg(ci, 0.2, 0.8), 0, 0, 0.5);
+    crates.app.position.set(-0.4, 0.5, lerp(-7.8, -0.9, ease(st.app || 0)));
+    if (!(st.app > 0)) crates.app.position.y = fall(seg(ci, 0.4, 1), 0, 0, 0.5);
+    for (const key of ["sec", "other", "app"]) crates[key].rotation.y = Math.sin(t * 1.3 + key.length) * 0.08;
+    barrierPivot.rotation.z = lerp(1.1, 0, ease(st.barrier ?? 1));
+    // flags pulse
+    for (const key in D) D[key].flag.scale.setScalar(1 + 0.3 * (st.flags || 0) * (0.5 + 0.5 * Math.sin(t * 5)));
+    // install drops fall onto racks and are absorbed; lights go green
+    for (const key in drops) {
+      const g = st.green?.[key] || 0;
+      drops[key].forEach((m, i) => {
+        const dk = Math.min(1, Math.max(0, (st.drop?.[key] || 0) * 1.4 - i * 0.12));
+        m.visible = dk > 0 && dk < 1;
+        m.position.set(m.userData.p.x, lerp(9, 2.1, dk * dk), m.userData.p.z); m.rotation.y = dk * 3;
+      });
+      D[key].leds().forEach((l) => ledTo(l, g));
+    }
+    // the lonely host: its drop stalls in the air and fades (never installed)
+    const ld = st.lonelyDrop || 0;
+    lonelyDrop.visible = ld > 0 && ld < 1;
+    lonelyDrop.position.set(11.6, lerp(9, 4.2, ease(Math.min(1, ld * 1.6))), -3.2);
+    lonelyDrop.material.opacity = 1 - seg(ld, 0.6, 1);
+    ledTo(lonelyLed, st.green?.lonely || 0);
+    halo.visible = (st.halo || 0) > 0.01; halo.material.opacity = (st.halo || 0) * (0.55 + 0.45 * Math.sin(t * 4));
+    // scan ring
+    ring.visible = !!st.ring;
+    if (st.ring) { ring.position.set(st.ring[0], 0.4 + 1.4 * (0.5 + 0.5 * Math.sin(t * 2.2)), st.ring[1]); ring.scale.setScalar(st.ring[2] || 1); ring.material.opacity = 0.9 * (st.ring[3] ?? 1); }
+    moon.visible = n > 0.05;
+    if (moon.visible) moon.position.copy(camera.localToWorld(v.set(10.6, lerp(-2, 4.6, n) + 0.15 * Math.sin(t * 0.6), -40)));
+  }
   anchors.sec = crates.sec.position; anchors.other = crates.other.position; anchors.app = crates.app.position;
-  return { scene, camera, set, anchors };
+  return { scene, camera, set, apply, anchors, CAM };
 }

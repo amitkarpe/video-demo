@@ -1,46 +1,186 @@
 {
  "title": "Patching Running Servers in AWS Factory — Scanned Is Not Patched",
- "status": "Phase 1 draft: for the owner's review; not yet approved",
+ "status": "Phase 2: approved by the owner (\"Create C · Go\") — look C, bold toy blocks; generic, presented as the working flow",
  "voice": {
   "model": "gpt-realtime-2.1",
   "voice": "marin",
   "instructions": "You are the narrator of a clear, friendly, confident explainer for both engineers and managers. Read the user's text aloud exactly as written, word for word: do not add, drop, reorder or paraphrase any word, and do not answer or comment. Voice: warm, calm and well paced, with natural pauses at full stops, colons and dashes. Pronounce AWS as the letters A-W-S; Amazon Linux as written."
  },
  "lead_in": 1.4,
- "tail": 5.0,
+ "tail": 7.0,
  "chapters": [
-  {"id": "c1", "label": "THE QUESTION", "start": "s01", "slide": 1, "shot": "hook"},
-  {"id": "c2", "label": "TWO ROADS", "start": "s04", "slide": 2, "shot": "roads"},
-  {"id": "c3", "label": "PATCH GROUPS", "start": "s08", "slide": 3, "shot": "groups"},
-  {"id": "c4", "label": "THE RULES", "start": "s11", "slide": 4, "shot": "rules"},
-  {"id": "c5", "label": "THE WEEKEND WINDOW", "start": "s15", "slide": 5, "shot": "night"},
-  {"id": "c6", "label": "THE TRAP", "start": "s18", "slide": 6, "shot": "trap"},
-  {"id": "c7", "label": "THE CHECK", "start": "s21", "slide": 7, "shot": "check"},
-  {"id": "c8", "label": "", "start": "s23", "slide": 8, "shot": "close"}
+  {
+   "id": "c1",
+   "label": "THE QUESTION",
+   "start": "s01",
+   "slide": 1,
+   "shot": "hook"
+  },
+  {
+   "id": "c2",
+   "label": "TWO ROADS",
+   "start": "s04",
+   "slide": 2,
+   "shot": "roads"
+  },
+  {
+   "id": "c3",
+   "label": "PATCH GROUPS",
+   "start": "s08",
+   "slide": 3,
+   "shot": "groups"
+  },
+  {
+   "id": "c4",
+   "label": "THE RULES",
+   "start": "s11",
+   "slide": 4,
+   "shot": "rules"
+  },
+  {
+   "id": "c5",
+   "label": "THE WEEKEND WINDOW",
+   "start": "s15",
+   "slide": 5,
+   "shot": "night"
+  },
+  {
+   "id": "c6",
+   "label": "THE TRAP",
+   "start": "s18",
+   "slide": 6,
+   "shot": "trap"
+  },
+  {
+   "id": "c7",
+   "label": "THE CHECK",
+   "start": "s21",
+   "slide": 7,
+   "shot": "check"
+  },
+  {
+   "id": "c8",
+   "label": "",
+   "start": "s23",
+   "slide": 8,
+   "shot": "close"
+  }
  ],
  "lines": [
-  {"id": "s01", "gap_after": 0.4, "caption": "Every week, new security fixes arrive for Amazon Linux."},
-  {"id": "s02", "gap_after": 0.4, "caption": "Servers that are already running need them too — without breaking the work they do."},
-  {"id": "s03", "gap_after": 1.0, "caption": "So how does AWS Factory keep running servers patched, safely?"},
-  {"id": "s04", "gap_after": 0.4, "caption": "There are two roads."},
-  {"id": "s05", "gap_after": 0.4, "caption": "Road one: build fresh. The factory bakes the latest patches into a new base image, so new servers start up to date."},
-  {"id": "s06", "gap_after": 0.4, "caption": "Road two: patch in place. For servers that keep running, AWS Systems Manager Patch Manager installs updates where they are."},
-  {"id": "s07", "gap_after": 1.0, "caption": "This film follows road two."},
-  {"id": "s08", "gap_after": 0.4, "caption": "Patch Manager starts with a simple label: a tag on each server, called its patch group."},
-  {"id": "s09", "gap_after": 0.4, "caption": "The database servers form one group. The code-hosting servers form another. The backup host has its own."},
-  {"id": "s10", "gap_after": 1.0, "caption": "Each group gets its own time slot, and a set of rules called a patch baseline."},
-  {"id": "s11", "gap_after": 0.4, "caption": "The baseline decides which updates may be installed, and when."},
-  {"id": "s12", "gap_after": 0.4, "caption": "Security updates are approved at once."},
-  {"id": "s13", "gap_after": 0.4, "caption": "Other updates wait seven days. By then, the factory's image build has already tested the same packages."},
-  {"id": "s14", "gap_after": 1.0, "caption": "And some packages are never patched in place: the database and the container engine. An update there restarts the service, so they change only through a reviewed rolling upgrade or a new image."},
-  {"id": "s15", "gap_after": 0.4, "caption": "Every weekend night, Patch Manager scans each server and records what is missing."},
-  {"id": "s16", "gap_after": 0.4, "caption": "Early the next morning, each group installs in its own quiet window."},
-  {"id": "s17", "gap_after": 1.0, "caption": "There is no automatic reboot. A new kernel takes effect at the next planned restart or image rollout."},
-  {"id": "s18", "gap_after": 0.4, "caption": "Here is the trap: a patch policy only installs on servers whose tag matches its group."},
-  {"id": "s19", "gap_after": 0.4, "caption": "A server with the wrong tag is still scanned — so it looks watched — but nothing is ever installed."},
-  {"id": "s20", "gap_after": 1.0, "caption": "Scanned is not patched."},
-  {"id": "s21", "gap_after": 0.4, "caption": "So coverage is checked, not assumed. The daily and weekly operations reports list each server's patch result, and flag any server with no patch data."},
-  {"id": "s22", "gap_after": 1.0, "caption": "New rules go first to one server for a week, then to every group. And the owner approves every production change."},
-  {"id": "s23", "gap_after": 0.0, "caption": "Fresh images for new servers. Patch Manager for running ones. And a daily check that no server is left behind."}
+  {
+   "id": "s01",
+   "gap_after": 0.4,
+   "caption": "Every week, new security fixes arrive for Amazon Linux."
+  },
+  {
+   "id": "s02",
+   "gap_after": 0.4,
+   "caption": "Servers that are already running need them too — without breaking the work they do."
+  },
+  {
+   "id": "s03",
+   "gap_after": 1.0,
+   "caption": "So how does AWS Factory keep running servers patched, safely?"
+  },
+  {
+   "id": "s04",
+   "gap_after": 0.4,
+   "caption": "There are two roads."
+  },
+  {
+   "id": "s05",
+   "gap_after": 0.4,
+   "caption": "Road one: build fresh. The factory bakes the latest patches into a new base image, so new servers start up to date."
+  },
+  {
+   "id": "s06",
+   "gap_after": 0.4,
+   "caption": "Road two: patch in place. For servers that keep running, AWS Systems Manager Patch Manager installs updates where they are."
+  },
+  {
+   "id": "s07",
+   "gap_after": 1.0,
+   "caption": "This film follows road two."
+  },
+  {
+   "id": "s08",
+   "gap_after": 0.4,
+   "caption": "Patch Manager starts with a simple label: a tag on each server, called its patch group."
+  },
+  {
+   "id": "s09",
+   "gap_after": 0.4,
+   "caption": "The database servers form one group. The code-hosting servers form another. The backup host has its own."
+  },
+  {
+   "id": "s10",
+   "gap_after": 1.0,
+   "caption": "Each group gets its own time slot, and a set of rules called a patch baseline."
+  },
+  {
+   "id": "s11",
+   "gap_after": 0.4,
+   "caption": "The baseline decides which updates may be installed, and when."
+  },
+  {
+   "id": "s12",
+   "gap_after": 0.4,
+   "caption": "Security updates are approved at once."
+  },
+  {
+   "id": "s13",
+   "gap_after": 0.4,
+   "caption": "Other updates wait seven days. By then, the factory's image build has already tested the same packages."
+  },
+  {
+   "id": "s14",
+   "gap_after": 1.0,
+   "caption": "And some packages are never patched in place: the database and the container engine. An update there restarts the service, so they change only through a reviewed rolling upgrade or a new image."
+  },
+  {
+   "id": "s15",
+   "gap_after": 0.4,
+   "caption": "Every weekend night, Patch Manager scans each server and records what is missing."
+  },
+  {
+   "id": "s16",
+   "gap_after": 0.4,
+   "caption": "Early the next morning, each group installs in its own quiet window."
+  },
+  {
+   "id": "s17",
+   "gap_after": 1.0,
+   "caption": "There is no automatic reboot. A new kernel takes effect at the next planned restart or image rollout."
+  },
+  {
+   "id": "s18",
+   "gap_after": 0.4,
+   "caption": "Here is the trap: a patch policy only installs on servers whose tag matches its group."
+  },
+  {
+   "id": "s19",
+   "gap_after": 0.4,
+   "caption": "A server with the wrong tag is still scanned — so it looks watched — but nothing is ever installed."
+  },
+  {
+   "id": "s20",
+   "gap_after": 1.0,
+   "caption": "Scanned is not patched."
+  },
+  {
+   "id": "s21",
+   "gap_after": 0.4,
+   "caption": "So coverage is checked, not assumed. The daily and weekly operations reports list each server's patch result, and flag any server with no patch data."
+  },
+  {
+   "id": "s22",
+   "gap_after": 1.0,
+   "caption": "Every rule change is tried on one server first, then rolled out to every group. And the owner approves every production change."
+  },
+  {
+   "id": "s23",
+   "gap_after": 0.0,
+   "caption": "Fresh images for new servers. Patch Manager for running ones. And a daily check that no server is left behind."
+  }
  ]
 }

@@ -1,0 +1,143 @@
+1
+00:00:01,400 --> 00:00:05,318
+Every week, new security fixes arrive for Amazon Linux.
+
+2
+00:00:05,718 --> 00:00:10,718
+Servers that are already running need them too — without breaking the work they do.
+
+3
+00:00:11,118 --> 00:00:15,235
+So how does AWS Factory keep running servers patched, safely?
+
+4
+00:00:16,235 --> 00:00:17,990
+There are two roads.
+
+5
+00:00:18,390 --> 00:00:24,166
+Road one: build fresh. The factory bakes the latest patches into a new base image,
+
+6
+00:00:24,166 --> 00:00:26,420
+so new servers start up to date.
+
+7
+00:00:26,820 --> 00:00:30,973
+Road two: patch in place. For servers that keep running,
+
+8
+00:00:30,973 --> 00:00:35,867
+AWS Systems Manager Patch Manager installs updates where they are.
+
+9
+00:00:36,267 --> 00:00:39,659
+This film follows road two.
+
+10
+00:00:40,659 --> 00:00:44,437
+Patch Manager starts with a simple label: a tag on each
+
+11
+00:00:44,437 --> 00:00:46,566
+server, called its patch group.
+
+12
+00:00:46,966 --> 00:00:51,963
+The database servers form one group. The code-hosting servers form another.
+
+13
+00:00:51,963 --> 00:00:53,829
+The backup host has its own.
+
+14
+00:00:54,229 --> 00:00:59,973
+Each group gets its own time slot, and a set of rules called a patch baseline.
+
+15
+00:01:00,973 --> 00:01:05,825
+The baseline decides which updates may be installed, and when.
+
+16
+00:01:06,225 --> 00:01:09,094
+Security updates are approved at once.
+
+17
+00:01:09,494 --> 00:01:11,536
+Other updates wait seven days.
+
+18
+00:01:11,536 --> 00:01:16,438
+By then, the factory's image build has already tested the same packages.
+
+19
+00:01:16,838 --> 00:01:21,419
+And some packages are never patched in place: the database and the container engine.
+
+20
+00:01:21,419 --> 00:01:23,437
+An update there restarts the service,
+
+21
+00:01:23,437 --> 00:01:27,255
+so they change only through a reviewed rolling upgrade or a new image.
+
+22
+00:01:28,255 --> 00:01:33,857
+Every weekend night, Patch Manager scans each server and records what is missing.
+
+23
+00:01:34,257 --> 00:01:39,423
+Early the next morning, each group installs in its own quiet window.
+
+24
+00:01:39,823 --> 00:01:41,588
+There is no automatic reboot.
+
+25
+00:01:41,588 --> 00:01:45,908
+A new kernel takes effect at the next planned restart or image rollout.
+
+26
+00:01:46,908 --> 00:01:52,894
+Here is the trap: a patch policy only installs on servers whose tag matches its group.
+
+27
+00:01:53,294 --> 00:01:57,312
+A server with the wrong tag is still scanned — so it looks watched —
+
+28
+00:01:57,312 --> 00:01:59,085
+but nothing is ever installed.
+
+29
+00:01:59,485 --> 00:02:01,329
+Scanned is not patched.
+
+30
+00:02:02,329 --> 00:02:04,833
+So coverage is checked, not assumed.
+
+31
+00:02:04,833 --> 00:02:09,841
+The daily and weekly operations reports list each server's patch result,
+
+32
+00:02:09,841 --> 00:02:12,554
+and flag any server with no patch data.
+
+33
+00:02:12,954 --> 00:02:18,406
+Every rule change is tried on one server first, then rolled out to every group.
+
+34
+00:02:18,406 --> 00:02:21,650
+And the owner approves every production change.
+
+35
+00:02:22,650 --> 00:02:26,857
+Fresh images for new servers. Patch Manager for running ones.
+
+36
+00:02:26,857 --> 00:02:30,167
+And a daily check that no server is left behind.

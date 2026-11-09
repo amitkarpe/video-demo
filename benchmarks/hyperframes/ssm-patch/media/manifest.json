@@ -9,10 +9,368 @@
       "voice": "marin",
       "response_id": "resp_EiKJPNd5CpxKiFYwErqf4",
       "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s01.t1": {
+      "path": "media/original/voice/s01.t1.wav",
+      "sha256": "b43c1283283c11b9e7c8127eccccd976134dc53ddb706fd2e196b31633975cbc",
+      "bytes": 199244,
+      "saved_utc": "2026-11-09T14:22:58Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKYo3xHIuNUU4zgONIDF",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s02.t1": {
+      "path": "media/original/voice/s02.t1.wav",
+      "sha256": "706b38c10c7e7dff009d8759e6570416d459798a86215ad055a28cd67795771f",
+      "bytes": 256844,
+      "saved_utc": "2026-11-09T14:23:03Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKYtV23Mr7DGg3bPqMSv",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s03.t1": {
+      "path": "media/original/voice/s03.t1.wav",
+      "sha256": "8b54eb32584613d547ec7ce6b8cdf2c962d6da75bdb9090799730832b5dbe01d",
+      "bytes": 208844,
+      "saved_utc": "2026-11-09T14:23:08Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKYy5XQwMSfASPU6wkcX",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s04.t1": {
+      "path": "media/original/voice/s04.t1.wav",
+      "sha256": "6120003358a3480dd34a4a98f932aaff9543e3aff952f8630ec356b27f886098",
+      "bytes": 96044,
+      "saved_utc": "2026-11-09T14:23:12Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZ3xkdxobtqE22KPGug",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s05.t1": {
+      "path": "media/original/voice/s05.t1.wav",
+      "sha256": "0ac9ff2362c76feb2ccfda645bfc2de5158a1d1f93be150c6b8c51bc68c92f2b",
+      "bytes": 436844,
+      "saved_utc": "2026-11-09T14:23:18Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZ7v5WOY32KsnNgrBLp",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s07.t1": {
+      "path": "media/original/voice/s07.t1.wav",
+      "sha256": "a685e6d575958851fce47f50b26127338ec6a90562fa7cc1836790014faec8e7",
+      "bytes": 177644,
+      "saved_utc": "2026-11-09T14:23:23Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZDZ1h5JPowixjKCj3K",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s08.t1": {
+      "path": "media/original/voice/s08.t1.wav",
+      "sha256": "0889ae33521bec0a4742c23cd0ca32b3b7c850a3d067c819c448e05ce68df8f2",
+      "bytes": 304844,
+      "saved_utc": "2026-11-09T14:23:28Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZIOURKZwilYwkX3Qqt",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s09.t1": {
+      "path": "media/original/voice/s09.t1.wav",
+      "sha256": "fe1c18dd6d8cc0e9a8a7f8e358d97ee6199d60388aba74d2e63e56eca9cb0c53",
+      "bytes": 355244,
+      "saved_utc": "2026-11-09T14:23:33Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZNbZbOMzvoLSEfaM5c",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s10.t1": {
+      "path": "media/original/voice/s10.t1.wav",
+      "sha256": "3e529be348fb82eba1f3da84f3d6f9433b31593e8e59dc1660f318e81047bdf0",
+      "bytes": 290444,
+      "saved_utc": "2026-11-09T14:23:39Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZSHdXd44crwGS2rZsj",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s11.t1": {
+      "path": "media/original/voice/s11.t1.wav",
+      "sha256": "d8a29061a41e3834e4f1506576c30e873698a88a03f8d64aba7ffd5839eaf65c",
+      "bytes": 247244,
+      "saved_utc": "2026-11-09T14:23:44Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZYHmbTlIq6luGgkEYt",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s12.t1": {
+      "path": "media/original/voice/s12.t1.wav",
+      "sha256": "1b2c9e93ac8c20bf2ce89879161e5637a222b029f9652019714cfd1056d4085d",
+      "bytes": 156044,
+      "saved_utc": "2026-11-09T14:23:49Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZdZcKLCM9RORoTGG5w",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s13.t1": {
+      "path": "media/original/voice/s13.t1.wav",
+      "sha256": "c4f5beef7701f226fe94bd53e801a0849f5b0c8b000931b9c556bd939996f2bb",
+      "bytes": 360044,
+      "saved_utc": "2026-11-09T14:23:54Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZiYkJis60omgful0fa",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s14.t1": {
+      "path": "media/original/voice/s14.t1.wav",
+      "sha256": "8072b5b62e1ea595facbb01d69dc071b3bee525295476f361ea4a692822e7542",
+      "bytes": 525644,
+      "saved_utc": "2026-11-09T14:24:01Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZnOBK6KSxgGFZE6oiF",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s15.t1": {
+      "path": "media/original/voice/s15.t1.wav",
+      "sha256": "36cba4053a88e46d0931017344b2010678cb0982e989c26ce820c2104c8d6689",
+      "bytes": 278444,
+      "saved_utc": "2026-11-09T14:24:06Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZuoHp5g00jyuhbI1M8",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s16.t1": {
+      "path": "media/original/voice/s16.t1.wav",
+      "sha256": "cce9c2dbb030bbc211ada02270ee7b812a376200d321aa67e52601ce127f5367",
+      "bytes": 264044,
+      "saved_utc": "2026-11-09T14:24:11Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKZzGJj9grF4j1dvyER5",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s17.t1": {
+      "path": "media/original/voice/s17.t1.wav",
+      "sha256": "65e51e9c605676d2f25678011a1794ae315d8bcdef39a2394c44f8850f16eb27",
+      "bytes": 304844,
+      "saved_utc": "2026-11-09T14:24:16Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKa4EOuPtnIHlhVyB4Nx",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s18.t1": {
+      "path": "media/original/voice/s18.t1.wav",
+      "sha256": "f07abe315723c3e1692c1edd4abcdc84eb7e907dab8c42d020e9ea158cd9e24c",
+      "bytes": 302444,
+      "saved_utc": "2026-11-09T14:24:22Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKaA3EMUrvS5X8JUkq1J",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s19.t1": {
+      "path": "media/original/voice/s19.t1.wav",
+      "sha256": "4923d693c63c0e7928c5d98c06f6b3ab189cfc0344d33f156704179c31160962",
+      "bytes": 300044,
+      "saved_utc": "2026-11-09T14:24:27Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKaF5YlZfrWEHqxR2wjG",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s20.t1": {
+      "path": "media/original/voice/s20.t1.wav",
+      "sha256": "5e907fd4bfd740ab66f21a3f01815b561110ed7a586b5b4d5e4b02f784e3f015",
+      "bytes": 103244,
+      "saved_utc": "2026-11-09T14:24:32Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKaKpFZHHwnuHIvywvY3",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s21.t1": {
+      "path": "media/original/voice/s21.t1.wav",
+      "sha256": "9b460546498666336d12576917488cdfccc2a978ea473d7551faf089014ef167",
+      "bytes": 523244,
+      "saved_utc": "2026-11-09T14:24:38Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKaPTAGtvOTytaaz8uum",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s22.t1": {
+      "path": "media/original/voice/s22.t1.wav",
+      "sha256": "ac26b2810909fc40bcb73be2dbd00fc961d8338f869758427ef2ee6192412c39",
+      "bytes": 429644,
+      "saved_utc": "2026-11-09T14:24:44Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKaVSv15TXOCELZz7Ibq",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    },
+    "voice/s23.t1": {
+      "path": "media/original/voice/s23.t1.wav",
+      "sha256": "65c9d6881525cd4e3badcd3da4e19e6859956471c1b4c28a6aa9bc8d2b531b9e",
+      "bytes": 415244,
+      "saved_utc": "2026-11-09T14:24:50Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKabtDs4VzOAHlCfmvBn",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
     }
   },
   "selected": {
-    "voice/s06": "t1"
+    "voice/s06": "t1",
+    "voice/s01": "t1",
+    "voice/s02": "t1",
+    "voice/s03": "t1",
+    "voice/s04": "t1",
+    "voice/s05": "t1",
+    "voice/s07": "t1",
+    "voice/s08": "t1",
+    "voice/s09": "t1",
+    "voice/s10": "t1",
+    "voice/s11": "t1",
+    "voice/s12": "t1",
+    "voice/s13": "t1",
+    "voice/s14": "t1",
+    "voice/s15": "t1",
+    "voice/s16": "t1",
+    "voice/s17": "t1",
+    "voice/s18": "t1",
+    "voice/s19": "t1",
+    "voice/s20": "t1",
+    "voice/s21": "t1",
+    "voice/s22": "t1",
+    "voice/s23": "t1"
   },
-  "derivations": {}
+  "derivations": {
+    "media/derived/voice/s01.v1.wav": {
+      "from": "voice/s01.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "ecf9360e132cdbf963fbb504ffe6a97a62f67acb2f052028bad1a9571a9fd827"
+    },
+    "media/derived/voice/s02.v1.wav": {
+      "from": "voice/s02.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "ab3f7823269c238a06f5910266784d239ba2efb2d375fde0a194ced58085e87d"
+    },
+    "media/derived/voice/s03.v1.wav": {
+      "from": "voice/s03.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "29f12b1a28711c087f355d1cfacdf2d03390e23499ed28252d2d38c77c4b43a4"
+    },
+    "media/derived/voice/s04.v1.wav": {
+      "from": "voice/s04.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "1f0610c4204d842600eeb7cdd608360c08e30141f19d6c2e915096404b3627b2"
+    },
+    "media/derived/voice/s05.v1.wav": {
+      "from": "voice/s05.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "1254ce3956cd92bcc034a25758786e3e64c7bc9b8222df89fc47bde5a57c74ef"
+    },
+    "media/derived/voice/s06.v1.wav": {
+      "from": "voice/s06.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "06c66cf79c5b304e60050fd99aca9990befb5347b41935dfbc083b2d4a7fc7d6"
+    },
+    "media/derived/voice/s07.v1.wav": {
+      "from": "voice/s07.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "7c6dfd179f66354c1f5979bc12e342ddfea1e79a3ebb8c4cd98c789d09592d31"
+    },
+    "media/derived/voice/s08.v1.wav": {
+      "from": "voice/s08.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "ecc92432f521967e18a1619ba2b2c0aa7b034437b2beaa7795d4a2e660c0cc66"
+    },
+    "media/derived/voice/s09.v1.wav": {
+      "from": "voice/s09.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "bcb3b21aa74d26e4213ccd6122ebb743f317e39fe4116e57f312b87e3e64ddae"
+    },
+    "media/derived/voice/s10.v1.wav": {
+      "from": "voice/s10.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "ee508f4753d539e03fc13af903c14517a822259acd40ab65519896201c0ffbed"
+    },
+    "media/derived/voice/s11.v1.wav": {
+      "from": "voice/s11.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "097cd0a1e825c3324c9cfdee87040e35eaea5bb43ace4df0c2389b22bd2a74d4"
+    },
+    "media/derived/voice/s12.v1.wav": {
+      "from": "voice/s12.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "740b207b957278cc5d47d399512e3591e89fa7e77c951ab591d486ecfb21d41a"
+    },
+    "media/derived/voice/s13.v1.wav": {
+      "from": "voice/s13.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "644d68ae8d7499c915ed9b427f03e41a5e8003dec5859e059220d9d795173665"
+    },
+    "media/derived/voice/s14.v1.wav": {
+      "from": "voice/s14.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "83b2eb068a14f30ea4d858552a6d5d082708808852f051f68133e4e28eaf5ae4"
+    },
+    "media/derived/voice/s15.v1.wav": {
+      "from": "voice/s15.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "fc403bb0cda68cdcb7f0debf6ecf260ec9031b61de96f5618a6cb8776ac404a9"
+    },
+    "media/derived/voice/s16.v1.wav": {
+      "from": "voice/s16.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "875b2f45f65da4792791524ba9d5b0eadd400118aef825490172108a3a529202"
+    },
+    "media/derived/voice/s17.v1.wav": {
+      "from": "voice/s17.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "71e5bf811c6f8c6c6e4ca5fae44c34bde074bbb5a27d56a9b3faab6b700a3bc1"
+    },
+    "media/derived/voice/s18.v1.wav": {
+      "from": "voice/s18.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "ef8cc4779a374675f8b0c407608eb7272650627a7701b98c3bd646b6626ffdab"
+    },
+    "media/derived/voice/s19.v1.wav": {
+      "from": "voice/s19.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "28833ae1ed5504a9ed0bd87a0c7f2153fd6289294772bedfdfe93da264b58b6f"
+    },
+    "media/derived/voice/s20.v1.wav": {
+      "from": "voice/s20.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "bece6d10217273f604279c95acf55b0c9621fee58d67a399bb6c5d18989f5312"
+    },
+    "media/derived/voice/s21.v1.wav": {
+      "from": "voice/s21.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "deba68ed85f937a066979e79c58a9981d4c7426b8923f756ec059767edcd73a6"
+    },
+    "media/derived/voice/s22.v1.wav": {
+      "from": "voice/s22.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "3a7175bfa3f8477953fc6d25ec1eccbcf757efb7ce3b073e32025d0b3d4040ce"
+    },
+    "media/derived/voice/s23.v1.wav": {
+      "from": "voice/s23.t1",
+      "step": "trim edges (lead 0.06s, tail 0.16s); cap silences > 0.42s",
+      "sha256": "9bf98c9bb6d6ea8a3b4dd95d536412446590fa34613e052243e3226dc2120586"
+    }
+  }
 }

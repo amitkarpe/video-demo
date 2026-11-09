@@ -1,0 +1,23 @@
+Every week, new security fixes arrive for Amazon Linux.
+Servers that are already running need them too — without breaking the work they do.
+So how does AWS Factory keep running servers patched, safely?
+There are two roads.
+Road one: build fresh. The factory bakes the latest patches into a new base image, so new servers start up to date.
+Road two: patch in place. For servers that keep running, AWS Systems Manager Patch Manager installs updates where they are.
+This film follows road two.
+Patch Manager starts with a simple label: a tag on each server, called its patch group.
+The database servers form one group. The code-hosting servers form another. The backup host has its own.
+Each group gets its own time slot, and a set of rules called a patch baseline.
+The baseline decides which updates may be installed, and when.
+Security updates are approved at once.
+Other updates wait seven days. By then, the factory's image build has already tested the same packages.
+And some packages are never patched in place: the database and the container engine. An update there restarts the service, so they change only through a reviewed rolling upgrade or a new image.
+Every weekend night, Patch Manager scans each server and records what is missing.
+Early the next morning, each group installs in its own quiet window.
+There is no automatic reboot. A new kernel takes effect at the next planned restart or image rollout.
+Here is the trap: a patch policy only installs on servers whose tag matches its group.
+A server with the wrong tag is still scanned — so it looks watched — but nothing is ever installed.
+Scanned is not patched.
+So coverage is checked, not assumed. The daily and weekly operations reports list each server's patch result, and flag any server with no patch data.
+Every rule change is tried on one server first, then rolled out to every group. And the owner approves every production change.
+Fresh images for new servers. Patch Manager for running ones. And a daily check that no server is left behind.

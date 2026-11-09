@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920,height=1080">
+<title>Patching Running Servers in AWS Factory — Scanned Is Not Patched</title>
+<script src="assets/gsap.min.js"></script>
+<script type="importmap">{"imports":{"three":"./lib/three/three.module.js","three/addons/":"./lib/three/addons/"}}</script>
+<style>
+:root{--ink:#1b1b2f;--red:#eb3b5a;--yellow:#ffd23f;--blue:#2f80ed;--green:#1f9d55;--card:#ffffff;
+  --font:"Nunito",sans-serif;--body:"Nunito",sans-serif;--shadow:10px 10px 0 #1b1b2f}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#7fcfff}
+#stage{position:absolute;inset:0;overflow:hidden;font-family:var(--font);color:var(--ink)}
+#gl{position:absolute;left:0;top:0;width:1920px;height:1080px}
+.card{position:absolute;left:70px;top:60px;max-width:1400px;padding:26px 38px 30px;background:var(--card);border:5px solid var(--ink);border-radius:22px;box-shadow:var(--shadow);opacity:0}
+.kick{font:900 28px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.ttl{font:900 64px/1.06 var(--font)}
+.sub{font:500 34px/1.3 var(--body);color:#35354f;margin-top:12px;opacity:0}
+.lab{position:absolute;left:0;top:0;white-space:nowrap;font:800 32px var(--font);padding:12px 24px;border-radius:999px;background:var(--ink);color:var(--yellow);border:4px solid #fff;box-shadow:0 10px 24px rgba(0,0,0,.25);opacity:0}
+.lab:after{content:"";position:absolute;left:50%;bottom:-16px;margin-left:-12px;border:12px solid transparent;border-bottom:0;border-top-color:var(--ink)}
+.chip{position:absolute;font:800 34px var(--font);padding:16px 28px;border-radius:18px;background:#fff;border:5px solid var(--ink);box-shadow:var(--shadow);opacity:0}
+#stampX{position:absolute;left:50%;top:44%;padding:26px 56px;font:900 92px var(--font);color:#fff;background:var(--red);border:7px solid var(--ink);border-radius:26px;box-shadow:14px 14px 0 var(--ink);white-space:nowrap;opacity:0}
+#report{position:absolute;right:70px;top:250px;width:860px;padding:30px 38px;background:#fff;border:5px solid var(--ink);border-radius:22px;box-shadow:var(--shadow);opacity:0}
+.rh{font:900 40px var(--font);margin-bottom:14px}
+.rr{display:flex;gap:16px;align-items:center;font:600 32px var(--body);padding:12px 0;border-top:3px solid #1b1b2f14;opacity:0}
+.rr span{flex:1}.rr b{font:800 28px var(--body);padding:6px 14px;border-radius:12px}
+.ok{background:#dff5e7;color:#14703d}.warn{background:#ffe1e6;color:#a3122f}
+#closecard{position:absolute;left:50%;top:150px;transform:translateX(-50%);width:1500px;text-align:center;padding:36px 50px 40px;background:#fff;border:6px solid var(--ink);border-radius:28px;box-shadow:14px 14px 0 var(--ink);opacity:0}
+#closecard .ttl{font-size:70px}
+#closecard .sub{font-size:40px;color:var(--red);font-family:var(--font)}
+#credit{position:absolute;left:50%;bottom:150px;transform:translateX(-50%);font:600 28px/1.5 var(--body);text-align:center;color:var(--ink);background:#ffffffdd;padding:14px 30px;border-radius:16px;white-space:nowrap;opacity:0}
+#aitag{position:absolute;right:36px;top:36px;padding:7px 14px;border-radius:10px;background:#ffffffcc;font:800 22px var(--body);letter-spacing:.08em;color:#35354f;opacity:0}
+#count{position:absolute;right:36px;top:80px;padding:4px 14px;border-radius:10px;background:#ffffffcc;font:900 30px var(--font);color:var(--ink);opacity:0}
+.chap{display:none}
+.caption{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);max-width:1560px;padding:12px 30px;border-radius:16px;background:var(--ink);color:#fff;font:600 37px/1.28 var(--body);text-align:center}
+#fade{position:absolute;inset:0;background:#7fcfff;opacity:1}
+</style>
+<script>
+  // HyperFrames: readiness promise and seek listener are registered synchronously; the module fills them in.
+  window.__hf = window.__hf || {}; window.__hf.buildReady = window.__hf.buildReady || {};
+  window.__hf.buildReady.world = new Promise((res) => (window.__worldReady = res));
+  window.__lastSeek = 0;
+  window.addEventListener("hf-seek", (e) => { window.__lastSeek = e.detail.time; if (window.__renderAt) window.__renderAt(e.detail.time); });
+</script>
+</head>
+<body>
+<div id="stage" class="clip" data-composition-id="main" data-start="0" data-duration="157.167" data-width="1920" data-height="1080" data-track-index="0">
+  <canvas id="gl" width="1920" height="1080" data-layout-ignore></canvas>
+
+  <div id="cd1" class="card"><div class="kick">AWS Factory · Amazon Linux 2023</div><div class="ttl">New security fixes arrive every week</div><div id="cd1s" class="sub">How do running servers keep up — safely?</div></div>
+  <div id="cd2" class="card"><div class="kick">Two roads</div><div class="ttl">Build fresh · Patch in place</div><div id="cd2s" class="sub">This film follows road ②</div></div>
+  <div id="cd3" class="card"><div class="kick">Patch groups</div><div class="ttl">A tag on each server</div><div id="cd3s" class="sub">Each group: its own time slot and a patch baseline</div></div>
+  <div id="cd4" class="card"><div class="kick">The rules · patch baseline</div><div class="ttl">Which updates, and when</div></div>
+  <div id="cd5" class="card"><div class="kick">The weekend window</div><div class="ttl">Scan at night. Install at dawn.</div><div id="cd5s" class="sub">Each group in its own quiet window</div></div>
+  <div id="cd6" class="card"><div class="kick">The trap</div><div class="ttl">A tag that matches no group</div></div>
+  <div id="cd7" class="card"><div class="kick">The check</div><div class="ttl">Coverage is checked, not assumed</div></div>
+
+  <div id="lbFactory" class="lab" data-anchor="factory">① Build fresh: new image, latest patches</div>
+  <div id="lbPatch" class="lab" data-anchor="code">② Patch in place: Patch Manager</div>
+  <div id="lbDb" class="lab" data-anchor="db">Database group</div>
+  <div id="lbCode" class="lab" data-anchor="code">Code-hosting group</div>
+  <div id="lbBackup" class="lab" data-anchor="backup">Backup host</div>
+  <div id="lbSec" class="lab" data-anchor="sec">Security → at once</div>
+  <div id="lbOther" class="lab" data-anchor="other">Other updates → wait 7 days</div>
+  <div id="lbApp" class="lab" data-anchor="app">Database &amp; container engine → never in place</div>
+  <div id="lbScan" class="lab" data-anchor="db">Scan: what is missing?</div>
+  <div id="lbLonely" class="lab" data-anchor="lonely">Scanned ✓ · Installed ✗</div>
+
+  <div id="chReboot" class="chip" style="left:70px;top:380px">⟳ No automatic reboot · new kernel at the next planned restart</div>
+  <div id="stampX">Scanned is not patched</div>
+
+  <div id="report">
+    <div class="rh">Patch result · every server</div>
+    <div class="rr"><span>Database servers</span><b class="ok">scanned ✓</b><b class="ok">installed ✓</b></div>
+    <div class="rr"><span>Code-hosting servers</span><b class="ok">scanned ✓</b><b class="ok">installed ✓</b></div>
+    <div class="rr"><span>Backup host</span><b class="ok">scanned ✓</b><b class="ok">installed ✓</b></div>
+    <div class="rr"><span>Any server with no patch data</span><b class="warn">flagged in the reports</b></div>
+  </div>
+  <div id="chStage" class="chip" style="left:70px;top:300px">① One server first → ② every group</div>
+  <div id="chOwner" class="chip" style="left:70px;top:430px">✔ The owner approves every production change</div>
+
+  <div id="closecard"><div class="ttl">Fresh images for new servers.<br>Patch Manager for running ones.</div><div id="ccs" class="sub">And a daily check that no server is left behind.</div></div>
+  <div id="credit">AWS Factory · How running servers stay patched<br>Narration: AI voice (OpenAI) · 3D world: Three.js · Rendered with HyperFrames</div>
+
+  <div id="aitag" data-layout-ignore>AI NARRATION · 3D IN THREE.JS</div>
+  <div id="count">01 / 07</div>
+  <div id="chap-c1" class="chap">THE QUESTION</div>
+    <div id="chap-c2" class="chap">TWO ROADS</div>
+    <div id="chap-c3" class="chap">PATCH GROUPS</div>
+    <div id="chap-c4" class="chap">THE RULES</div>
+    <div id="chap-c5" class="chap">THE WEEKEND WINDOW</div>
+    <div id="chap-c6" class="chap">THE TRAP</div>
+    <div id="chap-c7" class="chap">THE CHECK</div>
+  <div id="cap000" class="clip caption" data-start="1.370" data-duration="4.268" data-track-index="10">Every week, new security fixes arrive for Amazon Linux.</div>
+<div id="cap001" class="clip caption" data-start="5.688" data-duration="5.350" data-track-index="10">Servers that are already running need them too — without breaking the work they do.</div>
+<div id="cap002" class="clip caption" data-start="11.088" data-duration="4.467" data-track-index="10">So how does AWS Factory keep running servers patched, safely?</div>
+<div id="cap003" class="clip caption" data-start="16.205" data-duration="2.105" data-track-index="10">There are two roads.</div>
+<div id="cap004" class="clip caption" data-start="18.360" data-duration="5.736" data-track-index="10">Road one: build fresh. The factory bakes the latest patches into a new base image,</div>
+<div id="cap005" class="clip caption" data-start="24.136" data-duration="2.604" data-track-index="10">so new servers start up to date.</div>
+<div id="cap006" class="clip caption" data-start="26.790" data-duration="4.113" data-track-index="10">Road two: patch in place. For servers that keep running,</div>
+<div id="cap007" class="clip caption" data-start="30.943" data-duration="5.244" data-track-index="10">AWS Systems Manager Patch Manager installs updates where they are.</div>
+<div id="cap008" class="clip caption" data-start="36.237" data-duration="3.742" data-track-index="10">This film follows road two.</div>
+<div id="cap009" class="clip caption" data-start="40.629" data-duration="3.738" data-track-index="10">Patch Manager starts with a simple label: a tag on each</div>
+<div id="cap010" class="clip caption" data-start="44.407" data-duration="2.479" data-track-index="10">server, called its patch group.</div>
+<div id="cap011" class="clip caption" data-start="46.936" data-duration="4.957" data-track-index="10">The database servers form one group. The code-hosting servers form another.</div>
+<div id="cap012" class="clip caption" data-start="51.933" data-duration="2.216" data-track-index="10">The backup host has its own.</div>
+<div id="cap013" class="clip caption" data-start="54.199" data-duration="6.094" data-track-index="10">Each group gets its own time slot, and a set of rules called a patch baseline.</div>
+<div id="cap014" class="clip caption" data-start="60.943" data-duration="5.202" data-track-index="10">The baseline decides which updates may be installed, and when.</div>
+<div id="cap015" class="clip caption" data-start="66.195" data-duration="3.219" data-track-index="10">Security updates are approved at once.</div>
+<div id="cap016" class="clip caption" data-start="69.464" data-duration="2.002" data-track-index="10">Other updates wait seven days.</div>
+<div id="cap017" class="clip caption" data-start="71.506" data-duration="5.252" data-track-index="10">By then, the factory's image build has already tested the same packages.</div>
+<div id="cap018" class="clip caption" data-start="76.808" data-duration="4.541" data-track-index="10">And some packages are never patched in place: the database and the container engine.</div>
+<div id="cap019" class="clip caption" data-start="81.389" data-duration="1.978" data-track-index="10">An update there restarts the service,</div>
+<div id="cap020" class="clip caption" data-start="83.407" data-duration="4.168" data-track-index="10">so they change only through a reviewed rolling upgrade or a new image.</div>
+<div id="cap021" class="clip caption" data-start="88.225" data-duration="5.952" data-track-index="10">Every weekend night, Patch Manager scans each server and records what is missing.</div>
+<div id="cap022" class="clip caption" data-start="94.227" data-duration="5.516" data-track-index="10">Early the next morning, each group installs in its own quiet window.</div>
+<div id="cap023" class="clip caption" data-start="99.793" data-duration="1.725" data-track-index="10">There is no automatic reboot.</div>
+<div id="cap024" class="clip caption" data-start="101.558" data-duration="4.670" data-track-index="10">A new kernel takes effect at the next planned restart or image rollout.</div>
+<div id="cap025" class="clip caption" data-start="106.878" data-duration="6.336" data-track-index="10">Here is the trap: a patch policy only installs on servers whose tag matches its group.</div>
+<div id="cap026" class="clip caption" data-start="113.264" data-duration="3.978" data-track-index="10">A server with the wrong tag is still scanned — so it looks watched —</div>
+<div id="cap027" class="clip caption" data-start="117.282" data-duration="2.123" data-track-index="10">but nothing is ever installed.</div>
+<div id="cap028" class="clip caption" data-start="119.455" data-duration="2.194" data-track-index="10">Scanned is not patched.</div>
+<div id="cap029" class="clip caption" data-start="122.299" data-duration="2.464" data-track-index="10">So coverage is checked, not assumed.</div>
+<div id="cap030" class="clip caption" data-start="124.803" data-duration="4.968" data-track-index="10">The daily and weekly operations reports list each server's patch result,</div>
+<div id="cap031" class="clip caption" data-start="129.811" data-duration="3.063" data-track-index="10">and flag any server with no patch data.</div>
+<div id="cap032" class="clip caption" data-start="132.924" data-duration="5.412" data-track-index="10">Every rule change is tried on one server first, then rolled out to every group.</div>
+<div id="cap033" class="clip caption" data-start="138.376" data-duration="3.594" data-track-index="10">And the owner approves every production change.</div>
+<div id="cap034" class="clip caption" data-start="142.620" data-duration="4.167" data-track-index="10">Fresh images for new servers. Patch Manager for running ones.</div>
+<div id="cap035" class="clip caption" data-start="146.827" data-duration="3.660" data-track-index="10">And a daily check that no server is left behind.</div>
+  <audio id="mix" class="clip" data-start="0" data-duration="157.167" data-track-index="20" src="assets/mix.wav"></audio>
+  <div id="fade"></div>
+</div>
+
+<script>
+const TOTAL = 157.167;
+const CUES = {"s01": {"s": 1.4, "e": 5.318, "d": 3.918}, "s02": {"s": 5.718, "e": 10.718, "d": 5.0}, "s03": {"s": 11.118, "e": 15.235, "d": 4.117}, "s04": {"s": 16.235, "e": 17.99, "d": 1.755}, "s05": {"s": 18.39, "e": 26.42, "d": 8.03}, "s06": {"s": 26.82, "e": 35.867, "d": 9.047}, "s07": {"s": 36.267, "e": 39.659, "d": 3.392}, "s08": {"s": 40.659, "e": 46.566, "d": 5.907}, "s09": {"s": 46.966, "e": 53.829, "d": 6.863}, "s10": {"s": 54.229, "e": 59.973, "d": 5.744}, "s11": {"s": 60.973, "e": 65.825, "d": 4.852}, "s12": {"s": 66.225, "e": 69.094, "d": 2.869}, "s13": {"s": 69.494, "e": 76.438, "d": 6.944}, "s14": {"s": 76.838, "e": 87.255, "d": 10.417}, "s15": {"s": 88.255, "e": 93.857, "d": 5.602}, "s16": {"s": 94.257, "e": 99.423, "d": 5.166}, "s17": {"s": 99.823, "e": 105.908, "d": 6.085}, "s18": {"s": 106.908, "e": 112.894, "d": 5.986}, "s19": {"s": 113.294, "e": 119.085, "d": 5.791}, "s20": {"s": 119.485, "e": 121.329, "d": 1.844}, "s21": {"s": 122.329, "e": 132.554, "d": 10.225}, "s22": {"s": 132.954, "e": 141.65, "d": 8.696}, "s23": {"s": 142.65, "e": 150.167, "d": 7.517}};
+const CHAPTERS = [{"id": "c1", "label": "THE QUESTION", "t": 1.4}, {"id": "c2", "label": "TWO ROADS", "t": 16.235}, {"id": "c3", "label": "PATCH GROUPS", "t": 40.659}, {"id": "c4", "label": "THE RULES", "t": 60.973}, {"id": "c5", "label": "THE WEEKEND WINDOW", "t": 88.255}, {"id": "c6", "label": "THE TRAP", "t": 106.908}, {"id": "c7", "label": "THE CHECK", "t": 122.329}, {"id": "c8", "label": "", "t": 142.65}];
+const S = (k) => CUES[k].s, E = (k) => CUES[k].e, F = (k, f) => CUES[k].s + CUES[k].d * f;
+const tl = gsap.timeline({ paused: true });
+gsap.set(".lab", { xPercent: -50, yPercent: -100 });
+gsap.set("#stampX", { xPercent: -50, yPercent: -50 });
+const fin = (sel, t, d = .45, y = 20) => tl.fromTo(sel, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "power2.out" }, t);
+const fout = (sel, t, d = .35) => tl.to(sel, { opacity: 0, duration: d, ease: "power1.in" }, t);
+const pop = (sel, t) => tl.fromTo(sel, { opacity: 0, scale: .6 }, { opacity: 1, scale: 1, duration: .45, ease: "back.out(2)" }, t);
+const card = (id, from, to) => { fin(id, from, .5, 24); fout(id, to); };
+
+tl.to("#fade", { opacity: 0, duration: 1.2, ease: "power1.out" }, 0);
+tl.to(["#aitag", "#count"], { opacity: 1, duration: .5 }, S("s01"));
+
+/* 1 · the question */
+card("#cd1", S("s01") + 0.1, E("s03") + 0.4); fin("#cd1s", S("s03") + 0.1, .45, 10);
+/* 2 · two roads */
+card("#cd2", S("s04") - 0.2, E("s07") + 0.4);
+pop("#lbFactory", S("s05") + 1.4); fout("#lbFactory", E("s05") + 0.2);
+pop("#lbPatch", S("s06") + 1.4); fout("#lbPatch", E("s07") + 0.3);
+fin("#cd2s", S("s07") + 0.1, .45, 10);
+/* 3 · patch groups */
+card("#cd3", S("s08") + 0.2, E("s10") + 0.4);
+pop("#lbDb", F("s09", .05)); pop("#lbCode", F("s09", .4)); pop("#lbBackup", F("s09", .72));
+fout(["#lbDb", "#lbCode", "#lbBackup"], E("s10") + 0.3);
+fin("#cd3s", S("s10") + 0.1, .45, 10);
+/* 4 · the rules */
+card("#cd4", S("s11") + 0.2, E("s14") + 0.4);
+pop("#lbSec", F("s12", .45)); pop("#lbOther", F("s13", .4)); pop("#lbApp", F("s14", .3));
+fout(["#lbSec", "#lbOther", "#lbApp"], E("s14") + 0.3);
+/* 5 · the weekend window */
+card("#cd5", S("s15") + 0.2, E("s17") + 0.4);
+pop("#lbScan", S("s15") + 0.6); fout("#lbScan", E("s15"));
+fin("#cd5s", S("s16") + 0.1, .45, 10);
+fin("#chReboot", S("s17") + 0.1, .5, 20); fout("#chReboot", E("s17") + 0.4);
+/* 6 · the trap */
+card("#cd6", S("s18") + 0.2, E("s20") + 0.4);
+pop("#lbLonely", F("s19", .55)); fout("#lbLonely", E("s20") + 0.3);
+pop("#stampX", S("s20") - 0.05); tl.to("#stampX", { rotation: -3, duration: .25, yoyo: true, repeat: 1 }, S("s20") + 0.4); fout("#stampX", E("s20") + 0.4);
+/* 7 · the check */
+card("#cd7", S("s21") + 0.2, E("s22") + 0.4);
+fin("#report", S("s21") + 0.5, .5, 30);
+document.querySelectorAll("#report .rr").forEach((r, i) => fin(r, F("s21", .25 + i * .15), .35, 8));
+tl.to("#report .rr:last-child b", { scale: 1.12, duration: .3, yoyo: true, repeat: 3 }, F("s21", .8));
+fout("#report", E("s22") + 0.3);
+fin("#chStage", S("s22") + 0.1, .5, 20); fin("#chOwner", F("s22", .62), .5, 20);
+fout(["#chStage", "#chOwner"], E("s22") + 0.4);
+/* 8 · close */
+tl.to(["#count"], { opacity: 0, duration: .4 }, S("s23") - 0.5);
+fin("#closecard", S("s23") - 0.1, .7, 30); fin("#ccs", F("s23", .62), .5, 10);
+fin("#credit", E("s23") + 0.6, .7, 0);
+tl.to("#fade", { opacity: 1, duration: 1.4, ease: "power1.in" }, TOTAL - 1.5);
+
+// chapter counter text
+const counterAt = (t) => { let k = 0; CHAPTERS.forEach((c, i) => { if (t >= c.t - 0.3 && i < 7) k = i + 1; }); return k; };
+window.__timelines["main"] = tl;
+</script>
+
+<script type="module">
+import * as THREE from "three";
+import { buildWorld } from "./src/world.js";
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("gl"), antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(1920, 1080, false);
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
+renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+const W = buildWorld("toy");
+const r = (t, a, b) => Math.min(1, Math.max(0, (t - a) / (b - a)));
+const sm = (x) => x * x * (3 - 2 * x);
+
+// camera path: [time, [preset, dolly]]; consecutive keys glide (smoothstep), equal keys hold with drift
+const KEYS = [
+  [0, ["intro", 1.0]], [S("s01") + 0.4, ["intro", 0.96]], [E("s02"), ["wide", 1.0]], [E("s04"), ["wide", 0.94]],
+  [S("s05") + 1.4, ["belt", 1.0]], [E("s05"), ["belt", 0.9]], [S("s06") + 1.4, ["districts", 1.25]], [E("s07"), ["districts", 1.15]],
+  [S("s08") + 1.2, ["districts", 1.0]], [E("s10"), ["districts", 0.9]],
+  [S("s11") + 1.4, ["gate", 1.05]], [E("s14"), ["gate", 0.92]],
+  [S("s15") + 1.4, ["night", 1.0]], [E("s17"), ["night", 0.9]],
+  [S("s18") + 1.4, ["lonely", 1.0]], [E("s20"), ["lonely", 0.82]],
+  [S("s21") + 1.4, ["check", 1.0]], [E("s22"), ["check", 0.94]],
+  [S("s23") + 1.6, ["close", 1.0]], [TOTAL, ["close", 0.86]],
+];
+function camAt(t) {
+  let i = 0; while (i < KEYS.length - 2 && t >= KEYS[i + 1][0]) i++;
+  const [t0, a] = KEYS[i], [t1, b] = KEYS[i + 1];
+  return [a, b, sm(r(t, t0, t1))];
+}
+function ringAt(t) {
+  if (t >= S("s15") && t <= E("s15") + 0.8) {
+    const u = r(t, S("s15") + 0.3, E("s15") + 0.3), fade = 1 - r(t, E("s15") + 0.3, E("s15") + 0.8);
+    const P = [[6.2, -3.4, 1.0], [4.6, 2.9, 0.8], [10.6, 2.9, 0.55]];
+    const seg = Math.min(1.999, u * 2), k = sm(seg % 1), A = P[Math.floor(seg)], B = P[Math.floor(seg) + 1];
+    return [A[0] + (B[0] - A[0]) * k, A[1] + (B[1] - A[1]) * k, A[2] + (B[2] - A[2]) * k, fade];
+  }
+  if (t >= S("s19") && t <= F("s19", .6)) return [11.6, -3.2, 0.55, 1 - r(t, F("s19", .45), F("s19", .6))];
+  return null;
+}
+function stateAt(t) {
+  const dropW = { db: [.05, .35], code: [.3, .6], backup: [.55, .85] };
+  const drop = {}, green = {};
+  for (const k in dropW) { drop[k] = r(t, F("s16", dropW[k][0]), F("s16", dropW[k][1])); green[k] = r(t, F("s16", dropW[k][1]) - 0.05, F("s16", dropW[k][1]) + 0.35); }
+  green.lonely = r(t, S("s23") + 0.4, S("s23") + 1.4);
+  return {
+    cam: camAt(t),
+    crateIn: r(t, S("s01") + 0.8, S("s01") + 3.0),
+    sec: r(t, F("s12", .1), F("s12", .1) + 2.2),
+    other: r(t, F("s13", .05), F("s13", .45)),
+    app: r(t, F("s14", .02), F("s14", .3)),
+    barrier: r(t, F("s14", .12), F("s14", .24)),
+    flags: r(t, S("s08"), S("s08") + 0.5) * (1 - r(t, E("s10"), E("s10") + 0.6)),
+    night: sm(r(t, S("s15") - 0.9, S("s15") + 0.6)) * (1 - sm(r(t, S("s16") - 0.3, S("s16") + 1.4))),
+    ring: ringAt(t), drop, green,
+    lonelyDrop: r(t, F("s19", .45), F("s19", .95)),
+    halo: r(t, S("s18") + 0.5, S("s18") + 1.0) * (1 - r(t, E("s20") + 0.4, E("s20") + 1.2)),
+  };
+}
+const labs = [...document.querySelectorAll(".lab")];
+const counter = document.getElementById("count");
+const v = new THREE.Vector3();
+function renderAt(t) {
+  W.apply(stateAt(t), t);
+  renderer.render(W.scene, W.camera);
+  for (const lab of labs) {
+    const a = W.anchors[lab.dataset.anchor]; if (!a) continue;
+    v.copy(a); if (["sec", "other", "app"].includes(lab.dataset.anchor)) v.y += 0.75;
+    v.project(W.camera);
+    const half = lab.offsetWidth / 2 + 30;
+    lab.style.left = Math.min(1920 - half, Math.max(half, (v.x + 1) / 2 * 1920)).toFixed(1) + "px";
+    lab.style.top = Math.max(lab.offsetHeight + 300, (1 - v.y) / 2 * 1080 - 16).toFixed(1) + "px";
+  }
+  const k = counterAt(t); counter.textContent = String(Math.max(1, k)).padStart(2, "0") + " / 07";
+}
+await renderer.compileAsync(W.scene, W.camera);
+renderAt(0); renderAt(TOTAL / 2);
+const px = new Uint8Array(4); const gl = renderer.getContext(); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
+window.__renderAt = renderAt;
+renderAt(window.__lastSeek || 0);
+window.__worldReady();
+</script>
+</body>
+</html>

@@ -8,16 +8,17 @@ HERE = pathlib.Path(__file__).resolve().parent.parent
 MODEL, P_IN, P_OUT = "gpt-5.5", 5/1e6, 30/1e6
 ap = argparse.ArgumentParser(); ap.add_argument("--env-file"); ap.add_argument("--frames", nargs="+", required=True); ap.add_argument("--out", required=True)
 a = ap.parse_args(); key = ledger.api_key(a.env_file)
-RULES = """Film: "CIS Hardening in AWS Factory — Fix What We Can, Accept What We Must", a public explainer for engineers and managers (about 50% technical).
-Style: the native HyperFrames Swiss Grid look (grey grid paper, navy and gold, Helvetica, hard offset shadows) with three small AI clay illustrations. Labels and diagrams are code.
-Public-output rule (deliberate): no CIS control numbers, no account/instance/image IDs, no dates, no credential details.
+RULES = """Film: "Patching Running Servers in AWS Factory — Scanned Is Not Patched", a public explainer for engineers and managers (about 50% technical).
+Style: a 3D miniature world built with Three.js in a bold toy-block look (green island, primary colours, hard sun), with HTML cards, pinned labels and captions in Nunito.
+Public-output rule (deliberate): generic only; no account, host names, IDs, schedule times, dates or patch counts. The owner directed that the flow is presented as working.
 Accuracy rules:
-- CIS = Center for Internet Security; the Amazon Linux 2023 benchmark has 243 checks across Level 1 (essential) and Level 2 (stricter).
-- AWS Factory line: GovTech parent image -> base image (CIS fixes, security agents, latest patches) -> ECS, MongoDB and GitLab images -> test and share; reruns on a new parent image or new patches.
-- Every check the scanner can test lands in one of three buckets: hardened upstream by GovTech; fixed by us in the base image (login lockout and password rules, file and log permissions, audit rules, unused networking off, signed package sources); accepted risk approved by the owner (separate disk partitions x5 and one user start-up file permission check: 6 controls, named in code). Square counts in the first two buckets are illustrative and labelled so; the accepted bucket is exactly 6.
-- Accepted exceptions are approved by the owner, not by a security authority; the film must not imply otherwise.
-- Each release reboots a test host and scans it against CIS Level 2 plus HCR checks; a failure not on the approved list stops the release; scanner FAILED labels are never relabelled.
-- AI disclosure shown top right; chapter counter 01/06..06/06."""
+- Two roads: build fresh (the factory bakes the latest patches into a new base image) and patch in place (AWS Systems Manager Patch Manager on running servers).
+- A patch group is a tag on each server; three groups shown: database group, code-hosting group, backup host. Each group has its own time slot and a patch baseline.
+- Baseline: security updates at once; other updates after 7 days; database and container-engine packages never patched in place (rolling upgrade or new image only).
+- Scan on the weekend night; install early next morning, each group in its own window; no automatic reboot.
+- The trap: a server whose tag matches no group is scanned but never installed. "Scanned is not patched."
+- The daily and weekly reports list each server's patch result and flag any server with no patch data. Rule changes go to one server first, then every group; the owner approves every production change.
+- AI disclosure shown top right; chapter counter 01/07..07/07 (hidden on the close)."""
 content = [{"type": "input_text", "text": RULES + "\n\nYou are a strict broadcast QA reviewer. The frames are 1280x720 downscales of a 1080p film. "
             "For each frame report concrete problems only: text too small or low-contrast to read at 720p, overlapping/clipped elements, awkward framing, "
             "visual clutter, or any claim that breaks the rules. Return JSON: {\"frames\":[{\"file\":...,\"issues\":[{\"severity\":\"high|medium|low\",\"issue\":...,\"fix\":...}]}],\"overall\":...}. Empty issue lists are fine."}]

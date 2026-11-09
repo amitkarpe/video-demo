@@ -1,0 +1,153 @@
+{
+  "model": "gpt-5.5",
+  "usage": {
+    "input_tokens": 26435,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 3178,
+    "output_tokens_details": {
+      "reasoning_tokens": 2374
+    },
+    "total_tokens": 29613
+  },
+  "cost_usd": 0.22751500000000002,
+  "review": {
+    "frames": [
+      {
+        "file": "t0004.1-s01.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0009.2-s02.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0014.0-s03.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0017.5-s04.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0024.0-s05.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The right-side patch-in-place machinery is clipped by the frame edge, creating a slightly awkward close-up composition.",
+            "fix": "Pull the camera back or pan slightly left/right so the cropped gantry/road edge is either fully visible or cleanly out of frame."
+          }
+        ]
+      },
+      {
+        "file": "t0033.2-s06.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0038.6-s07.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0044.8-s08.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0051.8-s09.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0058.2-s10.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0064.4-s11.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "A server and blue patch-group base are cut off at the lower-right edge, which looks accidental in the close framing.",
+            "fix": "Reframe slightly left/up or remove the partial server from the edge of the shot."
+          }
+        ]
+      },
+      {
+        "file": "t0068.2-s12.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "A server and blue patch-group base are still partially clipped at the lower-right edge.",
+            "fix": "Adjust the camera or crop so the partial server is either fully included or not visible."
+          }
+        ]
+      },
+      {
+        "file": "t0074.4-s13.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0084.1-s14.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0092.2-s15.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0097.9-s16.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0104.1-s17.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0111.1-s18.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0117.3-s19.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0120.8-s20.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0129.5-s21.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The report is titled \u201cPatch result \u00b7 every server,\u201d but the visible rows are groups (\u201cDatabase group,\u201d \u201cCode-hosting group\u201d) rather than individual servers. This breaks the rule that reports list each server\u2019s patch result.",
+            "fix": "Change the rows to generic per-server entries, such as \u201cDatabase server,\u201d \u201cCode-hosting server,\u201d and \u201cBackup host,\u201d without using real host names or IDs."
+          },
+          {
+            "severity": "medium",
+            "issue": "The \u201cNo patch data\u201d row and its flag text are extremely low-contrast and hard to read at 720p.",
+            "fix": "Do not show that row until it can appear at readable contrast, or increase its opacity/contrast in this frame."
+          }
+        ]
+      },
+      {
+        "file": "t0139.0-s22.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The report is still labeled \u201cevery server\u201d but lists group-level rows, not per-server patch results.",
+            "fix": "Use generic per-server rows instead of group rows while keeping the output public-safe."
+          },
+          {
+            "severity": "medium",
+            "issue": "The row says \u201cflagged in the daily report,\u201d but the requirement says daily and weekly reports flag servers with no patch data. This wording implies only the daily report.",
+            "fix": "Change the badge to \u201cflagged in daily + weekly reports\u201d or simply \u201cflagged in reports.\u201d"
+          }
+        ]
+      },
+      {
+        "file": "t0147.9-s23.jpg",
+        "issues": []
+      }
+    ],
+    "overall": "Most frames are readable and consistent with the required patching flow. The main compliance problem is in the final report cards: they must show per-server patch results, not group-level results, and the no-patch-data flag should reflect both daily and weekly reporting."
+  }
+}

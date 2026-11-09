@@ -5,3 +5,9 @@ phase1/_snap/
 phase1/*/lib/
 phase1/*/world.js
 phase1/*/.hyperframes/
+assets/gsap.min.js
+assets/mix.wav
+assets/mix-prenorm.wav
+out/master-delivery.mp4
+out/*-draft*.mp4
+review/tmp/
