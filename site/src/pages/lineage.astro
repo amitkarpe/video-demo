@@ -1,0 +1,28 @@
+---
+// How each line of work evolved: every public film per project, oldest first.
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { videos, families, url, frame, mmss, niceDate } from '../lib/videos';
+const lines = families
+  .map((f) => ({ f, list: videos.filter((v) => v.family === f.id).sort((a, b) => (a.date ?? '').localeCompare(b.date ?? '') || (a.order ?? 0) - (b.order ?? 0)) }))
+  .filter((l) => l.list.length);
+---
+<StarlightPage frontmatter={{ title: 'Lineage', description: 'How each project’s films evolved, from first experiment to the current film.', tableOfContents: false }} headings={[]}>
+  <p>This is research and development: most projects have several films. Each one tried a new story, look or tool, and the newest marked <b>current</b> is the one to watch first.</p>
+  {lines.map(({ f, list }) => (
+    <>
+      <h2 id={f.id}>{f.name}</h2>
+      <ol class="vl not-content">
+        {list.map((v) => (
+          <li class={v.current ? 'is-current' : ''}>
+            <a href={url(`videos/${v.slug}/`)}>
+              <img src={frame(v.slug, 2)} alt="" width="240" height="135" loading="lazy" />
+              <b>{v.short ?? v.title}</b>
+              <small>{v.revision} · {mmss(v.durationSec)}</small>
+              <small>{niceDate(v.date)}{v.current ? ' · current' : ''}</small>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </>
+  ))}
+</StarlightPage>

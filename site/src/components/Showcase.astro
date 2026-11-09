@@ -1,0 +1,121 @@
+---
+// Home: "at a glance" numbers and a filterable card grid of every public video.
+import { videos, families, repos, looks, stats, url, frame, mmss, niceDate, familyName, byNewest } from '../lib/videos';
+const s = stats();
+const list = [...videos].sort(byNewest);
+const famCount = (id: string) => videos.filter((v) => v.family === id).length;
+---
+
+<section class="vs-glance not-content" aria-label="At a glance">
+  <div><b>{s.videos}</b><span>public films</span></div>
+  <div><b>{s.runtimeMin}</b><span>minutes to watch</span></div>
+  <div><b>{s.families}</b><span>project families</span></div>
+  <div><b>{s.repos}</b><span>source repositories</span></div>
+  <div><b>{s.looks}</b><span>visual styles tried</span></div>
+</section>
+
+<section class="vs-browse not-content" aria-label="Browse the films">
+  <div class="vs-tools">
+    <div class="vs-chips" role="group" aria-label="Filter by project">
+      <button type="button" class="vs-chip" aria-pressed="true" data-family="">All <span>{videos.length}</span></button>
+      {families.filter((f) => famCount(f.id)).map((f) => (
+        <button type="button" class="vs-chip" aria-pressed="false" data-family={f.id}>{f.name} <span>{famCount(f.id)}</span></button>
+      ))}
+    </div>
+    <div class="vs-row">
+      <input class="vs-q" type="search" placeholder="Filter by title, project or look…" aria-label="Filter films" />
+      <select class="vs-sort" aria-label="Sort">
+        <option value="new">Newest first</option>
+        <option value="old">Oldest first</option>
+        <option value="long">Longest first</option>
+        <option value="short">Shortest first</option>
+      </select>
+    </div>
+  </div>
+
+  <ul class="vs-grid">
+    {list.map((v) => {
+      const repo = repos[v.repo];
+      const text = [v.title, v.summary, repo?.name, familyName(v.family), looks[v.look], v.revision, v.status].join(' ').toLowerCase();
+      return (
+        <li class="vs-card" data-family={v.family} data-date={v.date} data-dur={v.durationSec} data-text={text}>
+          <a href={url(`videos/${v.slug}/`)} aria-label={`${v.title} (${v.revision})`}>
+            <div class="vs-thumb" data-frames={[1, 2, 3, 4].map((n) => frame(v.slug, n)).join(' ')}>
+              <img src={frame(v.slug, 2)} alt="" loading="lazy" width="640" height="360" />
+              <span class="vs-dur">{mmss(v.durationSec)}</span>
+              {v.current && <span class="vs-current">Current</span>}
+              <span class="vs-play" aria-hidden="true">▶</span>
+            </div>
+            <div class="vs-body">
+              <div class="vs-meta">
+                <span class={`vs-fam vs-fam-${v.family}`}>{familyName(v.family)}</span>
+                <span>{niceDate(v.date)}</span>
+              </div>
+              <h3>{v.title}</h3>
+              <p>{v.summary}</p>
+              <div class="vs-tags">
+                <span class="vs-tag">{v.revision}</span>
+                <span class="vs-tag">{looks[v.look]}</span>
+                {repo?.url && <span class="vs-tag vs-repo">⌥ {repo.name}</span>}
+              </div>
+            </div>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+  <p class="vs-empty" hidden>No film matches. Try another word, or press <kbd>/</kbd> to search the whole site.</p>
+</section>
+
+<script>
+  const root = document.querySelector('.vs-browse')!;
+  const cards = [...root.querySelectorAll<HTMLElement>('.vs-card')];
+  const grid = root.querySelector('.vs-grid')!;
+  const q = root.querySelector<HTMLInputElement>('.vs-q')!;
+  const sort = root.querySelector<HTMLSelectElement>('.vs-sort')!;
+  const empty = root.querySelector<HTMLElement>('.vs-empty')!;
+  let family = '';
+  try { family = new URLSearchParams(location.search).get('family') ?? ''; } catch {}
+
+  function apply() {
+    const words = q.value.toLowerCase().split(/\s+/).filter(Boolean);
+    let shown = 0;
+    for (const c of cards) {
+      const ok = (!family || c.dataset.family === family) && words.every((w) => c.dataset.text!.includes(w));
+      c.hidden = !ok;
+      if (ok) shown++;
+    }
+    empty.hidden = shown > 0;
+    root.querySelectorAll<HTMLButtonElement>('.vs-chip').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.family === family)));
+    const key = sort.value;
+    const val = (c: HTMLElement) => (key === 'long' || key === 'short' ? Number(c.dataset.dur) : Date.parse(c.dataset.date!));
+    const sorted = [...cards].sort((a, b) => (key === 'old' || key === 'short' ? val(a) - val(b) : val(b) - val(a)));
+    sorted.forEach((c) => grid.appendChild(c));
+  }
+  root.querySelectorAll<HTMLButtonElement>('.vs-chip').forEach((b) =>
+    b.addEventListener('click', () => {
+      family = b.dataset.family ?? '';
+      try {
+        const u = new URL(location.href);
+        family ? u.searchParams.set('family', family) : u.searchParams.delete('family');
+        history.replaceState(null, '', u);
+      } catch {}
+      apply();
+    })
+  );
+  q.addEventListener('input', apply);
+  sort.addEventListener('change', apply);
+  apply();
+
+  // hover preview: step through the four frames
+  for (const t of root.querySelectorAll<HTMLElement>('.vs-thumb')) {
+    const img = t.querySelector('img')!;
+    const frames = t.dataset.frames!.split(' ');
+    let timer = 0, i = 1;
+    t.addEventListener('pointerenter', () => {
+      frames.forEach((f) => { const p = new Image(); p.src = f; });
+      timer = window.setInterval(() => { i = (i + 1) % frames.length; img.src = frames[i]; }, 700);
+    });
+    t.addEventListener('pointerleave', () => { clearInterval(timer); i = 1; img.src = frames[1]; });
+  }
+</script>

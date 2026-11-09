@@ -1,0 +1,32 @@
+A scientific workflow depends on much more than its own code.
+It needs container images, plugins, reference files and input data — all of them, at the moment it runs.
+In a controlled environment with no internet, one missing piece stops the analysis.
+Nextflow Offline removes that risk: everything is prepared first, then run with confidence.
+We'll follow one real workflow: a germline variant-calling test from nf-core Sarek, using a small public test dataset. One release, from preparation to proven result.
+Here is the whole picture, as three islands. The connected mainland, with GitLab. The vault: private AWS storage. And the sealed island, where the run happens, with no bridge to the internet.
+Everything starts in GitLab, the single trusted home for the solution.
+The workflow code lives in a GitLab repository. Its container images live in the GitLab container registry.
+The reference data and test datasets are hosted there too.
+Content is scanned for security as it arrives, and the operations team reviews every finding.
+From GitLab, a GitLab Runner prepares the release. The workflow code goes to AWS CodeCommit.
+Each container image goes to private Amazon ECR, locked to its exact identity.
+The workflow, plugins, references and data are packed into one bundle in Amazon S3, with a fingerprint for every file.
+Together, they form one complete, self-contained release.
+Nothing is trusted just because it was uploaded. Every file and every image is read back and compared against its fingerprint.
+Only when everything matches is the release registered and ready to run.
+If anything is missing or different, the release stops here, long before it reaches a run.
+An approved run request in GitLab starts a controlled run with its own unique identity.
+AWS CodePipeline leads the run through ten gated stages. It checks the source, the release, the data, the images and the runtime before anything executes, then validates the results and publishes the report.
+CodeBuild does the work of each stage, and AWS Systems Manager sends commands to a private EC2 host with no internet route.
+Private endpoints connect it only to the AWS services it needs.
+On the host, the bundle is checked again against its fingerprints. The exact images are loaded into an isolated container store.
+Nextflow then runs in offline mode, using only what was prepared.
+Plugin downloads are switched off, task containers have no network, and no image can be pulled.
+Everything the analysis needs is already there.
+When the run ends, the result is checked, not assumed.
+The pipeline confirms the run succeeded, that the offline controls were in place, and that the expected outputs exist.
+The answer is a clear PASS or FAIL, with an evidence report the team can review.
+And if anything tries to reach the internet during a run? There is nowhere to go. The run stops, the failed stage is named, and the result is FAIL. Never a silent half success.
+So the journey is complete: hosted and scanned in GitLab, prepared and verified in AWS, executed offline and backed by evidence.
+Tested end to end, and repeatable for every release.
+Prepare once. Verify everything. Run with confidence.
