@@ -1,5 +1,24 @@
 # Storyboard and design rationale
 
+## Revision 2 (island look)
+
+One daylight low-poly world with three islands, joined only by a private underwater pipe: the **connected mainland** (internet tower, the GitLab workshop with its repository, container registry and data buildings), the **vault** (AWS CodeCommit tower, Amazon S3 silo, Amazon ECR shelf) and the **sealed island** (a glass dome over the private EC2 host and its isolated container store). A journey rail (GitLab, Prepare, Verify, Run offline, Evidence) sits at the top from chapter 2. Every move is keyed to the spoken word: `build.py` passes each line's word times to the page, and the page looks them up by word (`A(line, word)`).
+
+| Chapter | Picture (revision 2) |
+|---|---|
+| 0 The missing piece | Five coloured pieces orbit a crate at the dome; one falls into the sea; the dome flashes and "Run stopped" (*Illustration*); title card |
+| 1 One real workflow | Release card (nf-core Sarek, germline test); the three islands named one by one; a dashed red arc marks "no bridge to the internet" |
+| 2 One trusted home | The GitLab workshop; repository, registry and data buildings light as named; a scan ring sweeps; findings card |
+| 3 Prepare the release | The runner; code flies to CodeCommit, images to the ECR shelf; the crate sails to the vault and S3 rings with fingerprints; "one self-contained release" card |
+| 4 Verify before trust | A read-back ring scans the vault; two checks tick; REGISTERED stamp; a red mismatch cube bounces off (*Illustration*) |
+| 5 A controlled run | Approved request card; the ten CodePipeline stages tick on their words; CodePipeline → CodeBuild → Systems Manager → private EC2 host; no-route arc; the private pipe glows |
+| 6 Run offline | Inside the dome: re-check ring, the isolated container store fills, Nextflow offline mode, three offline controls tick |
+| 7 Proof, not promises | Evidence card; PASS beside a greyed FAIL; then the failure drill (*Illustration*): a task's packet hits the dome, stage 8 fails, RESULT=FAIL, music dips |
+| 8 Run with confidence | Golden pull-back over all three islands, journey rail lights end to end, closing card |
+
+## Revision 1
+
+
 **Remembered sentence:** *Prepare once. Verify everything. Run with confidence.*
 
 **Audience and tone.** Management and engineers. High-level, generic and confident: one working flow, with no code, IDs, dates or status hedging (owner direction). Every service appears only when its role is spoken.

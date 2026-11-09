@@ -1,5 +1,23 @@
 # Nextflow Offline — Prepare Once, Run with Confidence
 
+> **Revision 2 (10 Nov 2026 SGT), island look, in review.** The film was rebuilt from the owner's intake answers: the island look from the ops sample (one daylight Three.js world drawn from the `hf-seek` time), a local Kokoro voice (`af_heart`, disclosed as AI narration), the same story with two new lines (the whole picture as three islands, and a failure drill), and generic public detail (no dates, IDs or logos; service names are text labels). Length 3 min 46 s. The draft MP4 is on a draft GitHub Release until the owner accepts it. Revision 1 (cinematic-night, OpenAI `marin`) is unchanged on its Release and in Git history; its images and voice takes stay in `media/` as provider originals.
+>
+> **Rebuild revision 2 (no paid API, works in a cloud VM):**
+> ```bash
+> # from the repository root: npm ci; a Python venv with kokoro-onnx and soundfile for the voice (HYPERFRAMES_PYTHON=<venv>/bin/python)
+> cd films/nextflow-offline/offline-validation
+> python3 -c "import json,subprocess;[subprocess.run(['npx','hyperframes','tts',l.get('say',l['caption']),'-v','af_heart','-o',f'voice/{l[\"id\"]}.wav'],check=True) for l in json.load(open('script.json'))['lines']]"
+> curl -sSo voice/m_Inspired.mp3 https://incompetech.com/music/royalty-free/mp3-royaltyfree/Inspired.mp3   # music bed: "Inspired", Kevin MacLeod
+> python3 tools/voice.py                                            # timing.json, cues.json, assets/mix.wav (-16 LUFS), review/voice.wav
+> npx hyperframes transcribe review/voice.wav -e parakeet           # word times -> transcript.json
+> python3 build.py                                                  # index.html, captions.srt, transcript.txt
+> cd ../../.. && npx hyperframes check films/nextflow-offline/offline-validation
+> npx hyperframes render films/nextflow-offline/offline-validation -o films/nextflow-offline/offline-validation/out/master-delivery.mp4 -f 30 -q delivery
+> ```
+> Revision 2 does not use `toolkit/av.py`; `build.py`, `tools/voice.py` and `src/index.template.html` are this film's own. Three.js r147 is vendored in `lib/three-r147/`. A full render takes about 85 min with SwiftShader in a cloud VM.
+>
+> Revision 1 notes follow.
+
 **Watch:** [claude-nextflow-offline.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-nextflow-offline-offline-validation/claude-nextflow-offline.mp4) (sha256 `4bc740294c9a…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-nextflow-offline-offline-validation), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
 
 

@@ -1,0 +1,3152 @@
+[
+  {
+    "id": "w0",
+    "text": "A",
+    "start": 1.28,
+    "end": 1.6
+  },
+  {
+    "id": "w1",
+    "text": "scientific",
+    "start": 1.6,
+    "end": 2.32
+  },
+  {
+    "id": "w2",
+    "text": "workflow",
+    "start": 2.32,
+    "end": 3.12
+  },
+  {
+    "id": "w3",
+    "text": "depends",
+    "start": 3.12,
+    "end": 3.6
+  },
+  {
+    "id": "w4",
+    "text": "on",
+    "start": 3.6,
+    "end": 3.76
+  },
+  {
+    "id": "w5",
+    "text": "much",
+    "start": 3.76,
+    "end": 4
+  },
+  {
+    "id": "w6",
+    "text": "more",
+    "start": 4,
+    "end": 4.16
+  },
+  {
+    "id": "w7",
+    "text": "than",
+    "start": 4.16,
+    "end": 4.32
+  },
+  {
+    "id": "w8",
+    "text": "its",
+    "start": 4.32,
+    "end": 4.56
+  },
+  {
+    "id": "w9",
+    "text": "own",
+    "start": 4.56,
+    "end": 4.8
+  },
+  {
+    "id": "w10",
+    "text": "code.",
+    "start": 4.8,
+    "end": 5.36
+  },
+  {
+    "id": "w11",
+    "text": "It",
+    "start": 5.36,
+    "end": 5.6
+  },
+  {
+    "id": "w12",
+    "text": "needs",
+    "start": 5.6,
+    "end": 5.92
+  },
+  {
+    "id": "w13",
+    "text": "container",
+    "start": 5.92,
+    "end": 6.56
+  },
+  {
+    "id": "w14",
+    "text": "images,",
+    "start": 6.56,
+    "end": 7.2
+  },
+  {
+    "id": "w15",
+    "text": "plugins,",
+    "start": 7.2,
+    "end": 7.84
+  },
+  {
+    "id": "w16",
+    "text": "reference",
+    "start": 8,
+    "end": 8.48
+  },
+  {
+    "id": "w17",
+    "text": "files,",
+    "start": 8.48,
+    "end": 8.88
+  },
+  {
+    "id": "w18",
+    "text": "and",
+    "start": 8.88,
+    "end": 9.04
+  },
+  {
+    "id": "w19",
+    "text": "input",
+    "start": 9.04,
+    "end": 9.52
+  },
+  {
+    "id": "w20",
+    "text": "data,",
+    "start": 9.52,
+    "end": 10
+  },
+  {
+    "id": "w21",
+    "text": "all",
+    "start": 10,
+    "end": 10.16
+  },
+  {
+    "id": "w22",
+    "text": "of",
+    "start": 10.16,
+    "end": 10.32
+  },
+  {
+    "id": "w23",
+    "text": "them,",
+    "start": 10.32,
+    "end": 10.72
+  },
+  {
+    "id": "w24",
+    "text": "at",
+    "start": 10.72,
+    "end": 10.88
+  },
+  {
+    "id": "w25",
+    "text": "the",
+    "start": 10.88,
+    "end": 11.04
+  },
+  {
+    "id": "w26",
+    "text": "moment",
+    "start": 11.04,
+    "end": 11.36
+  },
+  {
+    "id": "w27",
+    "text": "it",
+    "start": 11.36,
+    "end": 11.6
+  },
+  {
+    "id": "w28",
+    "text": "runs.",
+    "start": 11.6,
+    "end": 12.24
+  },
+  {
+    "id": "w29",
+    "text": "In",
+    "start": 12.24,
+    "end": 12.48
+  },
+  {
+    "id": "w30",
+    "text": "a",
+    "start": 12.48,
+    "end": 12.72
+  },
+  {
+    "id": "w31",
+    "text": "controlled",
+    "start": 12.72,
+    "end": 13.28
+  },
+  {
+    "id": "w32",
+    "text": "environment",
+    "start": 13.28,
+    "end": 13.84
+  },
+  {
+    "id": "w33",
+    "text": "with",
+    "start": 13.84,
+    "end": 14.08
+  },
+  {
+    "id": "w34",
+    "text": "no",
+    "start": 14.08,
+    "end": 14.32
+  },
+  {
+    "id": "w35",
+    "text": "internet,",
+    "start": 14.32,
+    "end": 15.12
+  },
+  {
+    "id": "w36",
+    "text": "one",
+    "start": 15.12,
+    "end": 15.36
+  },
+  {
+    "id": "w37",
+    "text": "missing",
+    "start": 15.36,
+    "end": 15.76
+  },
+  {
+    "id": "w38",
+    "text": "piece",
+    "start": 15.76,
+    "end": 16.16
+  },
+  {
+    "id": "w39",
+    "text": "stops",
+    "start": 16.16,
+    "end": 16.56
+  },
+  {
+    "id": "w40",
+    "text": "the",
+    "start": 16.56,
+    "end": 16.72
+  },
+  {
+    "id": "w41",
+    "text": "analysis.",
+    "start": 16.72,
+    "end": 17.68
+  },
+  {
+    "id": "w42",
+    "text": "Nextflow",
+    "start": 17.68,
+    "end": 18.48
+  },
+  {
+    "id": "w43",
+    "text": "offline",
+    "start": 18.56,
+    "end": 19.2
+  },
+  {
+    "id": "w44",
+    "text": "removes",
+    "start": 19.2,
+    "end": 19.6
+  },
+  {
+    "id": "w45",
+    "text": "that",
+    "start": 19.6,
+    "end": 19.84
+  },
+  {
+    "id": "w46",
+    "text": "risk.",
+    "start": 19.84,
+    "end": 20.48
+  },
+  {
+    "id": "w47",
+    "text": "Everything",
+    "start": 20.48,
+    "end": 20.96
+  },
+  {
+    "id": "w48",
+    "text": "is",
+    "start": 20.96,
+    "end": 21.12
+  },
+  {
+    "id": "w49",
+    "text": "prepared",
+    "start": 21.12,
+    "end": 21.68
+  },
+  {
+    "id": "w50",
+    "text": "first,",
+    "start": 21.68,
+    "end": 22.08
+  },
+  {
+    "id": "w51",
+    "text": "then",
+    "start": 22.08,
+    "end": 22.4
+  },
+  {
+    "id": "w52",
+    "text": "run",
+    "start": 22.4,
+    "end": 22.64
+  },
+  {
+    "id": "w53",
+    "text": "with",
+    "start": 22.8,
+    "end": 23.04
+  },
+  {
+    "id": "w54",
+    "text": "confidence.",
+    "start": 23.04,
+    "end": 25.6
+  },
+  {
+    "id": "w55",
+    "text": "We'll",
+    "start": 25.6,
+    "end": 26
+  },
+  {
+    "id": "w56",
+    "text": "follow",
+    "start": 26,
+    "end": 26.48
+  },
+  {
+    "id": "w57",
+    "text": "one",
+    "start": 26.48,
+    "end": 26.64
+  },
+  {
+    "id": "w58",
+    "text": "real",
+    "start": 26.8,
+    "end": 27.04
+  },
+  {
+    "id": "w59",
+    "text": "workflow,",
+    "start": 27.2,
+    "end": 28.08
+  },
+  {
+    "id": "w60",
+    "text": "a",
+    "start": 28.08,
+    "end": 28.24
+  },
+  {
+    "id": "w61",
+    "text": "germline",
+    "start": 28.24,
+    "end": 28.88
+  },
+  {
+    "id": "w62",
+    "text": "variant",
+    "start": 29.04,
+    "end": 29.36
+  },
+  {
+    "id": "w63",
+    "text": "calling",
+    "start": 29.44,
+    "end": 29.92
+  },
+  {
+    "id": "w64",
+    "text": "test",
+    "start": 29.92,
+    "end": 30.16
+  },
+  {
+    "id": "w65",
+    "text": "from",
+    "start": 30.16,
+    "end": 30.32
+  },
+  {
+    "id": "w66",
+    "text": "NF",
+    "start": 30.32,
+    "end": 30.72
+  },
+  {
+    "id": "w67",
+    "text": "Core",
+    "start": 30.72,
+    "end": 30.96
+  },
+  {
+    "id": "w68",
+    "text": "SAREC,",
+    "start": 31.04,
+    "end": 31.92
+  },
+  {
+    "id": "w69",
+    "text": "using",
+    "start": 31.92,
+    "end": 32.24
+  },
+  {
+    "id": "w70",
+    "text": "a",
+    "start": 32.24,
+    "end": 32.32
+  },
+  {
+    "id": "w71",
+    "text": "small",
+    "start": 32.32,
+    "end": 32.72
+  },
+  {
+    "id": "w72",
+    "text": "public",
+    "start": 32.72,
+    "end": 33.04
+  },
+  {
+    "id": "w73",
+    "text": "test",
+    "start": 33.04,
+    "end": 33.28
+  },
+  {
+    "id": "w74",
+    "text": "dataset.",
+    "start": 33.44,
+    "end": 34.4
+  },
+  {
+    "id": "w75",
+    "text": "One",
+    "start": 34.4,
+    "end": 34.8
+  },
+  {
+    "id": "w76",
+    "text": "release,",
+    "start": 34.8,
+    "end": 35.44
+  },
+  {
+    "id": "w77",
+    "text": "from",
+    "start": 35.44,
+    "end": 35.68
+  },
+  {
+    "id": "w78",
+    "text": "preparation",
+    "start": 35.68,
+    "end": 36.32
+  },
+  {
+    "id": "w79",
+    "text": "to",
+    "start": 36.32,
+    "end": 36.56
+  },
+  {
+    "id": "w80",
+    "text": "proven",
+    "start": 36.56,
+    "end": 37.04
+  },
+  {
+    "id": "w81",
+    "text": "result.",
+    "start": 37.04,
+    "end": 37.84
+  },
+  {
+    "id": "w82",
+    "text": "Here",
+    "start": 37.84,
+    "end": 38.16
+  },
+  {
+    "id": "w83",
+    "text": "is",
+    "start": 38.16,
+    "end": 38.32
+  },
+  {
+    "id": "w84",
+    "text": "the",
+    "start": 38.32,
+    "end": 38.48
+  },
+  {
+    "id": "w85",
+    "text": "whole",
+    "start": 38.48,
+    "end": 38.8
+  },
+  {
+    "id": "w86",
+    "text": "picture",
+    "start": 38.8,
+    "end": 39.2
+  },
+  {
+    "id": "w87",
+    "text": "as",
+    "start": 39.36,
+    "end": 39.6
+  },
+  {
+    "id": "w88",
+    "text": "three",
+    "start": 39.6,
+    "end": 39.92
+  },
+  {
+    "id": "w89",
+    "text": "islands.",
+    "start": 39.92,
+    "end": 40.8
+  },
+  {
+    "id": "w90",
+    "text": "The",
+    "start": 40.8,
+    "end": 40.96
+  },
+  {
+    "id": "w91",
+    "text": "connected",
+    "start": 40.96,
+    "end": 41.52
+  },
+  {
+    "id": "w92",
+    "text": "mainland",
+    "start": 41.52,
+    "end": 42.08
+  },
+  {
+    "id": "w93",
+    "text": "with",
+    "start": 42.16,
+    "end": 42.32
+  },
+  {
+    "id": "w94",
+    "text": "GitLab,",
+    "start": 42.32,
+    "end": 43.12
+  },
+  {
+    "id": "w95",
+    "text": "the",
+    "start": 43.28,
+    "end": 43.44
+  },
+  {
+    "id": "w96",
+    "text": "vault,",
+    "start": 43.44,
+    "end": 44
+  },
+  {
+    "id": "w97",
+    "text": "private",
+    "start": 44.16,
+    "end": 44.64
+  },
+  {
+    "id": "w98",
+    "text": "AWS",
+    "start": 44.64,
+    "end": 45.36
+  },
+  {
+    "id": "w99",
+    "text": "storage,",
+    "start": 45.52,
+    "end": 46.16
+  },
+  {
+    "id": "w100",
+    "text": "and",
+    "start": 46.16,
+    "end": 46.4
+  },
+  {
+    "id": "w101",
+    "text": "the",
+    "start": 46.4,
+    "end": 46.48
+  },
+  {
+    "id": "w102",
+    "text": "sealed",
+    "start": 46.48,
+    "end": 46.96
+  },
+  {
+    "id": "w103",
+    "text": "island",
+    "start": 46.96,
+    "end": 47.28
+  },
+  {
+    "id": "w104",
+    "text": "where",
+    "start": 47.36,
+    "end": 47.6
+  },
+  {
+    "id": "w105",
+    "text": "the",
+    "start": 47.6,
+    "end": 47.68
+  },
+  {
+    "id": "w106",
+    "text": "run",
+    "start": 47.68,
+    "end": 47.92
+  },
+  {
+    "id": "w107",
+    "text": "happens",
+    "start": 48,
+    "end": 48.4
+  },
+  {
+    "id": "w108",
+    "text": "with",
+    "start": 48.48,
+    "end": 48.72
+  },
+  {
+    "id": "w109",
+    "text": "no",
+    "start": 48.72,
+    "end": 48.88
+  },
+  {
+    "id": "w110",
+    "text": "bridge",
+    "start": 48.88,
+    "end": 49.36
+  },
+  {
+    "id": "w111",
+    "text": "to",
+    "start": 49.36,
+    "end": 49.52
+  },
+  {
+    "id": "w112",
+    "text": "the",
+    "start": 49.52,
+    "end": 49.68
+  },
+  {
+    "id": "w113",
+    "text": "internet.",
+    "start": 49.68,
+    "end": 50.8
+  },
+  {
+    "id": "w114",
+    "text": "Everything",
+    "start": 50.8,
+    "end": 51.44
+  },
+  {
+    "id": "w115",
+    "text": "starts",
+    "start": 51.44,
+    "end": 51.76
+  },
+  {
+    "id": "w116",
+    "text": "in",
+    "start": 51.76,
+    "end": 51.92
+  },
+  {
+    "id": "w117",
+    "text": "GitLab,",
+    "start": 51.92,
+    "end": 52.96
+  },
+  {
+    "id": "w118",
+    "text": "the",
+    "start": 52.96,
+    "end": 53.12
+  },
+  {
+    "id": "w119",
+    "text": "single",
+    "start": 53.12,
+    "end": 53.44
+  },
+  {
+    "id": "w120",
+    "text": "trusted",
+    "start": 53.44,
+    "end": 53.92
+  },
+  {
+    "id": "w121",
+    "text": "home",
+    "start": 53.92,
+    "end": 54.24
+  },
+  {
+    "id": "w122",
+    "text": "for",
+    "start": 54.24,
+    "end": 54.4
+  },
+  {
+    "id": "w123",
+    "text": "the",
+    "start": 54.4,
+    "end": 54.48
+  },
+  {
+    "id": "w124",
+    "text": "solution.",
+    "start": 54.48,
+    "end": 55.04
+  },
+  {
+    "id": "w125",
+    "text": "The",
+    "start": 55.31,
+    "end": 55.47
+  },
+  {
+    "id": "w126",
+    "text": "workflow",
+    "start": 55.47,
+    "end": 56.19
+  },
+  {
+    "id": "w127",
+    "text": "code",
+    "start": 56.19,
+    "end": 56.59
+  },
+  {
+    "id": "w128",
+    "text": "lives",
+    "start": 56.59,
+    "end": 57.07
+  },
+  {
+    "id": "w129",
+    "text": "in",
+    "start": 57.07,
+    "end": 57.15
+  },
+  {
+    "id": "w130",
+    "text": "a",
+    "start": 57.15,
+    "end": 57.31
+  },
+  {
+    "id": "w131",
+    "text": "GitLab",
+    "start": 57.31,
+    "end": 58.03
+  },
+  {
+    "id": "w132",
+    "text": "repository.",
+    "start": 58.03,
+    "end": 59.15
+  },
+  {
+    "id": "w133",
+    "text": "Its",
+    "start": 59.15,
+    "end": 59.39
+  },
+  {
+    "id": "w134",
+    "text": "container",
+    "start": 59.39,
+    "end": 60.11
+  },
+  {
+    "id": "w135",
+    "text": "images",
+    "start": 60.11,
+    "end": 60.59
+  },
+  {
+    "id": "w136",
+    "text": "live",
+    "start": 60.59,
+    "end": 60.91
+  },
+  {
+    "id": "w137",
+    "text": "in",
+    "start": 60.91,
+    "end": 61.07
+  },
+  {
+    "id": "w138",
+    "text": "the",
+    "start": 61.07,
+    "end": 61.15
+  },
+  {
+    "id": "w139",
+    "text": "GitLab",
+    "start": 61.15,
+    "end": 61.87
+  },
+  {
+    "id": "w140",
+    "text": "container",
+    "start": 61.87,
+    "end": 62.43
+  },
+  {
+    "id": "w141",
+    "text": "registry.",
+    "start": 62.43,
+    "end": 63.23
+  },
+  {
+    "id": "w142",
+    "text": "The",
+    "start": 63.23,
+    "end": 63.39
+  },
+  {
+    "id": "w143",
+    "text": "reference",
+    "start": 63.39,
+    "end": 63.95
+  },
+  {
+    "id": "w144",
+    "text": "data",
+    "start": 63.95,
+    "end": 64.27
+  },
+  {
+    "id": "w145",
+    "text": "and",
+    "start": 64.35,
+    "end": 64.59
+  },
+  {
+    "id": "w146",
+    "text": "test",
+    "start": 64.59,
+    "end": 64.91
+  },
+  {
+    "id": "w147",
+    "text": "datasets",
+    "start": 64.91,
+    "end": 65.55
+  },
+  {
+    "id": "w148",
+    "text": "are",
+    "start": 65.55,
+    "end": 65.71
+  },
+  {
+    "id": "w149",
+    "text": "hosted",
+    "start": 65.71,
+    "end": 66.11
+  },
+  {
+    "id": "w150",
+    "text": "there",
+    "start": 66.11,
+    "end": 66.27
+  },
+  {
+    "id": "w151",
+    "text": "too.",
+    "start": 66.35,
+    "end": 66.91
+  },
+  {
+    "id": "w152",
+    "text": "Content",
+    "start": 66.91,
+    "end": 67.47
+  },
+  {
+    "id": "w153",
+    "text": "is",
+    "start": 67.47,
+    "end": 67.71
+  },
+  {
+    "id": "w154",
+    "text": "scanned",
+    "start": 67.71,
+    "end": 68.19
+  },
+  {
+    "id": "w155",
+    "text": "for",
+    "start": 68.19,
+    "end": 68.35
+  },
+  {
+    "id": "w156",
+    "text": "security",
+    "start": 68.35,
+    "end": 68.83
+  },
+  {
+    "id": "w157",
+    "text": "as",
+    "start": 68.83,
+    "end": 68.99
+  },
+  {
+    "id": "w158",
+    "text": "it",
+    "start": 68.99,
+    "end": 69.23
+  },
+  {
+    "id": "w159",
+    "text": "arrives,",
+    "start": 69.23,
+    "end": 69.79
+  },
+  {
+    "id": "w160",
+    "text": "and",
+    "start": 69.87,
+    "end": 70.11
+  },
+  {
+    "id": "w161",
+    "text": "the",
+    "start": 70.11,
+    "end": 70.35
+  },
+  {
+    "id": "w162",
+    "text": "operations",
+    "start": 70.35,
+    "end": 70.99
+  },
+  {
+    "id": "w163",
+    "text": "team",
+    "start": 70.99,
+    "end": 71.39
+  },
+  {
+    "id": "w164",
+    "text": "reviews",
+    "start": 71.39,
+    "end": 71.95
+  },
+  {
+    "id": "w165",
+    "text": "every",
+    "start": 71.95,
+    "end": 72.35
+  },
+  {
+    "id": "w166",
+    "text": "finding.",
+    "start": 72.35,
+    "end": 73.55
+  },
+  {
+    "id": "w167",
+    "text": "From",
+    "start": 73.55,
+    "end": 73.87
+  },
+  {
+    "id": "w168",
+    "text": "GitLab,",
+    "start": 73.87,
+    "end": 74.67
+  },
+  {
+    "id": "w169",
+    "text": "a",
+    "start": 74.75,
+    "end": 74.91
+  },
+  {
+    "id": "w170",
+    "text": "Git",
+    "start": 74.91,
+    "end": 75.23
+  },
+  {
+    "id": "w171",
+    "text": "Lab",
+    "start": 75.23,
+    "end": 75.39
+  },
+  {
+    "id": "w172",
+    "text": "runner",
+    "start": 75.55,
+    "end": 75.79
+  },
+  {
+    "id": "w173",
+    "text": "prepares",
+    "start": 75.95,
+    "end": 76.35
+  },
+  {
+    "id": "w174",
+    "text": "the",
+    "start": 76.35,
+    "end": 76.43
+  },
+  {
+    "id": "w175",
+    "text": "release.",
+    "start": 76.43,
+    "end": 77.07
+  },
+  {
+    "id": "w176",
+    "text": "The",
+    "start": 77.07,
+    "end": 77.31
+  },
+  {
+    "id": "w177",
+    "text": "workflow",
+    "start": 77.31,
+    "end": 77.87
+  },
+  {
+    "id": "w178",
+    "text": "code",
+    "start": 77.87,
+    "end": 78.11
+  },
+  {
+    "id": "w179",
+    "text": "goes",
+    "start": 78.11,
+    "end": 78.35
+  },
+  {
+    "id": "w180",
+    "text": "to",
+    "start": 78.35,
+    "end": 78.59
+  },
+  {
+    "id": "w181",
+    "text": "AWS",
+    "start": 78.59,
+    "end": 79.39
+  },
+  {
+    "id": "w182",
+    "text": "Code",
+    "start": 79.39,
+    "end": 79.79
+  },
+  {
+    "id": "w183",
+    "text": "Commit.",
+    "start": 79.79,
+    "end": 80.43
+  },
+  {
+    "id": "w184",
+    "text": "Each",
+    "start": 80.43,
+    "end": 80.75
+  },
+  {
+    "id": "w185",
+    "text": "container",
+    "start": 80.75,
+    "end": 81.39
+  },
+  {
+    "id": "w186",
+    "text": "image",
+    "start": 81.39,
+    "end": 81.87
+  },
+  {
+    "id": "w187",
+    "text": "goes",
+    "start": 81.87,
+    "end": 82.11
+  },
+  {
+    "id": "w188",
+    "text": "to",
+    "start": 82.11,
+    "end": 82.35
+  },
+  {
+    "id": "w189",
+    "text": "private",
+    "start": 82.35,
+    "end": 82.67
+  },
+  {
+    "id": "w190",
+    "text": "Amazon",
+    "start": 82.83,
+    "end": 83.47
+  },
+  {
+    "id": "w191",
+    "text": "ECR,",
+    "start": 83.47,
+    "end": 84.43
+  },
+  {
+    "id": "w192",
+    "text": "locked",
+    "start": 84.43,
+    "end": 84.91
+  },
+  {
+    "id": "w193",
+    "text": "to",
+    "start": 84.91,
+    "end": 85.07
+  },
+  {
+    "id": "w194",
+    "text": "its",
+    "start": 85.07,
+    "end": 85.31
+  },
+  {
+    "id": "w195",
+    "text": "exact",
+    "start": 85.31,
+    "end": 85.71
+  },
+  {
+    "id": "w196",
+    "text": "identity.",
+    "start": 85.71,
+    "end": 86.59
+  },
+  {
+    "id": "w197",
+    "text": "The",
+    "start": 86.59,
+    "end": 86.83
+  },
+  {
+    "id": "w198",
+    "text": "workflow,",
+    "start": 86.83,
+    "end": 87.63
+  },
+  {
+    "id": "w199",
+    "text": "plugins,",
+    "start": 87.63,
+    "end": 88.51
+  },
+  {
+    "id": "w200",
+    "text": "references,",
+    "start": 88.51,
+    "end": 89.15
+  },
+  {
+    "id": "w201",
+    "text": "and",
+    "start": 89.15,
+    "end": 89.31
+  },
+  {
+    "id": "w202",
+    "text": "data",
+    "start": 89.31,
+    "end": 89.71
+  },
+  {
+    "id": "w203",
+    "text": "are",
+    "start": 89.71,
+    "end": 89.87
+  },
+  {
+    "id": "w204",
+    "text": "packed",
+    "start": 89.87,
+    "end": 90.27
+  },
+  {
+    "id": "w205",
+    "text": "into",
+    "start": 90.27,
+    "end": 90.51
+  },
+  {
+    "id": "w206",
+    "text": "one",
+    "start": 90.51,
+    "end": 90.67
+  },
+  {
+    "id": "w207",
+    "text": "bundle",
+    "start": 90.67,
+    "end": 91.31
+  },
+  {
+    "id": "w208",
+    "text": "Amazon",
+    "start": 91.31,
+    "end": 91.95
+  },
+  {
+    "id": "w209",
+    "text": "S3,",
+    "start": 91.95,
+    "end": 92.67
+  },
+  {
+    "id": "w210",
+    "text": "with",
+    "start": 92.67,
+    "end": 92.91
+  },
+  {
+    "id": "w211",
+    "text": "a",
+    "start": 92.91,
+    "end": 92.99
+  },
+  {
+    "id": "w212",
+    "text": "fingerprint",
+    "start": 92.99,
+    "end": 93.63
+  },
+  {
+    "id": "w213",
+    "text": "for",
+    "start": 93.63,
+    "end": 93.79
+  },
+  {
+    "id": "w214",
+    "text": "every",
+    "start": 93.79,
+    "end": 94.11
+  },
+  {
+    "id": "w215",
+    "text": "file.",
+    "start": 94.11,
+    "end": 94.75
+  },
+  {
+    "id": "w216",
+    "text": "Together",
+    "start": 94.75,
+    "end": 95.15
+  },
+  {
+    "id": "w217",
+    "text": "they",
+    "start": 95.31,
+    "end": 95.55
+  },
+  {
+    "id": "w218",
+    "text": "form",
+    "start": 95.55,
+    "end": 95.87
+  },
+  {
+    "id": "w219",
+    "text": "one",
+    "start": 95.87,
+    "end": 96.11
+  },
+  {
+    "id": "w220",
+    "text": "complete,",
+    "start": 96.11,
+    "end": 96.67
+  },
+  {
+    "id": "w221",
+    "text": "self-contained",
+    "start": 96.67,
+    "end": 97.71
+  },
+  {
+    "id": "w222",
+    "text": "release.",
+    "start": 97.71,
+    "end": 98.91
+  },
+  {
+    "id": "w223",
+    "text": "Nothing",
+    "start": 98.91,
+    "end": 99.39
+  },
+  {
+    "id": "w224",
+    "text": "is",
+    "start": 99.39,
+    "end": 99.63
+  },
+  {
+    "id": "w225",
+    "text": "trusted",
+    "start": 99.63,
+    "end": 100.19
+  },
+  {
+    "id": "w226",
+    "text": "just",
+    "start": 100.35,
+    "end": 100.59
+  },
+  {
+    "id": "w227",
+    "text": "because",
+    "start": 100.59,
+    "end": 100.83
+  },
+  {
+    "id": "w228",
+    "text": "it",
+    "start": 100.83,
+    "end": 100.99
+  },
+  {
+    "id": "w229",
+    "text": "was",
+    "start": 100.99,
+    "end": 101.23
+  },
+  {
+    "id": "w230",
+    "text": "uploaded.",
+    "start": 101.23,
+    "end": 102.11
+  },
+  {
+    "id": "w231",
+    "text": "Every",
+    "start": 102.11,
+    "end": 102.59
+  },
+  {
+    "id": "w232",
+    "text": "file",
+    "start": 102.59,
+    "end": 102.99
+  },
+  {
+    "id": "w233",
+    "text": "and",
+    "start": 102.99,
+    "end": 103.15
+  },
+  {
+    "id": "w234",
+    "text": "every",
+    "start": 103.15,
+    "end": 103.47
+  },
+  {
+    "id": "w235",
+    "text": "image",
+    "start": 103.47,
+    "end": 103.87
+  },
+  {
+    "id": "w236",
+    "text": "is",
+    "start": 103.87,
+    "end": 104.03
+  },
+  {
+    "id": "w237",
+    "text": "read",
+    "start": 104.03,
+    "end": 104.43
+  },
+  {
+    "id": "w238",
+    "text": "back",
+    "start": 104.43,
+    "end": 104.75
+  },
+  {
+    "id": "w239",
+    "text": "and",
+    "start": 104.75,
+    "end": 104.99
+  },
+  {
+    "id": "w240",
+    "text": "compared",
+    "start": 104.99,
+    "end": 105.55
+  },
+  {
+    "id": "w241",
+    "text": "against",
+    "start": 105.55,
+    "end": 105.79
+  },
+  {
+    "id": "w242",
+    "text": "its",
+    "start": 105.79,
+    "end": 106.03
+  },
+  {
+    "id": "w243",
+    "text": "fingerprint.",
+    "start": 106.03,
+    "end": 106.99
+  },
+  {
+    "id": "w244",
+    "text": "Only",
+    "start": 106.99,
+    "end": 107.39
+  },
+  {
+    "id": "w245",
+    "text": "when",
+    "start": 107.39,
+    "end": 107.63
+  },
+  {
+    "id": "w246",
+    "text": "everything",
+    "start": 107.63,
+    "end": 108.11
+  },
+  {
+    "id": "w247",
+    "text": "matches",
+    "start": 108.11,
+    "end": 108.67
+  },
+  {
+    "id": "w248",
+    "text": "is",
+    "start": 108.83,
+    "end": 108.99
+  },
+  {
+    "id": "w249",
+    "text": "the",
+    "start": 108.99,
+    "end": 109.15
+  },
+  {
+    "id": "w250",
+    "text": "release",
+    "start": 109.15,
+    "end": 109.63
+  },
+  {
+    "id": "w251",
+    "text": "registered",
+    "start": 109.63,
+    "end": 110.27
+  },
+  {
+    "id": "w252",
+    "text": "and",
+    "start": 110.35,
+    "end": 110.59
+  },
+  {
+    "id": "w253",
+    "text": "ready",
+    "start": 110.59,
+    "end": 110.91
+  },
+  {
+    "id": "w254",
+    "text": "to",
+    "start": 110.91,
+    "end": 111.07
+  },
+  {
+    "id": "w255",
+    "text": "run.",
+    "start": 111.07,
+    "end": 111.39
+  },
+  {
+    "id": "w256",
+    "text": "If",
+    "start": 111.74,
+    "end": 112.06
+  },
+  {
+    "id": "w257",
+    "text": "anything",
+    "start": 112.06,
+    "end": 112.46
+  },
+  {
+    "id": "w258",
+    "text": "is",
+    "start": 112.46,
+    "end": 112.7
+  },
+  {
+    "id": "w259",
+    "text": "missing",
+    "start": 112.7,
+    "end": 113.1
+  },
+  {
+    "id": "w260",
+    "text": "or",
+    "start": 113.1,
+    "end": 113.34
+  },
+  {
+    "id": "w261",
+    "text": "different,",
+    "start": 113.34,
+    "end": 113.98
+  },
+  {
+    "id": "w262",
+    "text": "the",
+    "start": 113.98,
+    "end": 114.14
+  },
+  {
+    "id": "w263",
+    "text": "release",
+    "start": 114.14,
+    "end": 114.7
+  },
+  {
+    "id": "w264",
+    "text": "stops",
+    "start": 114.7,
+    "end": 115.1
+  },
+  {
+    "id": "w265",
+    "text": "here,",
+    "start": 115.1,
+    "end": 115.5
+  },
+  {
+    "id": "w266",
+    "text": "long",
+    "start": 115.5,
+    "end": 115.82
+  },
+  {
+    "id": "w267",
+    "text": "before",
+    "start": 115.82,
+    "end": 116.14
+  },
+  {
+    "id": "w268",
+    "text": "it",
+    "start": 116.14,
+    "end": 116.3
+  },
+  {
+    "id": "w269",
+    "text": "reaches",
+    "start": 116.3,
+    "end": 116.7
+  },
+  {
+    "id": "w270",
+    "text": "a",
+    "start": 116.7,
+    "end": 116.94
+  },
+  {
+    "id": "w271",
+    "text": "run.",
+    "start": 116.94,
+    "end": 117.82
+  },
+  {
+    "id": "w272",
+    "text": "An",
+    "start": 117.82,
+    "end": 118.06
+  },
+  {
+    "id": "w273",
+    "text": "approved",
+    "start": 118.06,
+    "end": 118.7
+  },
+  {
+    "id": "w274",
+    "text": "run",
+    "start": 118.7,
+    "end": 118.86
+  },
+  {
+    "id": "w275",
+    "text": "request",
+    "start": 119.02,
+    "end": 119.34
+  },
+  {
+    "id": "w276",
+    "text": "in",
+    "start": 119.34,
+    "end": 119.5
+  },
+  {
+    "id": "w277",
+    "text": "GitLab",
+    "start": 119.5,
+    "end": 120.46
+  },
+  {
+    "id": "w278",
+    "text": "starts",
+    "start": 120.46,
+    "end": 120.86
+  },
+  {
+    "id": "w279",
+    "text": "a",
+    "start": 120.86,
+    "end": 121.02
+  },
+  {
+    "id": "w280",
+    "text": "controlled",
+    "start": 121.02,
+    "end": 121.5
+  },
+  {
+    "id": "w281",
+    "text": "run",
+    "start": 121.5,
+    "end": 121.82
+  },
+  {
+    "id": "w282",
+    "text": "with",
+    "start": 121.82,
+    "end": 121.98
+  },
+  {
+    "id": "w283",
+    "text": "its",
+    "start": 121.98,
+    "end": 122.22
+  },
+  {
+    "id": "w284",
+    "text": "own",
+    "start": 122.22,
+    "end": 122.46
+  },
+  {
+    "id": "w285",
+    "text": "unique",
+    "start": 122.46,
+    "end": 122.86
+  },
+  {
+    "id": "w286",
+    "text": "identity.",
+    "start": 122.86,
+    "end": 123.74
+  },
+  {
+    "id": "w287",
+    "text": "AWS",
+    "start": 123.74,
+    "end": 124.7
+  },
+  {
+    "id": "w288",
+    "text": "Code",
+    "start": 124.7,
+    "end": 125.02
+  },
+  {
+    "id": "w289",
+    "text": "Pipeline",
+    "start": 125.02,
+    "end": 125.66
+  },
+  {
+    "id": "w290",
+    "text": "leads",
+    "start": 125.66,
+    "end": 126.06
+  },
+  {
+    "id": "w291",
+    "text": "the",
+    "start": 126.06,
+    "end": 126.14
+  },
+  {
+    "id": "w292",
+    "text": "run",
+    "start": 126.14,
+    "end": 126.38
+  },
+  {
+    "id": "w293",
+    "text": "through",
+    "start": 126.38,
+    "end": 126.62
+  },
+  {
+    "id": "w294",
+    "text": "10",
+    "start": 126.62,
+    "end": 126.94
+  },
+  {
+    "id": "w295",
+    "text": "gated",
+    "start": 126.94,
+    "end": 127.34
+  },
+  {
+    "id": "w296",
+    "text": "stages.",
+    "start": 127.58,
+    "end": 128.38
+  },
+  {
+    "id": "w297",
+    "text": "It",
+    "start": 128.38,
+    "end": 128.62
+  },
+  {
+    "id": "w298",
+    "text": "checks",
+    "start": 128.62,
+    "end": 129.1
+  },
+  {
+    "id": "w299",
+    "text": "the",
+    "start": 129.1,
+    "end": 129.18
+  },
+  {
+    "id": "w300",
+    "text": "source,",
+    "start": 129.18,
+    "end": 129.9
+  },
+  {
+    "id": "w301",
+    "text": "the",
+    "start": 129.9,
+    "end": 130.06
+  },
+  {
+    "id": "w302",
+    "text": "release,",
+    "start": 130.06,
+    "end": 130.78
+  },
+  {
+    "id": "w303",
+    "text": "the",
+    "start": 130.78,
+    "end": 130.94
+  },
+  {
+    "id": "w304",
+    "text": "data,",
+    "start": 130.94,
+    "end": 131.58
+  },
+  {
+    "id": "w305",
+    "text": "the",
+    "start": 131.58,
+    "end": 131.74
+  },
+  {
+    "id": "w306",
+    "text": "images,",
+    "start": 131.74,
+    "end": 132.3
+  },
+  {
+    "id": "w307",
+    "text": "and",
+    "start": 132.3,
+    "end": 132.46
+  },
+  {
+    "id": "w308",
+    "text": "the",
+    "start": 132.46,
+    "end": 132.54
+  },
+  {
+    "id": "w309",
+    "text": "runtime",
+    "start": 132.54,
+    "end": 133.26
+  },
+  {
+    "id": "w310",
+    "text": "anything",
+    "start": 133.5,
+    "end": 133.9
+  },
+  {
+    "id": "w311",
+    "text": "executes,",
+    "start": 133.9,
+    "end": 134.78
+  },
+  {
+    "id": "w312",
+    "text": "then",
+    "start": 134.78,
+    "end": 135.1
+  },
+  {
+    "id": "w313",
+    "text": "validates",
+    "start": 135.1,
+    "end": 135.74
+  },
+  {
+    "id": "w314",
+    "text": "the",
+    "start": 135.74,
+    "end": 135.9
+  },
+  {
+    "id": "w315",
+    "text": "results",
+    "start": 135.9,
+    "end": 136.3
+  },
+  {
+    "id": "w316",
+    "text": "and",
+    "start": 136.38,
+    "end": 136.54
+  },
+  {
+    "id": "w317",
+    "text": "publishes",
+    "start": 136.54,
+    "end": 137.18
+  },
+  {
+    "id": "w318",
+    "text": "the",
+    "start": 137.18,
+    "end": 137.34
+  },
+  {
+    "id": "w319",
+    "text": "report.",
+    "start": 137.34,
+    "end": 138.06
+  },
+  {
+    "id": "w320",
+    "text": "Code",
+    "start": 138.06,
+    "end": 138.54
+  },
+  {
+    "id": "w321",
+    "text": "Build",
+    "start": 138.54,
+    "end": 138.86
+  },
+  {
+    "id": "w322",
+    "text": "does",
+    "start": 138.94,
+    "end": 139.18
+  },
+  {
+    "id": "w323",
+    "text": "the",
+    "start": 139.18,
+    "end": 139.26
+  },
+  {
+    "id": "w324",
+    "text": "work",
+    "start": 139.26,
+    "end": 139.42
+  },
+  {
+    "id": "w325",
+    "text": "of",
+    "start": 139.42,
+    "end": 139.58
+  },
+  {
+    "id": "w326",
+    "text": "each",
+    "start": 139.58,
+    "end": 139.9
+  },
+  {
+    "id": "w327",
+    "text": "stage.",
+    "start": 139.9,
+    "end": 140.54
+  },
+  {
+    "id": "w328",
+    "text": "An",
+    "start": 140.54,
+    "end": 140.78
+  },
+  {
+    "id": "w329",
+    "text": "AWS",
+    "start": 140.78,
+    "end": 141.66
+  },
+  {
+    "id": "w330",
+    "text": "systems",
+    "start": 141.66,
+    "end": 142.14
+  },
+  {
+    "id": "w331",
+    "text": "manager",
+    "start": 142.14,
+    "end": 142.7
+  },
+  {
+    "id": "w332",
+    "text": "sends",
+    "start": 142.7,
+    "end": 143.1
+  },
+  {
+    "id": "w333",
+    "text": "commands",
+    "start": 143.1,
+    "end": 143.58
+  },
+  {
+    "id": "w334",
+    "text": "to",
+    "start": 143.58,
+    "end": 143.74
+  },
+  {
+    "id": "w335",
+    "text": "a",
+    "start": 143.74,
+    "end": 143.9
+  },
+  {
+    "id": "w336",
+    "text": "private",
+    "start": 143.9,
+    "end": 144.3
+  },
+  {
+    "id": "w337",
+    "text": "EC2",
+    "start": 144.3,
+    "end": 145.02
+  },
+  {
+    "id": "w338",
+    "text": "host",
+    "start": 145.18,
+    "end": 145.58
+  },
+  {
+    "id": "w339",
+    "text": "with",
+    "start": 145.58,
+    "end": 145.82
+  },
+  {
+    "id": "w340",
+    "text": "no",
+    "start": 145.82,
+    "end": 146.06
+  },
+  {
+    "id": "w341",
+    "text": "internet",
+    "start": 146.06,
+    "end": 146.3
+  },
+  {
+    "id": "w342",
+    "text": "route.",
+    "start": 146.54,
+    "end": 147.26
+  },
+  {
+    "id": "w343",
+    "text": "Private",
+    "start": 147.26,
+    "end": 147.66
+  },
+  {
+    "id": "w344",
+    "text": "endpoints",
+    "start": 147.66,
+    "end": 148.38
+  },
+  {
+    "id": "w345",
+    "text": "connect",
+    "start": 148.54,
+    "end": 149.02
+  },
+  {
+    "id": "w346",
+    "text": "it",
+    "start": 149.02,
+    "end": 149.18
+  },
+  {
+    "id": "w347",
+    "text": "only",
+    "start": 149.18,
+    "end": 149.42
+  },
+  {
+    "id": "w348",
+    "text": "to",
+    "start": 149.42,
+    "end": 149.58
+  },
+  {
+    "id": "w349",
+    "text": "the",
+    "start": 149.58,
+    "end": 149.74
+  },
+  {
+    "id": "w350",
+    "text": "AWS",
+    "start": 149.74,
+    "end": 150.54
+  },
+  {
+    "id": "w351",
+    "text": "services",
+    "start": 150.54,
+    "end": 151.18
+  },
+  {
+    "id": "w352",
+    "text": "it",
+    "start": 151.18,
+    "end": 151.5
+  },
+  {
+    "id": "w353",
+    "text": "needs.",
+    "start": 151.5,
+    "end": 152.54
+  },
+  {
+    "id": "w354",
+    "text": "On",
+    "start": 152.54,
+    "end": 152.78
+  },
+  {
+    "id": "w355",
+    "text": "the",
+    "start": 152.78,
+    "end": 153.02
+  },
+  {
+    "id": "w356",
+    "text": "host,",
+    "start": 153.02,
+    "end": 153.58
+  },
+  {
+    "id": "w357",
+    "text": "the",
+    "start": 153.58,
+    "end": 153.74
+  },
+  {
+    "id": "w358",
+    "text": "bundle",
+    "start": 153.74,
+    "end": 154.14
+  },
+  {
+    "id": "w359",
+    "text": "is",
+    "start": 154.14,
+    "end": 154.3
+  },
+  {
+    "id": "w360",
+    "text": "checked",
+    "start": 154.3,
+    "end": 154.78
+  },
+  {
+    "id": "w361",
+    "text": "again",
+    "start": 154.78,
+    "end": 155.02
+  },
+  {
+    "id": "w362",
+    "text": "against",
+    "start": 155.1,
+    "end": 155.42
+  },
+  {
+    "id": "w363",
+    "text": "its",
+    "start": 155.42,
+    "end": 155.66
+  },
+  {
+    "id": "w364",
+    "text": "fingerprints.",
+    "start": 155.66,
+    "end": 156.7
+  },
+  {
+    "id": "w365",
+    "text": "The",
+    "start": 156.7,
+    "end": 156.94
+  },
+  {
+    "id": "w366",
+    "text": "exact",
+    "start": 156.94,
+    "end": 157.42
+  },
+  {
+    "id": "w367",
+    "text": "images",
+    "start": 157.42,
+    "end": 157.9
+  },
+  {
+    "id": "w368",
+    "text": "are",
+    "start": 157.9,
+    "end": 158.06
+  },
+  {
+    "id": "w369",
+    "text": "loaded",
+    "start": 158.06,
+    "end": 158.54
+  },
+  {
+    "id": "w370",
+    "text": "into",
+    "start": 158.54,
+    "end": 158.78
+  },
+  {
+    "id": "w371",
+    "text": "an",
+    "start": 158.78,
+    "end": 158.94
+  },
+  {
+    "id": "w372",
+    "text": "isolated",
+    "start": 158.94,
+    "end": 159.66
+  },
+  {
+    "id": "w373",
+    "text": "container",
+    "start": 159.66,
+    "end": 160.3
+  },
+  {
+    "id": "w374",
+    "text": "store.",
+    "start": 160.3,
+    "end": 160.94
+  },
+  {
+    "id": "w375",
+    "text": "Nextflow",
+    "start": 160.94,
+    "end": 161.66
+  },
+  {
+    "id": "w376",
+    "text": "then",
+    "start": 161.74,
+    "end": 161.98
+  },
+  {
+    "id": "w377",
+    "text": "runs",
+    "start": 161.98,
+    "end": 162.3
+  },
+  {
+    "id": "w378",
+    "text": "in",
+    "start": 162.3,
+    "end": 162.46
+  },
+  {
+    "id": "w379",
+    "text": "offline",
+    "start": 162.46,
+    "end": 163.02
+  },
+  {
+    "id": "w380",
+    "text": "mode,",
+    "start": 163.02,
+    "end": 163.58
+  },
+  {
+    "id": "w381",
+    "text": "using",
+    "start": 163.58,
+    "end": 163.98
+  },
+  {
+    "id": "w382",
+    "text": "only",
+    "start": 163.98,
+    "end": 164.22
+  },
+  {
+    "id": "w383",
+    "text": "what",
+    "start": 164.22,
+    "end": 164.38
+  },
+  {
+    "id": "w384",
+    "text": "was",
+    "start": 164.38,
+    "end": 164.62
+  },
+  {
+    "id": "w385",
+    "text": "prepared.",
+    "start": 164.62,
+    "end": 165.42
+  },
+  {
+    "id": "w386",
+    "text": "Plugin",
+    "start": 165.42,
+    "end": 165.82
+  },
+  {
+    "id": "w387",
+    "text": "downloads",
+    "start": 166.06,
+    "end": 166.62
+  },
+  {
+    "id": "w388",
+    "text": "are",
+    "start": 166.62,
+    "end": 166.78
+  },
+  {
+    "id": "w389",
+    "text": "switched",
+    "start": 166.78,
+    "end": 167.18
+  },
+  {
+    "id": "w390",
+    "text": "off,",
+    "start": 167.18,
+    "end": 167.42
+  },
+  {
+    "id": "w391",
+    "text": "task",
+    "start": 167.58,
+    "end": 168.06
+  },
+  {
+    "id": "w392",
+    "text": "containers",
+    "start": 168.06,
+    "end": 168.7
+  },
+  {
+    "id": "w393",
+    "text": "have",
+    "start": 168.7,
+    "end": 168.86
+  },
+  {
+    "id": "w394",
+    "text": "no",
+    "start": 168.86,
+    "end": 169.02
+  },
+  {
+    "id": "w395",
+    "text": "network,",
+    "start": 169.02,
+    "end": 169.66
+  },
+  {
+    "id": "w396",
+    "text": "and",
+    "start": 169.66,
+    "end": 169.9
+  },
+  {
+    "id": "w397",
+    "text": "no",
+    "start": 169.9,
+    "end": 170.06
+  },
+  {
+    "id": "w398",
+    "text": "image",
+    "start": 170.06,
+    "end": 170.38
+  },
+  {
+    "id": "w399",
+    "text": "can",
+    "start": 170.38,
+    "end": 170.54
+  },
+  {
+    "id": "w400",
+    "text": "be",
+    "start": 170.54,
+    "end": 170.7
+  },
+  {
+    "id": "w401",
+    "text": "pulled.",
+    "start": 170.7,
+    "end": 171.1
+  },
+  {
+    "id": "w402",
+    "text": "Everything",
+    "start": 171.41,
+    "end": 171.89
+  },
+  {
+    "id": "w403",
+    "text": "the",
+    "start": 171.97,
+    "end": 172.13
+  },
+  {
+    "id": "w404",
+    "text": "analysis",
+    "start": 172.13,
+    "end": 172.85
+  },
+  {
+    "id": "w405",
+    "text": "needs",
+    "start": 172.85,
+    "end": 173.17
+  },
+  {
+    "id": "w406",
+    "text": "is",
+    "start": 173.25,
+    "end": 173.49
+  },
+  {
+    "id": "w407",
+    "text": "already",
+    "start": 173.49,
+    "end": 174.05
+  },
+  {
+    "id": "w408",
+    "text": "there.",
+    "start": 174.05,
+    "end": 174.85
+  },
+  {
+    "id": "w409",
+    "text": "When",
+    "start": 174.85,
+    "end": 175.17
+  },
+  {
+    "id": "w410",
+    "text": "the",
+    "start": 175.17,
+    "end": 175.33
+  },
+  {
+    "id": "w411",
+    "text": "run",
+    "start": 175.33,
+    "end": 175.65
+  },
+  {
+    "id": "w412",
+    "text": "ends,",
+    "start": 175.65,
+    "end": 176.05
+  },
+  {
+    "id": "w413",
+    "text": "the",
+    "start": 176.05,
+    "end": 176.21
+  },
+  {
+    "id": "w414",
+    "text": "result",
+    "start": 176.21,
+    "end": 176.53
+  },
+  {
+    "id": "w415",
+    "text": "is",
+    "start": 176.53,
+    "end": 176.69
+  },
+  {
+    "id": "w416",
+    "text": "checked,",
+    "start": 176.69,
+    "end": 177.33
+  },
+  {
+    "id": "w417",
+    "text": "not",
+    "start": 177.33,
+    "end": 177.57
+  },
+  {
+    "id": "w418",
+    "text": "assumed.",
+    "start": 177.57,
+    "end": 178.37
+  },
+  {
+    "id": "w419",
+    "text": "The",
+    "start": 178.37,
+    "end": 178.53
+  },
+  {
+    "id": "w420",
+    "text": "pipeline",
+    "start": 178.53,
+    "end": 179.25
+  },
+  {
+    "id": "w421",
+    "text": "confirms",
+    "start": 179.25,
+    "end": 179.81
+  },
+  {
+    "id": "w422",
+    "text": "the",
+    "start": 179.81,
+    "end": 179.97
+  },
+  {
+    "id": "w423",
+    "text": "run",
+    "start": 179.97,
+    "end": 180.29
+  },
+  {
+    "id": "w424",
+    "text": "succeeded,",
+    "start": 180.29,
+    "end": 181.17
+  },
+  {
+    "id": "w425",
+    "text": "that",
+    "start": 181.17,
+    "end": 181.33
+  },
+  {
+    "id": "w426",
+    "text": "the",
+    "start": 181.33,
+    "end": 181.49
+  },
+  {
+    "id": "w427",
+    "text": "offline",
+    "start": 181.49,
+    "end": 182.05
+  },
+  {
+    "id": "w428",
+    "text": "controls",
+    "start": 182.05,
+    "end": 182.61
+  },
+  {
+    "id": "w429",
+    "text": "were",
+    "start": 182.61,
+    "end": 182.77
+  },
+  {
+    "id": "w430",
+    "text": "in",
+    "start": 182.77,
+    "end": 183.01
+  },
+  {
+    "id": "w431",
+    "text": "place,",
+    "start": 183.01,
+    "end": 183.49
+  },
+  {
+    "id": "w432",
+    "text": "and",
+    "start": 183.49,
+    "end": 183.65
+  },
+  {
+    "id": "w433",
+    "text": "that",
+    "start": 183.65,
+    "end": 183.89
+  },
+  {
+    "id": "w434",
+    "text": "the",
+    "start": 183.89,
+    "end": 184.05
+  },
+  {
+    "id": "w435",
+    "text": "expected",
+    "start": 184.05,
+    "end": 184.61
+  },
+  {
+    "id": "w436",
+    "text": "outputs",
+    "start": 184.61,
+    "end": 185.33
+  },
+  {
+    "id": "w437",
+    "text": "exist.",
+    "start": 185.33,
+    "end": 185.97
+  },
+  {
+    "id": "w438",
+    "text": "The",
+    "start": 185.97,
+    "end": 186.21
+  },
+  {
+    "id": "w439",
+    "text": "answer",
+    "start": 186.21,
+    "end": 186.61
+  },
+  {
+    "id": "w440",
+    "text": "is",
+    "start": 186.61,
+    "end": 186.77
+  },
+  {
+    "id": "w441",
+    "text": "a",
+    "start": 186.77,
+    "end": 186.93
+  },
+  {
+    "id": "w442",
+    "text": "clear",
+    "start": 186.93,
+    "end": 187.41
+  },
+  {
+    "id": "w443",
+    "text": "pass",
+    "start": 187.41,
+    "end": 187.73
+  },
+  {
+    "id": "w444",
+    "text": "or",
+    "start": 187.73,
+    "end": 187.97
+  },
+  {
+    "id": "w445",
+    "text": "fail,",
+    "start": 187.97,
+    "end": 188.53
+  },
+  {
+    "id": "w446",
+    "text": "with",
+    "start": 188.53,
+    "end": 188.77
+  },
+  {
+    "id": "w447",
+    "text": "an",
+    "start": 188.77,
+    "end": 188.93
+  },
+  {
+    "id": "w448",
+    "text": "evidence",
+    "start": 188.93,
+    "end": 189.41
+  },
+  {
+    "id": "w449",
+    "text": "report",
+    "start": 189.41,
+    "end": 189.73
+  },
+  {
+    "id": "w450",
+    "text": "the",
+    "start": 189.81,
+    "end": 189.97
+  },
+  {
+    "id": "w451",
+    "text": "team",
+    "start": 189.97,
+    "end": 190.29
+  },
+  {
+    "id": "w452",
+    "text": "can",
+    "start": 190.29,
+    "end": 190.45
+  },
+  {
+    "id": "w453",
+    "text": "review",
+    "start": 190.45,
+    "end": 191.25
+  },
+  {
+    "id": "w454",
+    "text": "and",
+    "start": 191.25,
+    "end": 191.49
+  },
+  {
+    "id": "w455",
+    "text": "if",
+    "start": 191.49,
+    "end": 191.73
+  },
+  {
+    "id": "w456",
+    "text": "anything",
+    "start": 191.73,
+    "end": 192.13
+  },
+  {
+    "id": "w457",
+    "text": "tries",
+    "start": 192.13,
+    "end": 192.45
+  },
+  {
+    "id": "w458",
+    "text": "to",
+    "start": 192.45,
+    "end": 192.61
+  },
+  {
+    "id": "w459",
+    "text": "reach",
+    "start": 192.61,
+    "end": 192.85
+  },
+  {
+    "id": "w460",
+    "text": "the",
+    "start": 192.85,
+    "end": 193.01
+  },
+  {
+    "id": "w461",
+    "text": "internet",
+    "start": 193.01,
+    "end": 193.25
+  },
+  {
+    "id": "w462",
+    "text": "during",
+    "start": 193.41,
+    "end": 193.65
+  },
+  {
+    "id": "w463",
+    "text": "a",
+    "start": 193.65,
+    "end": 193.81
+  },
+  {
+    "id": "w464",
+    "text": "run,",
+    "start": 193.81,
+    "end": 194.37
+  },
+  {
+    "id": "w465",
+    "text": "there",
+    "start": 194.37,
+    "end": 194.53
+  },
+  {
+    "id": "w466",
+    "text": "is",
+    "start": 194.53,
+    "end": 194.77
+  },
+  {
+    "id": "w467",
+    "text": "nowhere",
+    "start": 194.77,
+    "end": 195.25
+  },
+  {
+    "id": "w468",
+    "text": "to",
+    "start": 195.25,
+    "end": 195.49
+  },
+  {
+    "id": "w469",
+    "text": "go.",
+    "start": 195.49,
+    "end": 195.97
+  },
+  {
+    "id": "w470",
+    "text": "The",
+    "start": 195.97,
+    "end": 196.21
+  },
+  {
+    "id": "w471",
+    "text": "run",
+    "start": 196.21,
+    "end": 196.53
+  },
+  {
+    "id": "w472",
+    "text": "stops,",
+    "start": 196.61,
+    "end": 197.25
+  },
+  {
+    "id": "w473",
+    "text": "the",
+    "start": 197.25,
+    "end": 197.41
+  },
+  {
+    "id": "w474",
+    "text": "failed",
+    "start": 197.41,
+    "end": 197.89
+  },
+  {
+    "id": "w475",
+    "text": "stage",
+    "start": 197.89,
+    "end": 198.21
+  },
+  {
+    "id": "w476",
+    "text": "is",
+    "start": 198.21,
+    "end": 198.37
+  },
+  {
+    "id": "w477",
+    "text": "named,",
+    "start": 198.37,
+    "end": 198.93
+  },
+  {
+    "id": "w478",
+    "text": "and",
+    "start": 198.93,
+    "end": 199.09
+  },
+  {
+    "id": "w479",
+    "text": "the",
+    "start": 199.09,
+    "end": 199.17
+  },
+  {
+    "id": "w480",
+    "text": "result",
+    "start": 199.17,
+    "end": 199.49
+  },
+  {
+    "id": "w481",
+    "text": "is",
+    "start": 199.49,
+    "end": 199.73
+  },
+  {
+    "id": "w482",
+    "text": "fail,",
+    "start": 199.81,
+    "end": 200.53
+  },
+  {
+    "id": "w483",
+    "text": "never",
+    "start": 200.53,
+    "end": 200.85
+  },
+  {
+    "id": "w484",
+    "text": "a",
+    "start": 200.85,
+    "end": 201.01
+  },
+  {
+    "id": "w485",
+    "text": "silent",
+    "start": 201.01,
+    "end": 201.49
+  },
+  {
+    "id": "w486",
+    "text": "half",
+    "start": 201.49,
+    "end": 201.81
+  },
+  {
+    "id": "w487",
+    "text": "success.",
+    "start": 201.81,
+    "end": 203.09
+  },
+  {
+    "id": "w488",
+    "text": "So",
+    "start": 203.09,
+    "end": 203.41
+  },
+  {
+    "id": "w489",
+    "text": "the",
+    "start": 203.41,
+    "end": 203.57
+  },
+  {
+    "id": "w490",
+    "text": "journey",
+    "start": 203.57,
+    "end": 203.97
+  },
+  {
+    "id": "w491",
+    "text": "is",
+    "start": 203.97,
+    "end": 204.21
+  },
+  {
+    "id": "w492",
+    "text": "complete.",
+    "start": 204.21,
+    "end": 204.93
+  },
+  {
+    "id": "w493",
+    "text": "Hosted",
+    "start": 204.93,
+    "end": 205.49
+  },
+  {
+    "id": "w494",
+    "text": "and",
+    "start": 205.49,
+    "end": 205.65
+  },
+  {
+    "id": "w495",
+    "text": "scanned",
+    "start": 205.65,
+    "end": 206.05
+  },
+  {
+    "id": "w496",
+    "text": "in",
+    "start": 206.05,
+    "end": 206.21
+  },
+  {
+    "id": "w497",
+    "text": "GitLab,",
+    "start": 206.21,
+    "end": 207.17
+  },
+  {
+    "id": "w498",
+    "text": "prepared",
+    "start": 207.17,
+    "end": 207.65
+  },
+  {
+    "id": "w499",
+    "text": "and",
+    "start": 207.65,
+    "end": 207.81
+  },
+  {
+    "id": "w500",
+    "text": "verified",
+    "start": 207.81,
+    "end": 208.29
+  },
+  {
+    "id": "w501",
+    "text": "in",
+    "start": 208.29,
+    "end": 208.53
+  },
+  {
+    "id": "w502",
+    "text": "AWS,",
+    "start": 208.53,
+    "end": 209.65
+  },
+  {
+    "id": "w503",
+    "text": "executed",
+    "start": 209.65,
+    "end": 210.29
+  },
+  {
+    "id": "w504",
+    "text": "offline",
+    "start": 210.29,
+    "end": 210.69
+  },
+  {
+    "id": "w505",
+    "text": "and",
+    "start": 210.77,
+    "end": 211.01
+  },
+  {
+    "id": "w506",
+    "text": "backed",
+    "start": 211.01,
+    "end": 211.49
+  },
+  {
+    "id": "w507",
+    "text": "by",
+    "start": 211.49,
+    "end": 211.65
+  },
+  {
+    "id": "w508",
+    "text": "evidence.",
+    "start": 211.65,
+    "end": 212.53
+  },
+  {
+    "id": "w509",
+    "text": "Tested",
+    "start": 212.53,
+    "end": 213.09
+  },
+  {
+    "id": "w510",
+    "text": "end",
+    "start": 213.09,
+    "end": 213.41
+  },
+  {
+    "id": "w511",
+    "text": "to",
+    "start": 213.41,
+    "end": 213.57
+  },
+  {
+    "id": "w512",
+    "text": "end,",
+    "start": 213.57,
+    "end": 213.97
+  },
+  {
+    "id": "w513",
+    "text": "and",
+    "start": 213.97,
+    "end": 214.13
+  },
+  {
+    "id": "w514",
+    "text": "repeatable",
+    "start": 214.13,
+    "end": 214.85
+  },
+  {
+    "id": "w515",
+    "text": "for",
+    "start": 214.85,
+    "end": 215.01
+  },
+  {
+    "id": "w516",
+    "text": "every",
+    "start": 215.01,
+    "end": 215.33
+  },
+  {
+    "id": "w517",
+    "text": "release.",
+    "start": 215.33,
+    "end": 216.37
+  },
+  {
+    "id": "w518",
+    "text": "Prepare",
+    "start": 216.37,
+    "end": 217.01
+  },
+  {
+    "id": "w519",
+    "text": "once,",
+    "start": 217.01,
+    "end": 217.57
+  },
+  {
+    "id": "w520",
+    "text": "verify",
+    "start": 217.57,
+    "end": 218.21
+  },
+  {
+    "id": "w521",
+    "text": "everything,",
+    "start": 218.21,
+    "end": 218.85
+  },
+  {
+    "id": "w522",
+    "text": "run",
+    "start": 218.85,
+    "end": 219.01
+  },
+  {
+    "id": "w523",
+    "text": "with",
+    "start": 219.17,
+    "end": 219.41
+  },
+  {
+    "id": "w524",
+    "text": "confidence.",
+    "start": 219.41,
+    "end": 225.65
+  }
+]

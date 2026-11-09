@@ -17,7 +17,7 @@ Grouped by source repository. Styles: see [the catalog](../docs/STYLE_CATALOG.md
 
 | Film | Title | Look | Status | Original PR |
 |---|---|---|---|---|
-| [`offline-validation`](nextflow-offline/offline-validation/README.md) | Nextflow Offline — Prepare Once, Run with Confidence | cinematic-night | Delivered; listening review pending | [#31](https://github.com/amitkarpe/video-demo/pull/31) |
+| [`offline-validation`](nextflow-offline/offline-validation/README.md) | Nextflow Offline — Prepare Once, Run with Confidence | island look (revision 2); cinematic-night (revision 1) | Revision 2 in review (Kokoro voice); revision 1 delivered | [#31](https://github.com/amitkarpe/video-demo/pull/31) |
 
 ## `agentic-pentest-poc`
 

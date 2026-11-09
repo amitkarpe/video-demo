@@ -1,191 +1,455 @@
 1
-00:00:01,600 --> 00:00:05,394
-A scientific workflow depends on much more than its own code.
+00:00:01,230 --> 00:00:03,930
+A scientific workflow depends on much
 
 2
-00:00:05,744 --> 00:00:10,811
-It needs container images, plugins, reference files and input data — all of
+00:00:03,950 --> 00:00:05,290
+more than its own code.
 
 3
-00:00:10,811 --> 00:00:12,702
-them, at the moment it runs.
+00:00:05,310 --> 00:00:07,930
+It needs container images, plugins,
 
 4
-00:00:13,202 --> 00:00:19,093
-In a controlled environment with no internet, one missing piece stops the analysis.
+00:00:07,950 --> 00:00:10,090
+reference files and input data all
 
 5
-00:00:19,593 --> 00:00:24,065
-Nextflow Offline removes that risk: everything is prepared first,
+00:00:10,110 --> 00:00:11,530
+of them, at the moment it
 
 6
-00:00:24,065 --> 00:00:25,785
-then run with confidence.
+00:00:11,550 --> 00:00:12,170
+runs.
 
 7
-00:00:27,985 --> 00:00:33,251
-We'll follow one real workflow: a germline variant-calling test from nf-core Sarek,
+00:00:12,190 --> 00:00:14,250
+In a controlled environment with no
 
 8
-00:00:33,251 --> 00:00:38,453
-using a small public test dataset. One release, from preparation to proven result.
+00:00:14,270 --> 00:00:16,650
+internet, one missing piece stops the
 
 9
-00:00:39,453 --> 00:00:43,423
-Everything starts in GitLab, the single trusted home for the solution.
+00:00:16,670 --> 00:00:17,610
+analysis.
 
 10
-00:00:43,823 --> 00:00:46,651
-The workflow code lives in a GitLab repository.
+00:00:17,630 --> 00:00:20,410
+Nextflow Offline removes that risk:
 
 11
-00:00:46,651 --> 00:00:50,200
-Its container images live in the GitLab container registry.
+00:00:20,430 --> 00:00:22,730
+everything is prepared first, then run
 
 12
-00:00:50,600 --> 00:00:54,074
-The reference data and test datasets are hosted there too.
+00:00:22,750 --> 00:00:25,530
+with confidence.
 
 13
-00:00:54,474 --> 00:00:57,491
-Content is scanned for security as it arrives,
+00:00:25,550 --> 00:00:26,730
+We'll follow one
 
 14
-00:00:57,491 --> 00:01:00,507
-and the operations team reviews every finding.
+00:00:26,750 --> 00:00:28,010
+real workflow:
 
 15
-00:01:01,507 --> 00:01:04,867
-From GitLab, a GitLab Runner prepares the release.
+00:00:28,030 --> 00:00:30,650
+a germline variant-calling test from nf-core
 
 16
-00:01:04,867 --> 00:01:07,623
-The workflow code goes to AWS CodeCommit.
+00:00:30,670 --> 00:00:32,970
+Sarek, using a small public test
 
 17
-00:01:08,023 --> 00:01:14,202
-Each container image goes to private Amazon ECR, locked to its exact identity.
+00:00:32,990 --> 00:00:33,370
+dataset.
 
 18
-00:01:14,602 --> 00:01:20,704
-The workflow, plugins, references and data are packed into one bundle in Amazon S3,
+00:00:33,390 --> 00:00:36,970
+One release, from preparation to proven
 
 19
-00:01:20,704 --> 00:01:23,203
-with a fingerprint for every file.
+00:00:36,990 --> 00:00:37,770
+result.
 
 20
-00:01:23,603 --> 00:01:27,269
-Together, they form one complete, self-contained release.
+00:00:37,790 --> 00:00:39,290
+Here is the whole picture,
 
 21
-00:01:28,269 --> 00:01:31,729
-Nothing is trusted just because it was uploaded.
+00:00:39,310 --> 00:00:40,730
+as three islands.
 
 22
-00:01:31,729 --> 00:01:37,280
-Every file and every image is read back and compared against its fingerprint.
+00:00:40,750 --> 00:00:43,210
+The connected mainland, with GitLab.
 
 23
-00:01:37,680 --> 00:01:42,569
-Only when everything matches is the release registered and ready to run.
+00:00:43,230 --> 00:00:44,090
+The vault:
 
 24
-00:01:43,069 --> 00:01:47,033
-If anything is missing or different, the release stops here,
+00:00:44,110 --> 00:00:46,090
+private AWS storage.
 
 25
-00:01:47,033 --> 00:01:48,949
-long before it reaches a run.
+00:00:46,110 --> 00:00:47,610
+And the sealed island, where the
 
 26
-00:01:49,949 --> 00:01:53,414
-An approved run request in GitLab starts a controlled run with
+00:00:47,630 --> 00:00:49,450
+run happens, with no bridge to
 
 27
-00:01:53,414 --> 00:01:54,755
-its own unique identity.
+00:00:49,470 --> 00:00:50,730
+the internet.
 
 28
-00:01:55,155 --> 00:01:59,126
-AWS CodePipeline leads the run through ten gated stages.
+00:00:50,750 --> 00:00:53,370
+Everything starts in GitLab, the single
 
 29
-00:01:59,126 --> 00:02:02,246
-It checks the source, the release, the data,
+00:00:53,390 --> 00:00:55,190
+trusted home for the solution.
 
 30
-00:02:02,246 --> 00:02:05,934
-the images and the runtime before anything executes,
+00:00:55,260 --> 00:00:57,240
+The workflow code lives in a
 
 31
-00:02:05,934 --> 00:02:09,621
-then validates the results and publishes the report.
+00:00:57,260 --> 00:00:59,080
+GitLab repository.
 
 32
-00:02:10,021 --> 00:02:12,508
-CodeBuild does the work of each stage,
+00:00:59,100 --> 00:01:01,080
+Its container images live in the
 
 33
-00:02:12,508 --> 00:02:18,007
-and AWS Systems Manager sends commands to a private EC2 host with no internet route.
+00:01:01,100 --> 00:01:03,160
+GitLab container registry.
 
 34
-00:02:18,407 --> 00:02:22,684
-Private endpoints connect it only to the AWS services it needs.
+00:01:03,180 --> 00:01:05,480
+The reference data and test datasets
 
 35
-00:02:23,684 --> 00:02:27,889
-On the host, the bundle is checked again against its fingerprints.
+00:01:05,500 --> 00:01:06,840
+are hosted there too.
 
 36
-00:02:27,889 --> 00:02:31,776
-The exact images are loaded into an isolated container store.
+00:01:06,860 --> 00:01:08,920
+Content is scanned for security as
 
 37
-00:02:32,176 --> 00:02:36,614
-Nextflow then runs in offline mode, using only what was prepared.
+00:01:08,940 --> 00:01:11,320
+it arrives, and the operations team
 
 38
-00:02:37,014 --> 00:02:41,217
-Plugin downloads are switched off, task containers have no network,
+00:01:11,340 --> 00:01:13,480
+reviews every finding.
 
 39
-00:02:41,217 --> 00:02:42,911
-and no image can be pulled.
+00:01:13,500 --> 00:01:15,480
+From GitLab, a GitLab
 
 40
-00:02:43,311 --> 00:02:46,671
-Everything the analysis needs is already there.
+00:01:15,500 --> 00:01:17,000
+Runner prepares the release.
 
 41
-00:02:47,671 --> 00:02:51,101
-When the run ends, the result is checked, not assumed.
+00:01:17,020 --> 00:01:19,720
+The workflow code goes to AWS
 
 42
-00:02:51,501 --> 00:02:57,541
-The pipeline confirms the run succeeded, that the offline controls were in place,
+00:01:19,740 --> 00:01:20,360
+CodeCommit.
 
 43
-00:02:57,541 --> 00:03:00,225
-and that the expected outputs exist.
+00:01:20,380 --> 00:01:22,760
+Each container image goes to private
 
 44
-00:03:00,625 --> 00:03:05,698
-The answer is a clear PASS or FAIL, with an evidence report the team can review.
+00:01:22,780 --> 00:01:26,520
+Amazon ECR, locked to its exact
 
 45
-00:03:06,698 --> 00:03:10,977
-So the journey is complete: hosted and scanned in GitLab,
+00:01:26,540 --> 00:01:26,760
+identity.
 
 46
-00:03:10,977 --> 00:03:16,231
-prepared and verified in AWS, executed offline and backed by evidence.
+00:01:26,780 --> 00:01:29,640
+The workflow, plugins, references and data
 
 47
-00:03:16,731 --> 00:03:20,272
-Tested end to end, and repeatable for every release.
+00:01:29,660 --> 00:01:31,880
+are packed into one bundle in
 
 48
-00:03:21,072 --> 00:03:26,351
-Prepare once. Verify everything. Run with confidence.
+00:01:31,900 --> 00:01:33,720
+Amazon S3, with a fingerprint for
+
+49
+00:01:33,740 --> 00:01:34,680
+every file.
+
+50
+00:01:34,700 --> 00:01:37,640
+Together, they form one complete, self-contained
+
+51
+00:01:37,660 --> 00:01:38,840
+release.
+
+52
+00:01:38,860 --> 00:01:40,280
+Nothing is trusted
+
+53
+00:01:40,300 --> 00:01:42,040
+just because it was uploaded.
+
+54
+00:01:42,060 --> 00:01:43,960
+Every file and every image is
+
+55
+00:01:43,980 --> 00:01:45,960
+read back and compared against its
+
+56
+00:01:45,980 --> 00:01:46,920
+fingerprint.
+
+57
+00:01:46,940 --> 00:01:48,760
+Only when everything matches
+
+58
+00:01:48,780 --> 00:01:50,840
+is the release registered and ready
+
+59
+00:01:50,860 --> 00:01:51,540
+to run.
+
+60
+00:01:51,690 --> 00:01:53,910
+If anything is missing or different,
+
+61
+00:01:53,930 --> 00:01:56,070
+the release stops here, long before
+
+62
+00:01:56,090 --> 00:01:57,750
+it reaches a run.
+
+63
+00:01:57,770 --> 00:01:58,950
+An approved run
+
+64
+00:01:58,970 --> 00:02:01,430
+request in GitLab starts a controlled
+
+65
+00:02:01,450 --> 00:02:03,670
+run with its own unique identity.
+
+66
+00:02:03,690 --> 00:02:06,310
+AWS CodePipeline leads the run through
+
+67
+00:02:06,330 --> 00:02:07,490
+ten gated stages.
+
+68
+00:02:07,530 --> 00:02:09,990
+It checks the source, the release,
+
+69
+00:02:10,010 --> 00:02:12,390
+the data, the images and the
+
+70
+00:02:12,410 --> 00:02:15,670
+runtime before anything executes, then validates
+
+71
+00:02:15,690 --> 00:02:17,990
+the results and publishes the report.
+
+72
+00:02:18,010 --> 00:02:19,510
+CodeBuild does the work of each
+
+73
+00:02:19,530 --> 00:02:23,030
+stage, and AWS Systems Manager sends
+
+74
+00:02:23,050 --> 00:02:25,110
+commands to a private EC2
+
+75
+00:02:25,130 --> 00:02:26,450
+host with no internet
+
+76
+00:02:26,490 --> 00:02:27,190
+route.
+
+77
+00:02:27,210 --> 00:02:29,510
+Private endpoints connect it only to
+
+78
+00:02:29,530 --> 00:02:32,470
+the AWS services it needs.
+
+79
+00:02:32,490 --> 00:02:34,230
+On the host, the bundle is
+
+80
+00:02:34,250 --> 00:02:36,630
+checked again against its fingerprints.
+
+81
+00:02:36,650 --> 00:02:38,710
+The exact images are loaded into
+
+82
+00:02:38,730 --> 00:02:40,870
+an isolated container store.
+
+83
+00:02:40,890 --> 00:02:43,910
+Nextflow then runs in offline mode,
+
+84
+00:02:43,930 --> 00:02:45,970
+using only what was prepared.
+
+85
+00:02:46,010 --> 00:02:47,510
+Plugin downloads are switched
+
+86
+00:02:47,530 --> 00:02:49,590
+off, task containers have no network,
+
+87
+00:02:49,610 --> 00:02:51,250
+and no image can be pulled.
+
+88
+00:02:51,360 --> 00:02:53,980
+Everything the analysis needs is already
+
+89
+00:02:54,000 --> 00:02:54,780
+there.
+
+90
+00:02:54,800 --> 00:02:56,460
+When the run ends, the result
+
+91
+00:02:56,480 --> 00:02:58,300
+is checked, not assumed.
+
+92
+00:02:58,320 --> 00:03:01,100
+The pipeline confirms the run succeeded,
+
+93
+00:03:01,120 --> 00:03:02,940
+that the offline controls were in
+
+94
+00:03:02,960 --> 00:03:05,260
+place, and that the expected outputs
+
+95
+00:03:05,280 --> 00:03:05,900
+exist.
+
+96
+00:03:05,920 --> 00:03:07,660
+The answer is a clear PASS
+
+97
+00:03:07,680 --> 00:03:09,740
+or FAIL, with an evidence report
+
+98
+00:03:09,760 --> 00:03:11,180
+the team can review.
+
+99
+00:03:11,200 --> 00:03:12,780
+And if anything tries to reach
+
+100
+00:03:12,800 --> 00:03:14,300
+the internet during a run?
+
+101
+00:03:14,320 --> 00:03:15,900
+There is nowhere to go.
+
+102
+00:03:15,920 --> 00:03:18,140
+The run stops, the failed stage
+
+103
+00:03:18,160 --> 00:03:19,740
+is named, and the result is
+
+104
+00:03:19,760 --> 00:03:20,460
+FAIL.
+
+105
+00:03:20,480 --> 00:03:23,020
+Never a silent half success.
+
+106
+00:03:23,040 --> 00:03:24,860
+So the journey is complete:
+
+107
+00:03:24,880 --> 00:03:27,580
+hosted and scanned in GitLab, prepared
+
+108
+00:03:27,600 --> 00:03:30,700
+and verified in AWS, executed offline
+
+109
+00:03:30,720 --> 00:03:32,460
+and backed by evidence.
+
+110
+00:03:32,480 --> 00:03:34,780
+Tested end to end, and repeatable
+
+111
+00:03:34,800 --> 00:03:36,300
+for every release.
+
+112
+00:03:36,320 --> 00:03:37,500
+Prepare once.
+
+113
+00:03:37,520 --> 00:03:38,780
+Verify everything.
+
+114
+00:03:38,800 --> 00:03:45,800
+Run with confidence.

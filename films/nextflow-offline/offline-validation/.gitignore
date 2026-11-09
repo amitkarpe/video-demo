@@ -7,3 +7,7 @@ out/*-draft*.mp4
 out/slice*.mp4
 review/tmp/
 assets/mix-prenorm.wav
+voice/m_*.mp3
+review/voice.wav
+review/snap/
+out/*.mp4

@@ -17,6 +17,19 @@
 
 Line IDs `sNN` are in `script.json`; times are in `cues.json`.
 
+## Revision 2 (10 Nov 2026 SGT): island look, two new lines
+
+Owner intake answers (cards in the project thread): keep the island look from the ops sample, revise this film, local Kokoro voice, generic public detail (no dates, IDs or logos).
+Two lines were added, so later line IDs moved: old s06–s27 are now s07–s28, and old s28–s30 are now s30–s32. The rows below the table header keep the **old** IDs; add one (or two after s27) to find the line in the new `script.json`.
+
+| # | Claim (new in revision 2) | State | Source at the revision | Line |
+|---|---|---|---|---|
+| R1 | The whole picture as three places: a connected mainland with GitLab, a vault of private AWS storage, and a sealed island where the run happens, with no bridge to the internet | DOCUMENTED, DEMONSTRATED | `docs/validation-host.md` (subnet with no route to the internet), `docs/cloud-operations.md` §"Proof that the host is cut off" (SSM probe: public sites timed out; S3 and ECR answered through VPC endpoints) | s06 |
+| R2 | If anything tries to reach the internet during a run, there is nowhere to go; the run stops, the failed stage is named, and the result is FAIL | IMPLEMENTED (shown as ILLUSTRATIVE) | Podman `--network none --pull=never` (`scripts/ops/generate_pipeline_ecr_overrides.sh`); CodePipeline stops at the failing stage and `scripts/operator/e2e.sh` prints `RESULT=FAIL` | s29 |
+
+The on-screen stage strip uses the ten CodePipeline stage names from `infra/ops` (source, verify-source, validate-intake, check-bundle, check-data, check-images, runtime-preflight, offline-execute, validate-results, publish-report): IMPLEMENTED.
+
+
 | # | Claim (as narrated or shown) | State | Source at the revision | Line |
 |---|---|---|---|---|
 | 1 | A workflow needs container images, plugins, reference files and input data at run time | DOCUMENTED | `docs/architecture.md`; `offline/run_pipeline_e2e.sh` header (workflow, data, plugin state, image store) | s01–s02 |

@@ -3,6 +3,7 @@ It needs container images, plugins, reference files and input data — all of th
 In a controlled environment with no internet, one missing piece stops the analysis.
 Nextflow Offline removes that risk: everything is prepared first, then run with confidence.
 We'll follow one real workflow: a germline variant-calling test from nf-core Sarek, using a small public test dataset. One release, from preparation to proven result.
+Here is the whole picture, as three islands. The connected mainland, with GitLab. The vault: private AWS storage. And the sealed island, where the run happens, with no bridge to the internet.
 Everything starts in GitLab, the single trusted home for the solution.
 The workflow code lives in a GitLab repository. Its container images live in the GitLab container registry.
 The reference data and test datasets are hosted there too.
@@ -25,6 +26,7 @@ Everything the analysis needs is already there.
 When the run ends, the result is checked, not assumed.
 The pipeline confirms the run succeeded, that the offline controls were in place, and that the expected outputs exist.
 The answer is a clear PASS or FAIL, with an evidence report the team can review.
+And if anything tries to reach the internet during a run? There is nowhere to go. The run stops, the failed stage is named, and the result is FAIL. Never a silent half success.
 So the journey is complete: hosted and scanned in GitLab, prepared and verified in AWS, executed offline and backed by evidence.
 Tested end to end, and repeatable for every release.
 Prepare once. Verify everything. Run with confidence.

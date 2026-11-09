@@ -15,7 +15,7 @@ Status: INITIALIZED
 - Default look: `toy-world-3d` (accepted SSM Patch Manager film). Reuse first; no new theme unless Amit asks for one.
 - Every new film starts with `docs/VIDEO_INTAKE.md`, then a storyboard-only Phase 1 when reusing a house look.
 - Default OpenAI cap: USD 5 per film. The ledger stops at 90% of the cap.
-- Shared scripts: `toolkit/`. The three newest films (`ssm-patch`, `cis-hardening`, `offline-validation`) build byte-identically through it. Older films keep their own frozen scripts.
+- Shared scripts: `toolkit/`. `ssm-patch` and `cis-hardening` build byte-identically through it; `offline-validation` revision 2 (island look, Kokoro voice) has its own `build.py`. Older films keep their own frozen scripts.
 
 ## Active Work
 - No open PRs. Consolidation (#40) is merged; the earlier film PRs are closed as superseded, and their branches are kept.
