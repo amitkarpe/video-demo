@@ -1,0 +1,18 @@
+{
+  "originals": {
+    "voice/s06.t1": {
+      "path": "media/original/voice/s06.t1.wav",
+      "sha256": "ec5f18f739b81515040ca8ff0608f1778bb73412302319e92088605412c9644b",
+      "bytes": 470444,
+      "saved_utc": "2026-11-09T14:07:04Z",
+      "model": "gpt-realtime-2.1",
+      "voice": "marin",
+      "response_id": "resp_EiKJPNd5CpxKiFYwErqf4",
+      "format": "pcm s16le 24000 Hz mono as returned; WAV header only"
+    }
+  },
+  "selected": {
+    "voice/s06": "t1"
+  },
+  "derivations": {}
+}

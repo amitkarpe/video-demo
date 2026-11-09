@@ -1,0 +1,7 @@
+.venv/
+.hyperframes/
+__pycache__/
+phase1/_snap/
+phase1/*/lib/
+phase1/*/world.js
+phase1/*/.hyperframes/

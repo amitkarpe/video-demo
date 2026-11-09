@@ -1,0 +1,39 @@
+{
+  "cap_usd": 50.0,
+  "entries": [
+    {
+      "t": "2026-11-09T14:06:57Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s06",
+      "reserved_usd": 0.05608,
+      "status": "ACK",
+      "cost_usd": 0.014456,
+      "usage": {
+        "total_tokens": 379,
+        "input_tokens": 124,
+        "output_tokens": 255,
+        "input_token_details": {
+          "text_tokens": 124,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 59,
+          "audio_tokens": 196,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKJPNd5CpxKiFYwErqf4",
+      "output": "media/original/voice/s06.t1.wav"
+    }
+  ],
+  "committed_usd": 0.014456
+}
