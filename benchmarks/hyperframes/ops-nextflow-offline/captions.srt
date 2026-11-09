@@ -1,0 +1,123 @@
+1
+00:00:00,350 --> 00:00:01,560
+Eight a.m.
+
+2
+00:00:01,710 --> 00:00:03,770
+A message from the research team.
+
+3
+00:00:03,790 --> 00:00:06,090
+Was last night's run really offline?
+
+4
+00:00:06,110 --> 00:00:08,170
+And can we trust the result?
+
+5
+00:00:08,190 --> 00:00:09,930
+Here is the whole picture.
+
+6
+00:00:09,950 --> 00:00:12,410
+On the connected side, GitLab prepares
+
+7
+00:00:12,430 --> 00:00:14,090
+everything the workflow needs.
+
+8
+00:00:14,110 --> 00:00:14,840
+Once.
+
+9
+00:00:14,910 --> 00:00:16,330
+It lands in private
+
+10
+00:00:16,350 --> 00:00:18,010
+AWS storage.
+
+11
+00:00:18,030 --> 00:00:20,010
+Every file is fingerprinted.
+
+12
+00:00:20,030 --> 00:00:22,250
+Every container image is locked to
+
+13
+00:00:22,270 --> 00:00:23,850
+its exact identity.
+
+14
+00:00:23,870 --> 00:00:25,690
+Then the run happens here, on
+
+15
+00:00:25,710 --> 00:00:27,370
+a host with no route to
+
+16
+00:00:27,390 --> 00:00:28,410
+the internet.
+
+17
+00:00:28,430 --> 00:00:31,050
+Only private AWS endpoints can reach
+
+18
+00:00:31,070 --> 00:00:31,720
+it.
+
+19
+00:00:31,790 --> 00:00:33,130
+So what if a task tries
+
+20
+00:00:33,150 --> 00:00:33,930
+to reach out?
+
+21
+00:00:33,950 --> 00:00:35,290
+There is nowhere to go.
+
+22
+00:00:35,310 --> 00:00:36,890
+The run stops at stage eight,
+
+23
+00:00:36,910 --> 00:00:38,090
+and says FAIL.
+
+24
+00:00:38,110 --> 00:00:38,970
+Loudly.
+
+25
+00:00:38,990 --> 00:00:40,650
+Never silently.
+
+26
+00:00:40,670 --> 00:00:41,530
+And when you see
+
+27
+00:00:41,550 --> 00:00:43,450
+PASS, all ten checks passed,
+
+28
+00:00:43,470 --> 00:00:44,970
+offline, with evidence.
+
+29
+00:00:44,990 --> 00:00:46,810
+So you can tell the researcher:
+
+30
+00:00:46,830 --> 00:00:47,370
+yes.
+
+31
+00:00:47,390 --> 00:00:48,440
+Here is the proof.

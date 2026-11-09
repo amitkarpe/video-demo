@@ -1,0 +1,47 @@
+{
+ "duration": 52.0,
+ "lines": [
+  {
+   "id": "l1",
+   "beat": "hook",
+   "start": 0.6,
+   "dur": 7.104,
+   "text": "Eight a.m. A message from the research team. Was last night's run really offline? And can we trust the result?"
+  },
+  {
+   "id": "l2",
+   "beat": "picture",
+   "start": 8.5,
+   "dur": 6.208,
+   "text": "Here is the whole picture. On the connected side, GitLab prepares everything the workflow needs. Once."
+  },
+  {
+   "id": "l3",
+   "beat": "vault",
+   "start": 15.2,
+   "dur": 8.448,
+   "text": "It lands in private AWS storage. Every file is fingerprinted. Every container image is locked to its exact identity."
+  },
+  {
+   "id": "l4",
+   "beat": "island",
+   "start": 24.15,
+   "dur": 7.019,
+   "text": "Then the run happens here, on a host with no route to the internet. Only private AWS endpoints can reach it."
+  },
+  {
+   "id": "l5",
+   "beat": "drill",
+   "start": 32.1,
+   "dur": 8.0,
+   "text": "So what if a task tries to reach out? There is nowhere to go. The run stops at stage eight, and says FAIL. Loudly. Never silently."
+  },
+  {
+   "id": "l6",
+   "beat": "payoff",
+   "start": 41.0,
+   "dur": 7.445,
+   "text": "And when you see PASS, all ten checks passed, offline, with evidence. So you can tell the researcher: yes. Here is the proof."
+  }
+ ]
+}

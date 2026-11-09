@@ -1,0 +1,12 @@
+{
+  "title": "Your shift with Nextflow Offline (45 s sample)",
+  "voice": {"sample": "kokoro af_heart (local)", "final": "OpenAI gpt-realtime voice marin (Mac)"},
+  "lines": [
+    {"id": "l1", "beat": "hook",    "text": "Eight a.m. A message from the research team. Was last night's run really offline? And can we trust the result?"},
+    {"id": "l2", "beat": "picture", "text": "Here is the whole picture. On the connected side, GitLab prepares everything the workflow needs. Once."},
+    {"id": "l3", "beat": "vault",   "text": "It lands in private AWS storage. Every file is fingerprinted. Every container image is locked to its exact identity."},
+    {"id": "l4", "beat": "island",  "text": "Then the run happens here, on a host with no route to the internet. Only private AWS endpoints can reach it."},
+    {"id": "l5", "beat": "drill",   "text": "So what if a task tries to reach out? There is nowhere to go. The run stops at stage eight, and says FAIL. Loudly. Never silently."},
+    {"id": "l6", "beat": "payoff",  "text": "And when you see PASS, all ten checks passed, offline, with evidence. So you can tell the researcher: yes. Here is the proof."}
+  ]
+}

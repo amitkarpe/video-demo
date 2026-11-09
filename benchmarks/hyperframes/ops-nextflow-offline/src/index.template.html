@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920,height=1080">
+<title>Your shift with Nextflow Offline (sample)</title>
+<script src="assets/lib/gsap.min.js"></script>
+<script src="assets/lib/three.min.js"></script>
+<style>
+@font-face{font-family:"InterF";font-weight:500;src:url(assets/fonts/Inter-Medium.otf)}
+@font-face{font-family:"InterF";font-weight:600;src:url(assets/fonts/Inter-SemiBold.otf)}
+@font-face{font-family:"InterF";font-weight:700;src:url(assets/fonts/Inter-Bold.otf)}
+@font-face{font-family:"InterF";font-weight:800;src:url(assets/fonts/Inter-ExtraBold.otf)}
+@font-face{font-family:"InterF";font-weight:900;src:url(assets/fonts/Inter-Black.otf)}
+@font-face{font-family:"MonoF";font-weight:700;src:url(assets/fonts/JetBrainsMono-Bold.ttf)}
+:root{
+  --ink:#0f1a2a; --dim:#4a5a72; --card:#ffffff; --line:#d7e1ec;
+  --gl:#fc6d26; --s3:#7aa116; --ecr:#ed7100; --teal:#0fa89a; --red:#e2364b; --amber:#f2a516; --ok:#17a35a;
+  --sans:"InterF","Inter",Arial,sans-serif; --mono:"MonoF","JetBrains Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#cfe9f5}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;font-family:var(--sans);color:var(--ink);
+  background:linear-gradient(180deg,#8fcbea 0%,#bfe2f2 42%,#e6f4f8 62%,#e6f4f8 100%)}
+#gl{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#wash{position:absolute;inset:0;background:#f6efe4;opacity:0}
+.abs{position:absolute}
+/* world labels (positioned from 3D each frame) */
+.wl{position:absolute;left:0;top:0;opacity:0;display:flex;align-items:center;gap:14px;padding:12px 20px 12px 14px;background:#fffffff2;
+  border-radius:16px;border:2px solid var(--line);border-left:8px solid var(--c,#0fa89a);box-shadow:0 14px 34px #0b223d33;white-space:nowrap}
+.wl img{width:52px;height:52px;flex:none;border-radius:10px}
+.wl .t{font:800 30px/1.1 var(--sans)}
+.wl .s{font:600 22px/1.2 var(--sans);color:var(--dim);margin-top:3px}
+.wl .m{font:700 19px var(--mono);color:var(--c);margin-top:5px;letter-spacing:.5px}
+.wl.bad{border-color:#f3c2c8;border-left-color:var(--red);background:#fff5f6f5}
+/* badge */
+.badge{position:absolute;right:44px;top:40px;padding:9px 16px;border-radius:999px;font:800 19px var(--mono);letter-spacing:1.4px;opacity:0;white-space:nowrap}
+.b-ill{background:#ffffffe6;border:2px dashed #6d7c95;color:#3d4a60}
+.b-imp{background:#e8f7ef;border:2px solid var(--ok);color:#0d6b3a}
+.b-dat{background:#fff6e1;border:2px solid var(--amber);color:#7a5200}
+/* hook chat */
+#chat{position:absolute;left:520px;top:250px;width:880px;padding:34px 40px 36px;border-radius:30px;background:#fff;box-shadow:0 30px 80px #0b223d40;opacity:0}
+#chat .who{display:flex;align-items:center;gap:18px}
+#chat .av{width:66px;height:66px;border-radius:50%;background:linear-gradient(135deg,#6ea8ff,#8e7dff);color:#fff;font:800 28px var(--sans);display:flex;align-items:center;justify-content:center}
+#chat .nm{font:800 30px var(--sans)} #chat .rl{font:600 22px var(--sans);color:var(--dim)}
+#chat .tm{margin-left:auto;font:700 22px var(--mono);color:var(--dim)}
+#chat .q{margin-top:26px;font:700 46px/1.25 var(--sans);letter-spacing:-.4px;min-height:116px}
+#chat .q span{opacity:0}
+#dots{position:absolute;left:40px;top:150px;display:flex;gap:10px;height:20px}
+#dots i{width:16px;height:16px;border-radius:50%;background:#9aa8bd;display:block}
+#reply{margin-top:22px;margin-left:120px;padding:22px 28px;border-radius:24px 24px 6px 24px;background:#e7f8ef;border:2px solid #9fdcb9;opacity:0}
+#reply .r1{font:800 36px var(--sans);color:#0d6b3a}
+#reply .r2{margin-top:12px;display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:12px;background:#fff;border:2px solid #cfe7da;font:700 21px var(--mono);color:#24543b}
+/* question pin */
+#pin{position:absolute;left:44px;top:40px;display:flex;align-items:center;gap:12px;padding:12px 20px;border-radius:16px;background:#ffffffee;box-shadow:0 10px 26px #0b223d26;opacity:0;font:700 24px var(--sans)}
+#pin b{font:800 20px var(--mono);color:#fff;background:#6e86ff;border-radius:8px;padding:4px 9px}
+#pin.ans b{background:var(--ok)}
+/* chapter */
+.chap{position:absolute;left:44px;top:108px;opacity:0;font:800 22px var(--mono);letter-spacing:3px;color:#22405f;background:#ffffffcc;padding:8px 14px;border-radius:10px}
+/* stage rail */
+#rail{position:absolute;left:110px;top:752px;width:1700px;height:150px;opacity:0;padding:18px 22px;border-radius:24px;background:#ffffffee;box-shadow:0 20px 50px #0b223d33}
+#rail .cap{font:800 20px var(--mono);letter-spacing:2px;color:#4a5a72}
+#rail .row{position:absolute;left:22px;top:54px;display:flex;gap:10px}
+.st{width:156px;height:76px;border-radius:14px;background:#f1f4f8;border:2px solid #d7e1ec;text-align:center;padding-top:8px}
+.st b{display:block;font:800 20px var(--mono);color:#7d8aa0}
+.st span{display:block;font:700 17px/1.1 var(--sans);color:#2b3a52;margin-top:4px}
+#res{position:absolute;right:120px;top:612px;padding:16px 30px;border-radius:18px;font:900 54px var(--mono);letter-spacing:1px;opacity:0;box-shadow:0 18px 44px #0b223d40}
+#res.f{background:var(--red);color:#fff} #res.p{background:var(--ok);color:#fff}
+/* evidence */
+#ev{position:absolute;right:70px;top:150px;width:640px;padding:28px 32px;border-radius:26px;background:#fff;box-shadow:0 26px 70px #0b223d40;opacity:0}
+#ev .h{font:900 34px var(--sans)} #ev .sub{font:600 21px var(--sans);color:var(--dim);margin-top:4px}
+#ev .it{display:flex;align-items:center;gap:16px;margin-top:20px;font:700 26px/1.2 var(--sans);opacity:0}
+#ev .it i{width:40px;height:40px;flex:none;border-radius:50%;background:var(--ok);color:#fff;font:900 24px var(--sans);font-style:normal;display:flex;align-items:center;justify-content:center}
+#ev .it small{display:block;font:700 18px var(--mono);color:var(--dim);margin-top:2px}
+/* end */
+#end{position:absolute;inset:0;opacity:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#fbf7f0ee}
+#end .k{font:800 26px var(--mono);letter-spacing:4px;color:var(--teal)}
+#end .t{font:900 96px/1.05 var(--sans);letter-spacing:-2px;margin-top:20px}
+#end .t em{font-style:normal;color:var(--teal)}
+#end .f{font:600 24px var(--sans);color:var(--dim);margin-top:34px}
+/* captions */
+#caps{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none}
+.cg{position:absolute;left:0;width:1920px;bottom:56px;text-align:center;opacity:0;visibility:hidden}
+.cg span{display:inline-block;padding:10px 26px;border-radius:14px;background:#0f1a2acc;color:#fff;font:700 44px/1.25 var(--sans);letter-spacing:-.2px}
+</style>
+</head>
+<body>
+<div id="stage" class="clip" data-composition-id="main" data-start="0" data-duration="__DUR__" data-width="1920" data-height="1080" data-track-index="0">
+  <canvas id="gl" width="1920" height="1080"></canvas>
+  <div id="wash"></div>
+
+  <div id="labels">
+    <div class="wl" id="L-net" style="--c:#7d8aa0"><div><div class="t">The internet</div><div class="s">Connected side</div></div></div>
+    <div class="wl" id="L-gl" style="--c:var(--gl)"><img src="assets/icons/gitlab-tile.svg"><div><div class="t">GitLab Runner</div><div class="s">Prepares the release once</div></div></div>
+    <div class="wl" id="L-s3" style="--c:var(--s3)"><img src="assets/icons/s3.svg"><div><div class="t">Amazon S3</div><div class="s">Bundle: workflow, plugins, data</div><div class="m">SHA-256 for every file ✓</div></div></div>
+    <div class="wl" id="L-ecr" style="--c:var(--ecr)"><img src="assets/icons/ecr.svg"><div><div class="t">Amazon ECR (private)</div><div class="s">Container images</div><div class="m">locked by digest  sha256:…</div></div></div>
+    <div class="wl" id="L-host" style="--c:var(--teal)"><img src="assets/icons/ec2.svg"><div><div class="t">Runtime host</div><div class="s">Private subnet, no internet route</div></div></div>
+    <div class="wl bad" id="L-noroute"><div><div class="t" style="color:var(--red)">✕  No route to the internet</div><div class="s">No NAT, no internet gateway, no public IP</div></div></div>
+    <div class="wl" id="L-pipe" style="--c:var(--teal)"><img src="assets/icons/link.svg"><div><div class="t">Private AWS endpoints</div><div class="s">S3, ECR and SSM only</div></div></div>
+    <div class="wl" id="L-pod" style="--c:#892ca0"><div><div class="t">Podman task</div><div class="m" style="color:#892ca0">--network none  --pull=never</div></div></div>
+    <div class="wl bad" id="L-block"><div><div class="t" style="color:var(--red)">Blocked</div><div class="s">There is nowhere to go</div></div></div>
+  </div>
+
+  <div id="pin"><b>Q</b><span id="pinT">Was last night's run really offline?</span></div>
+  <div class="chap" id="C1">WHERE IT COMES FROM</div>
+  <div class="chap" id="C2">WHERE IT RUNS</div>
+  <div class="chap" id="C3">FAILURE DRILL</div>
+  <div class="chap" id="C4">WHAT PASS MEANS</div>
+
+  <div class="badge b-ill" id="B1">ILLUSTRATIVE</div>
+  <div class="badge b-imp" id="B2">IMPLEMENTED</div>
+  <div class="badge b-dat" id="B3">DATED EVIDENCE · 5 NOV 2026 SGT</div>
+  <div class="badge b-ill" id="B4">FAILURE DRILL · ILLUSTRATIVE</div>
+  <div class="badge b-dat" id="B5">DATED EVIDENCE · SAREK PASS 3 NOV 2026 SGT</div>
+
+  <div id="chat">
+    <div class="who"><div class="av">RT</div><div><div class="nm">Research team</div><div class="rl">Genomics study</div></div><div class="tm">08:00 SGT</div></div>
+    <div id="dots"><i></i><i></i><i></i></div>
+    <div class="q" id="q">__QWORDS__</div>
+    <div id="reply"><div class="r1">Yes. Offline, verified. Here is the proof.</div><div class="r2">📎 execution_report.html · RESULT=PASS</div></div>
+  </div>
+
+  <div id="rail"><div class="cap">CODEPIPELINE · 10 CHECKS FOR EVERY RUN</div><div class="row">__STAGES__</div></div>
+  <div id="res" class="f">RESULT=FAIL</div>
+
+  <div id="ev">
+    <div class="h">The evidence you can show</div>
+    <div class="sub">Kept with every run</div>
+    <div class="it" id="E1"><i>✓</i><div>Run report from the sealed host<small>results/pipeline_info/execution_report_*.html</small></div></div>
+    <div class="it" id="E2"><i>✓</i><div>Every image matched by digest<small>private ECR, never the internet</small></div></div>
+    <div class="it" id="E3"><i>✓</i><div>Every bundle file matched its SHA-256<small>Amazon S3</small></div></div>
+    <div class="it" id="E4"><i>✓</i><div>Host had no internet route<small>probe, 5 Nov 2026 SGT</small></div></div>
+  </div>
+
+  <div id="end">
+    <div class="k">NEXTFLOW OFFLINE</div>
+    <div class="t">Prepare once.<br>Run sealed. <em>Prove it.</em></div>
+    <div class="f">Offline emulation in a private AWS DEV account, not a physical air gap. Sample cut: local voice, final voice on the Mac.</div>
+  </div>
+
+  <div id="caps" data-track-kind="captions">__CAPTIONS__</div>
+  <audio id="mix" class="clip" data-start="0" data-duration="__DUR__" data-track-index="20" src="assets/mix.wav"></audio>
+</div>
+
+<script>
+/* ---------- timing data from build.py ---------- */
+const DUR = __DUR__;
+const CAPS = __CAPJSON__;
+const QW = __QJSON__;
+
+/* ---------- helpers (pure functions of t) ---------- */
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
+const ss=(a,b,x)=>{const k=clamp((x-a)/(b-a),0,1);return k*k*(3-2*k)};
+const win=(t,a,b,f=.35)=>ss(a,a+f,t)*(1-ss(b-f,b,t));
+function mulberry(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let r=Math.imul(s^s>>>15,1|s);r=r+Math.imul(r^r>>>7,61|r)^r;return((r^r>>>14)>>>0)/4294967296}}
+const R=mulberry(11);
+
+/* ---------- three.js world ---------- */
+const W=1920,H=1080;
+const renderer=new THREE.WebGLRenderer({canvas:document.getElementById('gl'),antialias:true,alpha:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(1);renderer.setSize(W,H,false);renderer.setClearColor(0x000000,0);
+renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+const scene=new THREE.Scene();
+scene.fog=new THREE.Fog(0xe0f1f8,190,460);
+const cam=new THREE.PerspectiveCamera(38,W/H,0.5,1200);
+scene.add(new THREE.HemisphereLight(0xffffff,0x7fb3c4,0.62));
+const sun=new THREE.DirectionalLight(0xfff0d8,0.95);sun.position.set(-70,140,90);sun.castShadow=true;
+sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-120,right:120,top:90,bottom:-90,near:20,far:380});sun.shadow.bias=-0.0006;
+scene.add(sun);scene.add(new THREE.AmbientLight(0xffffff,0.18));
+
+const M=(c,o={})=>new THREE.MeshStandardMaterial(Object.assign({color:c,flatShading:true,roughness:.92,metalness:0},o));
+function add(geo,mat,x,y,z,parent=scene){const m=new THREE.Mesh(geo,mat);m.position.set(x,y,z);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m}
+
+/* sea, floor */
+const seaGeo=new THREE.PlaneGeometry(700,700,90,90);seaGeo.rotateX(-Math.PI/2);
+const seaBase=seaGeo.attributes.position.array.slice();
+const sea=new THREE.Mesh(seaGeo,M(0x2e93bd,{transparent:true,opacity:.74,roughness:.5}));sea.receiveShadow=true;scene.add(sea);
+add(new THREE.PlaneGeometry(700,700).rotateX(-Math.PI/2),M(0x7fb0b0),0,-8,0);
+
+/* islands */
+function island(x,z,r,top,side,seg){
+  const g=new THREE.Group();g.position.set(x,0,z);scene.add(g);
+  add(new THREE.CylinderGeometry(r*1.02,r*1.18,10,seg),M(side),0,-4.2,0,g);
+  add(new THREE.CylinderGeometry(r*0.9,r*1.0,1.4,seg),M(top),0,1.5,0,g);
+  for(let i=0;i<seg+3;i++){const a=i/(seg+3)*Math.PI*2+R()*.4,d=r*(1.05+R()*.12);
+    add(new THREE.DodecahedronGeometry(1.2+R()*1.6,0),M(0xb9b0a0),Math.cos(a)*d,-.2,Math.sin(a)*d,g).rotation.set(R()*3,R()*3,0)}
+  return g}
+const TOP=2.2;
+const MAIN={x:-62,z:6}, VAULT={x:0,z:-16}, ISLE={x:60,z:8};
+const gMain=island(MAIN.x,MAIN.z,30,0x8ccf6a,0xe8d39c,9);
+const gVault=island(VAULT.x,VAULT.z,17,0xc3ccd6,0x9aa6b3,7);
+const gIsle=island(ISLE.x,ISLE.z,22,0x86cc66,0xe8d39c,8);
+
+function tree(g,x,z,s=1){add(new THREE.CylinderGeometry(.35*s,.45*s,1.6*s,5),M(0x8a5a35),x,TOP+.8*s,z,g);
+  add(new THREE.ConeGeometry(1.7*s,4.2*s,6),M(0x3f9b52),x,TOP+3.4*s,z,g)}
+[[-18,-12],[-22,4],[-10,-20],[14,-18],[20,-8],[-24,-4],[8,20],[-6,22],[22,10],[-15,15]].forEach(([x,z])=>tree(gMain,x,z,.9+R()*.5));
+[[-14,-10],[15,-12],[-16,8],[13,12],[0,-17],[3,17]].forEach(([x,z])=>tree(gIsle,x,z,.8+R()*.4));
+/* town on the mainland */
+[[-6,-14,0xf3e3c3],[2,-18,0xdfe8f2],[-14,-2,0xf1d8d0],[6,-8,0xe9efd8]].forEach(([x,z,c])=>{const h=3+R()*4;
+  add(new THREE.BoxGeometry(4,h,4),M(c),x,TOP+h/2,z,gMain);add(new THREE.ConeGeometry(3.2,2,4).rotateY(Math.PI/4),M(0xb5644a),x,TOP+h+1,z,gMain)});
+/* internet tower */
+const TW={x:MAIN.x-14,z:MAIN.z-12};
+add(new THREE.CylinderGeometry(.5,2.6,26,4,8,true),M(0xd84a3a,{wireframe:true}),TW.x,TOP+13,TW.z);
+add(new THREE.SphereGeometry(.9,10,8),M(0xff4b3a,{emissive:0xff2a1a,emissiveIntensity:.6}),TW.x,TOP+26.4,TW.z);
+const rings=[0,1,2].map(()=>{const m=new THREE.Mesh(new THREE.TorusGeometry(1,.14,6,40),new THREE.MeshBasicMaterial({color:0xff6a4a,transparent:true}));m.rotation.x=Math.PI/2;m.position.set(TW.x,TOP+26.4,TW.z);scene.add(m);return m});
+/* GitLab workshop */
+const WS={x:MAIN.x+14,z:MAIN.z+6};
+add(new THREE.BoxGeometry(12,6,9),M(0xf6f1e8),WS.x,TOP+3,WS.z);
+add(new THREE.ConeGeometry(8.6,4,4).rotateY(Math.PI/4),M(0xfc6d26),WS.x,TOP+8,WS.z);
+add(new THREE.BoxGeometry(3.2,4,.3),M(0x6b3d22),WS.x+2,TOP+2,WS.z+4.6);
+/* dock */
+add(new THREE.BoxGeometry(10,.6,3),M(0xa77a4f),WS.x+19,.9,WS.z+8);
+
+/* vault: S3 silo + ECR shelf */
+const S3P={x:VAULT.x-6,z:VAULT.z-2}, ECRP={x:VAULT.x+7,z:VAULT.z+1};
+const silo=add(new THREE.CylinderGeometry(3.6,3.6,10,12),M(0x7aa116),S3P.x,TOP+5,S3P.z);
+add(new THREE.SphereGeometry(3.6,12,6,0,Math.PI*2,0,Math.PI/2),M(0x8fbf2a),S3P.x,TOP+10,S3P.z);
+[3,6.5].forEach(h=>add(new THREE.CylinderGeometry(3.75,3.75,.5,12),M(0x5f7f10),S3P.x,TOP+h,S3P.z));
+const siloRing=new THREE.Mesh(new THREE.TorusGeometry(5.2,.22,6,48),new THREE.MeshBasicMaterial({color:0x2fd06b,transparent:true,opacity:0}));
+siloRing.rotation.x=Math.PI/2;siloRing.position.set(S3P.x,TOP+5,S3P.z);scene.add(siloRing);
+[[-4.5,-1.6],[4.5,-1.6],[-4.5,1.6],[4.5,1.6]].forEach(([x,z])=>add(new THREE.BoxGeometry(.5,8,.5),M(0x5b6675),ECRP.x+x,TOP+4,ECRP.z+z));
+[.4,3.6,6.8].forEach(h=>add(new THREE.BoxGeometry(9.6,.4,3.6),M(0x707c8c),ECRP.x,TOP+h,ECRP.z));
+const slots=[];[[3.6,-3],[3.6,0],[3.6,3],[6.8,-3],[6.8,0],[6.8,3],[.4,-3],[.4,0],[.4,3]].forEach(([h,x])=>slots.push(new THREE.Vector3(ECRP.x+x,TOP+h+1.3,ECRP.z)));
+const imgs=slots.slice(0,6).map(()=>add(new THREE.BoxGeometry(2.2,2.2,2.2),M(0xed7100,{emissive:0x000000}),0,-50,0));
+/* vault dock */
+add(new THREE.BoxGeometry(3,.6,9),M(0xa77a4f),VAULT.x-10,.9,VAULT.z+14);
+
+/* sealed island: dome + host + podman */
+const DOME={x:ISLE.x,y:TOP,z:ISLE.z,r:14};
+const domeMat=new THREE.MeshStandardMaterial({color:0xcdefff,transparent:true,opacity:.22,roughness:.1,metalness:.1,emissive:0x000000,side:THREE.DoubleSide,depthWrite:false});
+const domeGeo=new THREE.IcosahedronGeometry(DOME.r,2);
+const dome=new THREE.Mesh(domeGeo,domeMat);dome.position.set(DOME.x,DOME.y,DOME.z);scene.add(dome);
+const edges=new THREE.LineSegments(new THREE.EdgesGeometry(domeGeo),new THREE.LineBasicMaterial({color:0x7fc6e6,transparent:true,opacity:.55}));
+edges.position.copy(dome.position);scene.add(edges);
+add(new THREE.CylinderGeometry(DOME.r+.4,DOME.r+.6,1,24),M(0xe9eef3),DOME.x,TOP+.2,DOME.z);
+const HOST={x:ISLE.x-1,z:ISLE.z};
+add(new THREE.BoxGeometry(7,4.4,4),M(0x2b3442),HOST.x,TOP+2.2+.5,HOST.z);
+const leds=add(new THREE.BoxGeometry(5.2,.35,.1),new THREE.MeshBasicMaterial({color:0x34e08a}),HOST.x,TOP+3.4,HOST.z+2.06);
+add(new THREE.BoxGeometry(5.2,.35,.1),new THREE.MeshBasicMaterial({color:0x34e08a}),HOST.x,TOP+2.2,HOST.z+2.06);
+const pods=[[6,-1.5],[6,1.8],[8.4,0]].map(([x,z])=>add(new THREE.BoxGeometry(2,1.8,2),M(0x892ca0),HOST.x+x,TOP+1.4,HOST.z+z));
+
+/* private pipe (under water) */
+const pipeCurve=new THREE.CatmullRomCurve3([new THREE.Vector3(VAULT.x+12,-.9,VAULT.z+4),new THREE.Vector3(22,-1.3,-6),new THREE.Vector3(38,-1.3,2),new THREE.Vector3(ISLE.x-18,-.9,ISLE.z-2)]);
+const pipeMat=M(0x1aa9a0,{emissive:0x0a6f68,emissiveIntensity:0,roughness:.5});
+add(new THREE.TubeGeometry(pipeCurve,80,.9,10),pipeMat,0,0,0);
+const pulses=[0,1,2,3,4].map(()=>{const m=new THREE.Mesh(new THREE.SphereGeometry(1.15,10,8),new THREE.MeshBasicMaterial({color:0xb8fff6,transparent:true,opacity:0,depthTest:false}));scene.add(m);return m});
+
+/* boat + crate + pieces */
+const boat=new THREE.Group();scene.add(boat);
+add(new THREE.BoxGeometry(7,1.6,3.4),M(0xf4f4f0),0,.4,0,boat);add(new THREE.BoxGeometry(7.4,.5,3.8),M(0x2f6fb0),0,-.3,0,boat);
+const crate=new THREE.Group();scene.add(crate);
+const crateMat=M(0xc98d4b,{emissive:0x000000});
+add(new THREE.BoxGeometry(3.2,2.6,3.2),crateMat,0,0,0,crate);
+add(new THREE.BoxGeometry(3.3,.45,3.3),M(0xffc933,{emissive:0x5a3c00,emissiveIntensity:.3}),0,.2,0,crate);
+const pieces=[0x3b7ddd,0xed7100,0x7aa116].map(c=>add(new THREE.BoxGeometry(1.1,1.1,1.1),M(c),0,-50,0));
+
+/* no-route arc */
+const arcPts=[];const A0=new THREE.Vector3(DOME.x,DOME.y+DOME.r,DOME.z),A1=new THREE.Vector3(TW.x,TOP+26.4,TW.z);
+for(let i=0;i<=120;i++){const u=i/120;const p=A0.clone().lerp(A1,u);p.y+=Math.sin(u*Math.PI)*26;arcPts.push(p)}
+const arcGeo=new THREE.BufferGeometry().setFromPoints(arcPts);
+const arc=new THREE.Line(arcGeo,new THREE.LineDashedMaterial({color:0xe2364b,dashSize:2.2,gapSize:1.6,transparent:true,opacity:0}));arc.computeLineDistances();scene.add(arc);
+
+/* failure packet + shards */
+const pkDir=new THREE.Vector3(TW.x-HOST.x,8,TW.z-HOST.z).normalize();
+const pk=new THREE.Mesh(new THREE.IcosahedronGeometry(.9,0),new THREE.MeshBasicMaterial({color:0xe2364b}));scene.add(pk);
+const pk0=new THREE.Vector3(HOST.x,TOP+4.6,HOST.z);
+const hit=pk0.clone().add(pkDir.clone().multiplyScalar(DOME.r-1.6));
+const shards=[...Array(9)].map((_,i)=>{const m=new THREE.Mesh(new THREE.TetrahedronGeometry(.45,0),new THREE.MeshBasicMaterial({color:i%2?0xff8a5a:0xe2364b,transparent:true}));
+  m.userData.v=new THREE.Vector3(-pkDir.x+(R()-.5)*1.6,(R()-.2)*1.4,-pkDir.z+(R()-.5)*1.6).multiplyScalar(4+R()*3);scene.add(m);return m});
+
+/* ---------- camera path ---------- */
+const K=[ // t, pos, target
+ [0,[0,150,170],[0,0,-4]],[8.3,[-6,120,150],[0,0,-4]],[11.2,[-20,72,108],[-20,0,0]],
+ [13.0,[-34,28,54],[-48,5,10]],[15.2,[-30,26,50],[-44,4,10]],[18.0,[-4,24,30],[0,6,-14]],[23.4,[10,22,26],[2,6,-14]],
+ [26.2,[0,96,128],[2,6,-2]],[29.0,[8,90,122],[8,6,-2]],[31.6,[50,40,70],[56,4,6]],[33.0,[64,27,54],[54,6,6]],
+ [40.6,[60,29,57],[54,6,6]],[44.2,[4,112,144],[0,0,-4]],[DUR,[-2,124,158],[0,0,-4]]];
+function camAt(t){let i=0;while(i<K.length-2&&t>K[i+1][0])i++;const a=K[i],b=K[i+1];const u=ss(a[0],b[0],t);
+  const P=a[1].map((v,j)=>v+(b[1][j]-v)*u),T=a[2].map((v,j)=>v+(b[2][j]-v)*u);cam.position.set(...P);cam.lookAt(...T)}
+
+/* ---------- labels ---------- */
+const LAB=[ // id, anchor, in, out
+ ['L-net',[TW.x,TOP+31,TW.z],9.6,14.6],['L-gl',[WS.x,TOP+12,WS.z],11.3,15.4],
+ ['L-s3',[S3P.x,TOP+14,S3P.z],17.2,24.0],['L-ecr',[ECRP.x,TOP+10.5,ECRP.z],20.4,24.0],
+ ['L-host',[DOME.x,DOME.y+DOME.r+3,DOME.z],24.6,31.4],['L-noroute',null,26.6,31.4],['L-pipe',null,28.3,31.5],
+ ['L-pod',[ISLE.x+8,TOP+5,ISLE.z+1],32.4,40.6],['L-block',null,34.4,38.4]];
+const labEl=LAB.map(l=>document.getElementById(l[0]));
+const vtmp=new THREE.Vector3();
+function place(el,v,ax=.5,ay=1){vtmp.copy(v).project(cam);const x=(vtmp.x*.5+.5)*W,y=(-vtmp.y*.5+.5)*H;
+  const w=el.offsetWidth,h=el.offsetHeight;el.style.transform=`translate(${Math.round(clamp(x-w*ax,24,W-w-24))}px,${Math.round(clamp(y-h*ay-14,150,H-h-24))}px)`}
+
+/* ---------- frame ---------- */
+const tmp=new THREE.Vector3();
+function renderAt(t){
+  t=clamp(t,0,DUR);
+  // sea waves
+  const p=seaGeo.attributes.position.array;
+  for(let i=0;i<p.length;i+=3){const x=seaBase[i],z=seaBase[i+2];p[i+1]=Math.sin(x*.07+t*1.1)*.35+Math.cos(z*.09+t*.8)*.3}
+  seaGeo.attributes.position.needsUpdate=true;seaGeo.computeVertexNormals();
+  camAt(t);
+  // internet rings always on
+  rings.forEach((m,i)=>{const f=((t*.55+i/3)%1);m.scale.setScalar(1+f*12);m.material.opacity=(1-f)*.7});
+  // crate: appears at workshop, loads, rides boat, lands in vault
+  const dock=new THREE.Vector3(WS.x+19,2.2,WS.z+8), vdock=new THREE.Vector3(VAULT.x-10,2.2,VAULT.z+12);
+  const cs=ss(12.2,12.9,t);crate.scale.setScalar(Math.max(.001,cs*(1-ss(19.6,20.2,t))));
+  const bu=ss(15.0,17.7,t);
+  const bpos=new THREE.Vector3().lerpVectors(new THREE.Vector3(WS.x+19,0,WS.z+12),new THREE.Vector3(VAULT.x-10,0,VAULT.z+20),bu);
+  bpos.z+=Math.sin(bu*Math.PI)*8;bpos.y=.4+Math.sin(t*2.2)*.15;
+  boat.position.copy(bpos);boat.rotation.y=-Math.atan2(VAULT.z+20-(WS.z+12),VAULT.x-10-(WS.x+19))+Math.cos(bu*Math.PI)*.25;boat.visible=t>12;
+  if(t<15)crate.position.copy(dock).add(new THREE.Vector3(0,.1,0));
+  else if(t<17.7)crate.position.set(bpos.x,bpos.y+2.1,bpos.z);
+  else{const u=ss(17.7,18.8,t);crate.position.lerpVectors(new THREE.Vector3(bpos.x,bpos.y+2.1,bpos.z),new THREE.Vector3(VAULT.x,TOP+1.5,VAULT.z+3),u);crate.position.y+=Math.sin(u*Math.PI)*3}
+  crate.rotation.y=t*.3;
+  crateMat.emissive.setHex(0x2fd06b);crateMat.emissiveIntensity=win(t,18.9,20.4,.3)*.7;
+  // pieces flying into crate
+  pieces.forEach((m,i)=>{const a=12.9+i*.42,u=ss(a,a+.7,t);const from=new THREE.Vector3(WS.x+2,TOP+2.5,WS.z+5);
+    m.position.lerpVectors(from,dock,u);m.position.y+=Math.sin(u*Math.PI)*5;m.visible=u>0&&u<1;m.rotation.set(t*2,t*3,0)});
+  // fingerprint ring on silo
+  const fr=ss(18.9,19.6,t);siloRing.material.opacity=fr*(1-ss(23.2,23.9,t))*.95;siloRing.scale.setScalar(1+.08*Math.sin(t*4));
+  // images to ECR shelf
+  imgs.forEach((m,i)=>{const a=20.3+i*.36,u=ss(a,a+.6,t);const from=new THREE.Vector3(VAULT.x,TOP+3,VAULT.z+3);
+    if(u<=0){m.visible=false;return}m.visible=true;m.position.lerpVectors(from,slots[i],u);m.position.y+=Math.sin(u*Math.PI)*3;
+    m.material.emissive.setHex(0xffd27a);m.material.emissiveIntensity=win(t,a+.6,a+1.4,.2)*.6});
+  // pipe glow + pulses
+  const pg=ss(28.2,29.0,t)*(1-ss(31.6,32.4,t))+ss(41.0,42,t)*.6;pipeMat.emissiveIntensity=pg*1.1;
+  pulses.forEach((m,i)=>{const u=((t*.22)+i/5)%1;m.position.copy(pipeCurve.getPointAt(u));m.material.opacity=pg*.95});
+  // no-route arc
+  const ad=ss(26.6,27.8,t);arc.geometry.setDrawRange(0,Math.floor(ad*121));arc.material.opacity=ad*(1-ss(31.2,31.8,t));
+  // failure packet
+  const pu=ss(32.7,34.4,t);pk.visible=t>32.6&&t<34.42;pk.position.copy(pk0).lerp(hit,pu);pk.rotation.set(t*5,t*4,0);
+  const st=t-34.4;shards.forEach(m=>{m.visible=st>0&&st<1.6;if(!m.visible)return;const v=m.userData.v;
+    m.position.set(hit.x+v.x*st,hit.y+v.y*st-4.9*st*st,hit.z+v.z*st);m.rotation.set(st*6,st*5,0);m.material.opacity=1-st/1.6});
+  const flash=Math.exp(-Math.max(0,t-34.4)*2.2)*(t>34.4?1:0)+win(t,36.6,40.4,.3)*.35*(0.5+0.5*Math.sin(t*6));
+  domeMat.emissive.setHex(0xff5a3a);domeMat.emissiveIntensity=flash*.9;domeMat.opacity=.22+flash*.25;
+  edges.material.color.setHex(flash>.15?0xff7a5a:0x7fc6e6);
+  leds.material.color.setHex(t>36.7&&t<40.8?0xe2364b:0x34e08a);
+  pods.forEach((m,i)=>m.position.y=TOP+1.4+Math.max(0,Math.sin(t*3+i))*.12);
+  // hook blur
+  document.getElementById('gl').style.filter=`blur(${(1-ss(7.6,8.9,t))*9}px) saturate(${.85+ss(7.6,8.9,t)*.15})`;
+  renderer.render(scene,cam);
+  // labels
+  LAB.forEach((l,i)=>{const el=labEl[i],o=win(t,l[2],l[3],.4);el.style.opacity=o;if(o<=0)return;
+    if(l[0]==='L-noroute'){tmp.copy(arcPts[52]);place(el,tmp,.5,.5)}
+    else if(l[0]==='L-pipe'){tmp.copy(pipeCurve.getPointAt(.5));place(el,tmp,.5,-.2)}
+    else if(l[0]==='L-block'){place(el,hit,1.05,.5)}
+    else{tmp.set(...l[1]);place(el,tmp)}});
+}
+window.addEventListener('hf-seek',e=>renderAt(e.detail.time));
+renderAt(0);
+
+/* ---------- 2D overlays (GSAP, paused) ---------- */
+window.__timelines=window.__timelines||{};
+const tl=gsap.timeline({paused:true});
+const fade=(sel,a,b,d=.4)=>{tl.fromTo(sel,{opacity:0},{opacity:1,duration:d,ease:'power2.out'},a);tl.to(sel,{opacity:0,duration:d,ease:'power2.in'},b-d)};
+// hook chat
+tl.fromTo('#chat',{opacity:0,y:40,scale:.96},{opacity:1,y:0,scale:1,duration:.6,ease:'back.out(1.6)'},1.7);
+tl.fromTo('#dots i',{y:0},{y:-8,duration:.25,yoyo:true,repeat:5,stagger:.12,ease:'sine.inOut'},2.0);
+tl.to('#dots',{opacity:0,duration:.2},3.6);
+QW.forEach((w,i)=>tl.to(`#q span:nth-child(${i+1})`,{opacity:1,duration:.12},w));
+tl.to('#chat',{opacity:0,y:-30,scale:.94,duration:.5,ease:'power2.in'},8.0);
+tl.set('#chat',{y:0,scale:1,left:120,top:150,width:820},8.6);
+tl.fromTo('#pin',{opacity:0,x:-20},{opacity:1,x:0,duration:.4},8.4);
+// chapters + badges
+fade('#C1',8.6,23.9);fade('#C2',24.3,31.6);fade('#C3',32.0,40.6);fade('#C4',41.0,48.4);
+fade('#B1',1.7,8.2);fade('#B2',8.6,24.0);fade('#B3',24.3,31.6);fade('#B4',32.0,40.6);fade('#B5',41.0,48.4);
+// stage rail: fail run
+const sts=gsap.utils.toArray('.st');
+tl.fromTo('#rail',{opacity:0,y:30},{opacity:1,y:0,duration:.45},35.3);
+sts.slice(0,7).forEach((s,i)=>tl.to(s,{backgroundColor:'#e8f7ef',borderColor:'#17a35a',duration:.1},35.5+i*.16));
+tl.to(sts[7],{backgroundColor:'#fde8eb',borderColor:'#e2364b',duration:.12},36.75);
+tl.fromTo(sts[7],{scale:1},{scale:1.12,duration:.18,yoyo:true,repeat:1},36.75);
+tl.fromTo('#res',{opacity:0,scale:.7},{opacity:1,scale:1,duration:.35,ease:'back.out(2)'},37.5);
+tl.to(['#rail','#res'],{opacity:0,duration:.35},40.5);
+// pass run
+tl.set(sts,{backgroundColor:'#f1f4f8',borderColor:'#d7e1ec'},40.9);
+tl.set('#res',{className:'p',textContent:'RESULT=PASS'},40.9);
+tl.to('#rail',{opacity:1,duration:.35},41.0);
+sts.forEach((s,i)=>tl.to(s,{backgroundColor:'#e8f7ef',borderColor:'#17a35a',duration:.1},41.2+i*.18));
+tl.fromTo('#res',{opacity:0,scale:.7},{opacity:1,scale:1,duration:.35,ease:'back.out(2)'},41.6);
+tl.to(['#rail','#res'],{opacity:0,duration:.4},44.0);
+// evidence board
+tl.fromTo('#ev',{opacity:0,x:40},{opacity:1,x:0,duration:.5},44.1);
+['#E1','#E2','#E3','#E4'].forEach((s,i)=>tl.fromTo(s,{opacity:0,x:16},{opacity:1,x:0,duration:.3},44.4+i*.42));
+tl.to('#ev',{opacity:0,duration:.4},48.3);
+// answer
+tl.fromTo('#chat',{opacity:0},{opacity:1,duration:.4},46.2);
+tl.fromTo('#reply',{opacity:0,y:20},{opacity:1,y:0,duration:.4,ease:'back.out(1.6)'},46.8);
+tl.set('#pin',{className:'ans'},46.9);tl.set('#pinT',{textContent:'Yes. Offline, with proof.'},46.9);tl.set('#pin b',{textContent:'A'},46.9);
+tl.to(['#chat','#pin'],{opacity:0,duration:.4},48.4);
+// end card
+tl.fromTo('#end',{opacity:0},{opacity:1,duration:.7},48.6);
+tl.fromTo('#end .t',{y:30},{y:0,duration:.8,ease:'power3.out'},48.6);
+// captions
+CAPS.forEach((c,i)=>{const s=`#cg${i}`;tl.set(s,{visibility:'visible'},c.s);tl.fromTo(s,{opacity:0},{opacity:1,duration:.12},c.s);
+  tl.to(s,{opacity:0,duration:.12,ease:'power2.in'},c.e-.12);tl.set(s,{opacity:0,visibility:'hidden'},c.e)});
+tl.to({},{duration:.01},DUR-.01);
+window.__timelines['main']=tl;
+</script>
+</body>
+</html>
