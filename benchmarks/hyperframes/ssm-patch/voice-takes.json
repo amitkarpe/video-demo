@@ -688,5 +688,784 @@
     "model": "gpt-realtime-2.1",
     "voice": "marin",
     "response_status": "completed"
+  },
+  "s01.t2": {
+    "seconds_raw": 4.0,
+    "provider_transcript": "Every week, new security fixes arrive for Amazon Linux.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 269,
+      "input_tokens": 145,
+      "output_tokens": 124,
+      "input_token_details": {
+        "text_tokens": 145,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 44,
+        "audio_tokens": 80,
+        "reasoning_tokens": 19
+      }
+    },
+    "cost_usd": 0.006756,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s02.t2": {
+    "seconds_raw": 5.05,
+    "provider_transcript": "Servers that are already running need them too — without breaking the work they do.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 307,
+      "input_tokens": 150,
+      "output_tokens": 157,
+      "input_token_details": {
+        "text_tokens": 150,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 56,
+        "audio_tokens": 101,
+        "reasoning_tokens": 24
+      }
+    },
+    "cost_usd": 0.0084592,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s03.t2": {
+    "seconds_raw": 4.75,
+    "provider_transcript": "So how does AWS Factory keep running servers patched, safely?",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 285,
+      "input_tokens": 146,
+      "output_tokens": 139,
+      "input_token_details": {
+        "text_tokens": 146,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 44,
+        "audio_tokens": 95,
+        "reasoning_tokens": 16
+      }
+    },
+    "cost_usd": 0.007719999999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s04.t2": {
+    "seconds_raw": 1.9,
+    "provider_transcript": "There are two roads.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 211,
+      "input_tokens": 139,
+      "output_tokens": 72,
+      "input_token_details": {
+        "text_tokens": 139,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 34,
+        "audio_tokens": 38,
+        "reasoning_tokens": 19
+      }
+    },
+    "cost_usd": 0.0038039999999999997,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s05.t2": {
+    "seconds_raw": 8.2,
+    "provider_transcript": "Road one: build fresh. The factory bakes the latest patches into a new image, so new servers start up to date.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 384,
+      "input_tokens": 160,
+      "output_tokens": 224,
+      "input_token_details": {
+        "text_tokens": 160,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 60,
+        "audio_tokens": 164,
+        "reasoning_tokens": 16
+      }
+    },
+    "cost_usd": 0.012576,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s06.t2": {
+    "seconds_raw": 8.95,
+    "provider_transcript": "Road two: patch in place. For servers that keep running, AWS Systems Manager Patch Manager installs updates where they are.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 395,
+      "input_tokens": 158,
+      "output_tokens": 237,
+      "input_token_details": {
+        "text_tokens": 158,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 58,
+        "audio_tokens": 179,
+        "reasoning_tokens": 16
+      }
+    },
+    "cost_usd": 0.013479999999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s07.t2": {
+    "seconds_raw": 4.4,
+    "provider_transcript": "This film follows road two — but it starts in the factory.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 277,
+      "input_tokens": 147,
+      "output_tokens": 130,
+      "input_token_details": {
+        "text_tokens": 147,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 42,
+        "audio_tokens": 88,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.007228,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s08.t2": {
+    "seconds_raw": 6.55,
+    "provider_transcript": "AWS Factory builds one hardened base image, and from it, three families.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 311,
+      "input_tokens": 149,
+      "output_tokens": 162,
+      "input_token_details": {
+        "text_tokens": 149,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 31,
+        "audio_tokens": 131
+      }
+    },
+    "cost_usd": 0.009724,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s09.t2": {
+    "seconds_raw": 9.05,
+    "provider_transcript": "GitLab, which hosts our code. MongoDB, which holds our data. And the CloudOS workspace, which runs on an ECS cluster.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 410,
+      "input_tokens": 163,
+      "output_tokens": 247,
+      "input_token_details": {
+        "text_tokens": 163,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 66,
+        "audio_tokens": 181,
+        "reasoning_tokens": 19
+      }
+    },
+    "cost_usd": 0.013819999999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s10.t2": {
+    "seconds_raw": 8.0,
+    "provider_transcript": "Every server launched from these images carries a tag that names its family. In Patch Manager, that tag is its patch group.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 377,
+      "input_tokens": 159,
+      "output_tokens": 218,
+      "input_token_details": {
+        "text_tokens": 159,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 58,
+        "audio_tokens": 160,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.012268,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s11.t2": {
+    "seconds_raw": 5.3,
+    "provider_transcript": "Three families, three patch groups — each with its own rules and its own time slot.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 303,
+      "input_tokens": 152,
+      "output_tokens": 151,
+      "input_token_details": {
+        "text_tokens": 152,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 45,
+        "audio_tokens": 106,
+        "reasoning_tokens": 11
+      }
+    },
+    "cost_usd": 0.008472,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s12.t2": {
+    "seconds_raw": 5.2,
+    "provider_transcript": "The rules live in a patch baseline: which updates may be installed, and when.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 299,
+      "input_tokens": 151,
+      "output_tokens": 148,
+      "input_token_details": {
+        "text_tokens": 151,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 44,
+        "audio_tokens": 104,
+        "reasoning_tokens": 11
+      }
+    },
+    "cost_usd": 0.0083672,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s13.t2": {
+    "seconds_raw": 2.75,
+    "provider_transcript": "Security updates are approved at once.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 230,
+      "input_tokens": 141,
+      "output_tokens": 89,
+      "input_token_details": {
+        "text_tokens": 141,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 34,
+        "audio_tokens": 55,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.004951199999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s14.t2": {
+    "seconds_raw": 6.5,
+    "provider_transcript": "Other updates wait seven days. By then, the factory's image build has already tested the same packages.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 336,
+      "input_tokens": 155,
+      "output_tokens": 181,
+      "input_token_details": {
+        "text_tokens": 155,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 51,
+        "audio_tokens": 130,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.010215199999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s15.t2": {
+    "seconds_raw": 10.65,
+    "provider_transcript": "And the database and the container engine are never patched in place. An update there restarts the service, so they change only through a reviewed rolling upgrade or a new image.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 452,
+      "input_tokens": 169,
+      "output_tokens": 283,
+      "input_token_details": {
+        "text_tokens": 169,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 70,
+        "audio_tokens": 213,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.0160392,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s16.t2": {
+    "seconds_raw": 5.9,
+    "provider_transcript": "Every weekend night, Patch Manager scans each group and records what is missing.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 315,
+      "input_tokens": 149,
+      "output_tokens": 166,
+      "input_token_details": {
+        "text_tokens": 149,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 48,
+        "audio_tokens": 118,
+        "reasoning_tokens": 17
+      }
+    },
+    "cost_usd": 0.0093512,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s17.t2": {
+    "seconds_raw": 4.7,
+    "provider_transcript": "If nothing is missing, the group is compliant, and nothing else happens.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 291,
+      "input_tokens": 149,
+      "output_tokens": 142,
+      "input_token_details": {
+        "text_tokens": 149,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 48,
+        "audio_tokens": 94,
+        "reasoning_tokens": 19
+      }
+    },
+    "cost_usd": 0.0078152,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s18.t2": {
+    "seconds_raw": 8.15,
+    "provider_transcript": "If updates are missing, they install early the next morning, in that group's own quiet window — one group after another.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 384,
+      "input_tokens": 158,
+      "output_tokens": 226,
+      "input_token_details": {
+        "text_tokens": 158,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 63,
+        "audio_tokens": 163,
+        "reasoning_tokens": 21
+      }
+    },
+    "cost_usd": 0.012576,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s19.t2": {
+    "seconds_raw": 6.45,
+    "provider_transcript": "Does every install need a reboot? No. Most updates apply while the service keeps running.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 330,
+      "input_tokens": 152,
+      "output_tokens": 178,
+      "input_token_details": {
+        "text_tokens": 152,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 49,
+        "audio_tokens": 129,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.01004,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s20.t2": {
+    "seconds_raw": 9.4,
+    "provider_transcript": "When a new kernel does need one, the reboot waits for the group's planned downtime window. Then the server comes back, and the scan turns green.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 421,
+      "input_tokens": 164,
+      "output_tokens": 257,
+      "input_token_details": {
+        "text_tokens": 164,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 69,
+        "audio_tokens": 188,
+        "reasoning_tokens": 19
+      }
+    },
+    "cost_usd": 0.0143952,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s21.t2": {
+    "seconds_raw": 6.55,
+    "provider_transcript": "Here is the trap: a patch policy only installs on servers whose tag matches its group.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 332,
+      "input_tokens": 152,
+      "output_tokens": 180,
+      "input_token_details": {
+        "text_tokens": 152,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 49,
+        "audio_tokens": 131,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.010168,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s22.t2": {
+    "seconds_raw": 7.0,
+    "provider_transcript": "A server with the wrong tag is still scanned — so it looks watched — but nothing is ever installed.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 344,
+      "input_tokens": 155,
+      "output_tokens": 189,
+      "input_token_details": {
+        "text_tokens": 155,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 49,
+        "audio_tokens": 140,
+        "reasoning_tokens": 10
+      }
+    },
+    "cost_usd": 0.0108072,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s23.t2": {
+    "seconds_raw": 2.7,
+    "provider_transcript": "Scanned is not patched.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 226,
+      "input_tokens": 140,
+      "output_tokens": 86,
+      "input_token_details": {
+        "text_tokens": 140,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 32,
+        "audio_tokens": 54,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.0048352,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s24.t1": {
+    "seconds_raw": 10.0,
+    "provider_transcript": "So coverage is checked, not assumed. The daily and weekly operations reports list each server's patch result, and flag any server with no patch data.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 444,
+      "input_tokens": 164,
+      "output_tokens": 280,
+      "input_token_details": {
+        "text_tokens": 164,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 80,
+        "audio_tokens": 200,
+        "reasoning_tokens": 30
+      }
+    },
+    "cost_usd": 0.015375999999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s25.t1": {
+    "seconds_raw": 6.8,
+    "provider_transcript": "Every rule change is tried on one server first, then rolled out to every group. And the owner approves every production change.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 354,
+      "input_tokens": 159,
+      "output_tokens": 195,
+      "input_token_details": {
+        "text_tokens": 159,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 59,
+        "audio_tokens": 136,
+        "reasoning_tokens": 18
+      }
+    },
+    "cost_usd": 0.010756,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s26.t1": {
+    "seconds_raw": 7.85,
+    "provider_transcript": "Fresh images for new servers. Patch Manager for running ones. And a daily check that no server is left behind.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 370,
+      "input_tokens": 157,
+      "output_tokens": 213,
+      "input_token_details": {
+        "text_tokens": 157,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 56,
+        "audio_tokens": 157,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.0120712,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
   }
 }

@@ -1,10 +1,10 @@
 {
  "title": "Patching Running Servers in AWS Factory — Scanned Is Not Patched",
- "status": "Phase 2: approved by the owner (\"Create C · Go\") — look C, bold toy blocks; generic, presented as the working flow",
+ "status": "Phase 2, revision 2: owner chose option 2 (\"Deepen\"): real family names, family buildings, the full patch flow; look C; generic, presented as the working flow",
  "voice": {
   "model": "gpt-realtime-2.1",
   "voice": "marin",
-  "instructions": "You are the narrator of a clear, friendly, confident explainer for both engineers and managers. Read the user's text aloud exactly as written, word for word: do not add, drop, reorder or paraphrase any word, and do not answer or comment. Voice: warm, calm and well paced, with natural pauses at full stops, colons and dashes. Pronounce AWS as the letters A-W-S; Amazon Linux as written."
+  "instructions": "You are the narrator of a clear, friendly, confident explainer for both engineers and managers. Read the user's text aloud exactly as written, word for word: do not add, drop, reorder or paraphrase any word, and do not answer or comment. Voice: warm, calm and well paced, with natural pauses at full stops, colons, question marks and dashes. Pronounce AWS and ECS as letters (A-W-S, E-C-S); GitLab as 'GIT-lab'; MongoDB as 'mongo D-B'; CloudOS as 'cloud O-S'; Amazon Linux as written."
  },
  "lead_in": 1.4,
  "tail": 7.0,
@@ -13,56 +13,48 @@
    "id": "c1",
    "label": "THE QUESTION",
    "start": "s01",
-   "slide": 1,
    "shot": "hook"
   },
   {
    "id": "c2",
    "label": "TWO ROADS",
    "start": "s04",
-   "slide": 2,
    "shot": "roads"
   },
   {
    "id": "c3",
-   "label": "PATCH GROUPS",
+   "label": "THREE FAMILIES",
    "start": "s08",
-   "slide": 3,
-   "shot": "groups"
+   "shot": "families"
   },
   {
    "id": "c4",
    "label": "THE RULES",
-   "start": "s11",
-   "slide": 4,
+   "start": "s12",
    "shot": "rules"
   },
   {
    "id": "c5",
-   "label": "THE WEEKEND WINDOW",
-   "start": "s15",
-   "slide": 5,
-   "shot": "night"
+   "label": "THE PATCH FLOW",
+   "start": "s16",
+   "shot": "flow"
   },
   {
    "id": "c6",
    "label": "THE TRAP",
-   "start": "s18",
-   "slide": 6,
+   "start": "s21",
    "shot": "trap"
   },
   {
    "id": "c7",
    "label": "THE CHECK",
-   "start": "s21",
-   "slide": 7,
+   "start": "s24",
    "shot": "check"
   },
   {
    "id": "c8",
    "label": "",
-   "start": "s23",
-   "slide": 8,
+   "start": "s26",
    "shot": "close"
   }
  ],
@@ -90,7 +82,7 @@
   {
    "id": "s05",
    "gap_after": 0.4,
-   "caption": "Road one: build fresh. The factory bakes the latest patches into a new base image, so new servers start up to date."
+   "caption": "Road one: build fresh. The factory bakes the latest patches into a new image, so new servers start up to date."
   },
   {
    "id": "s06",
@@ -100,85 +92,100 @@
   {
    "id": "s07",
    "gap_after": 1.0,
-   "caption": "This film follows road two."
+   "caption": "This film follows road two — but it starts in the factory."
   },
   {
    "id": "s08",
    "gap_after": 0.4,
-   "caption": "Patch Manager starts with a simple label: a tag on each server, called its patch group."
+   "caption": "AWS Factory builds one hardened base image, and from it, three families."
   },
   {
    "id": "s09",
    "gap_after": 0.4,
-   "caption": "The database servers form one group. The code-hosting servers form another. The backup host has its own."
+   "caption": "GitLab, which hosts our code. MongoDB, which holds our data. And the CloudOS workspace, which runs on an ECS cluster."
   },
   {
    "id": "s10",
-   "gap_after": 1.0,
-   "caption": "Each group gets its own time slot, and a set of rules called a patch baseline."
+   "gap_after": 0.4,
+   "caption": "Every server launched from these images carries a tag that names its family. In Patch Manager, that tag is its patch group."
   },
   {
    "id": "s11",
-   "gap_after": 0.4,
-   "caption": "The baseline decides which updates may be installed, and when."
+   "gap_after": 1.0,
+   "caption": "Three families, three patch groups — each with its own rules and its own time slot."
   },
   {
    "id": "s12",
    "gap_after": 0.4,
-   "caption": "Security updates are approved at once."
+   "caption": "The rules live in a patch baseline: which updates may be installed, and when."
   },
   {
    "id": "s13",
    "gap_after": 0.4,
-   "caption": "Other updates wait seven days. By then, the factory's image build has already tested the same packages."
+   "caption": "Security updates are approved at once."
   },
   {
    "id": "s14",
-   "gap_after": 1.0,
-   "caption": "And some packages are never patched in place: the database and the container engine. An update there restarts the service, so they change only through a reviewed rolling upgrade or a new image."
+   "gap_after": 0.4,
+   "caption": "Other updates wait seven days. By then, the factory's image build has already tested the same packages."
   },
   {
    "id": "s15",
-   "gap_after": 0.4,
-   "caption": "Every weekend night, Patch Manager scans each server and records what is missing."
+   "gap_after": 1.0,
+   "caption": "And the database and the container engine are never patched in place. An update there restarts the service, so they change only through a reviewed rolling upgrade or a new image."
   },
   {
    "id": "s16",
    "gap_after": 0.4,
-   "caption": "Early the next morning, each group installs in its own quiet window."
+   "caption": "Every weekend night, Patch Manager scans each group and records what is missing."
   },
   {
    "id": "s17",
-   "gap_after": 1.0,
-   "caption": "There is no automatic reboot. A new kernel takes effect at the next planned restart or image rollout."
+   "gap_after": 0.4,
+   "caption": "If nothing is missing, the group is compliant, and nothing else happens."
   },
   {
    "id": "s18",
    "gap_after": 0.4,
-   "caption": "Here is the trap: a patch policy only installs on servers whose tag matches its group."
+   "caption": "If updates are missing, they install early the next morning, in that group's own quiet window — one group after another."
   },
   {
    "id": "s19",
    "gap_after": 0.4,
-   "caption": "A server with the wrong tag is still scanned — so it looks watched — but nothing is ever installed."
+   "caption": "Does every install need a reboot? No. Most updates apply while the service keeps running."
   },
   {
    "id": "s20",
    "gap_after": 1.0,
-   "caption": "Scanned is not patched."
+   "caption": "When a new kernel does need one, the reboot waits for the group's planned downtime window. Then the server comes back, and the scan turns green."
   },
   {
    "id": "s21",
    "gap_after": 0.4,
-   "caption": "So coverage is checked, not assumed. The daily and weekly operations reports list each server's patch result, and flag any server with no patch data."
+   "caption": "Here is the trap: a patch policy only installs on servers whose tag matches its group."
   },
   {
    "id": "s22",
+   "gap_after": 0.4,
+   "caption": "A server with the wrong tag is still scanned — so it looks watched — but nothing is ever installed."
+  },
+  {
+   "id": "s23",
+   "gap_after": 1.0,
+   "caption": "Scanned is not patched."
+  },
+  {
+   "id": "s24",
+   "gap_after": 0.4,
+   "caption": "So coverage is checked, not assumed. The daily and weekly operations reports list each server's patch result, and flag any server with no patch data."
+  },
+  {
+   "id": "s25",
    "gap_after": 1.0,
    "caption": "Every rule change is tried on one server first, then rolled out to every group. And the owner approves every production change."
   },
   {
-   "id": "s23",
+   "id": "s26",
    "gap_after": 0.0,
    "caption": "Fresh images for new servers. Patch Manager for running ones. And a daily check that no server is left behind."
   }
