@@ -1,0 +1,190 @@
+{
+  "model": "gpt-5.5",
+  "usage": {
+    "input_tokens": 25402,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 3826,
+    "output_tokens_details": {
+      "reasoning_tokens": 2686
+    },
+    "total_tokens": 29228
+  },
+  "cost_usd": 0.24179,
+  "review": {
+    "frames": [
+      {
+        "file": "t0016.9-s03.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "The top-center text \u201cStopped \u2014 one piece is missing\u201d is very low-contrast against the dark vault and ceiling lights at 720p.",
+            "fix": "Increase opacity/contrast or place it on a darker backing panel so the message is clearly readable."
+          }
+        ]
+      },
+      {
+        "file": "t0024.0-s04.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0036.5-s05.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "\u201cnf-core/sarek\u201d is presented in repository-path style with a slash, which pushes against the high-level/no-code-or-file-like-label rule.",
+            "fix": "Use the required example name in plain language, e.g. \u201cnf-core Sarek,\u201d without repository-path styling."
+          }
+        ]
+      },
+      {
+        "file": "t0047.5-s07.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0059.0-s09.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The \u201cSCANNED\u201d pills are status badges. Owner rules say there should be no status badges and the only allowed tag is \u201cILLUSTRATION.\u201d",
+            "fix": "Remove the \u201cSCANNED\u201d badge styling; show security scanning as plain explanatory text or checkmark list instead."
+          },
+          {
+            "severity": "high",
+            "issue": "The small \u201cfinding\u201d pills are additional tags on screen, violating the rule that the only tag allowed is \u201cILLUSTRATION.\u201d",
+            "fix": "Remove the \u201cfinding\u201d tags or replace them with non-tag visual markers."
+          },
+          {
+            "severity": "low",
+            "issue": "The small \u201cfinding\u201d labels are also too small to read comfortably at 720p.",
+            "fix": "If the concept must remain visible, use larger plain text or a clearer icon without tiny lettering."
+          }
+        ]
+      },
+      {
+        "file": "t0061.0-wipe.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The \u201cSCANNED\u201d pills remain visible as status badges, which violates the no-status-badges rule.",
+            "fix": "Remove the badge treatment during the wipe as well."
+          },
+          {
+            "severity": "high",
+            "issue": "The small \u201cfinding\u201d tags remain visible, but the only allowed tag is \u201cILLUSTRATION.\u201d",
+            "fix": "Remove the \u201cfinding\u201d tags or replace them with non-tag visual markers."
+          }
+        ]
+      },
+      {
+        "file": "t0066.5-s10.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0081.0-s12.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0086.0-s13.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0096.5-s14.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0101.5-s15.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0106.5-s16.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The mismatch illustration still shows the faded \u201cREGISTERED ready to run\u201d stamp behind the rejection message, which conflicts with the accuracy rule that a mismatch stops the release before registration.",
+            "fix": "Remove the registered stamp entirely from the mismatch moment, or replace it with a clearly rejected/stopped visual."
+          }
+        ]
+      },
+      {
+        "file": "t0109.4-wipe.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The faded \u201cREGISTERED ready to run\u201d stamp remains visible during the fingerprint-mismatch rejection, creating a contradictory claim.",
+            "fix": "Do not carry the registered stamp into this wipe; fade it out before the mismatch message appears."
+          }
+        ]
+      },
+      {
+        "file": "t0112.0-s17.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0124.0-s18.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "The ten CodePipeline stage boxes are crowded across the width, and several stage labels are small at 720p.",
+            "fix": "Enlarge the stage row, split it into two rows, or reduce secondary detail so each gated stage label remains readable."
+          }
+        ]
+      },
+      {
+        "file": "t0137.5-s19.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0142.0-s20.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0150.5-s21.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0161.5-s23.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The dashed private/offline boundary is clipped by the left edge and runs very close to the top navigation, which makes the framing feel cramped.",
+            "fix": "Inset the boundary from the frame edges and keep it clear of the navigation bar."
+          }
+        ]
+      },
+      {
+        "file": "t0184.5-s27.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "The \u201cFAIL\u201d option is very low-contrast against the dark panel at 720p, even though the film\u2019s answer is supposed to be clearly PASS or FAIL.",
+            "fix": "Increase the contrast of the inactive FAIL option while keeping PASS visually selected."
+          }
+        ]
+      },
+      {
+        "file": "t0193.0-s28.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "Some timeline labels, especially \u201cVerified every file, every image,\u201d sit over bright sky and have reduced contrast at 720p.",
+            "fix": "Add a subtle shadow, darker backing, or reposition the labels over a darker area."
+          }
+        ]
+      },
+      {
+        "file": "t0204.5-s30.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The far-right \u201cBacked by evidence\u201d timeline label is small and close to the edge, making it weaker than the other summary labels at 720p.",
+            "fix": "Move it slightly inward and/or increase label size and contrast."
+          }
+        ]
+      }
+    ],
+    "overall": "Main compliance issues are the prohibited status/tag treatments in the GitLab scanning frames and the contradictory faded \u201cREGISTERED\u201d stamp during the fingerprint-mismatch rejection. A few frames also need improved 720p readability or less cramped framing."
+  }
+}

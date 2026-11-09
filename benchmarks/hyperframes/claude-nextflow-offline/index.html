@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920,height=1080">
+<title>Nextflow Offline — Prepare Once, Run with Confidence</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+:root{
+  --ink:#04070d; --panel:#08101ef0; --line:#22324f; --text:#eef4ff; --dim:#b7c3dc; --faint:#7f8cab;
+  --amber:#ffb24a; --amber2:#ffd9a0; --gl:#ff9b4a; --teal:#35e0c8; --teal2:#c4fbf1; --warn:#ffb24a;
+  --cd:#5b8cff; --ecr:#ff9a3c; --s3:#8fc93a; --ssm:#ff5fa8; --ec2:#ff9a3c;
+  --sans:"Inter","Helvetica Neue",Arial,sans-serif; --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;background:var(--ink);overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;background:var(--ink);font-family:var(--sans);color:var(--text)}
+.abs{position:absolute}
+.scene{position:absolute;left:0;top:0;width:1920px;height:1080px;opacity:0;overflow:hidden}
+.world{position:absolute;left:0;top:0;width:2048px;height:1152px;transform-origin:0 0}
+.world img.plate{position:absolute;left:0;top:0;width:2048px;height:1152px}
+.shade{position:absolute;inset:0;pointer-events:none}
+.panel{position:absolute;padding:24px 30px;border-radius:20px;background:var(--panel);border:2px solid var(--line);box-shadow:0 24px 60px #000b}
+.h{font:800 34px var(--sans);letter-spacing:.3px}
+.r{font:500 27px var(--sans);color:var(--dim);margin-top:8px}
+.m{font-family:var(--mono)}
+.chip{display:inline-block;padding:7px 15px;border-radius:999px;font:800 21px var(--mono);letter-spacing:1.5px;vertical-align:middle;white-space:nowrap}
+.k-ill{background:#141a2bdd;border:2px dashed #8f9abf;color:#dde2f4}
+/* dependency pieces */
+.piece{position:absolute;display:flex;align-items:center;gap:14px;padding:12px 22px 12px 14px;border-radius:16px;background:#071224ee;border:2px solid var(--teal);font:750 30px var(--sans);color:#f1fffc;white-space:nowrap;box-shadow:0 12px 30px #000a;opacity:0}
+.piece svg{width:42px;height:42px;flex:none}
+.ghost{border:3px dashed var(--warn);color:var(--amber2);background:#1d1405dd}
+/* labels anchored in the world */
+.wl{position:absolute;padding:14px 22px;border-radius:16px;background:#0a0e18e8;border:2px solid var(--gl);box-shadow:0 14px 34px #000b;white-space:nowrap;opacity:0}
+.wl .t{font:850 33px var(--sans);color:#fff}
+.wl .s{font:600 25px var(--sans);color:var(--amber2);margin-top:4px}
+.wl .ok{display:inline-block;margin-top:8px;padding:4px 12px;border-radius:999px;border:2px solid var(--teal);color:var(--teal2);font:800 19px var(--mono);letter-spacing:1px;opacity:0}
+/* AWS service tile (code-drawn: name + role; no logos) */
+.svc{position:absolute;width:300px;padding:16px 18px 16px 22px;border-radius:16px;background:#0a1222f2;border:2px solid #2d3d60;border-left:10px solid var(--c);box-shadow:0 16px 36px #000b;opacity:0}
+.svc .n{font:850 29px/1.15 var(--sans);color:#fff}
+.svc .d{font:600 22px/1.25 var(--sans);color:var(--dim);margin-top:6px}
+.svc .p{font:800 19px var(--mono);letter-spacing:2px;color:var(--c);margin-bottom:6px}
+.stg{position:absolute;top:0;width:168px;height:104px;border-radius:14px;background:#0a1222e6;border:2px solid #2b3a5c;text-align:center;padding-top:10px;opacity:.0}
+.stg b{display:block;font:900 25px var(--mono);color:#aab6d3}
+.stg span{display:block;font:750 23px/1.08 var(--sans);color:#e3e9f7;margin-top:3px}
+.stg.on{border-color:var(--teal);background:#062a28ee}
+.row{display:flex;align-items:center;gap:18px;margin-top:22px;font:700 33px var(--sans)}
+.tk{width:46px;height:46px;flex:none;border-radius:50%;border:3px solid #2f4063;display:flex;align-items:center;justify-content:center;font:900 28px var(--sans);color:#3a4a6a}
+.tk.on{border-color:var(--teal);background:#0c3b35;color:var(--teal2)}
+.tile{position:absolute;width:58px;height:58px;border-radius:12px;background:#121b30;border:3px solid #2f4063}
+.big{font:900 120px/1 var(--sans);letter-spacing:-1px}
+.fly{position:absolute;opacity:0;filter:drop-shadow(0 10px 18px #000c)}
+.fp{position:absolute;width:30px;height:30px;border-radius:6px;background:#ffb24a;box-shadow:0 0 18px #ffb24acc;transform:rotate(45deg);opacity:0}
+.blk{position:absolute;display:flex;align-items:center;gap:12px;padding:12px 20px;border-radius:14px;background:#1d1405ee;border:3px solid var(--warn);font:800 27px var(--sans);color:var(--amber2);opacity:0;white-space:nowrap}
+/* HUD */
+#aitag{position:absolute;left:30px;top:28px;padding:6px 13px;border-radius:999px;border:2px solid #34446b;background:#0a1020dd;color:var(--dim);font:700 17px var(--mono);letter-spacing:2px;opacity:0}
+#illu{position:absolute;left:30px;top:74px;opacity:0}
+#rail{position:absolute;left:560px;top:22px;width:800px;height:70px;opacity:0}
+#railBg{position:absolute;left:-70px;top:-10px;width:940px;height:84px;border-radius:20px;background:#04070dd0;border:1px solid #2a3858}
+#rail .ln{position:absolute;left:12px;top:15px;width:776px;height:4px;background:#2a3858;border-radius:2px}
+#rail .lf{position:absolute;left:12px;top:15px;width:0;height:4px;background:linear-gradient(90deg,var(--gl),var(--teal));border-radius:2px}
+#rail .nd{position:absolute;top:5px;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:#0b1424;border:3px solid #3a4a70}
+#rail .nd.on{border-color:var(--teal);background:var(--teal);box-shadow:0 0 18px #35e0c8aa}
+#rail .lb{position:absolute;top:38px;width:200px;margin-left:-100px;text-align:center;font:800 20px var(--mono);letter-spacing:2px;color:#93a1c2}
+#rail .lb.on{color:#fff}
+.chap{display:none}
+.caption{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);max-width:1500px;padding:10px 28px;border-radius:14px;background:#02050be8;color:#fff;font:600 38px/1.28 var(--sans);text-align:center}
+#fade{position:absolute;inset:0;background:#000;opacity:1}
+#beam{position:absolute;left:-600px;top:0;width:500px;height:1080px;background:linear-gradient(90deg,transparent,#9ff5e655,#e9fffbaa,#9ff5e655,transparent);opacity:0;transform:skewX(-14deg)}
+</style>
+</head>
+<body>
+<div id="stage" class="clip" data-composition-id="main" data-start="0" data-duration="212.351" data-width="1920" data-height="1080" data-track-index="0">
+
+  <!-- ============ 0 · THE MISSING PIECE ============ -->
+  <div id="scGate" class="scene" style="opacity:1">
+    <div id="wGate" class="world" data-layout-allow-overflow>
+      <img class="plate" src="media/derived/images/gate.jpg" alt="AI-generated illustration of a calm corridor ending in a sealed round vault door">
+      <svg class="abs" style="left:0;top:0" width="2048" height="1152" viewBox="0 0 2048 1152" data-layout-ignore>
+        <circle id="ring" cx="1027" cy="420" r="214" fill="none" stroke="#ffb24a" stroke-width="10" opacity="0"/>
+      </svg>
+    </div>
+    <div class="shade" style="background:linear-gradient(180deg,#04070daa 0%,#04070d00 26%,#04070d00 62%,#04070dcc 100%)" data-layout-ignore></div>
+    <div id="gateDim" class="shade" style="background:#03050ae6;opacity:0" data-layout-ignore></div>
+    <div id="grp" class="abs" style="left:0;top:0;width:1920px;height:1080px;transform-origin:960px 720px" data-layout-ignore>
+      <img id="caseA" class="abs" src="media/derived/images/case.png" style="left:790px;top:600px;width:340px;opacity:0" alt="AI-generated release case">
+      <div id="p1" class="piece" style="left:360px;top:560px"><svg viewBox="0 0 42 42"><circle cx="9" cy="9" r="6" fill="#35e0c8"/><circle cx="33" cy="21" r="6" fill="#35e0c8"/><circle cx="9" cy="33" r="6" fill="#35e0c8"/><path d="M14 10 L28 19 M14 32 L28 23" stroke="#c4fbf1" stroke-width="3"/></svg>Workflow</div>
+      <div id="p2" class="piece" style="left:1190px;top:560px"><svg viewBox="0 0 42 42"><rect x="5" y="11" width="32" height="22" rx="3" fill="#5b8cff"/><path d="M11 13 V31 M17 13 V31 M23 13 V31 M29 13 V31" stroke="#0a1222" stroke-width="2.5"/></svg>Container images</div>
+      <div id="p3" class="piece" style="left:330px;top:740px"><svg viewBox="0 0 42 42"><path d="M8 14 H17 a4 4 0 1 1 8 0 H34 V23 a4 4 0 1 0 0 8 V36 H8 Z" fill="#ff9b4a"/></svg>Plugins</div>
+      <div id="p4" class="piece" style="left:1230px;top:740px"><svg viewBox="0 0 42 42"><path d="M7 8 H20 V35 H7 Z M22 8 H35 V35 H22 Z" fill="#ffd9a0"/><path d="M10 14 H17 M10 19 H17 M25 14 H32 M25 19 H32" stroke="#6b4a12" stroke-width="2"/></svg>Reference files</div>
+      <div id="p4g" class="piece ghost" style="left:1230px;top:740px"><svg viewBox="0 0 42 42"><path d="M7 8 H20 V35 H7 Z M22 8 H35 V35 H22 Z" fill="none" stroke="#ffb24a" stroke-width="2.5" stroke-dasharray="4 3"/></svg>Reference files ?</div>
+      <div id="p5" class="piece" style="left:800px;top:440px"><svg viewBox="0 0 42 42"><ellipse cx="21" cy="9" rx="13" ry="5" fill="#8fc93a"/><path d="M8 9 V33 a13 5 0 0 0 26 0 V9" fill="#5f8f22"/><ellipse cx="21" cy="21" rx="13" ry="5" fill="none" stroke="#c9f08a" stroke-width="2"/></svg>Input data</div>
+    </div>
+    <div id="stopP" class="abs" style="left:0;top:130px;width:1920px;text-align:center;opacity:0">
+      <span class="chip" style="font:850 34px var(--sans);letter-spacing:1px;padding:12px 28px;background:#1d1405ee;border:3px solid var(--warn);color:var(--amber2)">Stopped — one piece is missing</span>
+    </div>
+    <div id="title" class="abs" style="left:0;top:330px;width:1920px;text-align:center;opacity:0">
+      <div style="font:900 136px/1 var(--sans);letter-spacing:6px;background:linear-gradient(180deg,#ffffff,#9ff5e6);-webkit-background-clip:text;background-clip:text;color:transparent">NEXTFLOW OFFLINE</div>
+      <div style="margin-top:30px;font:750 50px var(--sans);color:var(--amber2)">Prepare once. Run with confidence.</div>
+    </div>
+  </div>
+
+  <!-- ============ 1–2 · THE EXAMPLE · ONE TRUSTED HOME ============ -->
+  <div id="scHome" class="scene">
+    <div id="wHome" class="world" data-layout-allow-overflow>
+      <img class="plate" src="media/derived/images/home.jpg" alt="AI-generated illustration of a warm workshop-library with alcoves for books, containers and data cylinders">
+      <div id="sweep" class="abs" style="left:-200px;top:0;width:150px;height:1152px;background:linear-gradient(90deg,transparent,#35e0c866,#d8fff8cc,#35e0c866,transparent);opacity:0" data-layout-ignore></div>
+      <div id="al1" class="wl" style="left:150px;top:610px"><div class="t">Code repository</div><div class="s">workflow code</div><div class="ok">✓ SCANNED</div></div>
+      <div id="al2" class="wl" style="left:820px;top:610px"><div class="t">Container registry</div><div class="s">container images</div><div class="ok">✓ SCANNED</div></div>
+      <div id="al3" class="wl" style="left:1540px;top:610px"><div class="t">Datasets</div><div class="s">reference data · test datasets</div><div class="ok">✓ SCANNED</div></div>
+    </div>
+    <div id="homeDim" class="shade" style="background:#03050acc" data-layout-ignore></div>
+    <div id="ex" class="panel" style="left:330px;top:250px;width:1260px;height:470px;opacity:0;border-color:#3a4f78">
+      <img id="exCase" class="abs" src="media/derived/images/case.png" style="left:40px;top:120px;width:380px" alt="">
+      <div class="abs" style="left:470px;top:44px;width:760px">
+        <div id="ex1" style="font:800 24px var(--mono);letter-spacing:4px;color:var(--amber)">OUR EXAMPLE</div>
+        <div id="ex2" style="margin-top:14px;font:900 74px/1 var(--sans);color:#fff">nf-core Sarek</div>
+        <div id="ex3" style="margin-top:16px;font:750 42px var(--sans);color:var(--teal2)">Germline variant calling</div>
+        <div id="ex4" style="margin-top:10px;font:600 33px var(--sans);color:var(--dim)">Small public test dataset</div>
+        <div id="ex5" style="margin-top:30px;padding-top:22px;border-top:2px solid #2a3858;font:750 32px var(--sans);color:#fff">One release · from preparation to proven result</div>
+      </div>
+    </div>
+    <div id="glT" class="abs" style="left:70px;top:120px;opacity:0">
+      <div style="font:900 78px/1 var(--sans);color:#fff;text-shadow:0 6px 30px #000">GitLab</div>
+      <div style="margin-top:10px;font:750 34px var(--sans);color:var(--amber2);text-shadow:0 4px 20px #000">the single trusted home</div>
+    </div>
+    <div id="ops" class="panel" style="left:1220px;top:150px;width:620px;border-color:var(--teal);opacity:0">
+      <div style="display:flex;align-items:center;gap:16px"><svg width="54" height="54" viewBox="0 0 54 54"><path d="M27 4 L48 12 V26 C48 40 38 48 27 51 C16 48 6 40 6 26 V12 Z" fill="#0c3b35" stroke="#35e0c8" stroke-width="3"/><path d="M17 27 L24 34 L38 19" fill="none" stroke="#c4fbf1" stroke-width="4"/></svg><div class="h" style="color:var(--teal2)">Security scanning</div></div>
+      <div class="r" style="color:#e8fffb">findings go to the <b style="color:#fff">operations team</b>, who review every one</div>
+    </div>
+    <div id="finds" class="abs" style="left:0;top:0;width:1920px;height:1080px" data-layout-ignore></div>
+  </div>
+
+  <!-- ============ 3 · PREPARE THE RELEASE ============ -->
+  <div id="scBench" class="scene">
+    <div id="wBench" class="world" data-layout-allow-overflow>
+      <img class="plate" src="media/derived/images/bench.jpg" alt="AI-generated illustration of a packing workbench in front of three lit arches">
+      <div id="d1" class="svc" style="--c:var(--cd);left:460px;top:300px"><div class="p">CODE</div><div class="n">AWS CodeCommit</div><div class="d">workflow code</div></div>
+      <div id="d2" class="svc" style="--c:var(--ecr);left:874px;top:300px"><div class="p">CONTAINER IMAGES</div><div class="n">Amazon ECR · private</div><div class="d">each locked to its exact identity</div></div>
+      <div id="d3" class="svc" style="--c:var(--s3);left:1270px;top:300px;width:340px"><div class="p">ONE BUNDLE</div><div class="n">Amazon S3</div><div class="d">workflow · plugins · references · data — a fingerprint for every file</div></div>
+    </div>
+    <div class="shade" style="background:linear-gradient(180deg,#04070d99 0%,#04070d00 24%,#04070d00 70%,#04070dbb 100%)" data-layout-ignore></div>
+    <img id="caseB" class="abs" src="media/derived/images/case.png" style="left:770px;top:560px;width:380px;opacity:0" alt="">
+    <div id="runner" class="abs" style="left:0;top:118px;width:1920px;text-align:center;opacity:0"><span class="chip" style="font:850 28px var(--sans);letter-spacing:1px;padding:10px 24px;background:#1d1206ee;border:3px solid var(--gl);color:#ffe2c2">GitLab Runner · prepares the release</span></div>
+    <div id="flyers" class="abs" style="left:0;top:0;width:1920px;height:1080px" data-layout-ignore></div>
+    <div id="one" class="abs" style="left:0;top:118px;width:1920px;text-align:center;opacity:0">
+      <span class="chip" style="font:900 40px var(--sans);letter-spacing:2px;padding:14px 34px;background:#062a28f0;border:3px solid var(--teal);color:#fff">ONE COMPLETE, SELF-CONTAINED RELEASE</span>
+    </div>
+  </div>
+
+  <!-- ============ 4 · VERIFY BEFORE TRUST ============ -->
+  <div id="scInspect" class="scene">
+    <div id="wInspect" class="world" data-layout-allow-overflow><img class="plate" src="media/derived/images/inspect.jpg" alt="AI-generated illustration of an inspection arch above an empty plinth">
+      <img id="caseC" class="abs" src="media/derived/images/case.png" style="left:830px;top:520px;width:380px;opacity:0" alt="">
+      <div id="scanL" class="abs" style="left:520px;top:300px;width:1000px;height:8px;background:#bffcf2;box-shadow:0 0 30px 10px #35e0c8aa;opacity:0" data-layout-ignore></div>
+      <div id="reg" class="abs" style="left:1240px;top:470px;opacity:0;transform:rotate(-6deg)">
+        <div style="padding:16px 30px;border:6px solid var(--teal);border-radius:16px;background:#04201ddd;font:900 46px/1.1 var(--mono);color:var(--teal2);text-align:center">REGISTERED<br><span style="font-size:30px">ready to run</span></div>
+      </div>
+    </div>
+    <div class="shade" style="background:linear-gradient(90deg,#04070de0 0%,#04070d90 36%,#04070d00 60%)" data-layout-ignore></div>
+    <div id="vHead" class="abs" style="left:80px;top:130px;opacity:0;font:850 46px var(--sans);color:#fff">Read back <span style="color:var(--teal)">→</span> Compare <span style="color:var(--teal)">→</span> Register</div>
+    <div id="vl" class="panel" style="left:80px;top:230px;width:760px;opacity:0;border-color:#2f4a6a">
+      <div class="row" style="margin-top:0"><div id="tk1" class="tk">✓</div>Workflow</div>
+      <div class="row"><div id="tk2" class="tk">✓</div>Plugins</div>
+      <div class="row"><div id="tk3" class="tk">✓</div>References</div>
+      <div class="row"><div id="tk4" class="tk">✓</div>Test data</div>
+      <div class="row" style="align-items:flex-start"><div id="tk5" class="tk">✓</div><div>Every container image<div id="tiles" class="abs" style="position:relative;height:140px;margin-top:14px;width:420px"></div></div></div>
+    </div>
+    <div id="rej" class="panel" style="left:80px;top:330px;width:780px;border-color:var(--warn);opacity:0">
+      <div style="display:flex;align-items:center;gap:14px"><span class="tile" style="position:relative;display:inline-block;border-color:var(--warn);background:#2a1d08;width:52px;height:52px;text-align:center;font:900 32px/44px var(--sans);color:var(--amber2)">✕</span><div class="h" style="color:var(--amber2)">Fingerprint does not match</div></div>
+      <div class="r" style="color:#ffe9c9;font-weight:700">The release stops here — long before it reaches a run.</div>
+    </div>
+  </div>
+
+  <!-- ============ 5 · A CONTROLLED RUN ============ -->
+  <div id="scRoute" class="scene">
+    <div id="wRoute" class="world" data-layout-allow-overflow><img class="plate" src="media/derived/images/route.jpg" alt="AI-generated illustration of a bridge with ten gate arches above clouds leading to a sealed building"></div>
+    <div class="shade" style="background:linear-gradient(180deg,#04070dcc 0%,#04070d33 30%,#04070d00 60%,#04070dbb 100%)" data-layout-ignore></div>
+    <div id="req" class="panel" style="left:90px;top:560px;width:620px;border-color:var(--gl);opacity:0">
+      <div style="font:800 21px var(--mono);letter-spacing:3px;color:var(--gl)">GITLAB</div>
+      <div class="h" style="margin-top:6px">Approved run request</div>
+      <div class="r" style="color:#ffe2c2">starts a controlled run with its own unique identity</div>
+    </div>
+    <div id="cpT" class="abs" style="left:80px;top:118px;opacity:0"><span style="font:850 40px var(--sans);color:#fff">AWS CodePipeline</span><span style="font:700 30px var(--sans);color:var(--teal2);margin-left:18px">ten gated stages</span></div>
+    <div id="stages" class="abs" style="left:80px;top:182px;width:1760px;height:150px">
+      <div id="st1" class="stg" style="left:0"><b>1</b><span>Source</span></div>
+      <div id="st2" class="stg" style="left:177px"><b>2</b><span>Verify source</span></div>
+      <div id="st3" class="stg" style="left:354px"><b>3</b><span>Check request</span></div>
+      <div id="st4" class="stg" style="left:531px"><b>4</b><span>Check release</span></div>
+      <div id="st5" class="stg" style="left:708px"><b>5</b><span>Check data</span></div>
+      <div id="st6" class="stg" style="left:885px"><b>6</b><span>Check images</span></div>
+      <div id="st7" class="stg" style="left:1062px"><b>7</b><span>Runtime ready</span></div>
+      <div id="st8" class="stg" style="left:1239px"><b>8</b><span>Run offline</span></div>
+      <div id="st9" class="stg" style="left:1416px"><b>9</b><span>Validate results</span></div>
+      <div id="st10" class="stg" style="left:1593px"><b>10</b><span>Publish report</span></div>
+      <div id="br1" class="abs" style="left:0;top:110px;width:1226px;height:34px;border:3px solid var(--teal);border-top:none;border-radius:0 0 12px 12px;opacity:0"></div>
+      <div id="br1t" class="abs" style="left:0;top:150px;width:1226px;text-align:center;font:750 26px var(--sans);color:var(--teal2);opacity:0">checked before anything executes</div>
+      <div id="br2" class="abs" style="left:1416px;top:110px;width:341px;height:34px;border:3px solid var(--teal);border-top:none;border-radius:0 0 12px 12px;opacity:0"></div>
+      <div id="br2t" class="abs" style="left:1376px;top:150px;width:421px;text-align:center;font:750 26px var(--sans);color:var(--teal2);opacity:0">validated and reported</div>
+    </div>
+    <!-- architecture map -->
+    <div id="mapDim" class="shade" style="background:#03060cf0;opacity:0" data-layout-ignore></div>
+    <div id="map" class="abs" style="left:0;top:0;width:1920px;height:1080px;opacity:0" data-layout-ignore>
+      <svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
+        <defs><marker id="ah" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12 Z" fill="#9aa7c7"/></marker>
+              <marker id="ahT" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12 Z" fill="#35e0c8"/></marker></defs>
+        <path id="m1" d="M 382 400 L 424 400" stroke="#9aa7c7" stroke-width="4" marker-end="url(#ah)" opacity="0"/>
+        <path id="m2" d="M 752 400 L 794 400" stroke="#9aa7c7" stroke-width="4" marker-end="url(#ah)" opacity="0"/>
+        <path id="m3" d="M 1122 400 L 1164 400" stroke="#9aa7c7" stroke-width="4" marker-end="url(#ah)" opacity="0"/>
+        <path id="m4" d="M 1492 400 L 1520 400" stroke="#9aa7c7" stroke-width="4" marker-end="url(#ah)" opacity="0"/>
+        <rect id="vpc" x="1500" y="290" width="360" height="560" rx="24" fill="#05201c55" stroke="#35e0c8" stroke-width="4" stroke-dasharray="16 10" opacity="0"/>
+        <path id="e1" d="M 1530 520 C 1520 560, 1500 620, 1458 650" fill="none" stroke="#35e0c8" stroke-width="5" stroke-dasharray="12 9" marker-end="url(#ahT)" opacity="0"/>
+        <path id="e2" d="M 1530 560 C 1530 660, 1510 760, 1458 800" fill="none" stroke="#35e0c8" stroke-width="5" stroke-dasharray="12 9" marker-end="url(#ahT)" opacity="0"/>
+        <g id="net" opacity="0"><path d="M1640 200 a26 26 0 0 1 48 -14 a32 32 0 0 1 60 10 a22 22 0 0 1 4 44 h-108 a22 22 0 0 1 -4 -40 Z" fill="#1a2238" stroke="#9aa7c7" stroke-width="3"/>
+          <path d="M1680 176 L1730 236 M1730 176 L1680 236" stroke="#ffb24a" stroke-width="7"/></g>
+      </svg>
+      <div id="netL" class="abs" style="left:1450px;top:204px;width:180px;text-align:right;font:750 24px var(--sans);color:#ffd9a0;opacity:0">internet</div>
+      <div id="sv0" class="svc" style="--c:var(--gl);left:80px;top:340px"><div class="p">START</div><div class="n">GitLab</div><div class="d">approved run request</div></div>
+      <div id="sv1" class="svc" style="--c:var(--cd);left:450px;top:340px"><div class="p">ORCHESTRATE</div><div class="n">AWS CodePipeline</div><div class="d">ten gated stages</div></div>
+      <div id="sv2" class="svc" style="--c:var(--cd);left:820px;top:340px"><div class="p">STAGE WORK</div><div class="n">AWS CodeBuild</div><div class="d">does each stage's work</div></div>
+      <div id="sv3" class="svc" style="--c:var(--ssm);left:1190px;top:340px"><div class="p">COMMANDS</div><div class="n">AWS Systems Manager</div><div class="d">sends commands to the host</div></div>
+      <div id="sv4" class="svc" style="--c:var(--ec2);left:1530px;top:340px;width:300px"><div class="p">RUNTIME</div><div class="n">Private EC2 host</div><div class="d">runs the workflow</div></div>
+      <div id="vpcL" class="abs" style="left:1530px;top:700px;width:300px;text-align:center;font:750 26px/1.3 var(--sans);color:var(--teal2);opacity:0">private network<br><b style="color:#fff">no internet route</b></div>
+      <div id="sv5" class="svc" style="--c:var(--s3);left:1150px;top:590px"><div class="p">BUNDLE</div><div class="n">Amazon S3</div><div class="d">the prepared bundle</div></div>
+      <div id="sv6" class="svc" style="--c:var(--ecr);left:1150px;top:740px"><div class="p">IMAGES</div><div class="n">Amazon ECR</div><div class="d">the exact images</div></div>
+      <div id="epL" class="abs" style="left:640px;top:700px;width:480px;text-align:right;font:750 30px/1.3 var(--sans);color:var(--teal2);opacity:0">reached only through<br><b style="color:#fff">private endpoints</b> →</div>
+    </div>
+  </div>
+
+  <!-- ============ 6 · RUN OFFLINE · 7 · PROOF ============ -->
+  <div id="scLab" class="scene">
+    <div id="wLab" class="world" data-layout-allow-overflow><img class="plate" src="media/derived/images/lab.jpg" alt="AI-generated illustration of a sealed windowless clean-room laboratory">
+      <img id="caseD" class="abs" src="media/derived/images/caseopen.png" style="left:790px;top:420px;width:470px;opacity:0" alt="AI-generated open release case">
+    </div>
+    <div class="shade" style="background:linear-gradient(90deg,#04070d00 0%,#04070d00 48%,#04070dd8 66%)" data-layout-ignore></div>
+    <div id="seal" class="abs" style="left:64px;top:118px;width:1792px;height:780px;border:4px dashed #35e0c8aa;border-radius:30px;opacity:0" data-layout-ignore></div>
+    <div id="lsteps" class="abs" style="left:1210px;top:170px;width:660px">
+      <div id="ls1" class="row" style="opacity:0;margin-top:0"><div class="tk on">✓</div>Bundle checked again</div>
+      <div id="ls2" class="row" style="opacity:0"><div class="tk on">✓</div>Exact images · isolated store</div>
+      <div id="ls3" class="row" style="opacity:0"><div class="tk on">✓</div>Nextflow · offline mode</div>
+    </div>
+    <div id="blk1" class="blk" style="left:1210px;top:470px">✕ Plugin downloads</div>
+    <div id="blk2" class="blk" style="left:1210px;top:560px">✕ Task network</div>
+    <div id="blk3" class="blk" style="left:1210px;top:650px">✕ Image pulls</div>
+    <div id="ready" class="abs" style="left:1210px;top:760px;width:660px;opacity:0;font:850 36px/1.25 var(--sans);color:var(--teal2)">Everything it needs is already there.</div>
+    <div id="labFlyers" class="abs" style="left:0;top:0;width:1920px;height:1080px" data-layout-ignore></div>
+    <!-- 7 · proof -->
+    <div id="evDim" class="shade" style="background:#03060ce8;opacity:0" data-layout-ignore></div>
+    <div id="ev" class="panel" style="left:360px;top:220px;width:1200px;padding:34px 44px;border-color:#2f4a6a;opacity:0">
+      <div style="font:800 24px var(--mono);letter-spacing:4px;color:var(--teal)">RUN EVIDENCE</div>
+      <div class="row" style="margin-top:22px;font-size:38px"><div id="ev1" class="tk">✓</div>The run succeeded</div>
+      <div class="row" style="font-size:38px"><div id="ev2" class="tk">✓</div>Offline controls were in place</div>
+      <div class="row" style="font-size:38px"><div id="ev3" class="tk">✓</div>Expected outputs exist</div>
+      <div style="display:flex;align-items:center;gap:26px;margin-top:40px">
+        <div id="pass" style="padding:14px 46px;border-radius:18px;border:4px solid #2f4063;font:900 72px/1 var(--sans);letter-spacing:4px;color:#3a4a6a">PASS</div>
+        <div style="font:700 34px var(--sans);color:var(--faint)">or</div>
+        <div id="failp" style="padding:14px 34px;border-radius:18px;border:4px dashed #5f6f98;font:900 48px/1 var(--sans);letter-spacing:3px;color:#9aa7c7">FAIL</div>
+        <div id="rep" style="margin-left:26px;display:flex;align-items:center;gap:14px;opacity:0"><svg width="58" height="70" viewBox="0 0 58 70"><path d="M4 4 H40 L54 18 V66 H4 Z" fill="#0c1a2e" stroke="#c4fbf1" stroke-width="3"/><path d="M12 30 H46 M12 40 H46 M12 50 H34" stroke="#35e0c8" stroke-width="4"/></svg><div style="font:750 30px/1.25 var(--sans);color:#fff">Evidence report<br><span style="color:var(--teal2)">ready for the team</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 8 · RUN WITH CONFIDENCE ============ -->
+  <div id="scDawn" class="scene">
+    <div id="wDawn" class="world" data-layout-allow-overflow><img class="plate" src="media/derived/images/dawn.jpg" alt="AI-generated illustration of a dawn panorama with a bridge from a warm workshop to a sealed laboratory"></div>
+    <div class="shade" style="background:linear-gradient(180deg,#04070daa 0%,#04070d22 40%,#04070d33 70%,#04070dcc 100%)" data-layout-ignore></div>
+    <div id="jr" class="abs" style="left:150px;top:150px;width:1620px;height:260px" data-layout-ignore>
+      <div class="abs" style="left:30px;top:40px;width:1560px;height:6px;background:#ffffff33;border-radius:3px"></div>
+      <div id="jrf" class="abs" style="left:30px;top:40px;width:0;height:6px;background:linear-gradient(90deg,var(--gl),var(--teal));border-radius:3px"></div>
+      <div id="j1" class="abs" style="left:0;top:22px;width:60px;text-align:center;opacity:.25"><div style="width:42px;height:42px;margin:0 auto;border-radius:50%;background:var(--gl);box-shadow:0 0 24px #ff9b4aaa"></div></div>
+      <div id="j2" class="abs" style="left:390px;top:22px;width:60px;text-align:center;opacity:.25"><div style="width:42px;height:42px;margin:0 auto;border-radius:50%;background:#ffc36e"></div></div>
+      <div id="j3" class="abs" style="left:780px;top:22px;width:60px;text-align:center;opacity:.25"><div style="width:42px;height:42px;margin:0 auto;border-radius:50%;background:#9be9c9"></div></div>
+      <div id="j4" class="abs" style="left:1170px;top:22px;width:60px;text-align:center;opacity:.25"><div style="width:42px;height:42px;margin:0 auto;border-radius:50%;background:#5fe6d0"></div></div>
+      <div id="j5" class="abs" style="left:1560px;top:22px;width:60px;text-align:center;opacity:.25"><div style="width:42px;height:42px;margin:0 auto;border-radius:50%;background:var(--teal);box-shadow:0 0 24px #35e0c8aa"></div></div>
+      <div id="jl1" class="abs" style="left:-90px;top:84px;width:240px;text-align:center;font:800 29px/1.25 var(--sans);color:#fff;text-shadow:0 2px 12px #000,0 0 4px #000;opacity:0">Hosted &amp; scanned<br><span style="color:#ffe3b8;font-weight:700">GitLab</span></div>
+      <div id="jl2" class="abs" style="left:300px;top:84px;width:240px;text-align:center;font:800 29px/1.25 var(--sans);color:#fff;text-shadow:0 2px 12px #000,0 0 4px #000;opacity:0">Prepared<br><span style="color:#ffe3b8;font-weight:700">AWS</span></div>
+      <div id="jl3" class="abs" style="left:690px;top:84px;width:240px;text-align:center;font:800 29px/1.25 var(--sans);color:#fff;text-shadow:0 2px 12px #000,0 0 4px #000;opacity:0">Verified<br><span style="color:#ffe3b8;font-weight:700">every file, every image</span></div>
+      <div id="jl4" class="abs" style="left:1080px;top:84px;width:240px;text-align:center;font:800 29px/1.25 var(--sans);color:#fff;text-shadow:0 2px 12px #000,0 0 4px #000;opacity:0">Executed<br><span style="color:#ffe3b8;font-weight:700">offline</span></div>
+      <div id="jl5" class="abs" style="left:1470px;top:84px;width:240px;text-align:center;font:800 29px/1.25 var(--sans);color:#fff;text-shadow:0 2px 12px #000,0 0 4px #000;opacity:0">Backed<br><span style="color:#ffe3b8;font-weight:700">by evidence</span></div>
+      <img id="caseE" class="abs" src="media/derived/images/case.png" style="left:-40px;top:-70px;width:150px;opacity:0" alt="">
+    </div>
+    <div id="dawnDim" class="shade" style="background:radial-gradient(ellipse 60% 40% at 50% 60%,#04070dcc,#04070d00);opacity:0" data-layout-ignore></div>
+    <div id="te" class="abs" style="left:0;top:470px;width:1920px;text-align:center;opacity:0">
+      <span class="chip" style="font:800 30px var(--sans);letter-spacing:1px;padding:12px 26px;background:#062a28e6;border:3px solid var(--teal);color:#fff">Tested end to end</span>
+      <span class="chip" style="font:800 30px var(--sans);letter-spacing:1px;padding:12px 26px;margin-left:18px;background:#062a28e6;border:3px solid var(--teal);color:#fff">Repeatable for every release</span>
+    </div>
+    <div id="fin" class="abs" style="left:0;top:560px;width:1920px;text-align:center;opacity:0">
+      <div style="font:900 74px/1.15 var(--sans);color:#fff;text-shadow:0 8px 40px #000c">Prepare once. <span style="color:var(--amber2)">Verify everything.</span><br><span style="color:var(--teal2)">Run with confidence.</span></div>
+    </div>
+    <div id="credit" class="abs" style="left:0;bottom:30px;width:1920px;text-align:center;font:600 24px/1.5 var(--sans);color:#d6deef;opacity:0" data-layout-ignore>Nextflow Offline · example: nf-core/sarek germline variant calling on a small public test dataset<br>Narration: AI-generated voice (OpenAI gpt-realtime-2.1, marin) · Artwork: OpenAI gpt-image-2.6-sunburst · Labels and diagrams: code</div>
+  </div>
+
+  <!-- ============ HUD ============ -->
+  <div id="hud" class="abs" style="inset:0" data-layout-ignore>
+    <div id="aitag">AI VOICE · AI ART · CODE LABELS</div>
+    <div id="illu"><span class="chip k-ill">ILLUSTRATION</span></div>
+    <div id="rail">
+      <div id="railBg"></div><div class="ln"></div><div id="railF" class="lf"></div>
+      <div id="rn0" class="nd" style="left:12px"></div><div id="rn1" class="nd" style="left:206px"></div><div id="rn2" class="nd" style="left:400px"></div><div id="rn3" class="nd" style="left:594px"></div><div id="rn4" class="nd" style="left:788px"></div>
+      <div id="rl0" class="lb" style="left:12px">GITLAB</div><div id="rl1" class="lb" style="left:206px">PREPARE</div><div id="rl2" class="lb" style="left:400px">VERIFY</div><div id="rl3" class="lb" style="left:594px">RUN OFFLINE</div><div id="rl4" class="lb" style="left:788px">EVIDENCE</div>
+    </div>
+    <div id="chap-c1" class="chap">01 · ONE REAL WORKFLOW</div>
+    <div id="chap-c2" class="chap">02 · ONE TRUSTED HOME</div>
+    <div id="chap-c3" class="chap">03 · PREPARE THE RELEASE</div>
+    <div id="chap-c4" class="chap">04 · VERIFY BEFORE TRUST</div>
+    <div id="chap-c5" class="chap">05 · A CONTROLLED RUN</div>
+    <div id="chap-c6" class="chap">06 · RUN OFFLINE</div>
+    <div id="chap-c7" class="chap">07 · PROOF, NOT PROMISES</div>
+    <div id="chap-c8" class="chap">08 · RUN WITH CONFIDENCE</div>
+  </div>
+  <div id="beam" data-layout-ignore></div>
+  <div id="cap000" class="clip caption" data-start="1.570" data-duration="4.104" data-track-index="10">A scientific workflow depends on much more than its own code.</div>
+<div id="cap001" class="clip caption" data-start="5.714" data-duration="5.027" data-track-index="10">It needs container images, plugins, reference files and input data — all of</div>
+<div id="cap002" class="clip caption" data-start="10.781" data-duration="2.241" data-track-index="10">them, at the moment it runs.</div>
+<div id="cap003" class="clip caption" data-start="13.172" data-duration="6.241" data-track-index="10">In a controlled environment with no internet, one missing piece stops the analysis.</div>
+<div id="cap004" class="clip caption" data-start="19.563" data-duration="4.432" data-track-index="10">Nextflow Offline removes that risk: everything is prepared first,</div>
+<div id="cap005" class="clip caption" data-start="24.035" data-duration="2.070" data-track-index="10">then run with confidence.</div>
+<div id="cap006" class="clip caption" data-start="27.955" data-duration="5.226" data-track-index="10">We'll follow one real workflow: a germline variant-calling test from nf-core Sarek,</div>
+<div id="cap007" class="clip caption" data-start="33.221" data-duration="5.552" data-track-index="10">using a small public test dataset. One release, from preparation to proven result.</div>
+<div id="cap008" class="clip caption" data-start="39.423" data-duration="4.320" data-track-index="10">Everything starts in GitLab, the single trusted home for the solution.</div>
+<div id="cap009" class="clip caption" data-start="43.793" data-duration="2.788" data-track-index="10">The workflow code lives in a GitLab repository.</div>
+<div id="cap010" class="clip caption" data-start="46.621" data-duration="3.899" data-track-index="10">Its container images live in the GitLab container registry.</div>
+<div id="cap011" class="clip caption" data-start="50.570" data-duration="3.824" data-track-index="10">The reference data and test datasets are hosted there too.</div>
+<div id="cap012" class="clip caption" data-start="54.444" data-duration="2.977" data-track-index="10">Content is scanned for security as it arrives,</div>
+<div id="cap013" class="clip caption" data-start="57.461" data-duration="3.367" data-track-index="10">and the operations team reviews every finding.</div>
+<div id="cap014" class="clip caption" data-start="61.477" data-duration="3.320" data-track-index="10">From GitLab, a GitLab Runner prepares the release.</div>
+<div id="cap015" class="clip caption" data-start="64.837" data-duration="3.106" data-track-index="10">The workflow code goes to AWS CodeCommit.</div>
+<div id="cap016" class="clip caption" data-start="67.993" data-duration="6.529" data-track-index="10">Each container image goes to private Amazon ECR, locked to its exact identity.</div>
+<div id="cap017" class="clip caption" data-start="74.572" data-duration="6.062" data-track-index="10">The workflow, plugins, references and data are packed into one bundle in Amazon S3,</div>
+<div id="cap018" class="clip caption" data-start="80.674" data-duration="2.849" data-track-index="10">with a fingerprint for every file.</div>
+<div id="cap019" class="clip caption" data-start="83.573" data-duration="4.016" data-track-index="10">Together, they form one complete, self-contained release.</div>
+<div id="cap020" class="clip caption" data-start="88.239" data-duration="3.420" data-track-index="10">Nothing is trusted just because it was uploaded.</div>
+<div id="cap021" class="clip caption" data-start="91.699" data-duration="5.901" data-track-index="10">Every file and every image is read back and compared against its fingerprint.</div>
+<div id="cap022" class="clip caption" data-start="97.650" data-duration="5.239" data-track-index="10">Only when everything matches is the release registered and ready to run.</div>
+<div id="cap023" class="clip caption" data-start="103.039" data-duration="3.924" data-track-index="10">If anything is missing or different, the release stops here,</div>
+<div id="cap024" class="clip caption" data-start="107.003" data-duration="2.266" data-track-index="10">long before it reaches a run.</div>
+<div id="cap025" class="clip caption" data-start="109.919" data-duration="3.425" data-track-index="10">An approved run request in GitLab starts a controlled run with</div>
+<div id="cap026" class="clip caption" data-start="113.384" data-duration="1.691" data-track-index="10">its own unique identity.</div>
+<div id="cap027" class="clip caption" data-start="115.125" data-duration="3.931" data-track-index="10">AWS CodePipeline leads the run through ten gated stages.</div>
+<div id="cap028" class="clip caption" data-start="119.096" data-duration="3.080" data-track-index="10">It checks the source, the release, the data,</div>
+<div id="cap029" class="clip caption" data-start="122.216" data-duration="3.647" data-track-index="10">the images and the runtime before anything executes,</div>
+<div id="cap030" class="clip caption" data-start="125.904" data-duration="4.037" data-track-index="10">then validates the results and publishes the report.</div>
+<div id="cap031" class="clip caption" data-start="129.991" data-duration="2.447" data-track-index="10">CodeBuild does the work of each stage,</div>
+<div id="cap032" class="clip caption" data-start="132.478" data-duration="5.849" data-track-index="10">and AWS Systems Manager sends commands to a private EC2 host with no internet route.</div>
+<div id="cap033" class="clip caption" data-start="138.377" data-duration="4.627" data-track-index="10">Private endpoints connect it only to the AWS services it needs.</div>
+<div id="cap034" class="clip caption" data-start="143.654" data-duration="4.165" data-track-index="10">On the host, the bundle is checked again against its fingerprints.</div>
+<div id="cap035" class="clip caption" data-start="147.859" data-duration="4.237" data-track-index="10">The exact images are loaded into an isolated container store.</div>
+<div id="cap036" class="clip caption" data-start="152.146" data-duration="4.788" data-track-index="10">Nextflow then runs in offline mode, using only what was prepared.</div>
+<div id="cap037" class="clip caption" data-start="156.984" data-duration="4.163" data-track-index="10">Plugin downloads are switched off, task containers have no network,</div>
+<div id="cap038" class="clip caption" data-start="161.187" data-duration="2.044" data-track-index="10">and no image can be pulled.</div>
+<div id="cap039" class="clip caption" data-start="163.281" data-duration="3.710" data-track-index="10">Everything the analysis needs is already there.</div>
+<div id="cap040" class="clip caption" data-start="167.641" data-duration="3.780" data-track-index="10">When the run ends, the result is checked, not assumed.</div>
+<div id="cap041" class="clip caption" data-start="171.471" data-duration="6.000" data-track-index="10">The pipeline confirms the run succeeded, that the offline controls were in place,</div>
+<div id="cap042" class="clip caption" data-start="177.511" data-duration="3.034" data-track-index="10">and that the expected outputs exist.</div>
+<div id="cap043" class="clip caption" data-start="180.595" data-duration="5.423" data-track-index="10">The answer is a clear PASS or FAIL, with an evidence report the team can review.</div>
+<div id="cap044" class="clip caption" data-start="186.668" data-duration="4.239" data-track-index="10">So the journey is complete: hosted and scanned in GitLab,</div>
+<div id="cap045" class="clip caption" data-start="190.947" data-duration="5.604" data-track-index="10">prepared and verified in AWS, executed offline and backed by evidence.</div>
+<div id="cap046" class="clip caption" data-start="196.701" data-duration="3.891" data-track-index="10">Tested end to end, and repeatable for every release.</div>
+<div id="cap047" class="clip caption" data-start="201.042" data-duration="5.629" data-track-index="10">Prepare once. Verify everything. Run with confidence.</div>
+  <div id="fade" data-layout-ignore></div>
+  <audio id="mix" class="clip" data-start="0" data-duration="212.351" data-track-index="20" src="assets/mix.wav"></audio>
+</div>
+
+<script>
+const C = {"s01": {"s": 1.6, "e": 5.394, "d": 3.794}, "s02": {"s": 5.744, "e": 12.702, "d": 6.958}, "s03": {"s": 13.202, "e": 19.093, "d": 5.891}, "s04": {"s": 19.593, "e": 25.785, "d": 6.192}, "s05": {"s": 27.985, "e": 38.453, "d": 10.468}, "s06": {"s": 39.453, "e": 43.423, "d": 3.97}, "s07": {"s": 43.823, "e": 50.2, "d": 6.377}, "s08": {"s": 50.6, "e": 54.074, "d": 3.474}, "s09": {"s": 54.474, "e": 60.507, "d": 6.033}, "s10": {"s": 61.507, "e": 67.623, "d": 6.116}, "s11": {"s": 68.023, "e": 74.202, "d": 6.179}, "s12": {"s": 74.602, "e": 83.203, "d": 8.601}, "s13": {"s": 83.603, "e": 87.269, "d": 3.666}, "s14": {"s": 88.269, "e": 97.28, "d": 9.011}, "s15": {"s": 97.68, "e": 102.569, "d": 4.889}, "s16": {"s": 103.069, "e": 108.949, "d": 5.88}, "s17": {"s": 109.949, "e": 114.755, "d": 4.806}, "s18": {"s": 115.155, "e": 129.621, "d": 14.466}, "s19": {"s": 130.021, "e": 138.007, "d": 7.986}, "s20": {"s": 138.407, "e": 142.684, "d": 4.277}, "s21": {"s": 143.684, "e": 151.776, "d": 8.092}, "s22": {"s": 152.176, "e": 156.614, "d": 4.438}, "s23": {"s": 157.014, "e": 162.911, "d": 5.897}, "s24": {"s": 163.311, "e": 166.671, "d": 3.36}, "s25": {"s": 167.671, "e": 171.101, "d": 3.43}, "s26": {"s": 171.501, "e": 180.225, "d": 8.724}, "s27": {"s": 180.625, "e": 185.698, "d": 5.073}, "s28": {"s": 186.698, "e": 196.231, "d": 9.533}, "s29": {"s": 196.731, "e": 200.272, "d": 3.541}, "s30": {"s": 201.072, "e": 206.351, "d": 5.279}}, CH = [{"id": "c0", "label": "", "t": 1.6}, {"id": "c1", "label": "01 \u00b7 ONE REAL WORKFLOW", "t": 27.985}, {"id": "c2", "label": "02 \u00b7 ONE TRUSTED HOME", "t": 39.453}, {"id": "c3", "label": "03 \u00b7 PREPARE THE RELEASE", "t": 61.507}, {"id": "c4", "label": "04 \u00b7 VERIFY BEFORE TRUST", "t": 88.269}, {"id": "c5", "label": "05 \u00b7 A CONTROLLED RUN", "t": 109.949}, {"id": "c6", "label": "06 \u00b7 RUN OFFLINE", "t": 143.684}, {"id": "c7", "label": "07 \u00b7 PROOF, NOT PROMISES", "t": 167.671}, {"id": "c8", "label": "08 \u00b7 RUN WITH CONFIDENCE", "t": 186.698}], TOTAL = 212.351;
+const S = id => C[id].s, E = id => C[id].e, D = id => C[id].d, F = (id, f) => C[id].s + C[id].d * f;
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({paused:true, defaults:{ease:"power2.inOut"}});
+const clampc = (c, z, size, half) => Math.min(size - half / z, Math.max(half / z, c));
+const cam = (cx, cy, z) => { z = Math.max(z, 0.9375); cx = clampc(cx, z, 2048, 960); cy = clampc(cy, z, 1152, 540); return {x: 960 - cx*z, y: 540 - cy*z, scale: z}; };
+function move(sel, t, cx, cy, z, d=1.4, ease="power2.inOut"){ tl.to(sel, Object.assign(cam(cx,cy,z), {duration:d, ease}), t); }
+const fin  = (sel, t, d=.5, y=18) => tl.fromTo(sel, {opacity:0, y}, {opacity:1, y:0, duration:d, ease:"power2.out"}, t);
+const fout = (sel, t, d=.4) => tl.to(sel, {opacity:0, duration:d, ease:"power1.in"}, t);
+const pop  = (sel, t, s=.6) => tl.fromTo(sel, {opacity:0, scale:s}, {opacity:1, scale:1, duration:.45, ease:"back.out(2)"}, t);
+const draw = (sel, t, d=.8) => tl.to(sel, {strokeDashoffset:0, duration:d, ease:"power2.out"}, t);
+const tick = (sel, t) => tl.fromTo(sel, {scale:.6, borderColor:"#2f4063", backgroundColor:"rgba(0,0,0,0)", color:"#3a4a6a"}, {scale:1, borderColor:"#35e0c8", backgroundColor:"#0c3b35", color:"#c4fbf1", duration:.35, ease:"back.out(2.5)"}, t);
+function xfade(a, b, t, d=.8){ tl.to(a, {opacity:0, duration:d}, t); tl.to(b, {opacity:1, duration:d}, t); }
+function wipe(t){ tl.fromTo("#beam", {x:0, opacity:0}, {x:2900, opacity:1, duration:1.1, ease:"power2.inOut"}, t); tl.to("#beam", {opacity:0, duration:.2}, t+1.0); }
+function railTo(i, t){
+  for (let k = 0; k < 5; k++) {
+    const on = k <= i;
+    tl.to("#rn"+k, {borderColor: on ? "#35e0c8" : "#3a4a70", backgroundColor: on ? "#35e0c8" : "#0b1424", boxShadow: on ? "0 0 18px #35e0c8aa" : "0 0 0px #35e0c800", duration:.35}, t);
+    tl.to("#rl"+k, {color: k === i ? "#ffffff" : "#93a1c2", duration:.35}, t);
+  }
+  tl.to("#railF", {width: 194 * i, duration:.6, ease:"power2.out"}, t);
+}
+const mk = (parent, cls, css, html="") => { const el = document.createElement(cls === "img" ? "img" : "div"); if (cls === "img") { el.src = html; el.className = "fly"; el.alt = ""; } else { el.className = cls; el.innerHTML = html; } Object.assign(el.style, css); document.getElementById(parent).appendChild(el); return el; };
+const svgFly = (parent, w, svg) => mk(parent, "fly", {left:"900px", top:"640px", width: w + "px"}, svg);
+
+gsap.set("#wGate", cam(1024, 560, 1.0)); gsap.set("#wHome", cam(1024, 600, 1.05)); gsap.set("#wBench", cam(1024, 576, 1.0));
+gsap.set("#wInspect", cam(1160, 580, 1.0)); gsap.set("#wRoute", cam(760, 700, 1.12)); gsap.set("#wLab", cam(1024, 576, 1.0)); gsap.set("#wDawn", cam(1024, 600, 1.08));
+gsap.set("#wHome", {filter:"blur(10px)"});
+
+/* ===== 0 · the missing piece ===== */
+tl.to("#fade", {opacity:0, duration:1.8, ease:"power1.out"}, 0.1);
+tl.to("#aitag", {opacity:1, duration:.6}, 1.0);
+move("#wGate", 0.1, 1024, 480, 1.22, E("s03"), "power1.inOut");
+tl.fromTo("#caseA", {opacity:0, y:80}, {opacity:1, y:0, duration:1.2, ease:"power2.out"}, 0.6);
+pop("#p1", F("s01", .45));
+[["#p2", .14], ["#p3", .34], ["#p4", .46], ["#p5", .66]].forEach(([s, f]) => pop(s, F("s02", f)));
+["#p1","#p2","#p3","#p4","#p5"].forEach((s, k) => tl.to(s, {y: (k % 2 ? 10 : -10), duration: 2.4, ease:"sine.inOut", yoyo:true, repeat:1}, F("s02", .7) + k * .1));
+// travel towards the door; one piece goes missing; the door stays shut
+tl.to("#grp", {scale:.82, y:-110, duration:D("s03") * .55, ease:"power2.inOut"}, S("s03"));
+tl.to("#p4", {opacity:0, duration:.35}, F("s03", .5)); tl.to("#p4g", {opacity:1, duration:.35}, F("s03", .5));
+tl.to("#ring", {opacity:1, duration:.4}, F("s03", .62)); tl.to("#ring", {opacity:.35, duration:.3, yoyo:true, repeat:3}, F("s03", .7));
+fin("#stopP", F("s03", .62)); tl.to("#illu", {opacity:1, duration:.4}, S("s01") + 0.3);
+// rewind into preparation
+fout("#stopP", S("s04") - 0.2); tl.to("#ring", {opacity:0, duration:.4}, S("s04") - 0.2);
+tl.to("#grp", {scale:1, y:0, duration:1.4, ease:"power2.inOut"}, S("s04"));
+tl.to("#p4g", {opacity:0, duration:.3}, S("s04") + 0.3); tl.to("#p4", {opacity:1, duration:.3}, S("s04") + 0.3);
+move("#wGate", S("s04"), 1024, 560, 1.02, 2.0, "power2.inOut");
+fout("#illu", F("s04", .4));
+tl.to("#grp", {opacity:0, duration:.6}, F("s04", .55));
+tl.to("#gateDim", {opacity:.72, duration:.8}, F("s04", .5));
+fin("#title", F("s04", .62), 1.0, 30);
+move("#wGate", F("s04", .6), 1024, 520, 1.12, E("s04") - F("s04", .6) + 2.4, "none");
+
+/* ===== 1 · the example ===== */
+xfade("#scGate", "#scHome", S("s05") - 0.9, 1.0);
+fout("#title", S("s05") - 0.9, .7);
+move("#wHome", S("s05") - 0.9, 1024, 560, 1.0, D("s05") + 1.4, "none");
+fin("#ex", S("s05") - 0.2, .7, 30);
+[["#ex1", .0], ["#ex2", .14], ["#ex3", .3], ["#ex4", .48], ["#ex5", .72]].forEach(([s, f]) => fin(s, F("s05", f), .45, 12));
+tl.fromTo("#exCase", {rotation:-4, y:10}, {rotation:2, y:-6, duration:D("s05"), ease:"sine.inOut"}, S("s05"));
+tl.to("#rail", {opacity:1, duration:.6}, F("s05", .72));
+
+/* ===== 2 · one trusted home ===== */
+tl.to("#ex", {opacity:0, scale:.2, x:-600, y:-420, duration:.8, ease:"power2.in"}, S("s06") - 0.7);
+tl.to("#wHome", {filter:"blur(0px)", duration:1.4, ease:"power1.out"}, S("s06") - 0.5);
+tl.to("#homeDim", {opacity:.12, duration:1.4}, S("s06") - 0.5);
+move("#wHome", S("s06") - 0.5, 1024, 576, 0.9375, 1.6);
+railTo(0, S("s06"));
+fin("#glT", S("s06") + 0.3, .7);
+fout("#glT", S("s07") - 0.1);
+move("#wHome", S("s07") - 0.2, 662, 470, 1.45, 1.3);
+fin("#al1", S("s07") + 0.7);
+fout("#al1", F("s07", .5) - 0.45, .3);
+move("#wHome", F("s07", .5) - 0.3, 1045, 470, 1.45, 1.3);
+fin("#al2", F("s07", .5) + 0.6);
+fout("#al2", S("s08") - 0.35, .3);
+move("#wHome", S("s08") - 0.2, 1386, 470, 1.45, 1.3);
+fin("#al3", S("s08") + 0.6);
+fout("#al3", S("s09") - 0.45, .3);
+move("#wHome", S("s09") - 0.3, 1024, 576, 0.9375, 1.4);
+fin(["#al1","#al2","#al3"], S("s09") + 0.9, .5, 0);
+tl.to("#homeDim", {opacity:.3, duration:1}, S("s09"));
+tl.fromTo("#sweep", {x:0, opacity:0}, {x:2400, opacity:1, duration:2.6, ease:"power1.inOut"}, S("s09") + 0.3);
+tl.to("#sweep", {opacity:0, duration:.3}, S("s09") + 2.7);
+[["#al1 .ok", .35], ["#al2 .ok", .95], ["#al3 .ok", 1.65]].forEach(([s, dt]) => pop(s, S("s09") + dt, .5));
+fin("#ops", F("s09", .5), .6);
+[[330, 460], [980, 460], [1640, 460]].forEach(([x, y], k) => {
+  const el = mk("finds", "fp", {left: x + "px", top: y + "px"});
+  tl.fromTo(el, {opacity:0, x:0, y:0}, {opacity:1, duration:.25}, F("s09", .55) + k * .25);
+  tl.to(el, {x: 1262 - x, y: 176 - y, scale:.6, duration:1.0, ease:"power2.in"}, F("s09", .55) + k * .25 + .25);
+  tl.to(el, {opacity:0, duration:.15}, F("s09", .55) + k * .25 + 1.05);
+});
+
+/* ===== 3 · prepare the release ===== */
+wipe(S("s10") - 1.0);
+xfade("#scHome", "#scBench", S("s10") - 0.6, .7);
+railTo(1, S("s10"));
+move("#wBench", S("s10") - 0.6, 1024, 600, 1.06, D("s10") + 1.5, "none");
+tl.fromTo("#caseB", {opacity:0, y:-220}, {opacity:1, y:0, duration:.8, ease:"bounce.out"}, S("s10") - 0.1);
+fin("#runner", S("s10") + 0.6);
+fout("#runner", F("s10", .6));
+const P1 = [521, 455], P2 = [960, 455], P3 = [1397, 455];   // screen targets of the three arches
+function launch(src, w, t, to, n=1, spread=0){
+  for (let k = 0; k < n; k++) {
+    const el = src.startsWith("<svg") ? svgFly("flyers", w, src) : mk("flyers", "img", {left:"900px", top:"640px", width: w + "px"}, src);
+    tl.fromTo(el, {opacity:0, x:0, y:0, scale:.6}, {opacity:1, scale:1, duration:.3}, t + k * .22);
+    tl.to(el, {x: to[0] - 900 + (k - (n-1)/2) * spread, y: to[1] - 640, scale:.55, duration:1.1, ease:"power2.inOut"}, t + k * .22 + .2);
+    tl.to(el, {opacity:0, duration:.3}, t + k * .22 + 1.2);
+  }
+}
+const book = ('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="96" viewBox="0 0 120 96"><path d="M6 10 H56 V88 H6 Z M64 10 H114 V88 H64 Z" fill="#ffd9a0" stroke="#5b8cff" stroke-width="5"/><path d="M14 28 H48 M14 42 H48 M14 56 H40 M72 28 H106 M72 42 H106" stroke="#6b4a12" stroke-width="4"/></svg>');
+const bundle = ('<svg xmlns="http://www.w3.org/2000/svg" width="140" height="120" viewBox="0 0 140 120"><rect x="6" y="20" width="128" height="94" rx="12" fill="#1c2a14" stroke="#8fc93a" stroke-width="6"/><path d="M6 46 H134" stroke="#8fc93a" stroke-width="5"/><rect x="52" y="6" width="36" height="22" rx="6" fill="#8fc93a"/><circle cx="104" cy="82" r="18" fill="#062a28" stroke="#35e0c8" stroke-width="5"/><path d="M96 82 l6 6 l10 -12" stroke="#c4fbf1" stroke-width="5" fill="none"/></svg>');
+tl.to("#d1", {opacity:1, duration:.5}, F("s10", .62));
+launch(book, 120, F("s10", .6), P1);
+tl.to("#d2", {opacity:1, duration:.5}, S("s11") + 0.2);
+launch("media/derived/images/crate.png", 120, S("s11") + 0.2, P2, 5, 34);
+tl.to("#d3", {opacity:1, duration:.5}, S("s12") + 0.3);
+launch(bundle, 140, F("s12", .35), P3);
+move("#wBench", S("s11") - 0.2, 1000, 560, 1.12, D("s11") + D("s12") + 0.6, "sine.inOut");
+move("#wBench", S("s13") - 0.3, 1024, 520, 0.9375, 1.6);
+tl.to("#caseB", {y:-60, duration:1.0, ease:"power2.out"}, S("s13"));
+fin("#one", S("s13") + 0.3, .6);
+tl.fromTo(["#d1","#d2","#d3"], {boxShadow:"0 16px 36px #000b"}, {boxShadow:"0 0 40px #35e0c8aa", duration:.6, stagger:.15}, S("s13") + 0.2);
+
+/* ===== 4 · verify before trust ===== */
+wipe(S("s14") - 1.0);
+xfade("#scBench", "#scInspect", S("s14") - 0.6, .7);
+railTo(2, S("s14"));
+move("#wInspect", S("s14") - 0.6, 1100, 560, 1.1, D("s14") + D("s15") + 1.2, "none");
+tl.fromTo("#caseC", {opacity:0, y:-60}, {opacity:1, y:0, duration:.8, ease:"power2.out"}, S("s14") - 0.2);
+fin("#vHead", S("s14") + 0.2);
+fin("#vl", F("s14", .3));
+for (let i = 0; i < 10; i++) mk("tiles", "tile", {left: (i % 5) * 76 + "px", top: Math.floor(i / 5) * 72 + "px"});
+tl.fromTo("#scanL", {opacity:0, y:0}, {opacity:1, y:0, duration:.3}, F("s14", .4));
+tl.to("#scanL", {y:430, duration:1.6, ease:"sine.inOut", yoyo:true, repeat:1}, F("s14", .4));
+tl.to("#scanL", {opacity:0, duration:.3}, F("s14", .4) + 3.2);
+[["#tk1", .5], ["#tk2", .58], ["#tk3", .66], ["#tk4", .74]].forEach(([s, f]) => tick(s, F("s14", f)));
+document.querySelectorAll("#tiles .tile").forEach((el, i) => tl.to(el, {background:"#0c3b35", borderColor:"#35e0c8", duration:.18}, F("s14", .8) + i * .09));
+tick("#tk5", F("s14", .8) + 1.0);
+tl.fromTo("#reg", {opacity:0, scale:2.2}, {opacity:1, scale:1, duration:.4, ease:"power4.in"}, F("s15", .55));
+tl.to("#illu", {opacity:1, duration:.3}, S("s16"));
+tl.to(["#vl","#vHead"], {opacity:0, duration:.4}, S("s16") - 0.1);
+fin("#rej", S("s16") + 0.2);
+tl.to(["#caseC","#reg"], {opacity:0, duration:.4}, S("s16") - 0.1);
+fout("#illu", E("s16") + 0.5);
+
+/* ===== 5 · a controlled run ===== */
+wipe(S("s17") - 1.0);
+xfade("#scInspect", "#scRoute", S("s17") - 0.6, .7);
+railTo(3, S("s17"));
+move("#wRoute", S("s17") - 0.6, 1300, 620, 1.0, D("s17") + D("s18") + 1.2, "none");
+fin("#req", S("s17") + 0.2);
+fout("#req", S("s18") - 0.2);
+fin("#cpT", S("s18") + 0.1);
+for (let i = 1; i <= 10; i++) {
+  tl.to("#st"+i, {opacity:1, duration:.3}, S("s18") + 0.4 + i * 0.12);
+}
+// light the gates as the sentence walks through them
+const lightAt = [0, .32, .37, .42, .47, .53, .58, .63, .7, .82, .9];
+for (let i = 1; i <= 10; i++) tl.to("#st"+i, {borderColor:"#35e0c8", backgroundColor:"#062a28", boxShadow:"0 0 26px #35e0c899", duration:.3}, F("s18", lightAt[i]));
+fin("#br1", F("s18", .64), .4, 0); fin("#br1t", F("s18", .66), .4, 0);
+fin("#br2", F("s18", .9), .4, 0); fin("#br2t", F("s18", .91), .4, 0);
+tl.to(["#cpT","#stages"], {opacity:0, duration:.5}, S("s19") - 0.3);
+tl.to("#mapDim", {opacity:.9, duration:.7}, S("s19") - 0.4);
+tl.to("#map", {opacity:1, duration:.01}, S("s19") - 0.4);
+pop("#sv0", S("s19") - 0.3, .85); tl.to("#m1", {opacity:1, duration:.3}, S("s19") - 0.1); pop("#sv1", S("s19"), .85);
+tl.to("#m2", {opacity:1, duration:.3}, S("s19") + 0.3); pop("#sv2", S("s19") + 0.5, .85);
+tl.to("#m3", {opacity:1, duration:.3}, F("s19", .38)); pop("#sv3", F("s19", .4), .85);
+tl.to("#vpc", {opacity:1, duration:.5}, F("s19", .58)); tl.to("#m4", {opacity:1, duration:.3}, F("s19", .6)); pop("#sv4", F("s19", .62), .85);
+fin("#vpcL", F("s19", .8)); tl.to(["#net","#netL"], {opacity:1, duration:.4}, F("s19", .82));
+pop("#sv5", S("s20") + 0.1, .85); pop("#sv6", S("s20") + 0.4, .85);
+tl.to(["#e1","#e2"], {opacity:1, duration:.5}, S("s20") + 0.3);
+tl.fromTo(["#e1","#e2"], {strokeDashoffset:0}, {strokeDashoffset:-210, duration:6, ease:"none"}, S("s20") + 0.3);
+fin("#epL", F("s20", .5));
+tl.fromTo("#map", {scale:1}, {scale:1.025, transformOrigin:"900px 560px", duration:E("s20") - S("s19") + 1.2, ease:"sine.inOut"}, S("s19") - 0.4);
+move("#wRoute", S("s19") - 0.4, 1500, 600, 1.08, E("s20") - S("s19") + 1.2, "sine.inOut");
+
+/* ===== 6 · run offline ===== */
+wipe(S("s21") - 1.0);
+xfade("#scRoute", "#scLab", S("s21") - 0.6, .7);
+move("#wLab", S("s21") - 0.6, 900, 600, 1.08, D("s21") + D("s22") + 1.6, "none");
+tl.fromTo("#caseD", {opacity:0, y:-50}, {opacity:1, y:0, duration:.9, ease:"power2.out"}, S("s21") - 0.2);
+fin("#ls1", S("s21") + 0.4);
+fin("#ls2", F("s21", .55));
+const PODS = [[182,248],[312,248],[442,248],[182,378],[312,378],[442,378]];
+PODS.forEach(([x, y], k) => {
+  const el = mk("labFlyers", "img", {left: "1000px", top: "560px", width:"90px"}, "media/derived/images/crate.png");
+  tl.fromTo(el, {opacity:0, x:0, y:0, scale:.5}, {opacity:1, scale:1, duration:.3}, F("s21", .58) + k * .2);
+  tl.to(el, {x: x - 1000, y: y - 560, scale:.6, duration:1.0, ease:"power2.inOut"}, F("s21", .58) + k * .2 + .25);
+  tl.to(el, {opacity:.0, duration:.4}, F("s21", .58) + k * .2 + 1.2);
+});
+fin("#ls3", S("s22") + 0.3);
+tl.to("#seal", {opacity:1, duration:.6}, S("s23"));
+[["#blk1", .05], ["#blk2", .38], ["#blk3", .7]].forEach(([s, f]) => pop(s, F("s23", f), .8));
+fin("#ready", S("s24") + 0.1);
+move("#wLab", S("s23") - 0.2, 1060, 560, 1.0, E("s27") - S("s23") + 1.0, "sine.inOut");
+tl.to("#caseD", {filter:"drop-shadow(0 0 40px #35e0c8cc)", duration:.8}, S("s24"));
+
+/* ===== 7 · proof, not promises ===== */
+railTo(4, S("s25") - 0.2);
+tl.to(["#lsteps","#blk1","#blk2","#blk3","#ready","#seal","#ls1","#ls2","#ls3"], {opacity:0, duration:.5}, S("s25") - 0.6);
+tl.to("#evDim", {opacity:1, duration:.7}, S("s25") - 0.5);
+fin("#ev", S("s25") - 0.2, .6);
+tick("#ev1", F("s26", .32)); tick("#ev2", F("s26", .62)); tick("#ev3", F("s26", .88));
+tl.to("#pass", {color:"#ffffff", borderColor:"#35e0c8", background:"#0c3b35", boxShadow:"0 0 50px #35e0c8aa", duration:.4}, F("s27", .3));
+tl.fromTo("#pass", {scale:1.25}, {scale:1, duration:.5, ease:"back.out(2)"}, F("s27", .3));
+fin("#rep", F("s27", .55));
+
+/* ===== 8 · run with confidence ===== */
+wipe(S("s28") - 1.0);
+xfade("#scLab", "#scDawn", S("s28") - 0.6, .9);
+tl.to("#rail", {opacity:0, duration:.5}, S("s28") - 0.6);
+move("#wDawn", S("s28") - 0.6, 1024, 640, 0.9375, TOTAL - S("s28") + 0.6, "power1.out");
+tl.to("#caseE", {opacity:1, duration:.4}, S("s28") + 0.1);
+const jf = [.06, .3, .46, .64, .82];
+jf.forEach((f, i) => {
+  tl.to("#j"+(i+1), {opacity:1, scale:1.15, duration:.4, ease:"back.out(2)"}, F("s28", f));
+  fin("#jl"+(i+1), F("s28", f) + 0.05, .45, 10);
+  tl.to("#caseE", {x: i * 390, duration:.7, ease:"power2.inOut"}, F("s28", f) - 0.3);
+  tl.to("#jrf", {width: i * 390, duration:.7, ease:"power2.inOut"}, F("s28", f) - 0.3);
+});
+fin("#te", S("s29"), .6);
+tl.to("#te", {opacity:0, duration:.5}, S("s30") - 0.3);
+tl.to("#dawnDim", {opacity:1, duration:1.0}, S("s29") - 0.2);
+fin("#fin", S("s30") - 0.1, 1.0, 24);
+fin("#credit", E("s30") + 1.2, 1.0, 0);
+tl.to("#fade", {opacity:1, duration:1.6, ease:"power1.in"}, TOTAL - 1.7);
+
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>
