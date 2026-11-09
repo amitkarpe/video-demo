@@ -1,0 +1,20 @@
+{
+  "duration": 18,
+  "segments": [
+    {
+      "start": 0.6,
+      "duration": 2.5813333333333333,
+      "text": "What if an attack leaves a trail of noise?"
+    },
+    {
+      "start": 5.1,
+      "duration": 4.906666666666666,
+      "text": "Six scanner alerts. One hidden weakness. AI connects the evidence."
+    },
+    {
+      "start": 11.0,
+      "duration": 5.236,
+      "text": "Policy controls the tools. A human gets a finding, ready to review."
+    }
+  ]
+}

@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920,height=1080">
+<title>Agentic Pentest POC — From Scanner Noise to Reviewable Findings</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+:root{
+  --ink:#05070f; --panel:#0a0f1fee; --line:#2a3560; --text:#eef2ff; --dim:#b4bddd; --faint:#7c86ad;
+  --amber:#ffb547; --amber2:#ffd89a; --teal:#35e0c8; --teal2:#bff8ee; --violet:#b39bff; --violet2:#e0d6ff;
+  --human:#fff1dc; --coral:#ff6b7f; --paper:#2a1f10;
+  --sans:"Inter","Helvetica Neue",Arial,sans-serif; --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;background:var(--ink);overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;background:var(--ink);font-family:var(--sans);color:var(--text)}
+.abs{position:absolute}
+.scene{position:absolute;left:0;top:0;width:1920px;height:1080px;opacity:0;overflow:hidden}
+.world{position:absolute;left:0;top:0;width:2048px;height:1152px;transform-origin:0 0}
+.world img.plate{position:absolute;left:0;top:0;width:2048px;height:1152px}
+.shade{position:absolute;inset:0;pointer-events:none}
+.panel{position:absolute;padding:22px 28px;border-radius:18px;background:var(--panel);border:2px solid var(--line);box-shadow:0 24px 60px #000a}
+.h{font:800 32px var(--sans);letter-spacing:.3px}
+.r{font:500 26px var(--sans);color:var(--dim);margin-top:8px}
+.m{font-family:var(--mono)}
+.chip{display:inline-block;padding:6px 14px;border-radius:999px;font:800 21px var(--mono);letter-spacing:1.5px;vertical-align:middle;white-space:nowrap}
+.k-rec{background:#2a1c05dd;border:2px solid var(--amber);color:var(--amber2)}
+.k-impl{background:#062b27dd;border:2px solid var(--teal);color:var(--teal2)}
+.k-ill{background:#161a2cdd;border:2px dashed #8d96bd;color:#d7dcf2}
+.k-model{background:#1d1438dd;border:2px dashed var(--violet);color:var(--violet2)}
+.k-human{background:#2a2418dd;border:2px solid var(--human);color:var(--human)}
+.k-bad{background:#2a0c14dd;border:2px solid var(--coral);color:#ffd0d7}
+/* evidence card (AI sprite + code text) */
+.ec{position:absolute;width:270px;height:182px;background:url(media/derived/images/card.png) center/100% 100% no-repeat;filter:drop-shadow(0 14px 22px #000c)}
+.ec .tl{position:absolute;left:46px;top:20px;font:900 25px var(--sans);color:#3a2706;letter-spacing:1px}
+.ec .ti{position:absolute;left:22px;right:18px;top:58px;font:700 19px/1.18 var(--sans);color:#2b2214}
+.ec .sn{position:absolute;left:22px;right:14px;bottom:14px;font:700 15px var(--mono);color:#6b4a12}
+.ftab{position:absolute;right:-10px;top:-14px;padding:3px 10px;border-radius:8px;background:#062b27;border:2px solid var(--teal);color:var(--teal2);font:800 16px var(--mono);opacity:0}
+.mini{position:absolute;width:52px;height:35px;background:url(media/derived/images/card.png) center/100% 100% no-repeat;opacity:0}
+.json{position:absolute;padding:20px 26px;border-radius:16px;background:#140d2bf2;border:3px dashed var(--violet);font:600 25px/1.5 var(--mono);color:var(--violet2);white-space:pre;box-shadow:0 0 40px #b39bff44}
+.json b{color:#fff;font-weight:700}
+.gl{position:absolute;width:250px;text-align:center;padding:8px 0;border-radius:12px;background:#070b18e6;border:2px solid #2f3a6a;font:800 28px var(--mono);color:#9fb0d8;letter-spacing:1px}
+.lamp{position:absolute;width:76px;height:76px;border-radius:50%;background:radial-gradient(circle,#35e0c8 0%,#35e0c855 45%,transparent 70%);opacity:0;mix-blend-mode:screen}
+.lamp.bad{background:radial-gradient(circle,#ff6b7f 0%,#ff6b7f66 45%,transparent 70%)}
+.slip{position:absolute;width:200px;height:400px;background:url(media/derived/images/receipt.png) center/100% 100% no-repeat;filter:drop-shadow(0 10px 18px #000c);opacity:0}
+.slip .a{position:absolute;left:14px;right:12px;top:56px;font:800 23px/1.2 var(--mono);color:#1b2030;text-align:center}
+.slip .b{position:absolute;left:12px;right:10px;top:140px;font:700 20px/1.3 var(--mono);color:#3b4258;text-align:center}
+.slip .s{position:absolute;left:12px;right:12px;top:240px;padding:8px 0;border:4px solid #c27c12;border-radius:8px;color:#a8640a;font:900 21px/1.1 var(--mono);text-align:center;transform:rotate(-8deg)}
+.kb{position:absolute;top:0;height:74px;padding:0 20px;display:flex;align-items:center;border-radius:12px;background:#062b27ee;border:2px solid var(--teal);color:#e8fffb;font:700 29px var(--mono);white-space:nowrap}
+.kl{position:absolute;top:86px;font:600 21px var(--sans);color:var(--teal2);white-space:nowrap}
+.row{display:flex;align-items:center;gap:18px;margin-top:30px}
+.lbl{width:180px;flex:none;font:800 24px var(--mono);color:var(--faint);letter-spacing:2px}
+.big{font:900 116px/1 var(--sans);letter-spacing:-1px}
+.rule{display:flex;align-items:center;gap:26px;margin:16px 0;font:850 56px var(--sans);letter-spacing:.2px}
+.rule .g{width:56px;height:56px;flex:none}
+.bar{position:relative;height:46px;border-radius:10px;background:#141a33;border:2px solid #2c3766;overflow:hidden}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,#35e0c8,#7ff3e2)}
+.dot{position:absolute;width:9px;height:9px;border-radius:2px;background:var(--amber);opacity:0}
+.gsq{position:absolute;width:84px;height:84px;border-radius:12px;background:#1b2340;border:4px solid var(--amber);display:flex;align-items:center;justify-content:center;font:800 20px var(--mono);color:var(--amber2)}
+.blk{position:absolute;width:380px;padding:12px 16px;border-radius:12px;background:#0b1022ee;border:2px solid #34407a;font:700 23px/1.35 var(--mono);color:#cfd6f5}
+/* HUD */
+#tag{position:absolute;left:30px;top:26px;padding:8px 16px;border-radius:999px;border:2px solid var(--amber);background:#1d1505dd;color:var(--amber2);font:800 19px var(--mono);letter-spacing:2px;opacity:0}
+#aitag{position:absolute;left:30px;top:74px;padding:5px 12px;border-radius:999px;border:2px solid #3a4475;background:#0b1024dd;color:var(--dim);font:700 16px var(--mono);letter-spacing:2px;opacity:0}
+.chap{position:absolute;right:30px;top:26px;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:#0b1024dd;color:var(--text);font:800 19px var(--mono);letter-spacing:3px;opacity:0}
+.caption{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);max-width:1500px;padding:10px 28px;border-radius:14px;background:#03050ee6;color:#fff;font:600 38px/1.28 var(--sans);text-align:center}
+#fade{position:absolute;inset:0;background:#000;opacity:1}
+#beam{position:absolute;left:-600px;top:0;width:500px;height:1080px;background:linear-gradient(90deg,transparent,#ffd59a55,#fff3d6aa,#ffd59a55,transparent);opacity:0;transform:skewX(-14deg)}
+</style>
+</head>
+<body>
+<div id="stage" class="clip" data-composition-id="main" data-start="0" data-duration="__TOTAL__" data-width="1920" data-height="1080" data-track-index="0">
+
+  <!-- ============ HALL: cold open, title, the rule ============ -->
+  <div id="scHall" class="scene" style="opacity:1">
+    <div id="wHall" class="world" data-layout-allow-overflow><img class="plate" src="media/derived/images/hall.jpg" alt="AI-generated illustration of an evidence archive hall with drifting paper cards"></div>
+    <div class="shade" style="background:linear-gradient(180deg,#05070fbb 0%,#05070f00 30%,#05070f00 66%,#05070fcc 100%)" data-layout-ignore></div>
+    <div id="snow" class="abs" style="inset:0" data-layout-ignore></div>
+    <div id="hallDim" class="shade" style="background:#04060de0;opacity:0" data-layout-ignore></div>
+    <div id="cnt" class="abs" style="left:0;top:150px;width:1920px;text-align:center;opacity:0">
+      <div><span id="cntN" class="big m" style="color:var(--amber)">0</span><span style="font:800 46px var(--sans);color:var(--amber2);margin-left:22px">raw alerts</span></div>
+      <div style="margin-top:14px;font:600 30px var(--sans);color:#e6eaff">5 scanners · 1 deliberately vulnerable training app <span class="chip k-rec" style="margin-left:12px">RECORDED LAB EVIDENCE</span></div>
+    </div>
+    <div id="six" class="abs" style="left:0;top:330px;width:1920px;text-align:center;opacity:0;font:800 36px var(--sans);color:#fff">6 of 480 &nbsp;·&nbsp; <span style="color:var(--amber2)">5 × ZAP</span> + <span style="color:var(--amber2)">1 × Nikto</span> &nbsp;·&nbsp; one underlying question</div>
+    <div id="cards" class="abs" style="left:0;top:0;width:1920px;height:1080px" data-layout-ignore>
+      <div id="c1" class="ec" style="left:95px;top:450px"><div class="tl">ZAP · 1</div><div class="ti">Cross-Domain Misconfiguration</div><div class="sn">Access-Control-Allow-Origin: *</div><div class="ftab">FINDING</div></div>
+      <div id="c2" class="ec" style="left:385px;top:450px"><div class="tl">ZAP · 2</div><div class="ti">Cross-Domain Misconfiguration</div><div class="sn">Access-Control-Allow-Origin: *</div><div class="ftab">FINDING</div></div>
+      <div id="c3" class="ec" style="left:675px;top:450px"><div class="tl">ZAP · 3</div><div class="ti">Cross-Domain Misconfiguration</div><div class="sn">Access-Control-Allow-Origin: *</div><div class="ftab">FINDING</div></div>
+      <div id="c4" class="ec" style="left:965px;top:450px"><div class="tl">ZAP · 4</div><div class="ti">Cross-Domain Misconfiguration</div><div class="sn">Access-Control-Allow-Origin: *</div><div class="ftab">FINDING</div></div>
+      <div id="c5" class="ec" style="left:1255px;top:450px"><div class="tl">ZAP · 5</div><div class="ti">Cross-Domain Misconfiguration</div><div class="sn">Access-Control-Allow-Origin: *</div><div class="ftab">FINDING</div></div>
+      <div id="c6" class="ec" style="left:1545px;top:450px"><div class="tl">NIKTO · 1</div><div class="ti">Retrieved access-control-allow-origin header: *.</div><div class="sn">Access-Control-Allow-Origin: *</div><div class="ftab">FINDING</div></div>
+    </div>
+    <div id="obs" class="abs" style="left:0;top:150px;width:1920px;text-align:center;opacity:0">
+      <div style="font:850 60px var(--sans);color:var(--amber2)">An alert is an <span style="color:#fff">observation.</span></div>
+      <div style="margin-top:12px;font:850 60px var(--sans);color:var(--human)">A finding is a <span style="color:#fff">conclusion.</span></div>
+    </div>
+    <div id="title" class="abs" style="left:0;top:300px;width:1920px;text-align:center;opacity:0">
+      <div style="font:900 132px/1 var(--sans);letter-spacing:4px;background:linear-gradient(180deg,#ffffff,#a9e9ff);-webkit-background-clip:text;background-clip:text;color:transparent">AGENTIC PENTEST POC</div>
+      <div style="margin-top:26px;font:700 46px var(--sans);color:var(--amber2)">From scanner noise to reviewable findings</div>
+      <div style="margin-top:20px;font:600 28px var(--sans);color:#dfe5ff">How AI can help an analyst — without a shell, and without deciding what is true</div>
+    </div>
+    <div id="rule" class="abs" style="left:330px;top:220px;opacity:0">
+      <div id="r1" class="rule" style="color:var(--violet2)"><svg class="g" viewBox="0 0 56 56"><rect x="10" y="10" width="36" height="36" transform="rotate(45 28 28)" fill="none" stroke="#b39bff" stroke-width="4" stroke-dasharray="7 5"/></svg>The model proposes.</div>
+      <div id="r2" class="rule" style="color:var(--teal2)"><svg class="g" viewBox="0 0 56 56"><rect x="8" y="8" width="40" height="40" rx="6" fill="#35e0c8"/></svg>Code constrains and computes.</div>
+      <div id="r3" class="rule" style="color:var(--amber2)"><svg class="g" viewBox="0 0 56 56"><circle cx="28" cy="28" r="20" fill="#ffb547"/></svg>Evidence stays attached.</div>
+      <div id="r4" class="rule" style="color:var(--human)"><svg class="g" viewBox="0 0 56 56"><path d="M28 6 L50 48 L6 48 Z" fill="none" stroke="#fff1dc" stroke-width="5"/></svg>A human still judges.</div>
+    </div>
+  </div>
+
+  <!-- ============ LAB: three boundaries ============ -->
+  <div id="scLab" class="scene">
+    <div id="wLab" class="world" data-layout-allow-overflow>
+      <img class="plate" src="media/derived/images/lab.jpg" alt="AI-generated illustration: a sealed lab dome, an archive of recordings, and a distant monolith">
+      <svg class="abs" style="left:0;top:0" width="2048" height="1152" viewBox="0 0 2048 1152" data-layout-ignore>
+        <rect id="bz1" x="40" y="440" width="470" height="350" rx="22" fill="none" stroke="#ffb547" stroke-width="4" stroke-dasharray="14 10" opacity="0"/>
+        <rect id="bz2" x="820" y="380" width="520" height="410" rx="22" fill="none" stroke="#35e0c8" stroke-width="4" opacity="0"/>
+        <rect id="bz3" x="1700" y="290" width="300" height="420" rx="22" fill="none" stroke="#b39bff" stroke-width="4" stroke-dasharray="14 10" opacity="0"/>
+        <path id="aRec" d="M 515 600 C 640 560, 700 560, 815 600" fill="none" stroke="#ffb547" stroke-width="5" stroke-dasharray="380" stroke-dashoffset="380"/>
+        <path id="aNo" d="M 815 700 C 700 740, 640 740, 515 700" fill="none" stroke="#ff6b7f" stroke-width="4" stroke-dasharray="12 10" opacity="0"/>
+        <path id="aMod" d="M 1345 560 C 1480 500, 1580 500, 1695 540" fill="none" stroke="#b39bff" stroke-width="5" stroke-dasharray="12 10" opacity="0"/>
+      </svg>
+      <div id="noX" class="abs" style="left:625px;top:688px;font:900 54px var(--sans);color:var(--coral);opacity:0">✕</div>
+      <div id="lRec" class="abs" style="left:560px;top:500px;font:700 27px var(--mono);color:var(--amber2);opacity:0">recorded files</div>
+      <div id="lNo" class="abs" style="left:560px;top:760px;font:700 27px var(--mono);color:#ffc2cb;opacity:0">no live scan</div>
+      <div id="lMod" class="abs" style="left:1380px;top:440px;font:700 27px var(--mono);color:var(--violet2);opacity:0">redacted prompt → one JSON reply</div>
+      <div id="z1" class="panel" style="left:30px;top:820px;width:540px;padding:16px 22px;border-color:var(--amber);opacity:0"><div class="h" style="font-size:28px;color:var(--amber2)">① RECORDED ACQUISITION</div><div class="r" style="font-size:26px">training targets · isolated Docker lab · scans recorded 5–6 Nov 2026</div></div>
+      <div id="z2" class="panel" style="left:790px;top:820px;width:580px;padding:16px 22px;border-color:var(--teal);opacity:0"><div class="h" style="font-size:28px;color:var(--teal2)">② REPLAY · make demo</div><div class="r" style="font-size:26px">reads the recordings · starts no scanner</div></div>
+      <div id="z3" class="panel" style="left:1400px;top:770px;width:630px;padding:16px 22px;border-color:var(--violet);border-style:dashed;opacity:0"><div class="h" style="font-size:28px;color:var(--violet2)">③ MODEL PROVIDER</div><div class="r" style="font-size:26px">hosted service · every tool denied · real calls in replay → outputs can vary</div></div>
+    </div>
+    <div class="shade" style="background:linear-gradient(180deg,#05070f99 0%,#05070f00 22%)" data-layout-ignore></div>
+  </div>
+
+  <!-- ============ BOOTH: the model's vocabulary ============ -->
+  <div id="scBooth" class="scene">
+    <div id="wBooth" class="world" data-layout-allow-overflow><img class="plate" src="media/derived/images/booth.jpg" alt="AI-generated illustration of a sealed glass chamber with a violet orb and a single slot"></div>
+    <div id="base" class="panel" style="left:1150px;top:130px;width:700px;border-color:var(--teal);opacity:0">
+      <div><span class="h" style="font-size:30px;color:var(--teal2)">FIXED BASELINE PLAN</span> <span class="chip k-impl" style="margin-left:10px">CODE</span></div>
+      <div class="r m" style="font-size:24px;color:#e8fffb;line-height:1.55;margin-top:12px">ZAP baseline<br>Nuclei safe templates<br>Nikto<br>Trivy image scan<br>npm audit</div>
+      <div id="baseThen" style="margin-top:14px;padding-top:12px;border-top:2px solid #2a3560;font:700 25px var(--sans);color:var(--violet2);opacity:0">then the model may: suggest a follow-up · or stop</div>
+    </div>
+    <div id="sumLbl" class="panel" style="left:1150px;top:640px;width:700px;padding:16px 24px;opacity:0"><div class="h" style="font-size:26px">IN: short, redacted summaries</div><div class="r m" style="font-size:22px">id · tool · severity · clipped title<br><span style="color:var(--coral)">✕</span> no raw scanner payloads</div></div>
+    <div id="sum1" data-layout-allow-overlap class="abs m" style="left:1420px;top:850px;padding:8px 14px;border-radius:8px;background:#0b1022;border:2px solid #4a5590;font:600 20px var(--mono);color:#d6dcf6;opacity:0">ZAP·1 · medium · Cross-Domain Mis…</div>
+    <div id="sum2" data-layout-allow-overlap class="abs m" style="left:1420px;top:850px;padding:8px 14px;border-radius:8px;background:#0b1022;border:2px solid #4a5590;font:600 20px var(--mono);color:#d6dcf6;opacity:0">NIKTO·1 · medium · Retrieved acc…</div>
+    <div id="sum3" data-layout-allow-overlap class="abs m" style="left:1420px;top:850px;padding:8px 14px;border-radius:8px;background:#0b1022;border:2px solid #4a5590;font:600 20px var(--mono);color:#d6dcf6;opacity:0">ZAP·4 · medium · ▒▒▒▒▒▒▒▒▒▒…</div>
+    <div id="jout" class="json" style="left:1080px;top:150px;opacity:0">{ <b>"action_id"</b>:    ‹catalog action›,
+  <b>"profile"</b>:      ‹allowed profile›,
+  <b>"target"</b>:       ‹lab target›,
+  <b>"evidence_ids"</b>: [ "F-12" ],
+  <b>"rationale"</b>:    ‹one short sentence› }</div>
+    <div id="jlbl" class="abs" style="left:1080px;top:470px;opacity:0"><span class="chip k-model">MODEL PROPOSAL</span> <span class="chip k-ill" style="margin-left:8px">ILLUSTRATIVE VALUES</span></div>
+    <div id="nocmd" class="abs" style="left:1080px;top:540px;display:flex;gap:14px;opacity:0">
+      <span class="chip k-bad" style="font-size:22px">✕ SHELL COMMAND</span><span class="chip k-bad" style="font-size:22px">✕ URL</span><span class="chip k-bad" style="font-size:22px">✕ ARGUMENTS</span>
+    </div>
+  </div>
+
+  <!-- ============ GATE: deterministic admission ============ -->
+  <div id="scGate" class="scene">
+    <div id="wGate" class="world" data-layout-allow-overflow>
+      <img class="plate" src="media/derived/images/gate.jpg" alt="AI-generated illustration of a five-station brass inspection machine">
+      <div id="lp1" class="lamp" style="left:306px;top:178px"></div><div id="lp2" class="lamp" style="left:636px;top:178px"></div>
+      <div id="lp3" class="lamp" style="left:958px;top:178px"></div><div id="lp3b" class="lamp bad" style="left:958px;top:178px"></div>
+      <div id="lp4" class="lamp" style="left:1276px;top:178px"></div><div id="lp5" class="lamp" style="left:1598px;top:178px"></div>
+      <div id="g1" class="gl" style="left:219px;top:720px">SHAPE</div><div id="g2" class="gl" style="left:549px;top:720px">CATALOG</div>
+      <div id="g3" class="gl" style="left:871px;top:720px">KNOWN IDs</div><div id="g4" class="gl" style="left:1189px;top:720px">BUDGET</div>
+      <div id="g5" class="gl" style="left:1511px;top:720px">NOT TRIED</div>
+      <div id="pc" class="abs" style="left:40px;top:520px;width:210px;height:120px;border-radius:10px;background:#140d2bf2;border:3px dashed var(--violet);font:800 25px/1.3 var(--mono);color:var(--violet2);text-align:center;padding-top:16px;opacity:0">proposal<br>F-12 ✓</div>
+      <div id="pb" class="abs" style="left:40px;top:520px;width:210px;height:120px;border-radius:10px;background:#2b0d18f2;border:3px dashed var(--coral);font:800 25px/1.3 var(--mono);color:#ffd0d7;text-align:center;padding-top:16px;opacity:0">proposal<br>F-999 ?</div>
+    </div>
+    <div id="gateDim" class="shade" style="background:#04060de6;opacity:0" data-layout-ignore></div>
+    <div id="gHead" class="abs" style="left:40px;top:120px;opacity:0"><span class="chip k-impl">DETERMINISTIC POLICY GATE · CODE</span></div>
+    <div id="refused" class="panel" style="left:560px;top:690px;width:820px;border-color:var(--coral);opacity:0">
+      <div class="h" style="color:#ffd0d7">REFUSED — unknown evidence ID <span class="chip k-ill" style="margin-left:10px">ILLUSTRATIVE CASE</span></div>
+      <div class="r" style="color:#e8fffb">model is not asked again → <b style="color:var(--teal2)">deterministic fallback plan</b> finishes the run</div>
+    </div>
+    <div id="rcpt" data-hold class="abs" style="left:1270px;top:600px;width:330px;height:860px;background:url(media/derived/images/receipt.png) center/100% 100% no-repeat;filter:drop-shadow(0 18px 30px #000d);opacity:0">
+      <div style="position:absolute;left:24px;right:20px;top:80px;text-align:center;font:900 36px var(--mono);color:#1b2030">RECEIPT</div>
+      <div style="position:absolute;left:22px;right:18px;top:150px;font:700 27px/1.6 var(--mono);color:#2b3248">step 6<br>source: model<br>phase: follow-up<br>status:<br><b style="color:#1b2030">not_executed</b></div>
+      <div id="stampNE" style="position:absolute;left:14px;right:14px;top:470px;padding:12px 0;border:5px solid #c27c12;border-radius:12px;color:#a8640a;font:900 36px/1.1 var(--mono);text-align:center;transform:rotate(-9deg);opacity:0">NOT<br>EXECUTED</div>
+    </div>
+    <div id="rro" class="panel" style="left:240px;top:330px;width:880px;border-color:var(--teal);opacity:0">
+      <div class="h" style="color:var(--teal2)">ADMITTED → record-only runner</div>
+      <div class="r" style="color:#e8fffb">the default runner <b>executes nothing</b>: every step is recorded as <span class="m" style="color:var(--amber2)">not_executed</span></div>
+      <div style="margin-top:14px"><span class="chip k-impl">IMPLEMENTED</span></div>
+    </div>
+    <div id="runHead" class="abs" style="left:0;top:150px;width:1920px;text-align:center;opacity:0"><span class="h" style="font-size:36px">The recorded Juice Shop run: 7 steps</span> <span class="chip k-rec" style="margin-left:14px">RECORDED LAB RUN · 6 NOV 2026</span></div>
+    <div id="runRow" class="abs" style="left:0;top:0;width:1920px;height:1080px" data-layout-ignore></div>
+    <div id="runEnd" class="abs" style="left:0;top:660px;width:1920px;text-align:center;font:700 32px var(--sans);color:var(--violet2);opacity:0">then the model chose: <b style="color:#fff">stop</b> &nbsp;·&nbsp; <span style="color:var(--amber2)">7 recorded · 0 executed</span></div>
+    <div id="known" data-hold class="abs" style="left:0;top:750px;width:1920px;text-align:center;opacity:0">
+      <div style="font:850 54px var(--sans);color:#fff">a <span style="color:var(--teal2)">known ID</span> ≠ <span style="color:var(--violet2)">good reasoning</span></div>
+      <div style="margin-top:8px;font:600 30px var(--sans);color:var(--dim)">the gate limits authority — it cannot guarantee judgment</div>
+    </div>
+  </div>
+
+  <!-- ============ TABLE: one finding, followed ============ -->
+  <div id="scTable" class="scene">
+    <div id="wTable" class="world" data-layout-allow-overflow><img class="plate" src="media/derived/images/table.jpg" alt="AI-generated illustration of a glowing glass light-table, top-down"></div>
+    <div class="shade" style="background:#05070f66" data-layout-ignore></div>
+    <svg id="threads" class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080" data-layout-ignore>
+      <path id="t1" d="M 218 325 C 600 260, 1000 390, 1300 430" fill="none" stroke="#ffb547" stroke-width="4" stroke-dasharray="1300" stroke-dashoffset="1300"/>
+      <path id="t2" d="M 508 325 C 800 280, 1080 410, 1300 460" fill="none" stroke="#ffb547" stroke-width="4" stroke-dasharray="1300" stroke-dashoffset="1300"/>
+      <path id="t3" d="M 798 325 C 1000 310, 1150 440, 1300 490" fill="none" stroke="#ffb547" stroke-width="4" stroke-dasharray="1300" stroke-dashoffset="1300"/>
+      <path id="t4" d="M 218 565 C 600 690, 1000 600, 1300 520" fill="none" stroke="#ffb547" stroke-width="4" stroke-dasharray="1300" stroke-dashoffset="1300"/>
+      <path id="t5" d="M 508 565 C 800 670, 1100 600, 1300 550" fill="none" stroke="#ffb547" stroke-width="4" stroke-dasharray="1300" stroke-dashoffset="1300"/>
+      <path id="t6" d="M 798 565 C 1000 650, 1150 610, 1300 580" fill="none" stroke="#ffb547" stroke-width="4" stroke-dasharray="1300" stroke-dashoffset="1300"/>
+    </svg>
+    <div id="tcards" class="abs" style="left:0;top:0;width:1920px;height:1080px" data-layout-ignore></div>
+    <div id="fmap" class="panel" style="left:1080px;top:290px;width:760px;border-color:var(--teal);opacity:0">
+      <div><span class="h" style="color:var(--teal2)">COMMON FINDING</span> <span class="chip k-impl" style="margin-left:10px">ADAPTER · CODE</span></div>
+      <div class="r m" style="font-size:24px;line-height:1.7;color:#e8fffb">tool &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zap<br>rule &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanner's own check<br>location &nbsp;lab URL, kept<br>evidence &nbsp;Access-Control-Allow-Origin: *<br>id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stable, citable</div>
+    </div>
+    <div id="key" class="abs" style="left:80px;top:150px;width:1760px;height:130px;opacity:0">
+      <div id="k1" class="kb" style="left:0">web</div>
+      <div id="k2" class="kb" style="left:118px">http://juice-shop:3000</div>
+      <div id="k3" class="kb" style="left:560px">cwe-264</div>
+      <div id="k4" class="kb" style="left:756px;width:250px;justify-content:center"><span id="k4a">/sitemap.xml</span><span id="k4b" style="position:absolute;opacity:0;color:var(--amber2)">*</span></div>
+      <div id="k5" class="kb" style="left:1028px">cors</div>
+      <div class="kl" style="left:0">kind</div><div class="kl" style="left:118px">origin</div><div class="kl" style="left:560px">weakness class</div>
+      <div class="kl" style="left:756px">path → * (site-wide)</div><div class="kl" style="left:1028px">check family</div>
+      <div id="kchip" class="abs" style="left:1180px;top:14px"><span class="chip k-impl">GROUP KEY · CODE</span></div>
+    </div>
+    <img id="fold" class="abs" src="media/derived/images/folder.png" style="left:1300px;top:320px;width:300px;opacity:0" alt="AI-generated folder sprite">
+    <div id="foldL" class="abs" style="left:1190px;top:720px;width:520px;text-align:center;opacity:0">
+      <div class="m" style="font:800 30px var(--mono);color:#fff">grp-d382cb1578</div>
+      <div style="margin-top:6px;font:600 25px var(--sans);color:var(--amber2)">6 observations attached · nikto + zap</div>
+      <div style="margin-top:10px"><span class="chip k-rec">RECORDED REPORT</span></div>
+    </div>
+    <div id="split" class="panel" style="left:160px;top:250px;width:1600px;height:520px;opacity:0">
+      <div><span class="h">Same weakness class, two fixes → two groups</span> <span class="chip k-impl" style="margin-left:12px">IMPLEMENTED RULE</span> <span class="chip k-ill" style="margin-left:8px">SAMPLE CARDS</span></div>
+      <div class="ec" style="left:40px;top:110px"><div class="tl">CHECK A</div><div class="ti">Content Security Policy header not set</div><div class="sn">CWE-693</div></div>
+      <div class="ec" style="left:40px;top:320px"><div class="tl">CHECK B</div><div class="ti">X-Content-Type-Options header missing</div><div class="sn">CWE-693</div></div>
+      <div class="kb" style="left:370px;top:160px;height:64px;font-size:25px">web | origin | cwe-693 | * | <span style="color:var(--amber2);margin-left:10px">csp</span></div>
+      <div class="kb" style="left:370px;top:370px;height:64px;font-size:25px">web | origin | cwe-693 | * | <span style="color:var(--amber2);margin-left:10px">x-content-type-options</span></div>
+      <img class="abs" src="media/derived/images/folder.png" style="left:1330px;top:100px;width:140px" alt=""><img class="abs" src="media/derived/images/folder.png" style="left:1330px;top:310px;width:140px" alt="">
+    </div>
+    <div id="notAI" class="abs" style="left:0;top:868px;width:1920px;text-align:center;opacity:0;font:850 44px var(--sans);color:#fff">explicit rules — <span style="color:var(--teal2)">reviewable</span> — not an AI discovering a root cause</div>
+    <!-- report entry -->
+    <div id="rep" class="panel" style="left:620px;top:130px;width:1240px;opacity:0;padding:28px 32px">
+      <div><span class="h" style="font-size:30px">REPORT ENTRY · grp-d382cb1578</span></div>
+      <div id="rw1" class="row" style="opacity:0"><div class="lbl">OWASP</div><div style="font:800 36px var(--sans)">A01:2021 · Broken Access Control</div><span class="chip k-impl">CODE MAPPING</span></div>
+      <div id="rw2" class="row" style="opacity:0"><div class="lbl">FIX</div><div style="font:700 32px var(--sans);color:#e6eaff">explicit origin allowlist instead of *</div><span class="chip k-impl">CODE RULES</span></div>
+      <div id="rw3" class="row" style="opacity:0;align-items:flex-start"><div class="lbl" style="margin-top:10px">SEVERITY</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:14px"><span id="vec" class="m" style="padding:10px 16px;border-radius:10px;border:3px dashed var(--violet);background:#140d2b;font:700 26px var(--mono);color:var(--violet2)">CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N</span><span class="chip k-model">MODEL PROPOSAL</span></div>
+          <div id="calc" style="display:flex;align-items:center;gap:16px;margin-top:14px;opacity:0"><span style="font:800 29px var(--mono);color:var(--teal2)">→ validated · computed by code →</span><span style="font:900 78px var(--sans);color:#fff">4.3</span><span style="font:800 38px var(--sans);color:var(--amber2)">MEDIUM</span></div>
+          <div id="unsc" style="margin-top:12px;opacity:0"><span class="chip k-ill" style="font-size:24px">invalid proposal → NOT SCORED</span></div>
+        </div></div>
+      <div id="rw4" class="row" style="opacity:0;align-items:flex-start"><div class="lbl" style="margin-top:2px">MODEL VERDICT</div>
+        <div>
+          <div style="display:flex;gap:14px"><span id="vTP" class="chip" style="font-size:28px;padding:10px 20px;border:2px solid #4a5590;color:#cfd6f5">TRUE POSITIVE</span><span class="chip" style="font-size:28px;padding:10px 20px;border:2px solid #4a5590;color:#cfd6f5">NOISE</span><span class="chip" style="font-size:28px;padding:10px 20px;border:2px solid #4a5590;color:#cfd6f5">NEEDS HUMAN</span></div>
+          <div id="vNote" style="margin-top:14px;font:800 29px var(--sans);color:var(--human);opacity:0">▲ a model label, not ground truth — a human still decides · unusable reply → NEEDS HUMAN</div>
+        </div></div>
+      <div id="cav" style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;opacity:0"><span class="chip k-human" style="font-size:25px">▲ 4.3 ≠ a demonstrated exploit</span><span class="chip k-human" style="font-size:25px">▲ wildcard CORS can be intentional on public files</span></div>
+    </div>
+  </div>
+
+  <!-- ============ QUEUE: smaller is not safer ============ -->
+  <div id="scQueue" class="scene">
+    <div id="wQueue" class="world" style="filter:blur(3px)" data-layout-allow-overflow><img class="plate" src="media/derived/images/hall.jpg" alt=""></div>
+    <div class="shade" style="background:#05070fdd" data-layout-ignore></div>
+    <div id="dots" class="abs" style="left:0;top:0;width:1920px;height:1080px" data-layout-ignore></div>
+    <div id="q480" class="abs" style="left:150px;top:140px;opacity:0"><span class="big m" style="color:var(--amber)">480</span><span style="font:700 36px var(--sans);color:var(--amber2);margin-left:16px">alerts</span></div>
+    <div id="q69" class="abs" style="left:1130px;top:140px;opacity:0"><span class="big m" style="color:var(--teal)">69</span><span style="font:700 36px var(--sans);color:var(--teal2);margin-left:16px">groups</span></div>
+    <div id="qNot" class="abs" style="left:0;top:820px;width:1920px;text-align:center;opacity:0"><span class="chip k-human" style="font-size:28px;padding:10px 22px">a shorter queue ≠ measured time saved</span></div>
+    <div id="acc" class="panel" style="left:220px;top:180px;width:1480px;opacity:0">
+      <div><span class="h">Juice Shop recording · accuracy needs denominators</span> <span class="chip k-rec" style="margin-left:12px">RECORDED</span></div>
+      <div style="display:flex;align-items:center;gap:26px;margin-top:34px"><div style="width:330px;font:800 30px var(--sans)">Precision</div><div class="bar" style="width:640px"><i id="b1"></i></div><div style="font:800 36px var(--mono);color:#fff">58 / 63 <span style="color:var(--teal2)">= 92%</span></div></div>
+      <div style="margin-left:356px;margin-top:6px;font:500 23px var(--sans);color:var(--dim)">actionable groups that match a known true issue</div>
+      <div style="display:flex;align-items:center;gap:26px;margin-top:30px"><div style="width:330px;font:800 30px var(--sans)">Overall recall</div><div class="bar" style="width:640px"><i id="b2"></i></div><div style="font:800 36px var(--mono);color:#fff">7 / 11 <span style="color:var(--teal2)">= 64%</span></div></div>
+      <div style="margin-left:356px;margin-top:6px;font:500 23px var(--sans);color:var(--dim)">known issues the report found</div>
+      <div style="margin-top:26px;font:600 24px var(--sans);color:var(--amber2)">▲ measured against a provisional, first-pass ground truth</div>
+    </div>
+    <div id="wg" class="abs" style="left:0;top:0;width:1920px;height:1080px;opacity:0">
+      <div class="abs" style="left:150px;top:130px"><span class="h" style="font-size:38px">WebGoat recording · 21 actionable groups</span> <span class="chip k-rec" style="margin-left:12px">RECORDED</span></div>
+      <div id="wgP" class="abs" style="left:150px;top:200px;font:800 34px var(--mono);color:var(--teal2)">precision 21 / 21 = 100%</div>
+      
+      <div id="wgGrid" class="abs" style="left:150px;top:280px;width:900px;height:420px;z-index:5" data-layout-ignore></div>
+      <div id="wgLeg" class="abs" style="left:150px;top:690px;font:600 26px var(--sans);color:var(--dim)"><span style="color:var(--amber2)">▢ amber</span> = real per provisional ground truth · <span style="color:var(--violet2)">◇ violet</span> = model said “noise”</div>
+      <div id="drawer" class="panel" style="left:1230px;top:260px;width:560px;height:440px;border-color:var(--violet);border-style:dashed;opacity:0">
+        <div class="h" style="color:var(--violet2)">LIKELY NOISE</div>
+        <div class="r" style="font-size:23px">model verdict section of the report</div>
+        <div id="drKeep" style="position:absolute;left:28px;right:28px;bottom:24px;opacity:0"><span class="chip k-rec" style="font-size:20px">KEPT FOR REVIEW</span> <span class="chip k-ill" style="font-size:20px;margin-left:6px">NOT FILED AS ISSUES</span></div>
+      </div>
+      <div id="wgSame" class="abs" style="left:150px;top:760px;font:850 42px var(--sans);color:#fff;opacity:0">precision after verdicts: still <span style="color:var(--teal2)">100%</span> — cleaner ≠ safer</div>
+    </div>
+    <div id="diff" class="panel" style="left:240px;top:190px;width:1440px;opacity:0;padding:30px 36px">
+      <div><span class="h">Comparing two runs</span> <span class="chip k-impl" style="margin-left:12px">IMPLEMENTED RULE</span> <span class="chip k-ill" style="margin-left:8px">ILLUSTRATIVE RUNS</span></div>
+      <div style="display:flex;gap:60px;margin-top:34px">
+        <div style="width:560px"><div class="lbl" style="width:auto;font-size:26px">RUN A · SCANNERS</div><div style="margin-top:12px"><span class="chip k-impl" style="font-size:28px">zap</span> <span class="chip k-impl" style="font-size:28px">nikto</span></div><div class="blk" style="position:relative;margin-top:30px;width:480px;font-size:27px">finding seen only by nikto</div></div>
+        <div style="width:600px"><div class="lbl" style="width:auto;font-size:26px">RUN B · SCANNERS</div><div style="margin-top:12px"><span class="chip k-impl" style="font-size:28px">zap</span> <span id="nikGone" class="chip k-bad" style="font-size:28px">nikto did not run</span></div>
+          <div style="position:relative;margin-top:26px;height:140px">
+            <div id="dFix" class="blk" style="left:0;top:0;width:480px;font-size:27px;border-color:#3f8f5a;color:#a9e8bd">✓ fixed?</div>
+            <div id="dNR" class="blk" style="left:0;top:0;width:480px;font-size:30px;border:3px solid #8d96bd;color:#fff;opacity:0;font-weight:800">NOT RETESTED</div>
+          </div></div>
+      </div>
+      <div id="dNote" style="margin-top:4px;font:700 30px var(--sans);color:var(--human);opacity:0">▲ missing because its scanner did not run again → never reported as fixed</div>
+    </div>
+  </div>
+
+  <!-- ============ DESK: what the analyst gets ============ -->
+  <div id="scDesk" class="scene">
+    <div id="wDesk" class="world" data-layout-allow-overflow><img class="plate" src="media/derived/images/desk.jpg" alt="AI-generated illustration of an analyst reviewing a report at a desk at night"></div>
+    <div class="shade" style="background:linear-gradient(90deg,#05070fd8 0%,#05070fa0 45%,#05070f00 70%)" data-layout-ignore></div>
+    <div id="secs" class="abs" style="left:110px;top:150px;width:900px;opacity:0">
+      <div class="h" style="font-size:36px">A traceable report</div>
+      <div id="sx" style="margin-top:18px;font:700 31px/1.7 var(--sans);color:#eef2ff">
+        <div><span style="color:var(--amber)">●</span> findings with their evidence</div>
+        <div><span style="color:var(--teal)">■</span> severity · CVSS computed by code</div>
+        <div><span style="color:var(--teal)">■</span> suggested fixes</div>
+        <div><span style="color:var(--teal)">■</span> coverage gaps · accuracy section</div>
+        <div><span style="color:var(--violet)">◇</span> likely noise, kept visible</div>
+        <div><span style="color:var(--faint)">○</span> optional deduplicated issues</div>
+      </div>
+    </div>
+    <div id="chain" class="abs" style="left:110px;top:140px;width:940px;height:700px;opacity:0">
+      <div class="h" style="font-size:34px">Hash-chained audit log</div>
+      <div id="ch1" class="blk" style="left:0;top:70px">run_start<br><span style="color:var(--faint)">prev 0000… · hash 7c1e…</span></div>
+      <div id="ch2" class="blk" style="left:0;top:190px">model decision<br><span style="color:var(--faint)">prev 7c1e… · hash 2b9a…</span></div>
+      <div id="ch3" class="blk" style="left:0;top:310px">receipt · not_executed<br><span style="color:var(--faint)">prev 2b9a… · hash d40f…</span></div>
+      <div id="ch4" class="blk" style="left:0;top:430px">run_end · steps = receipts<br><span style="color:var(--faint)">prev d40f… · hash 91aa…</span></div>
+      <div class="abs" style="left:440px;top:76px"><span class="chip k-ill">ILLUSTRATIVE HASHES</span></div>
+      <div id="vchk" class="abs" style="left:440px;top:150px;width:520px;font:700 30px/1.75 var(--sans);color:var(--teal2);opacity:0">✓ every link matches<br>✓ sequence in order<br>✓ one run, one label<br>✓ complete: start … end</div>
+      <div id="aok" class="abs" style="left:440px;top:400px;opacity:0"><span class="chip k-impl" style="font-size:30px;padding:10px 22px">AUDIT OK</span> <span style="font:700 26px var(--sans);color:var(--dim);margin-left:10px">internal check</span></div>
+      <div id="unk" class="abs" style="left:0;top:580px;width:1000px;opacity:0;font:800 32px/1.35 var(--sans);color:var(--human)">▲ unkeyed: consistent ≠ signed · ≠ immutable · ≠ true</div>
+    </div>
+    <div id="gtr" class="abs" style="left:110px;top:250px;width:900px;opacity:0">
+      <div><span class="chip k-human" style="font-size:30px;padding:12px 22px">GROUND TRUTH · first pass · awaiting expert review</span></div>
+      <div style="margin-top:22px"><span class="chip k-human" style="font-size:30px;padding:12px 22px">A CONTROLLED LAB EXPERIMENT</span></div>
+      <div style="margin-top:22px"><span class="chip k-human" style="font-size:30px;padding:12px 22px">NOT A REPLACEMENT FOR A PENTESTER</span></div>
+    </div>
+    <div id="fin" class="abs" style="left:110px;top:190px;opacity:0">
+      <div id="f1" class="rule" style="color:var(--violet2);font-size:58px"><svg class="g" viewBox="0 0 56 56"><rect x="10" y="10" width="36" height="36" transform="rotate(45 28 28)" fill="none" stroke="#b39bff" stroke-width="4" stroke-dasharray="7 5"/></svg>The model proposes.</div>
+      <div id="f2" class="rule" style="color:var(--teal2);font-size:58px"><svg class="g" viewBox="0 0 56 56"><rect x="8" y="8" width="40" height="40" rx="6" fill="#35e0c8"/></svg>Code constrains and computes.</div>
+      <div id="f3" class="rule" style="color:var(--amber2);font-size:58px"><svg class="g" viewBox="0 0 56 56"><circle cx="28" cy="28" r="20" fill="#ffb547"/></svg>Evidence stays attached.</div>
+      <div id="f4" class="rule" style="color:var(--human);font-size:58px"><svg class="g" viewBox="0 0 56 56"><path d="M28 6 L50 48 L6 48 Z" fill="none" stroke="#fff1dc" stroke-width="5"/></svg>A human still judges.</div>
+    </div>
+    <div id="credit" class="abs" style="left:0;bottom:26px;width:1920px;text-align:center;font:600 24px/1.5 var(--sans);color:#d3d9f2;opacity:0" data-layout-ignore>Agentic Pentest POC (kcloud1/agentic-pentest-poc @ 5f81570) · recorded lab evidence, replayed · no live scan, no exploit<br>Narration: AI-generated voice (OpenAI gpt-realtime-2.1, marin) · Artwork: OpenAI gpt-image-2.6-sunburst · Labels, values and diagrams: code</div>
+  </div>
+
+  <!-- ============ HUD ============ -->
+  <div id="hud" class="abs" style="inset:0" data-layout-ignore>
+    <div id="tag">LAB REPLAY · NOT A LIVE ATTACK</div>
+    <div id="aitag">AI VOICE · AI ART · CODE LABELS</div>
+    __CHAPTERS__
+  </div>
+  <div id="beam" data-layout-ignore></div>
+  <!--__CAPTIONS__-->
+  <div id="fade" data-layout-ignore></div>
+  <!--__AUDIO__-->
+</div>
+
+<script>
+const C = __CUES__, CH = __CHAPTER_TIMES__, TOTAL = __TOTAL__;
+const S = id => C[id].s, E = id => C[id].e, D = id => C[id].d, F = (id, f) => C[id].s + C[id].d * f;
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({paused:true, defaults:{ease:"power2.inOut"}});
+const clampc = (c, z, size, half) => Math.min(size - half / z, Math.max(half / z, c));
+const cam = (cx, cy, z) => { z = Math.max(z, 0.9375); cx = clampc(cx, z, 2048, 960); cy = clampc(cy, z, 1152, 540); return {x: 960 - cx*z, y: 540 - cy*z, scale: z}; };
+const FULL = cam(1024, 576, 0.9375);
+function move(sel, t, cx, cy, z, d=1.4, ease="power2.inOut"){ tl.to(sel, Object.assign(cam(cx,cy,z), {duration:d, ease}), t); }
+const fin  = (sel, t, d=.5, y=18) => tl.fromTo(sel, {opacity:0, y}, {opacity:1, y:0, duration:d, ease:"power2.out"}, t);
+const fout = (sel, t, d=.4) => tl.to(sel, {opacity:0, duration:d, ease:"power1.in"}, t);
+const pop  = (sel, t, s=.6) => tl.fromTo(sel, {opacity:0, scale:s}, {opacity:1, scale:1, duration:.45, ease:"back.out(2)"}, t);
+const draw = (sel, t, d=.8) => tl.to(sel, {strokeDashoffset:0, duration:d, ease:"power2.out"}, t);
+function xfade(a, b, t, d=.8){ tl.to(a, {opacity:0, duration:d}, t); tl.to(b, {opacity:1, duration:d}, t); }
+function wipe(t){ tl.fromTo("#beam", {x:0, opacity:0}, {x:2900, opacity:1, duration:1.1, ease:"power2.inOut"}, t); tl.to("#beam", {opacity:0, duration:.2}, t+1.0); }
+CH.forEach(c => { if (!c.label) return; tl.to(".chap", {opacity:0, duration:.25}, c.t - 0.3); tl.fromTo("#chap-"+c.id, {opacity:0, x:20}, {opacity:1, x:0, duration:.45, ease:"power2.out"}, c.t - 0.05); });
+// deterministic pseudo-random
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+
+gsap.set("#wHall", cam(1024, 330, 1.45));
+gsap.set(["#wLab"], cam(300, 720, 1.42)); gsap.set("#wBooth", cam(1010, 560, 1.0)); gsap.set("#wGate", cam(990, 520, 0.9375));
+gsap.set("#wTable", cam(1024, 576, 1.0)); gsap.set("#wQueue", cam(900, 500, 1.1)); gsap.set("#wDesk", cam(1100, 560, 1.12));
+
+/* ===== cold open ===== */
+tl.to("#fade", {opacity:0, duration:1.6, ease:"power1.out"}, 0.1);
+tl.to(["#tag","#aitag"], {opacity:1, duration:.6}, 1.0);
+move("#wHall", 0.1, 1060, 720, 1.12, S("s02") + 0.3, "power1.inOut");
+for (let i = 0; i < 46; i++) {
+  const el = document.createElement("div"); el.className = "mini";
+  const x = 40 + rnd() * 1840, d = 4 + rnd() * 3.5, t0 = 0.2 + rnd() * (S("s02") + 0.4), sc = .55 + rnd() * .9;
+  el.style.left = x + "px"; el.style.top = "-60px"; document.getElementById("snow").appendChild(el);
+  tl.fromTo(el, {opacity:0, y:0, rotation:rnd()*80-40, scale:sc}, {opacity:.85, y:1180, rotation:rnd()*240-120, duration:d, ease:"none"}, t0);
+}
+tl.to("#snow", {opacity:0, duration:.8}, S("s03"));
+fin("#cnt", S("s01") + 0.2);
+const cnt = {v:0}; tl.to(cnt, {v:480, duration:D("s01") - 0.6, ease:"power2.out", onUpdate:() => { document.getElementById("cntN").textContent = Math.round(cnt.v); }}, S("s01") + 0.4);
+// the six cards land
+for (let k = 1; k <= 6; k++) tl.fromTo("#c"+k, {opacity:0, y:-520, rotation:(k%2?-1:1)*(10+k*3)}, {opacity:1, y:0, rotation:(k%2?-1:1)*1.5, duration:.9, ease:"power3.out"}, S("s02") + 0.4 + (k-1)*0.42);
+tl.to("#cnt", {y:-40, opacity:.0, duration:.5}, S("s02") + 0.1);
+fin("#six", S("s02") + 0.6);
+move("#wHall", S("s02") + 0.4, 1100, 700, 1.2, S("s04") - S("s02") - 0.7, "none");
+for (let k = 1; k <= 6; k++) tl.to("#c"+k, {y:(k%2?-8:8), rotation:(k%2?-1:1)*0.5, duration:S("s04") - S("s02") - 3.5, ease:"sine.inOut"}, S("s02") + 3.4 + (k-1)*0.42);
+fout("#six", S("s03") - 0.2);
+fin("#obs", S("s03") + 0.1, .6);
+tl.to("#hallDim", {opacity:.55, duration:.6}, S("s03"));
+fout("#obs", S("s04") - 0.3);
+for (let k = 1; k <= 6; k++) tl.to("#c"+k, {y:520, opacity:0, rotation:(k%2?1:-1)*12, duration:.9, ease:"power2.in"}, S("s04") - 0.4 + k*0.05);
+tl.to("#hallDim", {opacity:.25, duration:.8}, S("s04") - 0.3);
+move("#wHall", S("s04") - 0.3, 1060, 640, 1.3, D("s04") + 1.0, "power1.inOut");
+move("#wHall", E("s04") + 0.8, 1000, 600, 1.2, D("s05") + 2.0, "none");
+fin("#title", S("s04") + 0.1, .9, 30);
+fout("#title", E("s04") + 0.2);
+tl.to("#hallDim", {opacity:.78, duration:.6}, E("s04") + 0.2);
+tl.to("#rule", {opacity:1, duration:.01}, S("s05") - 0.1);
+[["#r1",.16],["#r2",.36],["#r3",.58],["#r4",.78]].forEach(([s,f]) => tl.fromTo(s, {opacity:0, x:-40}, {opacity:1, x:0, duration:.5, ease:"power2.out"}, F("s05", f) - 0.15));
+
+/* ===== 01 three boundaries ===== */
+wipe(S("s06") - 0.9);
+xfade("#scHall", "#scLab", S("s06") - 0.5, .7);
+move("#wLab", S("s06") - 0.5, 300, 720, 1.42, .01);
+move("#wLab", S("s06") - 0.4, 340, 730, 1.48, D("s06") + 0.3, "none");
+tl.to("#bz1", {opacity:1, duration:.5}, S("s06") + 0.6);
+fin("#z1", S("s06") + 1.0);
+move("#wLab", S("s07") - 0.3, 1080, 730, 1.4, 1.6);
+tl.to("#bz2", {opacity:1, duration:.5}, S("s07") + 0.4);
+draw("#aRec", S("s07") + 0.2, .9); fin("#lRec", S("s07") + 0.6);
+fin("#z2", S("s07") + 0.8);
+tl.to("#aNo", {opacity:1, duration:.4}, F("s07", .55)); pop("#noX", F("s07", .55)); fin("#lNo", F("s07", .6));
+move("#wLab", S("s08") - 0.2, 1760, 680, 1.4, 1.6);
+tl.to("#bz3", {opacity:1, duration:.5}, S("s08") + 0.5);
+fin("#z3", S("s08") + 0.8);
+move("#wLab", F("s08", .55), 1024, 640, 0.9375, 2.2);
+tl.to("#aMod", {opacity:1, duration:.5}, F("s08", .58)); fin("#lMod", F("s08", .62));
+
+/* ===== 02 the booth ===== */
+wipe(S("s09") - 0.9);
+xfade("#scLab", "#scBooth", S("s09") - 0.5, .7);
+move("#wBooth", S("s09") - 0.5, 900, 560, 1.06, D("s09") + 1.2, "power1.inOut");
+fin("#base", S("s09") + 0.3);
+tl.from("#base .r", {opacity:0, duration:.6}, S("s09") + 0.5);
+fin("#baseThen", F("s09", .4), .5, 8);
+fin("#sumLbl", F("s09", .62));
+[["#sum1",0],["#sum2",.5],["#sum3",1.0]].forEach(([s,dt]) => {
+  tl.fromTo(s, {opacity:0, x:0, y:0, scale:1}, {opacity:1, duration:.25}, F("s09", .64) + dt);
+  tl.to(s, {x:-560, y:0, scale:.4, duration:1.0, ease:"power2.in"}, F("s09", .64) + dt + .2);
+  tl.to(s, {opacity:0, duration:.2}, F("s09", .64) + dt + 1.05);
+});
+fout(["#base","#sumLbl"], S("s10") - 0.2);
+move("#wBooth", S("s10") - 0.3, 900, 720, 1.25, 1.4);
+tl.fromTo("#jout", {opacity:0, x:-420, y:520, scale:.25}, {opacity:1, x:0, y:0, scale:1, duration:1.2, ease:"power3.out"}, S("s10") + 0.3);
+fin("#jlbl", F("s10", .45));
+tl.from("#nocmd .chip", {opacity:0, y:14, duration:.3, stagger:.25}, F("s10", .2));
+tl.to("#nocmd", {opacity:1, duration:.01}, F("s10", .2));
+
+/* ===== 02b the gate ===== */
+wipe(S("s11") - 0.9);
+xfade("#scBooth", "#scGate", S("s11") - 0.5, .7);
+fin("#gHead", S("s11") - 0.2);
+tl.to("#pc", {opacity:1, duration:.3}, S("s11"));
+const sx = [344, 674, 996, 1314, 1636];
+[.12,.30,.48,.66,.84].forEach((f, i) => {
+  tl.to("#pc", {x: sx[i] - 145, duration: .7, ease:"power2.inOut"}, F("s11", f) - 0.55);
+  tl.to("#lp"+(i+1), {opacity:1, duration:.25}, F("s11", f));
+  tl.to("#g"+(i+1), {color:"#bff8ee", borderColor:"#35e0c8", duration:.25}, F("s11", f));
+});
+// failing proposal
+tl.to("#pb", {opacity:1, duration:.3}, S("s12") - 0.2);
+tl.to("#pb", {x: sx[0] - 145, duration:.5}, S("s12") - 0.1);
+tl.to("#pb", {x: sx[1] - 145, duration:.5}, S("s12") + 0.4);
+tl.to("#pb", {x: sx[2] - 145, duration:.5}, S("s12") + 0.9);
+tl.to("#lp3b", {opacity:1, duration:.2, yoyo:true, repeat:3}, S("s12") + 1.4);
+tl.to("#pb", {y:380, rotation:24, opacity:0, duration:.9, ease:"power2.in"}, S("s12") + 2.0);
+fin("#refused", S("s12") + 1.6);
+fout("#refused", E("s12") + 0.3);
+// admitted proposal exits, receipt prints
+move("#wGate", S("s13") - 0.2, 1600, 560, 1.15, 1.2);
+tl.to("#pc", {x: 1830, duration:.8, ease:"power2.in"}, S("s13") + 0.4);
+tl.to("#pc", {opacity:0, duration:.2}, S("s13") + 1.15);
+tl.fromTo("#rcpt", {opacity:0, y:420, clipPath:"inset(0 0 100% 0)"}, {opacity:1, y:-500, clipPath:"inset(0 0 0% 0)", duration:1.8, ease:"power1.out"}, F("s13", .3));
+tl.fromTo("#stampNE", {opacity:0, scale:2.2}, {opacity:1, scale:1, duration:.3, ease:"power3.in"}, F("s13", .78));
+fin("#rro", F("s13", .2));
+// the recorded run: 7 receipts
+tl.to("#gateDim", {opacity:1, duration:.6}, S("s14") - 0.2);
+fout(["#rcpt","#rro","#gHead","#pc"], S("s14") - 0.2);
+fout(".gl", S("s13") - 0.4, .3);
+fin("#runHead", S("s14") + 0.1);
+const runLbl = [["BASELINE","code plan"],["BASELINE","code plan"],["BASELINE","code plan"],["BASELINE","code plan"],["BASELINE","code plan"],["FOLLOW-UP","model choice"],["FOLLOW-UP","model choice"]];
+runLbl.forEach(([a,b], i) => {
+  const el = document.createElement("div"); el.className = "slip"; el.style.left = (190 + i*225) + "px"; el.style.top = "230px";
+  el.innerHTML = `<div class="a" style="color:${i>4?'#5b3fb0':'#0d6b5f'}">${a}</div><div class="b">${b}</div><div class="s">NOT<br>EXECUTED</div>`;
+  document.getElementById("runRow").appendChild(el);
+  tl.fromTo(el, {opacity:0, y:-60}, {opacity:1, y:0, duration:.45, ease:"power2.out"}, S("s14") + 0.4 + i*0.35);
+});
+fin("#runEnd", F("s14", .75));
+tl.fromTo("#runRow", {scale:1}, {scale:1.04, transformOrigin:"50% 40%", duration:D("s14") + D("s15") + 1.5, ease:"none"}, S("s14") + 0.4);
+tl.to(["#runRow","#runHead","#runEnd"], {opacity:.3, duration:.5}, S("s15") - 0.1);
+fin("#known", S("s15") + 0.2, .6);
+
+/* ===== 03 one finding, followed ===== */
+wipe(S("s16") - 0.9);
+xfade("#scGate", "#scTable", S("s16") - 0.5, .7);
+move("#wTable", S("s16") - 0.5, 1060, 600, 1.14, S("s25") - S("s16") + 0.5, "none");
+// re-use the six cards: clone into the table scene at a 3x2 grid
+const pos = [[200,300],[490,300],[780,300],[200,540],[490,540],[780,540]];
+for (let k = 1; k <= 6; k++) {
+  const el = document.getElementById("c"+k).cloneNode(true); el.id = "tc"+k; el.style.left = pos[k-1][0] + "px"; el.style.top = pos[k-1][1] + "px"; el.style.opacity = 0;
+  document.getElementById("tcards").appendChild(el);
+  tl.fromTo(el, {opacity:0, y:-80, rotation:(k%2?-6:6)}, {opacity:1, y:0, rotation:0, duration:.7, ease:"power3.out"}, S("s16") - 0.2 + k*0.12);
+  tl.fromTo("#tc"+k+" .ftab", {opacity:0, scale:.5}, {opacity:1, scale:1, duration:.3, ease:"back.out(3)"}, S("s16") + 0.6 + k*0.38);
+}
+fin("#fmap", S("s16") + 0.5);
+fout("#fmap", S("s17") - 0.1);
+tl.to("#key", {opacity:1, duration:.01}, S("s17"));
+[["#k1",.04],["#k2",.30],["#k3",.48],["#k4",.62],["#k5",.78]].forEach(([s,f]) => tl.fromTo(s, {opacity:0, y:-30}, {opacity:1, y:0, duration:.4, ease:"back.out(2)"}, F("s17", f)));
+tl.from("#key .kl", {opacity:0, duration:.4, stagger:.3}, F("s17", .2));
+tl.to("#k4a", {opacity:0, y:-20, duration:.35}, F("s17", .86)); tl.fromTo("#k4b", {opacity:0, scale:2}, {opacity:1, scale:1, duration:.4}, F("s17", .88));
+tl.fromTo("#kchip", {opacity:0}, {opacity:1, duration:.4}, F("s17", .9));
+for (let k = 1; k <= 6; k++) draw("#t"+k, S("s18") + 0.1 + k*0.12, .8);
+pop("#fold", S("s18") + 0.5, .7);
+fin("#foldL", S("s18") + 1.0);
+// split example
+tl.to(["#tcards","#threads","#fold","#foldL","#key"], {opacity:.12, duration:.5}, S("s19") - 0.2);
+fin("#split", S("s19") + 0.1, .6);
+fout("#split", S("s20") - 0.2);
+tl.to(["#tcards","#threads","#fold","#foldL","#key"], {opacity:1, duration:.5}, S("s20") - 0.2);
+fin("#notAI", S("s20") + 0.3);
+// report entry
+fout(["#tcards","#threads","#key","#notAI","#foldL"], S("s21") - 0.3, .5);
+tl.to("#fold", {x:-1110, y:-140, width:380, duration:1.0, ease:"power2.inOut"}, S("s21") - 0.3);
+fin("#rep", S("s21"), .6);
+fin("#rw1", S("s21") + 0.3); fin("#rw2", F("s21", .6));
+fin("#rw3", S("s22") + 0.1);
+fin("#calc", F("s22", .5), .5, 8);
+fin("#unsc", F("s22", .82), .4, 6);
+fin("#rw4", S("s23") + 0.1);
+tl.to("#vTP", {borderColor:"#b39bff", borderStyle:"dashed", backgroundColor:"#1d1438", color:"#e0d6ff", duration:.4}, F("s23", .45));
+fin("#vNote", F("s23", .55), .4, 6);
+fin("#cav", S("s24") + 0.2);
+tl.from("#cav .chip", {opacity:0, x:-20, duration:.4, stagger:F("s24", .5) - S("s24") - 0.2}, S("s24") + 0.2);
+
+/* ===== 04 smaller is not safer ===== */
+wipe(S("s25") - 0.9);
+xfade("#scTable", "#scQueue", S("s25") - 0.5, .7);
+move("#wQueue", S("s25") - 0.5, 1150, 700, 1.35, S("s31") - S("s25") + 0.5, "none");
+const dotsEl = document.getElementById("dots"); const tgt = [];
+for (let j = 0; j < 69; j++) tgt.push([1150 + (j % 10) * 52, 300 + Math.floor(j / 10) * 52]);
+for (let i = 0; i < 480; i++) {
+  const el = document.createElement("div"); el.className = "dot"; const c = i % 30, r = Math.floor(i / 30);
+  el.style.left = (150 + c * 26) + "px"; el.style.top = (300 + r * 26) + "px"; dotsEl.appendChild(el);
+  const [tx, ty] = tgt[i % 69];
+  tl.to(el, {opacity:1, duration:.2}, S("s25") + 0.1 + i * 0.002);
+  tl.to(el, {x: tx - (150 + c * 26), y: ty - (300 + r * 26), backgroundColor:"#35e0c8", width:40, height:40, borderRadius:8, opacity:.9, duration:1.6, ease:"power3.inOut"}, F("s25", .32) + (i % 69) * 0.006);
+}
+fin("#q480", S("s25") + 0.1); fin("#q69", F("s25", .55));
+fin("#qNot", F("s25", .7));
+fout(["#dots","#q480","#q69","#qNot"], S("s26") - 0.3);
+fin("#acc", S("s26") - 0.1);
+tl.to("#b1", {width:"92%", duration:1.0, ease:"power2.out"}, F("s26", .2));
+tl.to("#b2", {width:"64%", duration:1.0, ease:"power2.out"}, F("s26", .62));
+fout("#acc", S("s27") - 0.3);
+tl.to("#wg", {opacity:1, duration:.5}, S("s27") - 0.2);
+const wgEl = document.getElementById("wgGrid"); const noisy = [3, 8, 12, 17];
+for (let j = 0; j < 21; j++) {
+  const el = document.createElement("div"); el.className = "gsq"; el.id = "wq"+j;
+  el.style.left = ((j % 7) * 120) + "px"; el.style.top = (Math.floor(j / 7) * 120) + "px"; el.textContent = "true"; wgEl.appendChild(el);
+  tl.fromTo(el, {opacity:0, scale:.6}, {opacity:1, scale:1, duration:.3, ease:"back.out(2)"}, S("s27") + 0.1 + j * 0.05);
+}
+noisy.forEach((j, n) => {
+  tl.to("#wq"+j, {borderColor:"#b39bff", backgroundColor:"#1d1438", color:"#e0d6ff", borderStyle:"dashed", duration:.3}, F("s27", .62) + n * 0.25);
+});
+tl.to("#drawer", {opacity:1, duration:.5}, S("s28") - 0.1);
+noisy.forEach((j, n) => {
+  const x0 = (j % 7) * 120, y0 = Math.floor(j / 7) * 120;
+  tl.to("#wq"+j, {x: 1110 + (n % 2) * 140 + (n > 1 ? 280 : 0) - x0, y: 110 - y0, duration:.9, ease:"power2.inOut"}, S("s28") + 0.2 + n * 0.3);
+});
+fin("#wgSame", F("s28", .5));
+tl.to("#wgP", {scale:1.08, color:"#ffffff", duration:.3, yoyo:true, repeat:1}, F("s28", .3));
+fin("#drKeep", S("s29") + 0.3);
+tl.to("#drawer", {borderColor:"#ffb547", duration:.5}, S("s29") + 0.3);
+fout("#wg", S("s30") - 0.3);
+fin("#diff", S("s30") - 0.1);
+tl.fromTo("#nikGone", {opacity:0, scale:.7}, {opacity:1, scale:1, duration:.35, ease:"back.out(2)"}, F("s30", .25));
+tl.to("#dFix", {opacity:0, x:30, duration:.4}, F("s30", .5));
+tl.to("#dNR", {opacity:1, duration:.4}, F("s30", .5));
+fin("#dNote", F("s30", .7));
+
+/* ===== 05 what the analyst gets ===== */
+wipe(S("s31") - 0.9);
+xfade("#scQueue", "#scDesk", S("s31") - 0.5, .8);
+move("#wDesk", S("s31") - 0.5, 1020, 640, 1.22, S("s35") - S("s31") + 0.1, "sine.inOut");
+fin("#secs", S("s31") + 0.1);
+tl.from("#sx > div", {opacity:0, x:-24, duration:.4, stagger:(D("s31") - 1.2) / 6}, S("s31") + 0.5);
+fout("#secs", S("s32") - 0.3);
+tl.to("#chain", {opacity:1, duration:.4}, S("s32") - 0.1);
+["#ch1","#ch2","#ch3","#ch4"].forEach((s, i) => tl.fromTo(s, {opacity:0, x:-30}, {opacity:1, x:0, duration:.4, ease:"power2.out"}, S("s32") + 0.2 + i * 0.4));
+fin("#vchk", F("s32", .45));
+pop("#aok", F("s32", .85));
+fin("#unk", S("s33") + 0.3);
+tl.to(["#ch1","#ch2","#ch3","#ch4"], {borderColor:"#fff1dc", duration:.4}, S("s33") + 0.3);
+fout("#chain", S("s34") - 0.3);
+fin("#gtr", S("s34"));
+tl.from("#gtr > div", {opacity:0, y:14, duration:.4, stagger:.9}, S("s34") + 0.1);
+fout("#gtr", S("s35") - 0.3);
+move("#wDesk", S("s35") - 0.4, 1200, 600, 1.0, D("s35") + 3, "power1.inOut");
+tl.to("#fin", {opacity:1, duration:.01}, S("s35") - 0.1);
+[["#f1",.12],["#f2",.32],["#f3",.56],["#f4",.78]].forEach(([s,f]) => tl.fromTo(s, {opacity:0, x:-40}, {opacity:1, x:0, duration:.55, ease:"power2.out"}, F("s35", f) - 0.15));
+fin("#credit", E("s35") + 0.4, .8, 0);
+tl.to("#fade", {opacity:1, duration:1.4, ease:"power1.in"}, TOTAL - 1.5);
+tl.to({}, {duration:.01}, TOTAL - 0.01);
+window.__timelines.main = tl;
+</script>
+</body>
+</html>

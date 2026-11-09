@@ -1,0 +1,112 @@
+{
+  "artifact": "awsops-technical-explainer.mp4",
+  "revision": "owner-requested 20-point visual refinement",
+  "baselineCommit": "2ba873862c32c9210744c5c904f08e57eab9ef42",
+  "baselineSHA256": "4a84d17f7381171abdfdbc4479863ebbcefaa461ac2cc922cf8e89f3b71a1450",
+  "sha256": "dae56a170a89b35e9ca3f15f7253808b37387c50993b02c0730304fd6a32a125",
+  "checkedAtUTC": "2026-11-08T01:06:45.195914+00:00",
+  "ffprobe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1",
+        "start_time": "0.000000",
+        "duration": "649.000000"
+      },
+      {
+        "codec_name": "aac",
+        "avg_frame_rate": "0/0",
+        "start_time": "0.000000",
+        "duration": "649.000000"
+      }
+    ],
+    "format": {
+      "duration": "649.000000",
+      "size": "67134850"
+    }
+  },
+  "fullFFmpegDecodeExitCode": 0,
+  "renderExitCode": 0,
+  "encodedFramesReviewed": 47,
+  "laptopSizeChecks": "1280x720; selected key mechanisms",
+  "beforeAfterPairs": [
+    12,
+    29,
+    189,
+    270,
+    418,
+    514
+  ],
+  "encodedMotionChecks": "motion-check.json",
+  "encodedMotionComparisons": 11,
+  "compositionChecks": "composition-check.json",
+  "captionTimingChecks": "timing-check.json",
+  "narrationPreservation": "narration-preservation.json",
+  "preservedNarrationFiles": 105,
+  "audioPreservation": "review/audio-preservation.json",
+  "AACBitstreamIdenticalToOriginal": true,
+  "playerSamplesFile": "review/player-check.json",
+  "playbackScope": "Sampled actual-player playback, not full human listening",
+  "humanListeningAcceptance": "PENDING",
+  "humanTechnicalCreativeAcceptance": "PENDING",
+  "paidUsageUSD": 0,
+  "awsAccountProviderCalls": 0,
+  "sourceRepositoriesReadOnly": true,
+  "outputCopySHA256Matches": true,
+  "playerSamples": [
+    {
+      "start": 0,
+      "duration": 20,
+      "sequence": "cold open",
+      "tool": "ffplay",
+      "exitCode": 0
+    },
+    {
+      "start": 110,
+      "duration": 15,
+      "sequence": "trust boundary",
+      "tool": "ffplay",
+      "exitCode": 0
+    },
+    {
+      "start": 178,
+      "duration": 15,
+      "sequence": "scope digest drift",
+      "tool": "ffplay",
+      "exitCode": 0
+    },
+    {
+      "start": 258,
+      "duration": 15,
+      "sequence": "atomic decision race",
+      "tool": "ffplay",
+      "exitCode": 0
+    },
+    {
+      "start": 395,
+      "duration": 28,
+      "sequence": "lost response / same run",
+      "tool": "ffplay",
+      "exitCode": 0
+    },
+    {
+      "start": 495,
+      "duration": 20,
+      "sequence": "four evidence sources",
+      "tool": "ffplay",
+      "exitCode": 0
+    },
+    {
+      "start": 629,
+      "duration": 20,
+      "sequence": "closing architecture",
+      "tool": "ffplay",
+      "exitCode": 0
+    }
+  ],
+  "finalSampledPlayerChecksPassed": 7
+}

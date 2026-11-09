@@ -1,0 +1,399 @@
+1
+00:00:00,600 --> 00:00:05,197
+An AWS compliance finding tells us something may be wrong.
+
+2
+00:00:05,357 --> 00:00:14,030
+It does not tell us who may change it, which exact change is approved, or whether the result has been independently verified.
+
+3
+00:00:14,190 --> 00:00:19,947
+AWSOps, the backend of the Defence Factory prototype, is built around that gap.
+
+4
+00:00:20,107 --> 00:00:25,524
+The interesting part is not a model generating an AWS command.
+
+5
+00:00:25,685 --> 00:00:34,520
+It is the boundary between evidence, an exact proposed action, a genuine human decision, and an outcome we can defend.
+
+6
+00:00:34,680 --> 00:00:36,920
+A finding is not authority.
+
+7
+00:00:37,080 --> 00:00:39,491
+Approval is not execution.
+
+8
+00:00:39,651 --> 00:00:43,778
+A successful operation is not fresh compliance evidence.
+
+9
+00:00:43,938 --> 00:00:47,330
+We will follow one disposable S3 canary.
+
+10
+00:00:47,490 --> 00:00:55,926
+This walkthrough is synthetic and grounded in repository code, not a recording of a successful AWS change.
+
+11
+00:00:56,086 --> 00:01:05,186
+Keep four questions separate: what ran, what the provider observed, what compliance evaluated, and how fresh that evaluation is.
+
+12
+00:01:05,346 --> 00:01:07,735
+Missing answers should stay unknown.
+
+13
+00:01:08,345 --> 00:01:16,764
+The shared contract distinguishes findings, controls, target registrations, batches, decisions, runs, and evidence.
+
+14
+00:01:16,925 --> 00:01:19,194
+These records make different claims.
+
+15
+00:01:19,353 --> 00:01:23,296
+An envelope has a schema version, a kind, and a record.
+
+16
+00:01:23,456 --> 00:01:25,653
+Unknown fields are rejected.
+
+17
+00:01:25,813 --> 00:01:35,284
+The bounded synthetic intake limits bytes and rows, rejects duplicate keys and conflicting identities, and keeps imported content inert.
+
+18
+00:01:35,444 --> 00:01:38,345
+Its supported accounts are mock aliases.
+
+19
+00:01:38,505 --> 00:01:44,763
+Our public resource alias represents a disposable canary, never a private bucket name.
+
+20
+00:01:44,923 --> 00:01:49,510
+Even a structurally valid finding remains an imported assertion.
+
+21
+00:01:49,670 --> 00:01:53,105
+It cannot attest an AWS observation.
+
+22
+00:01:53,265 --> 00:01:59,129
+A target registration is a public projection, not an IAM trust relationship.
+
+23
+00:01:59,289 --> 00:02:04,630
+A private backend must separately resolve the approved identity and resource.
+
+24
+00:02:04,789 --> 00:02:13,109
+The companion Agent Core Two interface consumes evidence; its presence does not prove a live integrated deployment.
+
+25
+00:02:13,269 --> 00:02:17,208
+The offline planner and the canary adapter are separate paths.
+
+26
+00:02:17,368 --> 00:02:28,078
+The same public alias connects our explanation, but imported evidence does not become permission or a trusted provider read by moving across the diagram.
+
+27
+00:02:28,688 --> 00:02:33,107
+Approval is meaningful only when it names an exact operation.
+
+28
+00:02:33,267 --> 00:02:39,560
+Here we enter the canary adapter's separate preparation path, using a synthetic observation.
+
+29
+00:02:39,720 --> 00:02:48,291
+The batch binds one target, its revision and evidence digest, the registry version, mode, frozen time, and expiry.
+
+30
+00:02:48,452 --> 00:02:55,172
+Its capability is require TLS; its expected change is deny insecure transport.
+
+31
+00:02:55,332 --> 00:03:00,143
+The scope digest covers the complete batch with that digest field omitted.
+
+32
+00:03:00,302 --> 00:03:05,143
+Canonical object keys are sorted; target array order is retained.
+
+33
+00:03:05,304 --> 00:03:10,209
+Change the target or evidence revision and the seal no longer matches.
+
+34
+00:03:10,369 --> 00:03:15,958
+The adapter also checks the private binding and current evidence before execution.
+
+35
+00:03:16,118 --> 00:03:23,179
+Expired preparation or changed provider state cannot silently inherit the earlier approval.
+
+36
+00:03:23,340 --> 00:03:30,636
+The canary reuses a maximum five minute preparation window and a sixty second observation age check.
+
+37
+00:03:30,796 --> 00:03:34,359
+These limits do not turn a hash into authentication.
+
+38
+00:03:34,518 --> 00:03:40,042
+The older single finding Frozen Scope is a different type, not this batch schema.
+
+39
+00:03:40,202 --> 00:03:48,926
+The application additionally binds the principal, source revision, fixed setup actions, cost bound, and any conditional cleanup.
+
+40
+00:03:49,536 --> 00:03:53,503
+The decision must come from a trusted authenticated backend.
+
+41
+00:03:53,663 --> 00:04:02,628
+Possessing the digest, typing a phrase, or importing a document that says approve does not identify an authorized person.
+
+42
+00:04:02,788 --> 00:04:13,383
+Inside the canary adapter, an immediate database transaction selects the saved batch and checks the principal, binding, scope, mode, and expiry.
+
+43
+00:04:13,543 --> 00:04:19,410
+It commits the winning decision and initial run together, before any provider operation.
+
+44
+00:04:19,570 --> 00:04:23,026
+Approve Once and Reject both consume that slot.
+
+45
+00:04:23,186 --> 00:04:26,215
+A competing choice cannot replace the winner.
+
+46
+00:04:26,375 --> 00:04:31,087
+In this illustrative race, Reject wins: zero provider writes.
+
+47
+00:04:31,247 --> 00:04:41,800
+The application also claims a verified approval packet once; replay of the same packet reopens the same result instead of creating another run.
+
+48
+00:04:41,960 --> 00:04:50,551
+Now the important current boundary: the legacy native store records rejected or approve blocked, with dispatch disabled.
+
+49
+00:04:50,711 --> 00:05:00,528
+The ordinary live canary operator refuses approval before constructing a provider because its trusted human approval binding is missing.
+
+50
+00:05:00,687 --> 00:05:05,104
+The injected test verifier authorizes only a mock provider.
+
+51
+00:05:05,264 --> 00:05:12,063
+Our approved branch is a synthetic explanation of the implementation, not a real owner's decision.
+
+52
+00:05:12,673 --> 00:05:20,360
+The canary is deliberately narrow: a new, empty, task owned lab bucket and a fixed TLS only policy.
+
+53
+00:05:20,520 --> 00:05:29,893
+The provider checks the selected personal lab profile and Region, then compares a fresh non root identity with the private expected account.
+
+54
+00:05:30,053 --> 00:05:33,125
+A preexisting bucket is not eligible.
+
+55
+00:05:33,285 --> 00:05:43,966
+The fixed setup sequence creates the bucket, writes task tags, enables all four public access block flags, and applies the reviewed transport policy.
+
+56
+00:05:44,126 --> 00:05:50,121
+Public access blocking and denying non TLS transport are different protections.
+
+57
+00:05:50,281 --> 00:05:53,460
+This is not encryption at rest remediation.
+
+58
+00:05:53,619 --> 00:05:58,372
+The policy denies S3 actions when secure transport is false.
+
+59
+00:05:58,533 --> 00:06:03,918
+There is no model accessible arbitrary AWS method in this path.
+
+60
+00:06:04,077 --> 00:06:18,528
+Before the policy write, fresh reads require acknowledged task creation, exact tags, an empty object listing, no versions or delete markers, the expected public block, and no existing policy.
+
+61
+00:06:18,688 --> 00:06:21,888
+Each mutation has a durable ledger row.
+
+62
+00:06:22,048 --> 00:06:29,419
+Intent becomes calling immediately before the SDK boundary, and an acknowledged call becomes ACK.
+
+63
+00:06:29,579 --> 00:06:34,843
+A merged IAM proposal alone does not prove its role is installed.
+
+64
+00:06:35,453 --> 00:06:41,630
+Suppose the policy request crosses the SDK boundary, but its response disappears.
+
+65
+00:06:41,790 --> 00:06:45,630
+That is not proof AWS rejected the request.
+
+66
+00:06:45,790 --> 00:06:49,875
+The operation stays calling and execution stays unknown.
+
+67
+00:06:50,035 --> 00:06:54,871
+Automatically replaying it would turn uncertainty into another mutation.
+
+68
+00:06:55,031 --> 00:07:03,886
+The provider disables automatic mutation retries, and reconciliation reads the same run instead of minting a fresh batch.
+
+69
+00:07:04,046 --> 00:07:13,099
+If every setup row is acknowledged, reconciliation can recover execution succeeded after a crash before the final result save.
+
+70
+00:07:13,259 --> 00:07:15,636
+A calling row remains uncertain.
+
+71
+00:07:15,795 --> 00:07:23,821
+The exported write count counts conservative SDK mutation attempts, not independently proven cloud changes.
+
+72
+00:07:23,981 --> 00:07:27,778
+A known pre call refusal adds no attempted write.
+
+73
+00:07:27,939 --> 00:07:34,644
+In our mock example, those attempts belong in simulated writes and real writes remains zero.
+
+74
+00:07:34,803 --> 00:07:37,107
+Cleanup is not an escape hatch.
+
+75
+00:07:37,267 --> 00:07:46,303
+One authenticated packet may cover both setup and exact conditional cleanup, but omitting cleanup grants no deletion authority.
+
+76
+00:07:46,463 --> 00:07:51,832
+Fresh ownership, emptiness, operation state, and cleanup expiry still matter.
+
+77
+00:07:51,993 --> 00:07:59,915
+An uncertain operation blocks destructive cleanup; a task tag or time to live does not schedule deletion.
+
+78
+00:08:00,525 --> 00:08:06,616
+Even when the SDK sequence succeeds, the result is not automatically verified.
+
+79
+00:08:06,775 --> 00:08:12,606
+The adapter reads provider state independently and checks the intended transport policy.
+
+80
+00:08:12,767 --> 00:08:16,740
+A matching policy proves only what that readback observed.
+
+81
+00:08:16,899 --> 00:08:22,019
+It does not trigger or prove a fresh AWS Config evaluation.
+
+82
+00:08:22,179 --> 00:08:33,186
+Our synthetic successful branch therefore has execution succeeded and provider readback match, while compliance stays unknown and freshness stays not verified.
+
+83
+00:08:33,346 --> 00:08:35,362
+The run remains needs review.
+
+84
+00:08:35,522 --> 00:08:40,237
+These are real schema values, not four names for the same green light.
+
+85
+00:08:40,397 --> 00:08:52,052
+The shared contract requires the selected targets and independent evidence before verified can be justified; this adapter deliberately does not make that claim.
+
+86
+00:08:52,212 --> 00:08:57,597
+The evidence also separates the source revision from an observed hosted version.
+
+87
+00:08:57,756 --> 00:08:59,932
+Here hosted version is null.
+
+88
+00:09:00,092 --> 00:09:04,977
+The schema's mock version suffix alone is not a deployment receipt.
+
+89
+00:09:05,138 --> 00:09:18,462
+A private durable ledger preserves recovery information, but a privileged host writer is still a trust assumption; a digest or local hash chain is not an independent tamper proof signature.
+
+90
+00:09:19,072 --> 00:09:34,066
+The repository contains concrete engineering: bounded intake, shared contracts, exact scope binding, durable decisions, a fixed provider, uncertainty handling, and evidence that refuses to overclaim.
+
+91
+00:09:34,226 --> 00:09:44,003
+The source tests assert approval, rejection, drift, expiry, replay exclusion, and uncertain acknowledgement behavior with fake providers.
+
+92
+00:09:44,163 --> 00:09:47,960
+That is synthetic proof, not a live owner approval.
+
+93
+00:09:48,120 --> 00:09:54,328
+There is also accepted historical AWS Config read proof from October eleventh.
+
+94
+00:09:54,488 --> 00:10:01,571
+It establishes bounded account local acquisition, not evaluation freshness or remediation.
+
+95
+00:10:01,731 --> 00:10:15,554
+The later transfer record still retains ledger provenance and initialization, exact deployed pins, genuine normal login Reject, and provider and compliance verification as pending outcomes.
+
+96
+00:10:15,714 --> 00:10:21,525
+The old execution issue closed as transferred, not completed product acceptance.
+
+97
+00:10:21,685 --> 00:10:27,805
+We checked the source at the reviewed revision; this film performed no AWS calls.
+
+98
+00:10:27,965 --> 00:10:32,268
+The proposition is controlled change with inspectable evidence.
+
+99
+00:10:32,428 --> 00:10:41,754
+The next useful test is to close the exact remaining live acceptance gap, not add another model or turn missing evidence green.
+
+100
+00:10:41,914 --> 00:10:47,791
+What was approved, what ran, and what the evidence proves must remain separate questions.

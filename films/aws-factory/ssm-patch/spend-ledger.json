@@ -1,0 +1,1711 @@
+{
+  "cap_usd": 50.0,
+  "entries": [
+    {
+      "t": "2026-11-09T14:06:57Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s06",
+      "reserved_usd": 0.05608,
+      "status": "ACK",
+      "cost_usd": 0.014456,
+      "usage": {
+        "total_tokens": 379,
+        "input_tokens": 124,
+        "output_tokens": 255,
+        "input_token_details": {
+          "text_tokens": 124,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 59,
+          "audio_tokens": 196,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKJPNd5CpxKiFYwErqf4",
+      "output": "media/original/voice/s06.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:22:52Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s01",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.006716,
+      "usage": {
+        "total_tokens": 234,
+        "input_tokens": 111,
+        "output_tokens": 123,
+        "input_token_details": {
+          "text_tokens": 111,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 40,
+          "audio_tokens": 83,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKYo3xHIuNUU4zgONIDF",
+      "output": "media/original/voice/s01.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:22:58Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s02",
+      "reserved_usd": 0.04456,
+      "status": "ACK",
+      "cost_usd": 0.008536,
+      "usage": {
+        "total_tokens": 274,
+        "input_tokens": 116,
+        "output_tokens": 158,
+        "input_token_details": {
+          "text_tokens": 116,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 51,
+          "audio_tokens": 107,
+          "reasoning_tokens": 19
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKYtV23Mr7DGg3bPqMSv",
+      "output": "media/original/voice/s02.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:23:03Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s03",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.007048,
+      "usage": {
+        "total_tokens": 242,
+        "input_tokens": 112,
+        "output_tokens": 130,
+        "input_token_details": {
+          "text_tokens": 112,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 43,
+          "audio_tokens": 87,
+          "reasoning_tokens": 17
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKYy5XQwMSfASPU6wkcX",
+      "output": "media/original/voice/s03.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:23:08Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s04",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.00382,
+      "usage": {
+        "total_tokens": 180,
+        "input_tokens": 105,
+        "output_tokens": 75,
+        "input_token_details": {
+          "text_tokens": 105,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 35,
+          "audio_tokens": 40,
+          "reasoning_tokens": 20
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZ3xkdxobtqE22KPGug",
+      "output": "media/original/voice/s04.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:23:12Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s05",
+      "reserved_usd": 0.060688,
+      "status": "ACK",
+      "cost_usd": 0.013572,
+      "usage": {
+        "total_tokens": 368,
+        "input_tokens": 127,
+        "output_tokens": 241,
+        "input_token_details": {
+          "text_tokens": 127,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 59,
+          "audio_tokens": 182,
+          "reasoning_tokens": 14
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZ7v5WOY32KsnNgrBLp",
+      "output": "media/original/voice/s05.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:23:18Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s07",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.006,
+      "usage": {
+        "total_tokens": 215,
+        "input_tokens": 106,
+        "output_tokens": 109,
+        "input_token_details": {
+          "text_tokens": 106,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 35,
+          "audio_tokens": 74,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZDZ1h5JPowixjKCj3K",
+      "output": "media/original/voice/s07.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:23:23Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s08",
+      "reserved_usd": 0.046864,
+      "status": "ACK",
+      "cost_usd": 0.009876,
+      "usage": {
+        "total_tokens": 299,
+        "input_tokens": 119,
+        "output_tokens": 180,
+        "input_token_details": {
+          "text_tokens": 119,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 53,
+          "audio_tokens": 127,
+          "reasoning_tokens": 18
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZIOURKZwilYwkX3Qqt",
+      "output": "media/original/voice/s08.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:23:28Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s09",
+      "reserved_usd": 0.049168,
+      "status": "ACK",
+      "cost_usd": 0.01116,
+      "usage": {
+        "total_tokens": 320,
+        "input_tokens": 122,
+        "output_tokens": 198,
+        "input_token_details": {
+          "text_tokens": 122,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 50,
+          "audio_tokens": 148,
+          "reasoning_tokens": 10
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZNbZbOMzvoLSEfaM5c",
+      "output": "media/original/voice/s09.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:23:33Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s10",
+      "reserved_usd": 0.046864,
+      "status": "ACK",
+      "cost_usd": 0.009368,
+      "usage": {
+        "total_tokens": 287,
+        "input_tokens": 118,
+        "output_tokens": 169,
+        "input_token_details": {
+          "text_tokens": 118,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 48,
+          "audio_tokens": 121,
+          "reasoning_tokens": 14
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZSHdXd44crwGS2rZsj",
+      "output": "media/original/voice/s10.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:23:39Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s11",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.008072,
+      "usage": {
+        "total_tokens": 258,
+        "input_tokens": 112,
+        "output_tokens": 146,
+        "input_token_details": {
+          "text_tokens": 112,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 43,
+          "audio_tokens": 103,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZYHmbTlIq6luGgkEYt",
+      "output": "media/original/voice/s11.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:23:44Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s12",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.005356,
+      "usage": {
+        "total_tokens": 204,
+        "input_tokens": 107,
+        "output_tokens": 97,
+        "input_token_details": {
+          "text_tokens": 107,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 32,
+          "audio_tokens": 65,
+          "reasoning_tokens": 11
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZdZcKLCM9RORoTGG5w",
+      "output": "media/original/voice/s12.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:23:49Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s13",
+      "reserved_usd": 0.049168,
+      "status": "ACK",
+      "cost_usd": 0.01138,
+      "usage": {
+        "total_tokens": 325,
+        "input_tokens": 121,
+        "output_tokens": 204,
+        "input_token_details": {
+          "text_tokens": 121,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 54,
+          "audio_tokens": 150,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZiYkJis60omgful0fa",
+      "output": "media/original/voice/s13.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:23:54Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s14",
+      "reserved_usd": 0.086032,
+      "status": "ACK",
+      "cost_usd": 0.016392,
+      "usage": {
+        "total_tokens": 433,
+        "input_tokens": 138,
+        "output_tokens": 295,
+        "input_token_details": {
+          "text_tokens": 138,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 76,
+          "audio_tokens": 219,
+          "reasoning_tokens": 18
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZnOBK6KSxgGFZE6oiF",
+      "output": "media/original/voice/s14.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:24:01Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s15",
+      "reserved_usd": 0.039952,
+      "status": "ACK",
+      "cost_usd": 0.008892,
+      "usage": {
+        "total_tokens": 273,
+        "input_tokens": 115,
+        "output_tokens": 158,
+        "input_token_details": {
+          "text_tokens": 115,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 42,
+          "audio_tokens": 116,
+          "reasoning_tokens": 11
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZuoHp5g00jyuhbI1M8",
+      "output": "media/original/voice/s15.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:24:06Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s16",
+      "reserved_usd": 0.037648,
+      "status": "ACK",
+      "cost_usd": 0.008672,
+      "usage": {
+        "total_tokens": 273,
+        "input_tokens": 114,
+        "output_tokens": 159,
+        "input_token_details": {
+          "text_tokens": 114,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 49,
+          "audio_tokens": 110,
+          "reasoning_tokens": 19
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKZzGJj9grF4j1dvyER5",
+      "output": "media/original/voice/s16.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:24:11Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s17",
+      "reserved_usd": 0.051472,
+      "status": "ACK",
+      "cost_usd": 0.009928,
+      "usage": {
+        "total_tokens": 302,
+        "input_tokens": 120,
+        "output_tokens": 182,
+        "input_token_details": {
+          "text_tokens": 120,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 55,
+          "audio_tokens": 127,
+          "reasoning_tokens": 19
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKa4EOuPtnIHlhVyB4Nx",
+      "output": "media/original/voice/s17.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:24:16Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s18",
+      "reserved_usd": 0.046864,
+      "status": "ACK",
+      "cost_usd": 0.009928,
+      "usage": {
+        "total_tokens": 302,
+        "input_tokens": 118,
+        "output_tokens": 184,
+        "input_token_details": {
+          "text_tokens": 118,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 58,
+          "audio_tokens": 126,
+          "reasoning_tokens": 24
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKaA3EMUrvS5X8JUkq1J",
+      "output": "media/original/voice/s18.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:24:22Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s19",
+      "reserved_usd": 0.05608,
+      "status": "ACK",
+      "cost_usd": 0.009852,
+      "usage": {
+        "total_tokens": 303,
+        "input_tokens": 121,
+        "output_tokens": 182,
+        "input_token_details": {
+          "text_tokens": 121,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 57,
+          "audio_tokens": 125,
+          "reasoning_tokens": 20
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKaF5YlZfrWEHqxR2wjG",
+      "output": "media/original/voice/s19.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:24:27Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s20",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.003872,
+      "usage": {
+        "total_tokens": 178,
+        "input_tokens": 106,
+        "output_tokens": 72,
+        "input_token_details": {
+          "text_tokens": 106,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 29,
+          "audio_tokens": 43,
+          "reasoning_tokens": 11
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKaKpFZHHwnuHIvywvY3",
+      "output": "media/original/voice/s20.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:24:32Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s21",
+      "reserved_usd": 0.0676,
+      "status": "ACK",
+      "cost_usd": 0.016008,
+      "usage": {
+        "total_tokens": 412,
+        "input_tokens": 130,
+        "output_tokens": 282,
+        "input_token_details": {
+          "text_tokens": 130,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 64,
+          "audio_tokens": 218,
+          "reasoning_tokens": 14
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKaPTAGtvOTytaaz8uum",
+      "output": "media/original/voice/s21.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:24:38Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s22",
+      "reserved_usd": 0.060688,
+      "status": "ACK",
+      "cost_usd": 0.013348,
+      "usage": {
+        "total_tokens": 362,
+        "input_tokens": 125,
+        "output_tokens": 237,
+        "input_token_details": {
+          "text_tokens": 125,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 58,
+          "audio_tokens": 179,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKaVSv15TXOCELZz7Ibq",
+      "output": "media/original/voice/s22.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:24:44Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s23",
+      "reserved_usd": 0.05608,
+      "status": "ACK",
+      "cost_usd": 0.01286,
+      "usage": {
+        "total_tokens": 350,
+        "input_tokens": 123,
+        "output_tokens": 227,
+        "input_token_details": {
+          "text_tokens": 123,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 54,
+          "audio_tokens": 173,
+          "reasoning_tokens": 13
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiKabtDs4VzOAHlCfmvBn",
+      "output": "media/original/voice/s23.t1.wav"
+    },
+    {
+      "t": "2026-11-09T14:33:25Z",
+      "endpoint": "audio/transcriptions",
+      "model": "gpt-transcribe",
+      "label": "qa-transcribe",
+      "reserved_usd": 0.03258,
+      "status": "ACK",
+      "cost_usd": 0.01185,
+      "usage": {
+        "type": "duration",
+        "seconds": 158
+      }
+    },
+    {
+      "t": "2026-11-09T14:33:36Z",
+      "endpoint": "responses",
+      "model": "gpt-5.5",
+      "label": "qa-vision:23 frames",
+      "reserved_usd": 0.6575,
+      "status": "ACK",
+      "cost_usd": 0.227515,
+      "usage": {
+        "input_tokens": 26435,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 3178,
+        "output_tokens_details": {
+          "reasoning_tokens": 2374
+        },
+        "total_tokens": 29613
+      }
+    },
+    {
+      "t": "2026-11-09T15:15:20Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s01",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.006756,
+      "usage": {
+        "total_tokens": 269,
+        "input_tokens": 145,
+        "output_tokens": 124,
+        "input_token_details": {
+          "text_tokens": 145,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 44,
+          "audio_tokens": 80,
+          "reasoning_tokens": 19
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLNa2fUx6NkLg3uqU7uL",
+      "output": "media/original/voice/s01.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:15:26Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s02",
+      "reserved_usd": 0.04456,
+      "status": "ACK",
+      "cost_usd": 0.008459,
+      "usage": {
+        "total_tokens": 307,
+        "input_tokens": 150,
+        "output_tokens": 157,
+        "input_token_details": {
+          "text_tokens": 150,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 56,
+          "audio_tokens": 101,
+          "reasoning_tokens": 24
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLNfOjZbd0odk1q2CRB2",
+      "output": "media/original/voice/s02.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:15:31Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s03",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.00772,
+      "usage": {
+        "total_tokens": 285,
+        "input_tokens": 146,
+        "output_tokens": 139,
+        "input_token_details": {
+          "text_tokens": 146,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 44,
+          "audio_tokens": 95,
+          "reasoning_tokens": 16
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLNkI0efL7hbkq0UpcvY",
+      "output": "media/original/voice/s03.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:15:36Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s04",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.003804,
+      "usage": {
+        "total_tokens": 211,
+        "input_tokens": 139,
+        "output_tokens": 72,
+        "input_token_details": {
+          "text_tokens": 139,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 34,
+          "audio_tokens": 38,
+          "reasoning_tokens": 19
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLNpesqhN03G5Z3zA7l6",
+      "output": "media/original/voice/s04.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:15:41Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s05",
+      "reserved_usd": 0.058384,
+      "status": "ACK",
+      "cost_usd": 0.012576,
+      "usage": {
+        "total_tokens": 384,
+        "input_tokens": 160,
+        "output_tokens": 224,
+        "input_token_details": {
+          "text_tokens": 160,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 60,
+          "audio_tokens": 164,
+          "reasoning_tokens": 16
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLNu9idd82yI5lMksbjy",
+      "output": "media/original/voice/s05.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:15:47Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s06",
+      "reserved_usd": 0.05608,
+      "status": "ACK",
+      "cost_usd": 0.01348,
+      "usage": {
+        "total_tokens": 395,
+        "input_tokens": 158,
+        "output_tokens": 237,
+        "input_token_details": {
+          "text_tokens": 158,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 58,
+          "audio_tokens": 179,
+          "reasoning_tokens": 16
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLNzbuVQB11GTmKb6rgu",
+      "output": "media/original/voice/s06.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:15:52Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s07",
+      "reserved_usd": 0.037648,
+      "status": "ACK",
+      "cost_usd": 0.007228,
+      "usage": {
+        "total_tokens": 277,
+        "input_tokens": 147,
+        "output_tokens": 130,
+        "input_token_details": {
+          "text_tokens": 147,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 42,
+          "audio_tokens": 88,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLO5DK8jvP2WNrKYsoUv",
+      "output": "media/original/voice/s07.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:15:57Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s08",
+      "reserved_usd": 0.037648,
+      "status": "ACK",
+      "cost_usd": 0.009724,
+      "usage": {
+        "total_tokens": 311,
+        "input_tokens": 149,
+        "output_tokens": 162,
+        "input_token_details": {
+          "text_tokens": 149,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 31,
+          "audio_tokens": 131
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLOAKsMsFIwgb21bFkyu",
+      "output": "media/original/voice/s08.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:16:02Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s09",
+      "reserved_usd": 0.05608,
+      "status": "ACK",
+      "cost_usd": 0.01382,
+      "usage": {
+        "total_tokens": 410,
+        "input_tokens": 163,
+        "output_tokens": 247,
+        "input_token_details": {
+          "text_tokens": 163,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 66,
+          "audio_tokens": 181,
+          "reasoning_tokens": 19
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLOFddPMtEACQkWSL1f6",
+      "output": "media/original/voice/s09.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:16:08Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s10",
+      "reserved_usd": 0.060688,
+      "status": "ACK",
+      "cost_usd": 0.012268,
+      "usage": {
+        "total_tokens": 377,
+        "input_tokens": 159,
+        "output_tokens": 218,
+        "input_token_details": {
+          "text_tokens": 159,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 58,
+          "audio_tokens": 160,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLOLcIq81rOLp7jKpcf5",
+      "output": "media/original/voice/s10.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:16:13Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s11",
+      "reserved_usd": 0.046864,
+      "status": "ACK",
+      "cost_usd": 0.008472,
+      "usage": {
+        "total_tokens": 303,
+        "input_tokens": 152,
+        "output_tokens": 151,
+        "input_token_details": {
+          "text_tokens": 152,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 45,
+          "audio_tokens": 106,
+          "reasoning_tokens": 11
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLOQua7eUk8eHX86cy9h",
+      "output": "media/original/voice/s11.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:16:18Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s12",
+      "reserved_usd": 0.042256,
+      "status": "ACK",
+      "cost_usd": 0.008367,
+      "usage": {
+        "total_tokens": 299,
+        "input_tokens": 151,
+        "output_tokens": 148,
+        "input_token_details": {
+          "text_tokens": 151,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 44,
+          "audio_tokens": 104,
+          "reasoning_tokens": 11
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLOVhghgNE677vBVY98b",
+      "output": "media/original/voice/s12.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:16:24Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s13",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.004951,
+      "usage": {
+        "total_tokens": 230,
+        "input_tokens": 141,
+        "output_tokens": 89,
+        "input_token_details": {
+          "text_tokens": 141,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 34,
+          "audio_tokens": 55,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLOaiJkQ8K1wx2FNuru3",
+      "output": "media/original/voice/s13.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:16:28Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s14",
+      "reserved_usd": 0.049168,
+      "status": "ACK",
+      "cost_usd": 0.010215,
+      "usage": {
+        "total_tokens": 336,
+        "input_tokens": 155,
+        "output_tokens": 181,
+        "input_token_details": {
+          "text_tokens": 155,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 51,
+          "audio_tokens": 130,
+          "reasoning_tokens": 14
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLOfaCjRTrOmJU0kuy1u",
+      "output": "media/original/voice/s14.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:16:33Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s15",
+      "reserved_usd": 0.081424,
+      "status": "ACK",
+      "cost_usd": 0.016039,
+      "usage": {
+        "total_tokens": 452,
+        "input_tokens": 169,
+        "output_tokens": 283,
+        "input_token_details": {
+          "text_tokens": 169,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 70,
+          "audio_tokens": 213,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLOkUWK1opS2EwKOdvCu",
+      "output": "media/original/voice/s15.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:16:40Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s16",
+      "reserved_usd": 0.039952,
+      "status": "ACK",
+      "cost_usd": 0.009351,
+      "usage": {
+        "total_tokens": 315,
+        "input_tokens": 149,
+        "output_tokens": 166,
+        "input_token_details": {
+          "text_tokens": 149,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 48,
+          "audio_tokens": 118,
+          "reasoning_tokens": 17
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLOqghaxoAwXm6zBd0Zg",
+      "output": "media/original/voice/s16.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:16:44Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s17",
+      "reserved_usd": 0.037648,
+      "status": "ACK",
+      "cost_usd": 0.007815,
+      "usage": {
+        "total_tokens": 291,
+        "input_tokens": 149,
+        "output_tokens": 142,
+        "input_token_details": {
+          "text_tokens": 149,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 48,
+          "audio_tokens": 94,
+          "reasoning_tokens": 19
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLOvoamE5vtGk5yDjs9q",
+      "output": "media/original/voice/s17.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:16:49Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s18",
+      "reserved_usd": 0.058384,
+      "status": "ACK",
+      "cost_usd": 0.012576,
+      "usage": {
+        "total_tokens": 384,
+        "input_tokens": 158,
+        "output_tokens": 226,
+        "input_token_details": {
+          "text_tokens": 158,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 63,
+          "audio_tokens": 163,
+          "reasoning_tokens": 21
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLP0ANOZ82I05DHI7EwS",
+      "output": "media/original/voice/s18.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:16:55Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s19",
+      "reserved_usd": 0.04456,
+      "status": "ACK",
+      "cost_usd": 0.01004,
+      "usage": {
+        "total_tokens": 330,
+        "input_tokens": 152,
+        "output_tokens": 178,
+        "input_token_details": {
+          "text_tokens": 152,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 49,
+          "audio_tokens": 129,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLP6a7l5a3KRoWfkmFBl",
+      "output": "media/original/voice/s19.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:17:00Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s20",
+      "reserved_usd": 0.069904,
+      "status": "ACK",
+      "cost_usd": 0.014395,
+      "usage": {
+        "total_tokens": 421,
+        "input_tokens": 164,
+        "output_tokens": 257,
+        "input_token_details": {
+          "text_tokens": 164,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 69,
+          "audio_tokens": 188,
+          "reasoning_tokens": 19
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLPBC4FOGx9v65ao7ep6",
+      "output": "media/original/voice/s20.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:17:07Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s21",
+      "reserved_usd": 0.046864,
+      "status": "ACK",
+      "cost_usd": 0.010168,
+      "usage": {
+        "total_tokens": 332,
+        "input_tokens": 152,
+        "output_tokens": 180,
+        "input_token_details": {
+          "text_tokens": 152,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 49,
+          "audio_tokens": 131,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLPIRxwQePBqig34Lkcf",
+      "output": "media/original/voice/s21.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:17:12Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s22",
+      "reserved_usd": 0.05608,
+      "status": "ACK",
+      "cost_usd": 0.010807,
+      "usage": {
+        "total_tokens": 344,
+        "input_tokens": 155,
+        "output_tokens": 189,
+        "input_token_details": {
+          "text_tokens": 155,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 49,
+          "audio_tokens": 140,
+          "reasoning_tokens": 10
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLPNTuDfRwmHsZeod5n1",
+      "output": "media/original/voice/s22.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:17:17Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s23",
+      "reserved_usd": 0.03304,
+      "status": "ACK",
+      "cost_usd": 0.004835,
+      "usage": {
+        "total_tokens": 226,
+        "input_tokens": 140,
+        "output_tokens": 86,
+        "input_token_details": {
+          "text_tokens": 140,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 32,
+          "audio_tokens": 54,
+          "reasoning_tokens": 14
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLPSa3vzANO8FVUMEBAa",
+      "output": "media/original/voice/s23.t2.wav"
+    },
+    {
+      "t": "2026-11-09T15:17:22Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s24",
+      "reserved_usd": 0.0676,
+      "status": "ACK",
+      "cost_usd": 0.015376,
+      "usage": {
+        "total_tokens": 444,
+        "input_tokens": 164,
+        "output_tokens": 280,
+        "input_token_details": {
+          "text_tokens": 164,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 80,
+          "audio_tokens": 200,
+          "reasoning_tokens": 30
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLPXUmNkqhaWBuJFMOb0",
+      "output": "media/original/voice/s24.t1.wav"
+    },
+    {
+      "t": "2026-11-09T15:17:28Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s25",
+      "reserved_usd": 0.060688,
+      "status": "ACK",
+      "cost_usd": 0.010756,
+      "usage": {
+        "total_tokens": 354,
+        "input_tokens": 159,
+        "output_tokens": 195,
+        "input_token_details": {
+          "text_tokens": 159,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 0,
+          "cached_tokens_details": {
+            "text_tokens": 0,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 59,
+          "audio_tokens": 136,
+          "reasoning_tokens": 18
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLPd0JpLmHmjW8XDchDu",
+      "output": "media/original/voice/s25.t1.wav"
+    },
+    {
+      "t": "2026-11-09T15:17:33Z",
+      "endpoint": "realtime (wss)",
+      "model": "gpt-realtime-2.1",
+      "label": "voice:s26",
+      "reserved_usd": 0.05608,
+      "status": "ACK",
+      "cost_usd": 0.012071,
+      "usage": {
+        "total_tokens": 370,
+        "input_tokens": 157,
+        "output_tokens": 213,
+        "input_token_details": {
+          "text_tokens": 157,
+          "audio_tokens": 0,
+          "image_tokens": 0,
+          "cached_tokens": 128,
+          "cached_tokens_details": {
+            "text_tokens": 128,
+            "audio_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        "output_token_details": {
+          "text_tokens": 56,
+          "audio_tokens": 157,
+          "reasoning_tokens": 15
+        }
+      },
+      "response_status": "completed",
+      "response_id": "resp_EiLPip9lFmWIxq3hEl7nu",
+      "output": "media/original/voice/s26.t1.wav"
+    },
+    {
+      "t": "2026-11-09T15:29:35Z",
+      "endpoint": "audio/transcriptions",
+      "model": "gpt-transcribe",
+      "label": "qa-transcribe",
+      "reserved_usd": 0.03609,
+      "status": "ACK",
+      "cost_usd": 0.013575,
+      "usage": {
+        "type": "duration",
+        "seconds": 181
+      }
+    },
+    {
+      "t": "2026-11-09T15:29:59Z",
+      "endpoint": "responses",
+      "model": "gpt-5.5",
+      "label": "qa-vision:26 frames",
+      "reserved_usd": 0.695,
+      "status": "ACK",
+      "cost_usd": 0.509515,
+      "usage": {
+        "input_tokens": 29903,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 12000,
+        "output_tokens_details": {
+          "reasoning_tokens": 3106
+        },
+        "total_tokens": 41903
+      }
+    },
+    {
+      "t": "2026-11-09T15:32:19Z",
+      "endpoint": "responses",
+      "model": "gpt-5.5",
+      "label": "qa-vision:26 frames",
+      "reserved_usd": 1.295,
+      "status": "ACK",
+      "cost_usd": 0.249475,
+      "usage": {
+        "input_tokens": 29903,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 28928
+        },
+        "output_tokens": 3332,
+        "output_tokens_details": {
+          "reasoning_tokens": 2027
+        },
+        "total_tokens": 33235
+      }
+    }
+  ],
+  "committed_usd": 1.499111
+}

@@ -1,0 +1,15 @@
+{
+  "text": "Three child families derive directly from that base: GitLab, MongoDB, and CloudOS (ECS Worker). The shared base stays in development. A failed or unknown check (missing approval or policy, missing access, or an unhealthy production canary) closes the gate; nothing advances on an assumption.",
+  "languages": null,
+  "logprobs": null,
+  "usage": {
+    "input_tokens": 223,
+    "output_tokens": 63,
+    "total_tokens": 286,
+    "type": "tokens",
+    "input_token_details": {
+      "audio_tokens": 223,
+      "text_tokens": 0
+    }
+  }
+}

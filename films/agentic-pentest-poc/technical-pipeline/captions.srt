@@ -1,0 +1,111 @@
+1
+00:00:00,600 --> 00:00:04,459
+Five scanners can produce hundreds of disconnected alerts.
+
+2
+00:00:04,619 --> 00:00:06,987
+Duplicates obscure what matters.
+
+3
+00:00:07,147 --> 00:00:11,781
+This proof of concept turns raw signals into reviewable findings.
+
+4
+00:00:12,391 --> 00:00:16,416
+It begins inside deliberately vulnerable Docker labs.
+
+5
+00:00:16,576 --> 00:00:22,761
+Preflight checks target identity, container labels, pinned images and network isolation.
+
+6
+00:00:22,921 --> 00:00:25,140
+Unknown targets fail closed.
+
+7
+00:00:25,300 --> 00:00:27,711
+No corporate systems are in scope.
+
+8
+00:00:28,321 --> 00:00:31,329
+A deterministic baseline is planned first.
+
+9
+00:00:31,489 --> 00:00:38,998
+Then tool-less OpenCode sees sanitized findings and chooses only a fixed action ID and profile.
+
+10
+00:00:39,158 --> 00:00:42,701
+Python validates the choice, budgets and timeouts.
+
+11
+00:00:42,861 --> 00:00:45,634
+Model-written commands never execute.
+
+12
+00:00:46,245 --> 00:00:53,882
+The repeatable demo replays recorded ZAP, Nuclei, Nikto, Trivy and npm audit output.
+
+13
+00:00:54,042 --> 00:00:55,897
+It runs no new scans.
+
+14
+00:00:56,057 --> 00:01:01,198
+Agent follow-up choices are logged, not executed by the default runner.
+
+15
+00:01:01,358 --> 00:01:04,515
+Normalizers produce a common finding schema.
+
+16
+00:01:05,125 --> 00:01:10,330
+The Juice Shop sample groups 480 alerts into 69 findings.
+
+17
+00:01:10,491 --> 00:01:16,425
+Six ZAP and Nikto alerts become one CORS finding with retained evidence.
+
+18
+00:01:16,585 --> 00:01:23,594
+Code maps OWASP categories, computes CVSS from proposed vectors, and adds remediation.
+
+19
+00:01:24,204 --> 00:01:31,171
+For web findings, the model classifies probable issues, noise, or items needing human review.
+
+20
+00:01:31,331 --> 00:01:35,619
+Model exchanges are recorded in a hash-chained audit trail.
+
+21
+00:01:35,779 --> 00:01:42,323
+The output is HTML, JSON and optional deduplicated private GitHub issues.
+
+22
+00:01:42,933 --> 00:01:51,077
+The sample shows 92 percent precision and 64 percent overall recall against provisional ground truth.
+
+23
+00:01:51,237 --> 00:01:56,854
+Triage time was mostly model latency, not verified analyst time saved.
+
+24
+00:01:57,013 --> 00:01:59,701
+Human review remains necessary.
+
+25
+00:02:00,311 --> 00:02:02,700
+Phase one built the lab pipeline.
+
+26
+00:02:02,861 --> 00:02:06,445
+Phase two added accuracy measurement and more scanners.
+
+27
+00:02:06,605 --> 00:02:11,170
+Phase three extended coverage to lab networks and Terraform code.
+
+28
+00:02:11,330 --> 00:02:17,077
+This is a controlled, auditable scanner-to-report pipeline, not an autonomous hacker.

@@ -103,6 +103,16 @@ owning Issue/PR
 
 Do not reread all root context files before every PR, handoff, or continuation.
 
+## Film work (this repository's main job)
+
+Any request to make, revise or reuse a video in this repository:
+
+1. **Intake first:** run [`docs/VIDEO_INTAKE.md`](docs/VIDEO_INTAKE.md). Pre-fill from the request and the source, then ask only what is missing, as answer cards with defaults. Always confirm the **style** and the **exact names**.
+2. **Reuse first:** use a house look from [`docs/STYLE_CATALOG.md`](docs/STYLE_CATALOG.md) (default `toy-world-3d`) and the shared [`toolkit/`](toolkit/README.md). **Never invent a new theme or style** unless Amit explicitly asks for a new one. "Three.js" or "3D" means the toy-world kit, not a new world.
+3. **Two phases:** a storyboard Phase 1 for review, then autonomous production after "go" ([playbook §4.1](docs/AGENT_VIDEO_PLAYBOOK.md)).
+4. **Layout:** one film per `films/<source-repo>/<film>/`. The MP4 goes to the GitHub Release `film-<source-repo>-<film>`, not into git.
+5. **Defaults:** USD 5 OpenAI cap per film; public and generic output; source repositories read-only; no merge without Amit's word.
+
 ## Rules
 
 - Follow KISS: optimize for one useful outcome, not the smallest possible task.

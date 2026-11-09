@@ -1,0 +1,11 @@
+{
+  "style": "Bright daylight miniature clay diorama object, soft 3D, matte clay and plasticine textures, rounded chunky shapes, cheerful palette limited to navy blue, golden yellow and warm white with a touch of soft grey, soft studio light, gentle contact shadow, isolated on a fully transparent background. Absolutely no text, no letters, no numbers, no logos, no symbols, no screens with writing.",
+  "images": [
+    {"id": "safety", "size": "1024x1024", "quality": "high", "background": "transparent",
+     "prompt": "A small clay server cabinet standing inside a tiny clay building-safety scene: a little fire extinguisher, a sturdy lock on the cabinet door and a clipboard with blank tick boxes leaning against it. Friendly and reassuring."},
+    {"id": "factory", "size": "1536x1024", "quality": "high", "background": "transparent",
+     "prompt": "A small clay factory conveyor belt seen in three-quarter view, carrying three identical rounded clay boxes in a neat row from a tiny clay machine on the left towards the right. Clean, simple and orderly."},
+    {"id": "gate", "size": "1536x1024", "quality": "high", "background": "transparent",
+     "prompt": "A small clay checkpoint barrier gate with a striped boom arm, a little clay inspection lamp on a post, and one rounded clay box waiting in front of it. Calm and orderly."}
+  ]
+}

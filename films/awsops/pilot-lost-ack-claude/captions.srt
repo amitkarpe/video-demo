@@ -1,0 +1,59 @@
+1
+00:00:01,300 --> 00:00:05,036
+In this simulated branch, an approved request leaves the backend.
+
+2
+00:00:05,386 --> 00:00:07,481
+The reply never arrives.
+
+3
+00:00:08,581 --> 00:00:10,030
+Did the change fail?
+
+4
+00:00:10,280 --> 00:00:12,087
+Or did only the reply fail?
+
+5
+00:00:12,787 --> 00:00:16,144
+The SQLite ledger already says CALLING.
+
+6
+00:00:16,444 --> 00:00:18,142
+It was committed before the call.
+
+7
+00:00:18,742 --> 00:00:22,596
+So AWSOps does not send that write again.
+
+8
+00:00:22,896 --> 00:00:26,371
+It reconciles the same run, read-only.
+
+9
+00:00:26,971 --> 00:00:32,071
+A matching S3 policy, independently read back, answers one question only.
+
+10
+00:00:32,571 --> 00:00:34,917
+Execution is still unknown.
+
+11
+00:00:35,117 --> 00:00:37,101
+Compliance is unknown.
+
+12
+00:00:37,301 --> 00:00:39,416
+Freshness is not verified.
+
+13
+00:00:39,716 --> 00:00:42,470
+No AWS Config evaluation has run.
+
+14
+00:00:43,170 --> 00:00:47,961
+Until the missing evidence is resolved, the outcome stays NEEDS_REVIEW.
+
+15
+00:00:48,561 --> 00:00:52,214
+This demonstrates control logic, not live acceptance.

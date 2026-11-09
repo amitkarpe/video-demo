@@ -1,0 +1,48 @@
+{
+  "source": "Recorded Juice Shop lab, report group grp-d382cb1578",
+  "scenes": [
+    {
+      "start": 0.5,
+      "duration": 4.864,
+      "heading": "THE SIGNAL IN THE NOISE",
+      "sub": "Six scanner alerts. One finding.",
+      "words": "In a Juice Shop lab, six scanner alerts reveal one potential issue."
+    },
+    {
+      "start": 5.914,
+      "duration": 5.404625,
+      "heading": "NORMALIZE THE EVIDENCE",
+      "sub": "NIKTO + ZAP  \u2192  ONE GROUP",
+      "words": "Nikto and ZAP results are grouped, bringing the evidence together for review."
+    },
+    {
+      "start": 11.868625,
+      "duration": 5.922666666666666,
+      "heading": "FOLLOW THE HEADER",
+      "sub": "Access-Control-Allow-Origin: *",
+      "words": "The common evidence is a wildcard cross origin header, returned on multiple paths."
+    },
+    {
+      "start": 18.341291666666667,
+      "duration": 7.274666666666667,
+      "heading": "AI TRIAGE \u00b7 POLICY GATE",
+      "sub": "MODEL PROPOSES  \u2192  RULES CHECK",
+      "words": "AI assists the triage. Fixed policy gates constrain actions, and a human reviews the finding."
+    },
+    {
+      "start": 26.165958333333332,
+      "duration": 7.11,
+      "heading": "ONE REVIEWABLE FINDING",
+      "sub": "CORS MISCONFIGURATION  \u00b7  CVSS 4.3",
+      "words": "The recorded report scores the proposed finding at four point three. This is not proof of exploitation."
+    },
+    {
+      "start": 33.82595833333333,
+      "duration": 8.021333333333333,
+      "heading": "REDUCE THE EXPOSURE",
+      "sub": "RESTRICT ORIGINS  \u2192  VERIFY",
+      "words": "The recommended fix: allow only trusted origins, then test that untrusted origins receive no approval."
+    }
+  ],
+  "duration": 43
+}

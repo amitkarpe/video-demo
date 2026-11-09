@@ -9,3 +9,13 @@ __pycache__/
 .terraform/
 .AGENTS-temp/
 tmp/
+
+# Film builds: deliverable MP4s go to GitHub Releases; derived build files are regenerated
+.venv/
+.hyperframes/
+films/**/out/*.mp4
+films/**/assets/gsap.min.js
+films/**/assets/mix.wav
+films/**/assets/mix-prenorm.wav
+films/**/review/tmp/
+films/**/phase1/_snap/

@@ -1,0 +1,219 @@
+{
+  "hero_factory": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_from": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "2048x1152",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "opaque"
+    },
+    "prompt_sha256": "10893b06f1895c339fc4955fcb021fa0ced2401989a625d6f1cd81c3c5ec2dff",
+    "usage": {
+      "input_tokens": 198,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 198
+      },
+      "output_tokens": 1413,
+      "output_tokens_details": {
+        "image_tokens": 1413,
+        "text_tokens": 0
+      },
+      "total_tokens": 1611
+    },
+    "cost_usd": 0.04338,
+    "output_sha256": "7fb7c9ae74f9c32f1672c48ddc1d76513f2cb62064dff32176c40910ef2375a1",
+    "revised_prompt": null,
+    "created": 1794132090
+  },
+  "golden_core": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_from": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "1024x1024",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "transparent"
+    },
+    "prompt_sha256": "c27d756c6908276d10d908d3bd89d8ea83b081f57d0a82d3cbe6fc4df93e9be5",
+    "usage": {
+      "input_tokens": 140,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 140
+      },
+      "output_tokens": 1756,
+      "output_tokens_details": {
+        "image_tokens": 1756,
+        "text_tokens": 0
+      },
+      "total_tokens": 1896
+    },
+    "cost_usd": 0.053380000000000004,
+    "output_sha256": "9b02387dc647dde613b57c07e2ed1d6fc8c3968bf59621ca95deea58932af047",
+    "revised_prompt": null,
+    "created": 1794132153
+  },
+  "three_machines": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_from": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "2560x1024",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "transparent"
+    },
+    "prompt_sha256": "64689cf55ab5c7eca0e1cb09350bde7a2dc573b245aa9d3babf5acc815857c26",
+    "usage": {
+      "input_tokens": 209,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 209
+      },
+      "output_tokens": 1054,
+      "output_tokens_details": {
+        "image_tokens": 1054,
+        "text_tokens": 0
+      },
+      "total_tokens": 1263
+    },
+    "cost_usd": 0.032665,
+    "output_sha256": "c9cff6f38c037d9e0f1e120dd6bd6491659614b059c69c14d1e9c5db1d928fbc",
+    "revised_prompt": null,
+    "created": 1794132190
+  },
+  "proving_grounds": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_from": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "2048x1152",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "opaque"
+    },
+    "prompt_sha256": "6437d91a74912b4a6df578d0f5fe5f9f1b6dca26ca8dd8547314ca7001a7269d",
+    "usage": {
+      "input_tokens": 158,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 158
+      },
+      "output_tokens": 1413,
+      "output_tokens_details": {
+        "image_tokens": 1413,
+        "text_tokens": 0
+      },
+      "total_tokens": 1571
+    },
+    "cost_usd": 0.04318,
+    "output_sha256": "7dfee95717f00f78d8a783eca86cd4a50f7e0e25099fc53cd496a6e6b32338be",
+    "revised_prompt": null,
+    "created": 1794132232
+  },
+  "ops_engineer": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_from": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "1024x1536",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "transparent"
+    },
+    "prompt_sha256": "e9c523b4d20aaab0ef2adbc26322411042cbf1d7dd71190c9ffa0d88b8a2f73c",
+    "usage": {
+      "input_tokens": 142,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 142
+      },
+      "output_tokens": 1372,
+      "output_tokens_details": {
+        "image_tokens": 1372,
+        "text_tokens": 0
+      },
+      "total_tokens": 1514
+    },
+    "cost_usd": 0.041870000000000004,
+    "output_sha256": "a1a48ca0b68fe491c1ef67bbdb4d0fc6d8a7dae31316d4639a1bc79e02560bb6",
+    "revised_prompt": null,
+    "created": 1794132276
+  },
+  "night_release": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_from": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "2048x1152",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "opaque"
+    },
+    "prompt_sha256": "753c7b8f5b1a1cfcef0dbf8014db73f16e7ae7b1a597fe6ec7fd80e8a28d657b",
+    "usage": {
+      "input_tokens": 172,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 172
+      },
+      "output_tokens": 1413,
+      "output_tokens_details": {
+        "image_tokens": 1413,
+        "text_tokens": 0
+      },
+      "total_tokens": 1585
+    },
+    "cost_usd": 0.043250000000000004,
+    "output_sha256": "f67732c6068978b17d08cbc9561058c52a1b0908e1f805ed2947ee29e484e959",
+    "revised_prompt": null,
+    "created": 1794132323
+  },
+  "hardened_core": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "edits",
+    "edit_from": "golden_core",
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "1024x1024",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "transparent"
+    },
+    "prompt_sha256": "fbfbdd73a77bc0f0b0537c11d2d821661e599305f5108049ac19dec2224ccc1d",
+    "usage": {
+      "input_tokens": 1189,
+      "input_tokens_details": {
+        "image_tokens": 1024,
+        "text_tokens": 165
+      },
+      "output_tokens": 1756,
+      "output_tokens_details": {
+        "image_tokens": 1756,
+        "text_tokens": 0
+      },
+      "total_tokens": 2945
+    },
+    "cost_usd": 0.061697,
+    "output_sha256": "0356617149a20cc50166687048a2356c5dddeaf3d81ce89e56bbd6bbfbec77a2",
+    "revised_prompt": null,
+    "created": 1794132373
+  }
+}

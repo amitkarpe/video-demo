@@ -1,0 +1,74 @@
+<!doctype html><html><head><meta charset="utf-8"><title>The reply disappeared — Pilot A</title><script src="assets/gsap.min.js"></script><style>
+*{box-sizing:border-box}body{margin:0;background:#070d18;color:#f0f5ff;font-family:Arial,sans-serif}#root{width:1920px;height:1080px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 60% 48%,#16283c 0%,#070d18 72%)}svg{position:absolute;inset:0}.mono{font-family:Menlo,monospace}.caption{position:absolute;left:170px;right:170px;bottom:62px;padding:18px 28px;text-align:center;font-size:34px;line-height:1.3;background:#060c17f5;border-top:1px solid #60768f;color:#fff}.muted{fill:#a6b8cb}.white{fill:#f0f5ff}.teal{fill:#70f0d0}.amber{fill:#ffbc70}.label{font-size:27px;letter-spacing:3px}.small{font-size:25px}.h{font-size:68px;font-weight:700;letter-spacing:-2px}.hide{opacity:0}
+</style></head><body><div id="root" data-composition-id="main" data-start="0" data-duration="45" data-width="1920" data-height="1080">
+<svg viewBox="0 0 1920 1080"><defs>
+<pattern id="dots" width="48" height="48" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#778eaa" opacity=".17"/></pattern>
+<linearGradient id="beam"><stop stop-color="#70f0d0" stop-opacity="0"/><stop offset="1" stop-color="#70f0d0"/></linearGradient>
+<marker id="readArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#70f0d0"/></marker><filter id="glow"><feGaussianBlur stdDeviation="7"/></filter></defs>
+<rect width="1920" height="1080" fill="url(#dots)"/>
+<path d="M120 128H1800" stroke="#41516a"/>
+<text x="120" y="87" class="label white">AWSOps <tspan class="muted">/ THE COST OF AN UNKNOWN</tspan></text>
+<circle cx="1452" cy="77" r="6" fill="#ffbc70"/><text x="1475" y="87" class="label amber">SYNTHETIC / MOCK</text>
+<g id="hook"><text x="120" y="255" class="h white">The reply <tspan fill="#ffbc70">disappeared.</tspan></text><text x="122" y="310" class="small muted">One request. An uncertain outcome.</text></g>
+<g id="mechanismTitle" class="hide"><text x="120" y="245" class="h white">Record first. Preserve uncertainty.</text><text x="122" y="300" class="small muted">The run identity survives the missing acknowledgement.</text></g>
+<g id="readTitle" class="hide"><text x="120" y="245" class="h white">Observe. Do not repeat.</text><text x="122" y="300" class="small muted">Read-only reconciliation · same Run A</text></g>
+<g id="world">
+<path d="M440 543H1470" stroke="#304a61" stroke-width="3"/>
+<path id="requestLine" d="M440 520H1470" stroke="#70f0d0" stroke-width="4" stroke-dasharray="1030" stroke-dashoffset="1030"/>
+<path id="replyLine" d="M1470 590H1120" stroke="#ffbc70" stroke-width="3" stroke-dasharray="12 14" opacity="0"/>
+<path d="M1080 350V790" stroke="#7186a2" stroke-width="2" stroke-dasharray="5 10"/><text x="1104" y="360" class="small muted">SDK boundary</text>
+<g id="ledger"><path d="M250 510V670C250 735 630 735 630 670V510" fill="#132b3b" stroke="#6486a1" stroke-width="2"/>
+<ellipse cx="440" cy="510" rx="190" ry="48" fill="#173e48" stroke="#70f0d0" stroke-width="3"/>
+<path d="M250 560C250 625 630 625 630 560M250 615C250 680 630 680 630 615" fill="none" stroke="#456477" stroke-width="2"/>
+<text x="440" y="429" text-anchor="middle" class="label white">DURABLE BACKEND</text><text x="440" y="520" text-anchor="middle" class="mono white" font-size="34">Run A</text>
+<text x="440" y="653" text-anchor="middle" class="mono amber" font-size="36">CALLING</text><text x="440" y="779" text-anchor="middle" class="small muted">SQLite · committed before SDK call</text></g>
+<g id="service"><circle cx="1510" cy="548" r="120" fill="#172e2c" stroke="#53786c" stroke-width="2"/>
+<image href="assets/s3.svg" x="1454" y="478" width="112" height="112"/>
+<text x="1510" y="626" text-anchor="middle" class="label white">S3</text><text x="1510" y="725" text-anchor="middle" class="small muted">Fixed canary policy</text></g>
+<g id="packet"><circle r="21" fill="#70f0d0" opacity=".3" filter="url(#glow)"/><circle r="9" fill="#c0fff1"/></g>
+<g id="lost" class="hide"><circle cx="1090" cy="590" r="35" fill="#311f21" stroke="#ffbc70"/><path d="M1078 578L1102 602M1102 578L1078 602" stroke="#ffbc70" stroke-width="4"/><text x="925" y="683" class="mono amber" font-size="29">ACK LOST</text></g>
+<g id="question" class="hide"><text x="925" y="474" text-anchor="middle" class="white" font-size="40">Failed change? Lost reply?</text></g>
+<g id="retry" class="hide"><path d="M650 790Q960 900 1320 790" fill="none" stroke="#596980" stroke-width="3" stroke-dasharray="8 12"/><path d="M935 810L980 855M980 810L935 855" stroke="#ffbc70" stroke-width="7"/><text x="970" y="902" text-anchor="middle" class="label amber">NO BLIND RETRY</text></g>
+<g id="read" class="hide"><path id="readPath" d="M1470 437Q1050 200 650 460" fill="none" stroke="#70f0d0" stroke-width="5" stroke-dasharray="1100" stroke-dashoffset="1100"/><path id="readArrowHead" d="M650 460L690 451L674 423Z" fill="#70f0d0" opacity="0"/><text x="925" y="400" text-anchor="middle" class="mono teal" font-size="30">inspect → same Run A</text></g>
+</g>
+<image id="s3bridge" class="hide" href="assets/s3.svg" x="1454" y="478" width="112" height="112"/>
+<g id="evidence" class="hide">
+<text x="120" y="245" class="h white">A match answers one question.</text><text x="122" y="302" class="small muted">Four independent evidence dimensions · same Run A</text>
+<path d="M120 430H1800" stroke="#3c536c"/>
+<g id="ev0"><text x="120" y="485" class="label muted">EXECUTION</text><text x="120" y="560" class="mono amber" font-size="42">UNKNOWN</text><text x="120" y="615" class="small muted">Acknowledgement lost</text></g>
+<g id="ev1"><image id="readbackIcon" href="assets/s3.svg" x="560" y="356" width="52" height="52"/><text x="560" y="485" class="label muted">READBACK</text><text x="560" y="560" class="mono teal" font-size="42">MATCH</text><text x="560" y="615" class="small muted">Policy observed</text></g>
+<g id="ev2"><image href="assets/config.svg" x="1000" y="356" width="52" height="52"/><text x="1000" y="485" class="label muted">COMPLIANCE</text><text x="1000" y="560" class="mono amber" font-size="42">UNKNOWN</text><text x="1000" y="615" class="small muted">No fresh Config proof</text></g>
+<g id="ev3"><text x="1440" y="485" class="label muted">FRESHNESS</text><text x="1440" y="560" class="mono amber" font-size="38">NOT_VERIFIED</text><text x="1440" y="615" class="small muted">Evidence still missing</text></g>
+<line id="focusLine" x1="560" y1="646" x2="870" y2="646" stroke="#70f0d0" stroke-width="4" opacity="0"/>
+<path d="M120 670H1800" stroke="#3c536c"/>
+<g id="outcome" class="hide"><circle cx="147" cy="775" r="13" fill="#ffbc70"/><text x="185" y="793" class="mono amber" font-size="61">NEEDS_REVIEW</text><text x="1800" y="790" text-anchor="end" class="small white">Uncertainty stays visible.</text></g>
+</g>
+<text x="120" y="1037" font-size="20" class="muted">SOURCE-GROUNDED SIMULATION · NO LIVE AWS OPERATIONS</text><text x="1800" y="1037" text-anchor="end" font-size="20" class="muted">OPENAI AI NARRATION · PILOT A / V2</text>
+<rect id="progress" x="120" y="1058" width="0" height="3" fill="#70f0d0"/>
+</svg><audio id="voice0" class="clip" data-start="0.65" data-duration="4.75" data-track-index="20" src="assets/voice-00.wav"></audio><audio id="voice1" class="clip" data-start="5.72" data-duration="1.575" data-track-index="20" src="assets/voice-01.wav"></audio><audio id="voice2" class="clip" data-start="7.945" data-duration="2.375" data-track-index="20" src="assets/voice-02.wav"></audio><audio id="voice3" class="clip" data-start="10.97" data-duration="3.675" data-track-index="20" src="assets/voice-03.wav"></audio><audio id="voice4" class="clip" data-start="14.965" data-duration="4.575" data-track-index="20" src="assets/voice-04.wav"></audio><audio id="voice5" class="clip" data-start="19.86" data-duration="3.625" data-track-index="20" src="assets/voice-05.wav"></audio><audio id="voice6" class="clip" data-start="23.805" data-duration="1.988" data-track-index="20" src="assets/voice-06.wav"></audio><audio id="voice7" class="clip" data-start="26.442" data-duration="3.312" data-track-index="20" src="assets/voice-07.wav"></audio><audio id="voice8" class="clip" data-start="30.075" data-duration="3.038" data-track-index="20" src="assets/voice-08.wav"></audio><audio id="voice9" class="clip" data-start="33.432" data-duration="1.825" data-track-index="20" src="assets/voice-09.wav"></audio><audio id="voice10" class="clip" data-start="35.578" data-duration="1.55" data-track-index="20" src="assets/voice-10.wav"></audio><audio id="voice11" class="clip" data-start="37.778" data-duration="5.312" data-track-index="20" src="assets/voice-11.wav"></audio><div id="cap0" class="caption clip" data-start="0.65" data-duration="4.75" data-track-index="30">This is a simulation. An approved S3 policy request leaves the backend.</div><div id="cap1" class="caption clip" data-start="5.72" data-duration="1.575" data-track-index="30">But the reply disappears.</div><div id="cap2" class="caption clip" data-start="7.945" data-duration="2.375" data-track-index="30">Did the change fail? Or just the reply?</div><div id="cap3" class="caption clip" data-start="10.97" data-duration="3.675" data-track-index="30">Before the call, the durable ledger already records CALLING.</div><div id="cap4" class="caption clip" data-start="14.965" data-duration="4.575" data-track-index="30">AWSOps keeps that uncertainty. It does not blindly send another write.</div><div id="cap5" class="caption clip" data-start="19.86" data-duration="3.625" data-track-index="30">It reconciles the same run, using read-only provider checks.</div><div id="cap6" class="caption clip" data-start="23.805" data-duration="1.988" data-track-index="30">Here, the observed policy matches.</div><div id="cap7" class="caption clip" data-start="26.442" data-duration="3.312" data-track-index="30">But a matching policy is not fresh Config compliance.</div><div id="cap8" class="caption clip" data-start="30.075" data-duration="3.038" data-track-index="30">Execution stays UNKNOWN. Compliance stays UNKNOWN.</div><div id="cap9" class="caption clip" data-start="33.432" data-duration="1.825" data-track-index="30">Freshness stays NOT_VERIFIED.</div><div id="cap10" class="caption clip" data-start="35.578" data-duration="1.55" data-track-index="30">The outcome: NEEDS_REVIEW.</div><div id="cap11" class="caption clip" data-start="37.778" data-duration="5.312" data-track-index="30">The missing evidence stays visible. This demonstrates control logic, not live acceptance.</div></div><script>
+const cues=[{"text": "This is a simulation. An approved S3 policy request leaves the backend.", "start": 0.65, "duration": 4.75}, {"text": "But the reply disappears.", "start": 5.72, "duration": 1.575}, {"text": "Did the change fail? Or just the reply?", "start": 7.945, "duration": 2.375}, {"text": "Before the call, the durable ledger already records CALLING.", "start": 10.97, "duration": 3.675}, {"text": "AWSOps keeps that uncertainty. It does not blindly send another write.", "start": 14.965, "duration": 4.575}, {"text": "It reconciles the same run, using read-only provider checks.", "start": 19.86, "duration": 3.625}, {"text": "Here, the observed policy matches.", "start": 23.805, "duration": 1.988}, {"text": "But a matching policy is not fresh Config compliance.", "start": 26.442, "duration": 3.312}, {"text": "Execution stays UNKNOWN. Compliance stays UNKNOWN.", "start": 30.075, "duration": 3.038}, {"text": "Freshness stays NOT_VERIFIED.", "start": 33.432, "duration": 1.825}, {"text": "The outcome: NEEDS_REVIEW.", "start": 35.578, "duration": 1.55}, {"text": "The missing evidence stays visible. This demonstrates control logic, not live acceptance.", "start": 37.778, "duration": 5.312}];const at=i=>cues[i].start;window.__timelines=window.__timelines||{};const tl=gsap.timeline({paused:true});
+tl.set('#packet',{x:440,y:520},0).fromTo('#hook',{opacity:0,y:18},{opacity:1,y:0,duration:1.1},0);
+tl.to('#requestLine',{strokeDashoffset:0,duration:2,ease:'power2.inOut'},at(0)+2).to('#packet',{x:1470,duration:2,ease:'power2.inOut'},at(0)+2);
+tl.to('#world',{scale:1.04,transformOrigin:'960px 550px',duration:1.4,ease:'power2.inOut'},at(1)).to('#replyLine',{opacity:1,duration:.3},at(1)).to('#packet',{x:1090,y:590,duration:.9,ease:'power1.in'},at(1)).to('#packet',{opacity:0,scale:3,duration:.25},at(1)+.9).to('#lost',{opacity:1,duration:.25},at(1)+.9);
+tl.fromTo('#lost circle',{strokeWidth:1},{strokeWidth:5,duration:.8,repeat:1,yoyo:true},at(1)+1).to('#question',{opacity:1,duration:.6},at(2)).to('#hook,#question',{opacity:0,duration:.5},at(3)-.5).to('#mechanismTitle',{opacity:1,duration:.6},at(3));
+tl.to('#ledger',{scale:1.12,transformOrigin:'440px 600px',duration:1,ease:'power2.inOut'},at(3));
+tl.to('#retry',{opacity:1,duration:.6},at(4)).to('#ledger',{scale:1,duration:1},at(5)-1);
+tl.to('#world',{scale:1,duration:1,ease:'power2.inOut'},at(5)-1).to('#mechanismTitle,#retry',{opacity:0,duration:.5},at(5)-.5).to('#readTitle,#read',{opacity:1,duration:.5},at(5)).to('#readPath',{strokeDashoffset:0,duration:2.5,ease:'power2.inOut'},at(5)+.3);
+// Carry the same S3 identity from the world into the readback conclusion.
+tl.to('#readArrowHead',{opacity:1,duration:.2},at(5)+2.8);
+tl.set('#s3bridge',{opacity:1},at(6)-.35).set('#readbackIcon',{opacity:0},at(6)-.35);
+tl.to('#readTitle',{opacity:0,duration:.25},at(6)-.35);
+tl.to('#world',{opacity:0,y:-35,duration:.5,ease:'power2.inOut'},at(6)-.35);
+tl.fromTo('#evidence',{y:20,opacity:0},{y:0,opacity:1,duration:.5,ease:'power2.inOut'},at(6)+.15);
+tl.to('#s3bridge',{attr:{x:560,y:356,width:52,height:52},duration:1,ease:'power2.inOut'},at(6)-.35).set('#s3bridge',{opacity:0},at(6)+.65).set('#readbackIcon',{opacity:1},at(6)+.65);
+// All evidence remains readable. A moving underline directs attention.
+tl.to('#focusLine',{opacity:1,duration:.3},at(6)+1);
+tl.to('#focusLine',{attr:{x1:1000,x2:1310},stroke:'#ffbc70',duration:.65,ease:'power2.inOut'},at(7));
+tl.to('#focusLine',{attr:{x1:120,x2:430},duration:.65,ease:'power2.inOut'},at(8));
+tl.to('#focusLine',{attr:{x1:1000,x2:1310},duration:.65,ease:'power2.inOut'},at(8)+cues[8].duration*.52);
+tl.to('#focusLine',{attr:{x1:1440,x2:1750},duration:.65,ease:'power2.inOut'},at(9));
+tl.to('#focusLine',{opacity:0,duration:.5},at(10));
+tl.to('#outcome',{opacity:1,duration:.9},at(10));tl.to('#progress',{attr:{width:1680},duration:45,ease:'none'},0);
+for(let i=0;i<cues.length;i++){tl.fromTo('#cap'+i,{opacity:0},{opacity:1,duration:.12},at(i));tl.to('#cap'+i,{opacity:0,duration:.12},at(i)+cues[i].duration-.12)}
+window.__timelines.main=tl;
+</script></body></html>

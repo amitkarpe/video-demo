@@ -1,0 +1,13 @@
+{
+  "durationSeconds": 649,
+  "sentenceClips": 100,
+  "captionCues": 100,
+  "overlaps": 0,
+  "audioFilesPresent": true,
+  "lastSpeechEnd": 647.791,
+  "voice": "Kokoro am_michael",
+  "speed": 1.0,
+  "paidUsageUSD": 0,
+  "sourceRevision": "15c12fb5362dd05fc4d8aaf10ebd31d3ce2935d9",
+  "providerCallsByVideoWorker": 0
+}

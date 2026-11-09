@@ -1,0 +1,332 @@
+{
+  "gate.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "2048x1152",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "opaque"
+    },
+    "prompt_sha256": "fb255a21647f182ca9f2ec024008a4b591837f5fd0a052eaf79be4003659f671",
+    "usage": {
+      "input_tokens": 221,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 221
+      },
+      "output_tokens": 1413,
+      "output_tokens_details": {
+        "image_tokens": 1413,
+        "text_tokens": 0
+      },
+      "total_tokens": 1634
+    },
+    "cost_usd": 0.043495000000000006,
+    "output": "media/original/images/gate.t1.png",
+    "output_sha256": "d8efca0af704c12141085a451eb646885cfc21d9659534afeea52ae5f2517240",
+    "revised_prompt": null,
+    "created": 1794217479,
+    "request_id": "req_1f683bb9b6ae402082b6390b2205fb1e"
+  },
+  "home.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "2048x1152",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "opaque"
+    },
+    "prompt_sha256": "cac9aa15e4b3c8ce8a3adbf9a5d46921949325be98230f4ad09f01134eac5895",
+    "usage": {
+      "input_tokens": 257,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 257
+      },
+      "output_tokens": 1413,
+      "output_tokens_details": {
+        "image_tokens": 1413,
+        "text_tokens": 0
+      },
+      "total_tokens": 1670
+    },
+    "cost_usd": 0.043675000000000005,
+    "output": "media/original/images/home.t1.png",
+    "output_sha256": "07c0fe8cd2273f4209bf5bf2b178ba403051dc9cf65ba16f449d6baefc2f11af",
+    "revised_prompt": null,
+    "created": 1794217532,
+    "request_id": "req_4e95e7bea6d44ee2bc5caa6bde35e439"
+  },
+  "bench.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "2048x1152",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "opaque"
+    },
+    "prompt_sha256": "2dad319b102a2486d213a17263e42f5e4af541a638b23186520263a640255215",
+    "usage": {
+      "input_tokens": 236,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 236
+      },
+      "output_tokens": 1413,
+      "output_tokens_details": {
+        "image_tokens": 1413,
+        "text_tokens": 0
+      },
+      "total_tokens": 1649
+    },
+    "cost_usd": 0.043570000000000005,
+    "output": "media/original/images/bench.t1.png",
+    "output_sha256": "c29cd261a73420bc321e891a2d9d3d6fc54824c9e317a1ddbf5af54c52152895",
+    "revised_prompt": null,
+    "created": 1794217590,
+    "request_id": "req_80d6a074149945d694bac74dae1bc82b"
+  },
+  "inspect.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "2048x1152",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "opaque"
+    },
+    "prompt_sha256": "68955feb440d91b1a06f8eb022b595c9440989446d8f8869fcff0dec235622ea",
+    "usage": {
+      "input_tokens": 207,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 207
+      },
+      "output_tokens": 1413,
+      "output_tokens_details": {
+        "image_tokens": 1413,
+        "text_tokens": 0
+      },
+      "total_tokens": 1620
+    },
+    "cost_usd": 0.043425000000000005,
+    "output": "media/original/images/inspect.t1.png",
+    "output_sha256": "c598959f2861a12a8ed73d217790ddf715113aa54dc0be532ed5b89e7efbbc34",
+    "revised_prompt": null,
+    "created": 1794217631,
+    "request_id": "req_c2c0724ccf2e4f4c9b75816c7ad0ce7d"
+  },
+  "route.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "2048x1152",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "opaque"
+    },
+    "prompt_sha256": "1867b934f12106940875b69b3654c01381842c383b1f97b3bd3942fe65087188",
+    "usage": {
+      "input_tokens": 230,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 230
+      },
+      "output_tokens": 1413,
+      "output_tokens_details": {
+        "image_tokens": 1413,
+        "text_tokens": 0
+      },
+      "total_tokens": 1643
+    },
+    "cost_usd": 0.04354,
+    "output": "media/original/images/route.t1.png",
+    "output_sha256": "3ea100c3bd02be1efd2f401f16d04566aa62769b73691f7fc76bd1c090911777",
+    "revised_prompt": null,
+    "created": 1794217685,
+    "request_id": "req_ef5560b857c94cf6b98531a638da70d3"
+  },
+  "lab.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "2048x1152",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "opaque"
+    },
+    "prompt_sha256": "bb48d0087171f99b7af72006b14ca7254db0fe30a359e3873d44229e1320a3c2",
+    "usage": {
+      "input_tokens": 214,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 214
+      },
+      "output_tokens": 1413,
+      "output_tokens_details": {
+        "image_tokens": 1413,
+        "text_tokens": 0
+      },
+      "total_tokens": 1627
+    },
+    "cost_usd": 0.043460000000000006,
+    "output": "media/original/images/lab.t1.png",
+    "output_sha256": "29b0cb8846fe956a362b9f398422f18a23836d1fdefd88bf0761ec1c86a865c9",
+    "revised_prompt": null,
+    "created": 1794217744,
+    "request_id": "req_a9533ea0a4034c89beca935ef78d5927"
+  },
+  "dawn.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "2048x1152",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "opaque"
+    },
+    "prompt_sha256": "b3ddfe973c83718860ab05866f0a42c97850c055474e24868db57b11101dc1d5",
+    "usage": {
+      "input_tokens": 213,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 213
+      },
+      "output_tokens": 1413,
+      "output_tokens_details": {
+        "image_tokens": 1413,
+        "text_tokens": 0
+      },
+      "total_tokens": 1626
+    },
+    "cost_usd": 0.04345500000000001,
+    "output": "media/original/images/dawn.t1.png",
+    "output_sha256": "6094dbeba30b1962da411ac809ef6101f42f542e080981f75f4070d9b5945f69",
+    "revised_prompt": null,
+    "created": 1794217800,
+    "request_id": "req_a10b7a921d2d412d93ae5d1960340b1e"
+  },
+  "case.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "1536x1024",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "transparent"
+    },
+    "prompt_sha256": "d0c2c18c9ab11bc2db80e6e1517b628562ecd9574771b95d7f72383d749375b0",
+    "usage": {
+      "input_tokens": 208,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 208
+      },
+      "output_tokens": 1372,
+      "output_tokens_details": {
+        "image_tokens": 1372,
+        "text_tokens": 0
+      },
+      "total_tokens": 1580
+    },
+    "cost_usd": 0.0422,
+    "output": "media/original/images/case.t1.png",
+    "output_sha256": "58242161810e701fdd1878f4a1713741eadc8d2bfb0f934f50facf13774a1903",
+    "revised_prompt": null,
+    "created": 1794217843,
+    "request_id": "req_e1bca7638b9f4a38a1aa512304d10282"
+  },
+  "crate.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "generations",
+    "edit_of": null,
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "1024x1024",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "transparent"
+    },
+    "prompt_sha256": "7a5ea620117de3fca79f83c8520127bc40d57aa41324114567fc84f297b885ac",
+    "usage": {
+      "input_tokens": 188,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 188
+      },
+      "output_tokens": 1756,
+      "output_tokens_details": {
+        "image_tokens": 1756,
+        "text_tokens": 0
+      },
+      "total_tokens": 1944
+    },
+    "cost_usd": 0.05362000000000001,
+    "output": "media/original/images/crate.t1.png",
+    "output_sha256": "0ecd2be744972a182f3f6e3f1454849c5eece911c119e60d301323d0b259589c",
+    "revised_prompt": null,
+    "created": 1794217898,
+    "request_id": "req_28e85ab080dd4651a0e13759a407601b"
+  },
+  "caseopen.t1": {
+    "model": "gpt-image-2.6-sunburst",
+    "endpoint": "edits",
+    "edit_of": "case",
+    "params": {
+      "model": "gpt-image-2.6-sunburst",
+      "size": "1536x1024",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png",
+      "background": "transparent"
+    },
+    "prompt_sha256": "ba15a25599268e86677544565b56459ecdd3dc8f5215e48463c573d15df88492",
+    "usage": {
+      "input_tokens": 1780,
+      "input_tokens_details": {
+        "image_tokens": 1536,
+        "text_tokens": 244
+      },
+      "output_tokens": 1372,
+      "output_tokens_details": {
+        "image_tokens": 1372,
+        "text_tokens": 0
+      },
+      "total_tokens": 3152
+    },
+    "cost_usd": 0.054668,
+    "output": "media/original/images/caseopen.t1.png",
+    "output_sha256": "186537884b2998d063bbee2535d9abc05becc6e40dd6d979d61bef95f629d68d",
+    "revised_prompt": null,
+    "created": 1794217951,
+    "request_id": "req_3f827730d9374aa89630412beb2dcd2e"
+  }
+}

@@ -1,0 +1,61 @@
+{
+ "title": "Nextflow Offline — Prepare Once, Run with Confidence",
+ "voice": {
+  "model": "gpt-realtime-2.1",
+  "voice": "marin",
+  "instructions": "You are the narrator of a calm, confident, premium technical documentary for managers and engineers. Read the user's text aloud exactly as written, word for word: do not add, drop, reorder or paraphrase any word, and do not answer or comment. Voice: warm, assured, unhurried and clearly articulated, with natural sentence prosody and brief pauses at full stops, colons and dashes. Pronounce: Nextflow as 'NEXT-flow'; nf-core as 'N-F core'; Sarek as 'SAH-rek'; GitLab as 'GIT-lab'; AWS, ECR and EC2 as separate letters (A-W-S, E-C-R, E-C-two); S3 as 'S-three'; CodeCommit, CodePipeline and CodeBuild as 'code commit', 'code pipeline' and 'code build'; PASS and FAIL as the ordinary words 'pass' and 'fail'."
+ },
+ "lead_in": 1.6,
+ "tail": 6.0,
+ "chapters": [
+  {"id": "c0", "label": "", "start": "s01"},
+  {"id": "c1", "label": "01 · ONE REAL WORKFLOW", "start": "s05"},
+  {"id": "c2", "label": "02 · ONE TRUSTED HOME", "start": "s06"},
+  {"id": "c3", "label": "03 · PREPARE THE RELEASE", "start": "s10"},
+  {"id": "c4", "label": "04 · VERIFY BEFORE TRUST", "start": "s14"},
+  {"id": "c5", "label": "05 · A CONTROLLED RUN", "start": "s17"},
+  {"id": "c6", "label": "06 · RUN OFFLINE", "start": "s21"},
+  {"id": "c7", "label": "07 · PROOF, NOT PROMISES", "start": "s25"},
+  {"id": "c8", "label": "08 · RUN WITH CONFIDENCE", "start": "s28"}
+ ],
+ "lines": [
+  {"id": "s01", "gap_after": 0.35, "caption": "A scientific workflow depends on much more than its own code."},
+  {"id": "s02", "gap_after": 0.5, "caption": "It needs container images, plugins, reference files and input data — all of them, at the moment it runs."},
+  {"id": "s03", "gap_after": 0.5, "caption": "In a controlled environment with no internet, one missing piece stops the analysis."},
+  {"id": "s04", "gap_after": 2.2, "caption": "Nextflow Offline removes that risk: everything is prepared first, then run with confidence."},
+
+  {"id": "s05", "gap_after": 1.0, "caption": "We'll follow one real workflow: a germline variant-calling test from nf-core Sarek, using a small public test dataset. One release, from preparation to proven result."},
+
+  {"id": "s06", "gap_after": 0.4, "caption": "Everything starts in GitLab, the single trusted home for the solution."},
+  {"id": "s07", "gap_after": 0.4, "caption": "The workflow code lives in a GitLab repository. Its container images live in the GitLab container registry."},
+  {"id": "s08", "gap_after": 0.4, "caption": "The reference data and test datasets are hosted there too."},
+  {"id": "s09", "gap_after": 1.0, "caption": "Content is scanned for security as it arrives, and the operations team reviews every finding."},
+
+  {"id": "s10", "gap_after": 0.4, "caption": "From GitLab, a GitLab Runner prepares the release. The workflow code goes to AWS CodeCommit."},
+  {"id": "s11", "gap_after": 0.4, "caption": "Each container image goes to private Amazon ECR, locked to its exact identity."},
+  {"id": "s12", "gap_after": 0.4, "caption": "The workflow, plugins, references and data are packed into one bundle in Amazon S3, with a fingerprint for every file."},
+  {"id": "s13", "gap_after": 1.0, "caption": "Together, they form one complete, self-contained release."},
+
+  {"id": "s14", "gap_after": 0.4, "caption": "Nothing is trusted just because it was uploaded. Every file and every image is read back and compared against its fingerprint."},
+  {"id": "s15", "gap_after": 0.5, "caption": "Only when everything matches is the release registered and ready to run."},
+  {"id": "s16", "gap_after": 1.0, "caption": "If anything is missing or different, the release stops here, long before it reaches a run."},
+
+  {"id": "s17", "gap_after": 0.4, "caption": "An approved run request in GitLab starts a controlled run with its own unique identity."},
+  {"id": "s18", "gap_after": 0.4, "caption": "AWS CodePipeline leads the run through ten gated stages. It checks the source, the release, the data, the images and the runtime before anything executes, then validates the results and publishes the report."},
+  {"id": "s19", "gap_after": 0.4, "caption": "CodeBuild does the work of each stage, and AWS Systems Manager sends commands to a private EC2 host with no internet route."},
+  {"id": "s20", "gap_after": 1.0, "caption": "Private endpoints connect it only to the AWS services it needs."},
+
+  {"id": "s21", "gap_after": 0.4, "caption": "On the host, the bundle is checked again against its fingerprints. The exact images are loaded into an isolated container store."},
+  {"id": "s22", "gap_after": 0.4, "caption": "Nextflow then runs in offline mode, using only what was prepared."},
+  {"id": "s23", "gap_after": 0.4, "caption": "Plugin downloads are switched off, task containers have no network, and no image can be pulled."},
+  {"id": "s24", "gap_after": 1.0, "caption": "Everything the analysis needs is already there."},
+
+  {"id": "s25", "gap_after": 0.4, "caption": "When the run ends, the result is checked, not assumed."},
+  {"id": "s26", "gap_after": 0.4, "caption": "The pipeline confirms the run succeeded, that the offline controls were in place, and that the expected outputs exist."},
+  {"id": "s27", "gap_after": 1.0, "caption": "The answer is a clear PASS or FAIL, with an evidence report the team can review."},
+
+  {"id": "s28", "gap_after": 0.5, "caption": "So the journey is complete: hosted and scanned in GitLab, prepared and verified in AWS, executed offline and backed by evidence."},
+  {"id": "s29", "gap_after": 0.8, "caption": "Tested end to end, and repeatable for every release."},
+  {"id": "s30", "gap_after": 0.0, "caption": "Prepare once. Verify everything. Run with confidence."}
+ ]
+}

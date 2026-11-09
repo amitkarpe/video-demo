@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>No NAT. Still S3.</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f1efe6;color:#172d35;font-family:Arial,Helvetica,sans-serif}#root{width:1920px;height:1080px;position:relative;overflow:hidden;background:#f1efe6}svg{position:absolute;inset:0;width:1920px;height:1080px}text{font-family:Arial,Helvetica,sans-serif;fill:#172d35}.small{font-size:27px;letter-spacing:2px;font-weight:700}.label{font-size:32px;font-weight:700}.mono{font:29px Menlo,monospace}.title{font-size:70px;font-weight:900;letter-spacing:-3px}.muted{fill:#51676b}.orange{fill:#cc4f22}.teal{fill:#086c71}.caption{position:absolute;left:130px;right:130px;top:928px;height:104px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:38px;line-height:1.2;color:#fff;opacity:0;font-weight:500}.caption br{display:initial}#caption-bg{position:absolute;left:80px;right:80px;top:917px;height:127px;background:#172d35;border-radius:22px}.shade{filter:url(#shadow)}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="46" data-width="1920" data-height="1080" data-fps="30">
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1.3" fill="#b5bdb4"/></pattern>
+  <filter id="shadow" x="-40%" y="-50%" width="180%" height="220%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#203a3b" flood-opacity=".13"/></filter>
+  <linearGradient id="vpcfill" x2="0" y2="1"><stop stop-color="#e2ece4"/><stop offset="1" stop-color="#cdded6"/></linearGradient>
+  <linearGradient id="roadfill" gradientUnits="userSpaceOnUse" x1="415" y1="604" x2="1510" y2="604"><stop stop-color="#f29a50"/><stop offset=".5" stop-color="#0b8b91"/><stop offset="1" stop-color="#488e51"/></linearGradient>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#0b797d" stroke-width="1.7"/></marker>
+</defs>
+<rect width="1920" height="1080" fill="url(#grid)" opacity=".6"/>
+<path d="M80 97H1840" stroke="#bdc7bd"/>
+<text x="80" y="65" class="small">NETWORK NOTES <tspan class="muted"> / 01</tspan></text>
+<text x="1840" y="65" text-anchor="end" font-size="25" fill="#51676b">ILLUSTRATIVE · NOT A LIVE ENVIRONMENT</text>
+<path id="progress" d="M80 97H1840" stroke="#d35e32" stroke-width="4"/>
+
+<g id="opening">
+  <text x="100" y="235" font-size="122" font-weight="900" letter-spacing="-6">NO NAT.</text>
+  <text x="100" y="351" font-size="122" font-weight="900" letter-spacing="-6" class="teal">STILL S3.</text>
+  <g id="constraints" transform="translate(1090 180)">
+    <path d="M0 0v160" stroke="#ce5b30" stroke-width="5"/>
+    <text x="30" y="25" font-size="31">No public IPv4</text><text x="30" y="86" font-size="31">No NAT device</text><text x="30" y="147" font-size="31">No internet gateway</text>
+  </g>
+</g>
+<g id="dnsTitle"><text x="100" y="191" class="title">THE NAME IS NOT THE PATH.</text><text x="104" y="240" font-size="30" class="muted">01 / Resolve the destination</text></g>
+<g id="routeTitle"><text x="100" y="191" class="title">THE MATCH MAKES THE ROUTE.</text><text x="104" y="240" font-size="30" class="muted">02 / Regional S3 prefix list → gateway endpoint</text></g>
+<g id="followTitle"><text x="100" y="191" class="title">ONE PACKET. AN AWS PATH.</text><text x="104" y="240" font-size="30" class="muted">03 / Amazon S3 stays outside your VPC</text></g>
+<g id="permissionTitle"><text x="100" y="191" class="title">A PATH IS NOT PERMISSION.</text><text x="104" y="240" font-size="30" class="muted">04 / Connectivity and authorization are different checks</text></g>
+
+<g id="world">
+  <g id="region">
+    <rect x="90" y="365" width="1740" height="440" rx="44" fill="#e7e7dc" stroke="#c5ccc0" stroke-width="2"/>
+    <text x="120" y="405" class="small muted">ONE AWS REGION</text>
+  </g>
+  <g id="vpc">
+    <path d="M180 435H1160Q1200 435 1200 475V740Q1200 780 1160 780H180Q140 780 140 740V475Q140 435 180 435" fill="url(#vpcfill)" stroke="#80a6a3" stroke-width="2"/>
+    <path d="M140 730V755Q140 795 180 795H1160Q1200 795 1200 755V730" fill="#b9cdc5" stroke="#80a6a3" stroke-width="2"/>
+    <text x="175" y="476" class="small teal">YOUR VPC</text>
+  </g>
+  <g id="subnet">
+    <rect x="205" y="503" width="340" height="225" rx="25" fill="#eff2e7" stroke="#a5b8ab" stroke-dasharray="8 8" stroke-width="2"/>
+    <text x="375" y="710" text-anchor="middle" font-size="25" class="muted">PRIVATE SUBNET</text>
+  </g>
+  <path id="routeBase" d="M415 604H710Q758 604 790 604H1115Q1215 604 1260 604H1510" fill="none" stroke="#9bada5" stroke-width="16" opacity=".4"/>
+  <path id="routeLight" d="M415 604H710Q758 604 790 604H1115Q1215 604 1260 604H1510" fill="none" stroke="url(#roadfill)" stroke-width="10" stroke-linecap="round"/>
+  <g id="ec2" class="shade">
+    <path d="M301 555L375 520L449 555L375 591Z" fill="#f5b17b"/>
+    <path d="M301 555V630L375 667V591Z" fill="#c75126"/>
+    <path d="M375 591L449 555V630L375 667Z" fill="#e77a39"/>
+    <image href="assets/ec2.svg" x="339" y="543" width="72" height="72"/>
+  </g>
+  <text id="ec2label" x="375" y="493" text-anchor="middle" class="label">EC2</text>
+  <g id="routeNode">
+    <rect x="693" y="558" width="94" height="94" rx="18" fill="#f5f3e9" stroke="#217c7b" stroke-width="3"/>
+    <path d="M711 582h58M711 604h58M711 626h58M731 574v60" stroke="#217c7b" stroke-width="3"/>
+    <text x="740" y="696" class="label" text-anchor="middle">Route table</text>
+  </g>
+  <g id="gateway">
+    <circle cx="1120" cy="604" r="58" fill="#f2f0e6" stroke="#087b80" stroke-width="9"/>
+    <path d="M1088 604H1150M1130 584L1150 604L1130 624" fill="none" stroke="#087b80" stroke-width="7"/>
+    <text x="1120" y="699" class="label" text-anchor="middle">Gateway</text><text x="1120" y="735" font-size="28" text-anchor="middle">endpoint</text>
+  </g>
+  <g id="s3" class="shade">
+    <ellipse cx="1570" cy="663" rx="102" ry="22" fill="#253d31" opacity=".13"/>
+    <path d="M1492 547H1648L1631 635Q1570 676 1509 635Z" fill="#4f8e4b"/>
+    <ellipse cx="1570" cy="547" rx="78" ry="29" fill="#7ca561" stroke="#3b7642" stroke-width="2"/>
+    <image href="assets/s3.svg" x="1532" y="560" width="76" height="76"/>
+    <text x="1570" y="498" class="label" text-anchor="middle">Amazon S3</text>
+    <text x="1570" y="714" font-size="28" text-anchor="middle" class="muted">Same-Region bucket</text>
+  </g>
+  <g id="packet"><circle r="30" fill="#efa94e" opacity=".2"/><rect x="-17" y="-17" width="34" height="34" rx="7" fill="#f9b44d" stroke="#a94e25" stroke-width="3"/><path d="M-8 0H8M2 -6L8 0L2 6" fill="none" stroke="#773c1e" stroke-width="2"/></g>
+  <g id="returnPacket"><rect x="-12" y="-12" width="24" height="24" rx="6" fill="#70aa6f" stroke="#245a40" stroke-width="2"/></g>
+</g>
+
+<g id="dnsPanel" class="shade">
+  <rect x="650" y="325" width="870" height="208" rx="28" fill="#fffdf4" stroke="#b6c7bd" stroke-width="2"/>
+  <text x="690" y="373" class="small teal">DNS LOOKUP</text>
+  <text x="690" y="427" class="mono">s3.ap-southeast-1.amazonaws.com</text>
+  <path d="M690 461H786" stroke="#087b80" stroke-width="3" marker-end="url(#arrow)"/>
+  <text id="dnsAnswer" x="820" y="475" font-size="32" font-weight="700">S3 service IP addresses</text>
+  <path d="M660 500Q540 510 450 560" fill="none" stroke="#087b80" stroke-width="3" stroke-dasharray="8 8"/>
+</g>
+
+<g id="routePanel" class="shade">
+  <rect x="405" y="310" width="1035" height="218" rx="26" fill="#fffdf4" stroke="#7ba9a3" stroke-width="2"/>
+  <text x="445" y="357" class="small teal">SUBNET ROUTE TABLE</text>
+  <text x="445" y="404" font-size="25" class="muted">DESTINATION</text><text x="1085" y="404" font-size="25" class="muted">TARGET</text>
+  <rect id="rowHighlight" x="425" y="421" width="995" height="84" rx="14" fill="#d9ece1"/>
+  <text x="445" y="456" font-size="32" font-weight="700">Regional S3 prefix list</text><text x="445" y="489" font-size="25" class="muted">AWS-managed · destination match</text>
+  <path d="M965 456H1040" stroke="#087b80" stroke-width="3" marker-end="url(#arrow)"/>
+  <text id="routeTarget" x="1085" y="470" font-size="31" font-weight="700">Gateway endpoint</text>
+  <path id="routeConnector" d="M1260 530Q1260 566 1167 583" stroke="#087b80" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+</g>
+
+<g id="pathBadge"><rect x="676" y="315" width="568" height="70" rx="35" fill="#172d35"/><text x="960" y="361" text-anchor="middle" font-size="30" fill="#fff" style="fill:#fff">STAYS ON THE AWS NETWORK</text></g>
+<g id="noInterface">
+  <rect x="235" y="830" width="1450" height="62" rx="16" fill="#e9e4d8"/>
+  <text x="960" y="871" text-anchor="middle" font-size="30">No interface ENI <tspan fill="#b44c29"> / </tspan> No private endpoint IP <tspan fill="#b44c29"> / </tspan> No NAT</text>
+</g>
+
+<g id="access">
+  <rect x="170" y="338" width="1580" height="483" rx="38" fill="#172d35"/>
+  <text x="220" y="394" class="small" style="fill:#9fc6bd">THE SAME REQUEST STILL HAS TO PASS</text>
+  <g id="networkGate">
+    <rect x="218" y="427" width="500" height="320" rx="23" fill="#25444a" stroke="#52747a"/>
+    <circle cx="270" cy="484" r="21" fill="#e9a54b"/><text x="270" y="494" text-anchor="middle" font-size="28" font-weight="700">1</text>
+    <text x="310" y="497" font-size="35" font-weight="700" style="fill:#fff9e8">TRAFFIC RULES</text>
+    <text x="253" y="573" font-size="35" style="fill:#fff9e8">Instance security group</text>
+    <text x="253" y="628" font-size="35" style="fill:#fff9e8">Subnet network ACL</text>
+    <text x="253" y="702" font-size="27" style="fill:#b8d5cf">Allow the required traffic</text>
+  </g>
+  <path id="gateLink" d="M742 586H806" stroke="#e9a54b" stroke-width="4"/>
+  <g id="policyGate">
+    <rect x="830" y="427" width="872" height="320" rx="23" fill="#25444a" stroke="#52747a"/>
+    <circle cx="882" cy="484" r="21" fill="#e9a54b"/><text x="882" y="494" text-anchor="middle" font-size="28" font-weight="700">2</text>
+    <text x="922" y="497" font-size="35" font-weight="700" style="fill:#fff9e8">OBJECT ACCESS</text>
+    <text x="874" y="580" font-size="36" style="fill:#fff9e8">IAM</text><text x="1010" y="580" font-size="36" style="fill:#fff9e8">Endpoint policy</text><text x="1345" y="580" font-size="36" style="fill:#fff9e8">Bucket policy</text>
+    <path d="M875 614H1627" stroke="#70938e"/>
+    <text x="874" y="672" font-size="30" style="fill:#b8d5cf">Evaluated together. A route grants no S3 permissions.</text>
+  </g>
+  <rect id="accessPacket" x="240" y="770" width="30" height="15" rx="4" fill="#f9b44d"/>
+</g>
+
+<g id="payoff">
+  <text x="100" y="210" font-size="84" font-weight="900" letter-spacing="-3">THE ROUTE CHANGED.</text>
+  <text x="100" y="310" font-size="76" font-weight="900" letter-spacing="-3" class="teal">THE PERMISSIONS DIDN'T DISAPPEAR.</text>
+</g>
+<text x="100" y="884" id="aiVoice" font-size="23" class="muted">AI-generated narration · OpenAI Nova</text>
+</svg>
+<div id="caption-bg"></div><div id="cap0" class="caption"><span>No public IPv4. No NAT. No internet gateway.</span></div>
+<div id="cap1" class="caption"><span>Yet this private EC2 instance can reach S3.</span></div>
+<div id="cap2" class="caption"><span>First, DNS resolves the S3 name to S3 service<br>IP addresses.</span></div>
+<div id="cap3" class="caption"><span>The subnet route table looks for a match.</span></div>
+<div id="cap4" class="caption"><span>The destination matches the regional, AWS-<br>managed S3 prefix list.</span></div>
+<div id="cap5" class="caption"><span>That route targets a gateway endpoint.</span></div>
+<div id="cap6" class="caption"><span>Follow the packet. Same-Region S3. Entirely on<br>the AWS network.</span></div>
+<div id="cap7" class="caption"><span>No interface ENI. No private endpoint IP. No<br>NAT.</span></div>
+<div id="cap8" class="caption"><span>But a path is not permission.</span></div>
+<div id="cap9" class="caption"><span>Security groups and network ACLs must allow the<br>traffic.</span></div>
+<div id="cap10" class="caption"><span>IAM, the endpoint policy, and the bucket policy<br>still govern object access.</span></div>
+<div id="cap11" class="caption"><span>The route changed. The permissions didn&#x27;t<br>disappear.</span></div>
+<audio id="voice0" class="clip" data-start="0.6" data-duration="3.425" data-track-index="20" src="assets/voice-00.wav"></audio>
+<audio id="voice1" class="clip" data-start="4.275" data-duration="2.8" data-track-index="20" src="assets/voice-01.wav"></audio>
+<audio id="voice2" class="clip" data-start="7.555" data-duration="4.3875" data-track-index="20" src="assets/voice-02.wav"></audio>
+<audio id="voice3" class="clip" data-start="12.1925" data-duration="2.1" data-track-index="20" src="assets/voice-03.wav"></audio>
+<audio id="voice4" class="clip" data-start="14.5425" data-duration="4.45" data-track-index="20" src="assets/voice-04.wav"></audio>
+<audio id="voice5" class="clip" data-start="19.2425" data-duration="2.375" data-track-index="20" src="assets/voice-05.wav"></audio>
+<audio id="voice6" class="clip" data-start="22.0975" data-duration="4.2625" data-track-index="20" src="assets/voice-06.wav"></audio>
+<audio id="voice7" class="clip" data-start="26.61" data-duration="3.15" data-track-index="20" src="assets/voice-07.wav"></audio>
+<audio id="voice8" class="clip" data-start="30.24" data-duration="1.7625" data-track-index="20" src="assets/voice-08.wav"></audio>
+<audio id="voice9" class="clip" data-start="32.2525" data-duration="3.5375" data-track-index="20" src="assets/voice-09.wav"></audio>
+<audio id="voice10" class="clip" data-start="36.04" data-duration="4.75" data-track-index="20" src="assets/voice-10.wav"></audio>
+<audio id="voice11" class="clip" data-start="41.27" data-duration="2.875" data-track-index="20" src="assets/voice-11.wav"></audio>
+<audio id="score" class="clip" data-start="0" data-duration="46" data-track-index="21" src="assets/score.wav"></audio>
+</div>
+<script src="assets/gsap.min.js"></script>
+<script>
+const cues=[{"start": 0.6, "duration": 3.425, "text": "No public IPv4. No NAT. No internet gateway."}, {"start": 4.275, "duration": 2.8, "text": "Yet this private EC2 instance can reach S3."}, {"start": 7.555, "duration": 4.3875, "text": "First, DNS resolves the S3 name to S3 service IP addresses."}, {"start": 12.1925, "duration": 2.1, "text": "The subnet route table looks for a match."}, {"start": 14.5425, "duration": 4.45, "text": "The destination matches the regional, AWS-managed S3 prefix list."}, {"start": 19.2425, "duration": 2.375, "text": "That route targets a gateway endpoint."}, {"start": 22.0975, "duration": 4.2625, "text": "Follow the packet. Same-Region S3. Entirely on the AWS network."}, {"start": 26.61, "duration": 3.15, "text": "No interface ENI. No private endpoint IP. No NAT."}, {"start": 30.24, "duration": 1.7625, "text": "But a path is not permission."}, {"start": 32.2525, "duration": 3.5375, "text": "Security groups and network ACLs must allow the traffic."}, {"start": 36.04, "duration": 4.75, "text": "IAM, the endpoint policy, and the bucket policy still govern object access."}, {"start": 41.27, "duration": 2.875, "text": "The route changed. The permissions didn't disappear."}], at=i=>cues[i].start, end=i=>cues[i].start+cues[i].duration;
+const tl=gsap.timeline({paused:true});
+const hidden='#dnsTitle,#routeTitle,#followTitle,#permissionTitle,#dnsPanel,#routePanel,#pathBadge,#noInterface,#access,#payoff,#returnPacket';
+gsap.set(hidden,{opacity:0});gsap.set('#world',{svgOrigin:'960 580'});
+gsap.set('#packet',{x:465,y:604});gsap.set('#returnPacket',{x:1530,y:604});
+const route=document.querySelector('#routeLight'), routeLength=route.getTotalLength();
+gsap.set(route,{strokeDasharray:routeLength,strokeDashoffset:routeLength});
+gsap.set('#progress',{strokeDasharray:1760,strokeDashoffset:1760});
+tl.to('#progress',{strokeDashoffset:0,duration:46,ease:'none'},0);
+tl.from('#opening',{y:30,opacity:0,duration:.8,ease:'power3.out'},0);
+tl.from('#world',{scale:.92,y:80,rotation:-2,opacity:0,duration:1.8,ease:'power3.out'},.2);
+tl.from('#constraints',{x:60,opacity:0,duration:.7},at(0)+1.5);
+tl.to('#packet',{x:525,duration:2,ease:'power2.inOut'},at(1));
+function heading(out, into, t){tl.to(out,{opacity:0,y:-15,duration:.4},t-.4);tl.fromTo(into,{opacity:0,y:20},{opacity:1,y:0,duration:.5},t);}
+heading('#opening','#dnsTitle',at(2));
+tl.to('#aiVoice',{opacity:0,duration:.4},at(2));
+tl.to('#world',{scale:1.1,x:10,y:5,duration:1.3,ease:'power3.inOut'},at(2));
+tl.fromTo('#dnsPanel',{opacity:0,y:45},{opacity:1,y:0,duration:.7,ease:'power3.out'},at(2)+.25);
+tl.from('#dnsAnswer',{opacity:0,x:-25,duration:.8},at(2)+2.0);
+tl.to('#packet',{x:610,duration:1.2},at(2)+2.5);
+heading('#dnsTitle','#routeTitle',at(3));
+tl.to('#dnsPanel',{opacity:0,y:30,duration:.5},at(3)-.4);
+tl.to('#world',{scale:1,x:0,y:0,duration:1.2,ease:'power3.inOut'},at(3));
+// The small route-table glyph expands into the actual matching rule.
+tl.fromTo('#routePanel',{opacity:0,scale:.1,svgOrigin:'740 604'},{opacity:1,scale:1,duration:1.1,ease:'power3.inOut'},at(3)+.1);
+tl.to('#packet',{x:740,duration:1.3,ease:'power2.inOut'},at(3));
+tl.fromTo('#rowHighlight',{opacity:.1},{opacity:1,duration:.8},at(4));
+tl.fromTo('#routeTarget',{opacity:.22},{opacity:1,duration:.55},at(5));
+tl.from('#routeConnector',{opacity:0,duration:.5},at(5));
+tl.to(route,{strokeDashoffset:0,duration:2.2,ease:'power1.inOut'},at(5)+.2);
+tl.to('#gateway',{scale:1.08,svgOrigin:'1120 604',duration:.45,yoyo:true,repeat:1},at(5)+.6);
+heading('#routeTitle','#followTitle',at(6));
+tl.to('#routePanel',{opacity:0,scale:.85,svgOrigin:'740 604',duration:.6},at(6)-.2);
+tl.to('#pathBadge',{opacity:1,duration:.5},at(6)+.2);
+// Camera tracks the packet to S3, then returns to the complete regional map.
+tl.to('#world',{scale:1.08,x:-25,y:-20,duration:1.5,ease:'power2.inOut'},at(6));
+tl.to('#packet',{x:1530,duration:3.4,ease:'power1.inOut'},at(6)+.1);
+tl.to('#s3',{y:-9,duration:.35,yoyo:true,repeat:1},at(6)+3.4);
+tl.to('#returnPacket',{opacity:1,duration:.1},at(6)+3.6);
+tl.to('#returnPacket',{x:465,duration:2.2,ease:'power1.inOut'},at(6)+3.6);
+tl.to('#returnPacket',{opacity:0,duration:.2},at(6)+5.8);
+tl.to('#world',{scale:1,x:0,y:0,duration:1.2},at(7));
+tl.to('#noInterface',{opacity:1,duration:.5},at(7));
+tl.to('#aiVoice',{opacity:0,duration:.3},at(7));
+heading('#followTitle','#permissionTitle',at(8));
+tl.to('#world,#pathBadge,#noInterface',{opacity:0,duration:.6},at(8));
+// The packet's arrival becomes a permission checkpoint, not a success claim.
+tl.fromTo('#access',{opacity:0,scale:.25,svgOrigin:'1570 604'},{opacity:1,scale:1,duration:1,ease:'power3.inOut'},at(8));
+tl.to('#networkGate > rect',{attr:{stroke:'#e9a54b'},strokeWidth:3,duration:.6},at(9));
+tl.to('#policyGate > rect',{attr:{stroke:'#e9a54b'},strokeWidth:3,duration:.6},at(10));
+tl.to('#accessPacket',{x:1350,duration:Math.max(2,at(11)-at(9)-.5),ease:'none'},at(9));
+heading('#permissionTitle','#payoff',at(11));
+tl.to('#access',{opacity:0,scale:.85,svgOrigin:'1570 604',duration:.6},at(11)-.2);
+tl.to('#world',{opacity:1,scale:.91,x:0,y:42,duration:1,ease:'power3.inOut'},at(11));
+tl.to('#pathBadge,#noInterface',{opacity:0,duration:.2},at(11));
+tl.to('#aiVoice',{opacity:1,duration:.3},at(11));
+tl.set('#packet',{x:465},at(11));tl.to('#packet',{x:1530,duration:4,ease:'power1.inOut'},at(11)+.3);
+for(let i=0;i<cues.length;i++){tl.set('#cap'+i,{opacity:1},at(i));tl.set('#cap'+i,{opacity:0},end(i));}
+tl.to({}, {duration:.01}, 46-.01);
+window.__timelines={main:tl};
+</script></body></html>

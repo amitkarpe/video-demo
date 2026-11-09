@@ -1,0 +1,49 @@
+1
+00:00:00,000 --> 00:00:06,883
+An EC2 server has a high severity vulnerability. The
+security workflow captures the alert.
+
+2
+00:00:06,883 --> 00:00:13,117
+This is a simulated example, using fictional findings
+and no live AWS data.
+
+3
+00:00:13,117 --> 00:00:20,184
+An AI assistant checks the finding and explains the
+security risk in plain language.
+
+4
+00:00:20,184 --> 00:00:26,116
+It prepares a proposed patch and makes the reasoning
+visible for review.
+
+5
+00:00:26,116 --> 00:00:33,251
+Before anything changes, a person reviews the plan and
+approves the proposed action once.
+
+6
+00:00:33,251 --> 00:00:39,116
+The human approval gate keeps production changes from
+running automatically.
+
+7
+00:00:39,116 --> 00:00:45,732
+After approval, AWS Systems Manager would apply the
+patch to the affected server.
+
+8
+00:00:45,732 --> 00:00:52,117
+This video is a simulation. No command runs and nothing
+is changed in AWS.
+
+9
+00:00:52,117 --> 00:00:58,406
+Finally, the workflow would verify the result and
+record evidence for the audit trail.
+
+10
+00:00:58,406 --> 00:01:05,117
+Detection, human approval, action, and verification
+stay connected and visible.

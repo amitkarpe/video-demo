@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Local Voice Demo</title>
+<style>body{font:16px system-ui;background:#0e1726;color:#eef4ff;max-width:720px;margin:40px auto;padding:20px}textarea{box-sizing:border-box;width:100%;height:130px;background:#1a2940;color:white;border:1px solid #40506b;border-radius:8px;padding:12px}button{padding:11px 16px;border:0;border-radius:8px;background:#8ad1ff;color:#101725;font-weight:bold;margin:5px}button:disabled{opacity:.4}p{color:#c8d6e5}audio{width:100%}</style>
+</head><body><h1>OpenAI Realtime Voice Lab</h1><p>LOCAL MOCK DEMO — 60-second maximum. Uses metered API credits. No AWS calls or microphone access.</p>
+<label for="script">Edit the narration:</label><textarea id="script">This is a simulation. An EC2 server has a high severity finding. An AI assistant summarizes the risk and proposes a fix. A person approves the plan. Only after approval would AWS Systems Manager apply the patch. This video is a simulation: nothing changes in AWS.</textarea>
+<p><button id="connect">1. Connect</button><button id="speak" disabled>2. Speak</button><button id="stop" disabled>Disconnect</button></p>
+<p id="status" role="status">Disconnected</p><audio id="audio" controls autoplay></audio>
+<p><small>The main API key stays on the local server. The narration text is sent to OpenAI. Auto-disconnect after 60 seconds.</small></p>
+<script type="module">
+const $=id=>document.getElementById(id);
+let pc,dc,timer;
+const state=s=>{$("status").textContent=s};
+function stop(){clearTimeout(timer);dc?.close();pc?.close();pc=null;dc=null;$("connect").disabled=false;$("speak").disabled=true;$("stop").disabled=true;$("audio").srcObject=null;state("Disconnected")}
+$("stop").onclick=stop;window.addEventListener("pagehide",stop);
+$("connect").onclick=async()=>{
+ $("connect").disabled=true;state("Connecting...");
+ try {
+  const response=await fetch("/token",{method:"POST"}), token=await response.json();
+  if(!response.ok||!token.value) throw Error(token.error||"Could not get token");
+  pc=new RTCPeerConnection();
+  pc.ontrack=e=>{$("audio").srcObject=e.streams[0]};
+  pc.addTransceiver("audio",{direction:"recvonly"});
+  dc=pc.createDataChannel("oai-events");
+  dc.onopen=()=>{state("Connected. Click Speak.");$("speak").disabled=false;$("stop").disabled=false};
+  dc.onmessage=e=>{try{const m=JSON.parse(e.data);if(m.type==="error")state("API error: "+(m.error?.message||"unknown"));if(m.type==="response.done")state("Narration finished. Disconnect now.")}catch{}};
+  const offer=await pc.createOffer();await pc.setLocalDescription(offer);
+  const answer=await fetch("https://api.openai.com/v1/realtime/calls?model="+encodeURIComponent(token.model),{method:"POST",headers:{"Authorization":"Bearer "+token.value,"Content-Type":"application/sdp"},body:offer.sdp});
+  if(!answer.ok)throw Error("WebRTC handshake failed, status "+answer.status);
+  await pc.setRemoteDescription({type:"answer",sdp:await answer.text()});
+  $("stop").disabled=false;timer=setTimeout(stop,60000);
+ }catch(e){stop();state(e.message)}
+};
+$("speak").onclick=()=>{
+ if(dc?.readyState!=="open")return;
+ const script=$("script").value.trim();
+ if(!script||script.length>1200){state("Script must contain 1–1200 characters.");return}
+ $("speak").disabled=true;
+ dc.send(JSON.stringify({type:"conversation.item.create",item:{type:"message",role:"user",content:[{type:"input_text",text:"Read this demo narration verbatim in natural clear English; no introduction or conclusion:\n"+script}]}}));
+ dc.send(JSON.stringify({type:"response.create",response:{output_modalities:["audio"]}}));
+ state("Generating narrated audio...");
+};
+</script></body></html>

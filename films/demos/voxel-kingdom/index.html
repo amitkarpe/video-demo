@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#091426"><title>Kingdom Above the Clouds — Voxel World Flythrough</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#091426;color:#fff4d7;font-family:system-ui,-apple-system,Arial,sans-serif}#world{position:fixed;inset:0;touch-action:none}canvas{display:block;width:100%;height:100%}
+#poster{position:fixed;inset:0;display:grid;place-content:center;text-align:center;background:radial-gradient(circle at 50% 60%,#20516a,#091426 75%);z-index:1;transition:opacity .9s;pointer-events:none}
+#poster .icon{font-size:90px}#poster h1{font:38px Georgia,serif;margin:8px}#poster p{color:#a8deef;font-size:13px}
+header{position:fixed;z-index:3;top:max(16px,env(safe-area-inset-top));left:18px;right:18px;display:flex;justify-content:space-between;gap:12px;pointer-events:none;text-shadow:0 2px 18px #000}
+header small{display:block;color:#b5f1ff;letter-spacing:.19em;font-size:10px;font-weight:750;margin-bottom:6px}header strong{font:clamp(23px,5vw,36px)/1.05 Georgia,serif;font-weight:500}header strong em{font-style:normal;color:#ffd38f}
+#lightstate{align-self:flex-start;background:#071e33b8;border:1px solid #ffffff56;border-radius:100px;padding:8px 11px;font-size:11px;white-space:nowrap}
+footer{position:fixed;z-index:3;left:max(14px,env(safe-area-inset-left));right:max(14px,env(safe-area-inset-right));bottom:max(13px,env(safe-area-inset-bottom));text-shadow:0 1px 15px #000}
+#chapter{font:clamp(24px,6vw,40px) Georgia,serif;margin:0 0 2px}#subtitle{font-size:12px;color:#e1eff7;margin:0 0 12px}#phase{font-size:10px;font-weight:800;letter-spacing:.14em;color:#baf3ff}
+.panel{background:#0b2037d9;border:1px solid #ffffff47;padding:12px;border-radius:17px;backdrop-filter:blur(15px);box-shadow:0 18px 48px #0008}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}button{border:1px solid #8ab0c65b;background:#1c3b56c9;border-radius:11px;color:#f2fbff;font-weight:700;font-size:12px;padding:12px 14px;touch-action:manipulation}button:active{transform:scale(.97)}button.primary{color:#172638;background:#ffd18b;border-color:#ffe2b4}
+#barbg{height:4px;background:#ffffff38;border-radius:8px;overflow:hidden;margin:11px 0 5px}#bar{height:100%;width:0;background:linear-gradient(90deg,#9cf6ff,#ffd18c)}
+#footnote{color:#b4cfdc;font-size:10px;text-align:center}#error{display:none;position:fixed;z-index:5;top:40%;left:12px;right:12px;text-align:center;background:#193b4c;border:1px solid #ffcf8e;padding:18px;border-radius:16px}
+@media(max-width:500px){header strong{font-size:24px}#lightstate{font-size:9px;padding:7px}button{font-size:11px;padding:11px 12px}#chapter{font-size:28px}}
+</style></head><body>
+<div id="world"></div><div id="poster"><div class="icon">🏰</div><h1>Kingdom Above the Clouds</h1><p>Building a voxel world…</p></div>
+<header><div><small>AN ORIGINAL 3D FLYTHROUGH · THREE.JS</small><strong>Kingdom Above<br><em>the Clouds</em></strong></div><span id="lightstate">☀ GOLDEN HOUR</span></header>
+<footer><div id="phase">01 / 06 · AERIAL TOUR</div><h2 id="chapter">The Mountain Citadel</h2><p id="subtitle">A stone fortress rises above a living voxel kingdom.</p>
+<div class="panel"><div class="controls"><button class="primary" id="pause">Ⅱ Pause</button><button id="restart">↺ Restart</button><button id="night">☾ Night</button><button id="speed">1× Speed</button></div><div id="barbg"><div id="bar"></div></div><div id="footnote">Swipe to look around · One HTML file · Procedural geometry · Online Three.js library</div></div></footer><div id="error" role="alert"></div>
+<script type="module">
+try {
+const THREE=await import("https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js");
+const $=s=>document.querySelector(s),scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,450);
+scene.background=new THREE.Color("#a9d4ef");scene.fog=new THREE.FogExp2("#a9d4ef",.0043);
+const renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:"high-performance"});
+renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));renderer.setSize(innerWidth,innerHeight);
+renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;$("#world").appendChild(renderer.domElement);
+const hemi=new THREE.HemisphereLight(0xa9dfff,0x33442b,2.1);scene.add(hemi);
+const sun=new THREE.DirectionalLight(0xffe0ad,3.2);sun.position.set(-40,100,20);scene.add(sun);
+const moonLight=new THREE.DirectionalLight(0x82a6ff,0);moonLight.position.set(65,78,-30);scene.add(moonLight);
+const sunBall=new THREE.Mesh(new THREE.SphereGeometry(6,16,12),new THREE.MeshBasicMaterial({color:0xffe1a0}));sunBall.position.set(-125,95,-100);scene.add(sunBall);
+const moonBall=new THREE.Mesh(new THREE.SphereGeometry(3.5,16,12),new THREE.MeshBasicMaterial({color:0xdaedff}));moonBall.position.set(105,95,-105);scene.add(moonBall);
+const colors={grass:"#60995d",grass2:"#79a56d",rock:"#848a91",rock2:"#a3a3a0",earth:"#7d5d44",snow:"#dae6d9",sand:"#d9c39a",stone:"#bcb5ab",stone2:"#8c9297",wood:"#87583d",wood2:"#b48257",roof:"#b45f52",purple:"#795a72",leaf:"#477b51",leaf2:"#689a5f",gold:"#ffc77b"};
+const materials={};function material(color,glow=0){const k=color+"/"+glow;return materials[k]||(materials[k]=new THREE.MeshLambertMaterial({color,emissive:color,emissiveIntensity:glow}))}
+const cube=new THREE.BoxGeometry(1,1,1),groups=new Map();
+function block(x,y,z,w,h,d,color){if(!groups.has(color))groups.set(color,[]);groups.get(color).push([x,y,z,w,h,d])}
+function mesh(x,y,z,w,h,d,color,glow=0,parent=scene){const o=new THREE.Mesh(cube,material(color,glow));o.position.set(x,y,z);o.scale.set(w,h,d);parent.add(o);return o}
+function elevation(x,z){let h=1.8+.6*Math.sin(x*.12)+.5*Math.cos(z*.17);h+=Math.max(0,23-Math.hypot(x+29,z+13)*.61);h+=Math.max(0,6-Math.hypot(x+55,z+28)*.55);if(x>23)h-=(x-23)*.27;return Math.max(-2,Math.round(h/2)*2)}
+// Mountain, coast, grasslands: batched voxel geometry for iPhone GPUs.
+for(let ix=0;ix<64;ix++)for(let iz=0;iz<64;iz++){
+  const x=-84+ix*2.65,z=-84+iz*2.65,h=elevation(x,z);
+  if(x>25&&h<0)continue;
+  block(x,(h-1)/2,z,2.69,Math.max(1,h+2),2.69,colors.earth);
+  block(x,h+.45,z,2.7,.88,2.7,h>17?colors.snow:h>12?colors.rock:h<1?colors.sand:(ix*3+iz*7)%7===0?colors.grass2:colors.grass);
+}
+const sea=new THREE.Mesh(new THREE.PlaneGeometry(330,230),new THREE.MeshPhongMaterial({color:0x287da1,shininess:95,specular:0x8adbe9,side:THREE.DoubleSide}));
+sea.rotation.x=-Math.PI/2;sea.position.set(70,-1,0);scene.add(sea);
+// Castle: four towers, battlements, central keep.
+const castleY=elevation(-29,-13)+3;
+block(-29,castleY+2,-13,27,5,24,colors.rock2);
+block(-29,castleY+6,-13,23,9,20,colors.stone);
+block(-29,castleY+12,-13,13,6,12,colors.stone2);
+block(-29,castleY+16,-13,15,1.4,14,colors.purple);
+function tower(x,z,bonus=0){
+  block(x,castleY+6+bonus/2,z,6,12+bonus,6,colors.stone);
+  block(x,castleY+12.5+bonus,z,8,1.3,8,colors.stone2);
+  for(let i=0;i<4;i++){block(x-3+i*2,castleY+14+bonus,z-3,1,1.6,1,colors.stone);block(x-3+i*2,castleY+14+bonus,z+3,1,1.6,1,colors.stone)}
+  block(x,castleY+16+bonus,z,6,3,6,colors.roof);block(x,castleY+18.5+bonus,z,1,2,1,colors.gold);
+}
+[[-40,-24,3],[-18,-24,0],[-40,-2,0],[-18,-2,3],[-29,-13,9]].forEach(t=>tower(...t));
+mesh(-29,castleY+6,-2.7,4,6,.4,"#423b39");
+for(const x of [-36,-23])for(const z of [-23,-3])mesh(x,castleY+9,z,1,1.6,.3,colors.gold,.5);
+// Village houses with layered step roofs and glowing windows.
+function house(x,z,w=5,d=5,roof=colors.roof){
+  const y=elevation(x,z);block(x,y+2.5,z,w,5,d,colors.stone);
+  for(let i=0;i<4;i++)block(x,y+5.5+i*.84,z,w+.7-i*.23,.94,d+.8-i*.73,roof);
+  block(x+w*.28,y+8.5,z,1.1,2.6,1.1,colors.stone2);
+  mesh(x-w/3,y+3.5,z+d/2+.08,1,1.6,.3,colors.gold,.6);
+  mesh(x,y+2,z+d/2+.08,1.4,2,.3,colors.wood);
+}
+[[-8,8,5,5,colors.roof],[3,9,6,5,colors.purple],[11,-4,5,5,colors.roof],[-12,-3,5,5,colors.purple],[13,11,5,5,colors.purple],[5,-14,5,5,colors.roof],[17,2,5,5,colors.roof],[15,22,5,5,colors.purple],[-11,23,5,5,colors.roof]].forEach(h=>house(...h));
+for(let i=0;i<28;i++){const x=-17+i*1.65,z=15+Math.sin(i*.34)*2;block(x,elevation(x,z)+.6,z,1.4,.27,1.4,colors.sand)}
+// Windmill with actual moving sails.
+const wx=15,wz=-20,wy=elevation(wx,wz);
+block(wx,wy+6,wz,5,12,5,colors.stone2);block(wx,wy+12.2,wz,7,2.2,7,colors.roof);
+const blades=new THREE.Group();blades.position.set(wx,wy+10,wz+3.1);scene.add(blades);
+for(let i=0;i<4;i++){const arm=new THREE.Group();arm.rotation.z=i*Math.PI/2;blades.add(arm);mesh(0,4.4,0,.8,9,.5,colors.wood2,0,arm);for(let j=0;j<5;j++)mesh(1.1,4+j*1.1,.5,2.6,1,.24,"#e7ddc2",0,arm)}
+// Harbor, piers and ships with blocky sails.
+for(let k=0;k<3;k++){let z=-12+k*14;block(31,1.4,z,22,1.4,3.5,colors.wood2);for(let j=0;j<5;j++)for(let q of [-1,1])block(23+j*4,-.3,z+q*1.5,1,3,1,colors.wood)}
+const lx=42,lz=-34;for(let i=0;i<11;i++)block(lx,2+i*1.75,lz,8-i*.22,1.77,8-i*.22,i%3===0?colors.roof:"#f2dfbf");
+block(lx,22,lz,9,2.5,9,colors.stone2);block(lx,24,lz,11,1.4,11,colors.roof);
+mesh(lx,21.5,lz,5,3,5,colors.gold,1.2);
+const beacon=new THREE.PointLight(0xffdf9b,7,34);beacon.position.set(lx,22,lz);scene.add(beacon);
+const ships=[];function ship(x,z,angle){
+  const ship=new THREE.Group();ship.position.set(x,.8,z);ship.rotation.y=angle;scene.add(ship);
+  mesh(0,0,0,10,2.1,3.4,colors.wood,0,ship);mesh(0,-1.25,0,7,.75,2.7,colors.wood2,0,ship);
+  mesh(0,5,0,.7,11,.7,colors.wood2,0,ship);mesh(1.2,5.7,.4,4.2,7,.3,"#ece0c7",0,ship);mesh(1,10.8,0,2,.7,.35,colors.roof,0,ship);ships.push(ship)}
+ship(56,3,-.15);ship(68,29,.55);ship(48,43,-.42);
+// Waterfalls from the mountains with bubbling foam.
+for(let k=0;k<3;k++){const x=-17+k*3.8,z=-5+k*1.9,top=elevation(x,z)+1;for(let j=0;j<12;j++){const y=top-j*1.7;if(y<0)break;block(x,y,z+k,2,1.6,2,j%2===0?"#5abdd9":"#afeaf0")}for(let j=0;j<5;j++)mesh(x+(j-2)*1.2,.6,z+k+(j%2)*2,.8,.32,.8,"#d7fbff",.17)}
+// Forests, floating islands, glowing fireflies.
+for(let k=0;k<130;k++){
+ const x=Math.sin(k*12.8)*76,z=Math.cos(k*8.4)*72;if(x>19||Math.hypot(x+29,z+13)<24||Math.hypot(x,z)<24||elevation(x,z)<1)continue;
+ const y=elevation(x,z);block(x,y+2.4,z,1.3,5,1.3,colors.wood);block(x,y+6,z,5,5,5,k%4===0?colors.leaf2:colors.leaf);block(x,y+9,z,3,3,3,colors.leaf2);
+}
+const islands=[];for(let [x,y,z,r] of [[-56,32,30,8],[7,37,-47,7],[61,30,-43,7]]){
+ const group=new THREE.Group();group.position.set(x,y,z);scene.add(group);
+ const rock=new THREE.Mesh(new THREE.CylinderGeometry(r*.75,r*.4,8,6),material(colors.rock));rock.position.y=-3;group.add(rock);
+ const cap=new THREE.Mesh(new THREE.CylinderGeometry(r,r*.78,2,7),material(colors.grass));cap.position.y=1;group.add(cap);
+ mesh(0,4,0,3.7,3.5,3.7,colors.stone,0,group);mesh(0,6.6,0,4.8,1.4,4.8,colors.roof,0,group);
+ for(let j=0;j<4;j++)mesh((j-1.5)*2,3.1,Math.sin(j)*2,1.5,2.1,1.5,colors.leaf,0,group);
+ islands.push({group,y});
+}
+// Efficient voxel rendering uses one instanced draw call per material.
+const transform=new THREE.Object3D();
+for(let [color,items] of groups){const batch=new THREE.InstancedMesh(cube,material(color),items.length);batch.frustumCulled=false;items.forEach((v,i)=>{transform.position.set(v[0],v[1],v[2]);transform.scale.set(v[3],v[4],v[5]);transform.rotation.set(0,0,0);transform.updateMatrix();batch.setMatrixAt(i,transform.matrix)});batch.instanceMatrix.needsUpdate=true;scene.add(batch)}
+const n=330,particlesPos=new Float32Array(n*3);for(let i=0;i<n;i++){particlesPos[i*3]=Math.sin(i*15.12)*66;particlesPos[i*3+1]=4+(i%22)*1.6;particlesPos[i*3+2]=Math.cos(i*9.26)*73}
+const particleGeo=new THREE.BufferGeometry();particleGeo.setAttribute("position",new THREE.BufferAttribute(particlesPos,3));
+const particleMat=new THREE.PointsMaterial({color:0xffe99e,size:.48,opacity:.6,transparent:true});const fireflies=new THREE.Points(particleGeo,particleMat);scene.add(fireflies);
+const starPos=[];for(let i=0;i<460;i++){let a=i*2.399,r=100+(i%100)*.8;starPos.push(Math.cos(a)*r,85+(i%60)*2.1,Math.sin(a)*r)}
+const starGeo=new THREE.BufferGeometry();starGeo.setAttribute("position",new THREE.Float32BufferAttribute(starPos,3));
+const starMat=new THREE.PointsMaterial({color:"#ffffff",size:1.2,opacity:0,transparent:true});scene.add(new THREE.Points(starGeo,starMat));
+// Six-part cinematic spline with a separate tracking target.
+const route=[[-83,51,37],[-59,43,14],[-30,38,25],[-7,27,30],[18,24,15],[30,23,-14],[50,32,-32],[74,26,10],[53,28,42],[10,44,-31],[-40,48,-24],[-65,47,38]];
+const targets=[[-29,23,-13],[-29,23,-13],[-29,20,-13],[3,8,4],[9,12,2],[16,14,-20],[42,19,-34],[54,2,9],[47,3,27],[7,35,-47],[-29,20,-13],[-29,23,-13]];
+const positionPath=new THREE.CatmullRomCurve3(route.map(p=>new THREE.Vector3(...p)),true);
+const focusPath=new THREE.CatmullRomCurve3(targets.map(p=>new THREE.Vector3(...p)),true);
+const scenes=[["The Mountain Citadel","A fortress above the emerald valley."],["The Lantern Village","Warm windows and winding paths."],["The Windmill","Sails turning over the rooftops."],["The Lighthouse","A beacon at the edge of the sea."],["The Harbor","Voxel ships cross the ocean."],["Islands in the Sky","Impossible little worlds float overhead."]];
+let playing=true,speed=1,night=false,t=0,prev=performance.now(),chapter=-1,drag=false,px=0,py=0,lookX=0,lookY=0;const duration=150;
+function draw(now){requestAnimationFrame(draw);let dt=Math.min((now-prev)/1000,.06);prev=now;if(playing)t+=dt*speed;const u=(t%duration)/duration;
+let day=night?.03:Math.max(.03,Math.min(1,.5+.5*Math.cos((u-.16)*Math.PI*2)));
+scene.background.copy(new THREE.Color("#08132a")).lerp(new THREE.Color("#a9d4ef"),day);scene.fog.color.copy(scene.background);
+hemi.intensity=.35+1.8*day;sun.intensity=.1+3.1*day;moonLight.intensity=1.15*(1-day);
+sunBall.visible=day>.3;moonBall.visible=day<.7;starMat.opacity=.9*(1-day);particleMat.opacity=.2+.7*(1-day);beacon.intensity=4+9*(1-day);
+camera.position.copy(positionPath.getPointAt(u));const target=focusPath.getPointAt(u);target.x+=lookX;target.y+=lookY;camera.lookAt(target);
+if(playing)blades.rotation.z+=dt*speed*.37;ships.forEach((s,i)=>{s.position.y=.8+Math.sin(t*.8+i)*.25;s.rotation.z=Math.sin(t*.7+i)*.025});islands.forEach((v,i)=>v.group.position.y=v.y+Math.sin(t*.35+i)*.6);fireflies.rotation.y=t*.009;
+$("#bar").style.width=(u*100).toFixed(2)+"%";$("#lightstate").textContent=day<.35?"☾ MOONLIT KINGDOM":day<.65?"✦ BLUE HOUR":"☀ GOLDEN HOUR";
+const c=Math.floor(u*6);if(c!==chapter){chapter=c;$("#phase").textContent=String(c+1).padStart(2,"0")+" / 06 · AERIAL TOUR";$("#chapter").textContent=scenes[c][0];$("#subtitle").textContent=scenes[c][1]}
+renderer.render(scene,camera)}
+$("#pause").onclick=()=>{playing=!playing;$("#pause").textContent=playing?"Ⅱ Pause":"▶ Play"};
+$("#restart").onclick=()=>{t=0;lookX=0;lookY=0;playing=true;night=false;$("#pause").textContent="Ⅱ Pause";$("#night").textContent="☾ Night"};
+$("#night").onclick=()=>{night=!night;$("#night").textContent=night?"☀ Auto":"☾ Night"};
+$("#speed").onclick=()=>{speed=speed===1?1.7:speed===1.7?.65:1;$("#speed").textContent=speed+"× Speed"};
+renderer.domElement.addEventListener("pointerdown",e=>{drag=true;px=e.clientX;py=e.clientY;renderer.domElement.setPointerCapture(e.pointerId)});
+renderer.domElement.addEventListener("pointermove",e=>{if(!drag)return;lookX=THREE.MathUtils.clamp(lookX-(e.clientX-px)*.2,-22,22);lookY=THREE.MathUtils.clamp(lookY+(e.clientY-py)*.12,-11,11);px=e.clientX;py=e.clientY});
+renderer.domElement.addEventListener("pointerup",()=>drag=false);renderer.domElement.addEventListener("pointercancel",()=>drag=false);
+addEventListener("resize",()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+$("#poster").style.opacity=0;setTimeout(()=>$("#poster").style.display="none",1100);requestAnimationFrame(draw);
+}catch(e){console.error(e);document.querySelector("#error").style.display="block";document.querySelector("#error").textContent="3D could not load. Open the hosted webpage in iPhone Safari with internet and WebGL enabled. "+String(e.message||e);}
+</script></body></html>

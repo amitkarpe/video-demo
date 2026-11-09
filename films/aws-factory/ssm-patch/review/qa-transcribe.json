@@ -1,0 +1,19 @@
+{
+  "model": "gpt-transcribe",
+  "usage": {
+    "type": "duration",
+    "seconds": 181
+  },
+  "cost_usd": 0.013574999999999999,
+  "ref_words": 421,
+  "word_errors": 2,
+  "wer": 0.0048,
+  "diffs": [
+    [
+      "replace",
+      "cloudos",
+      "cloud os"
+    ]
+  ],
+  "text": "Every week, new security fixes arrive for Amazon Linux. Servers that are already running need them too, without breaking the work they do. So how does AWS Factory keep running servers patched safely? There are two roads. Road one: build fresh. The factory bakes the latest patches into a new image, so new servers start up to date. Road two: patch in place. For servers that keep running, AWS Systems Manager Patch Manager installs updates where they are. This film follows road two, but it starts in the factory. AWS Factory builds one hardened base image, and from it, three families: GitLab, which hosts our code; MongoDB, which holds our data; and the Cloud OS workspace, which runs on an ECS cluster. Every server launched from these images carries a tag that names its family. In Patch Manager, that tag is its patch group. Three families, three patch groups, each with its own rules and its own time slot. The rules live in a patch baseline, which updates may be installed and when. Security updates are approved at once. Other updates wait seven days. By then, the factory's image build has already tested the same packages, and the database and the container engine are never patched in place. An update there restarts the service, so they change only through a reviewed rolling upgrade or a new image. Every weekend night, Patch Manager scans each group and records what is missing. If nothing is missing, the group is compliant and nothing else happens. If updates are missing, they install early the next morning in that group's own quiet window, one group after another. Does every install need a reboot? No. Most updates apply while the service keeps running. When a new kernel does need one, the reboot waits for the group's planned downtime window. Then the server comes back and the scan turns green. Here is the trap: a patch policy only installs on servers whose tag matches its group. A server with the wrong tag is still scanned, so it looks watched, but nothing is ever installed. Scanned is not patched. So coverage is checked, not assumed. The daily and weekly operations reports list each server's patch result and flag any server with no patch data. Every rule change is tried on one server first, then rolled out to every group, and the owner approves every production change. Fresh images for new servers, Patch Manager for running ones, and a daily check that no server is left behind."
+}

@@ -1,0 +1,8 @@
+00:00 A Finding Is Not The Same Thing As An Alert
+00:50 Separate Acquisition From Replay
+01:50 Give The Model A Vocabulary, Not A Shell
+02:57 Deduplication Is A Domain Model
+04:06 Separate A Proposed Verdict From A Computed Result
+05:19 The Result That Challenges The Reassuring Headline
+06:37 A Missing Finding Is Not Necessarily A Fixed Finding
+07:27 Audit The Decisions, Then State The Boundary

@@ -1,34 +1,29 @@
 # Context
 
-Status: NOT_INITIALIZED
+Status: INITIALIZED
 
-> `CONTEXT.md` is current-only recovery state. Do not keep milestone history, old resource IDs, completed plans, or chat transcripts here. Use Git history, closed Issues/PRs, or `docs/history/` for history.
+> Current-only recovery state. History lives in Git, closed Issues/PRs and the film folders' records.
 
 ## Project Identity
-
-- Project: `<project name>`
-- Primary Repository: `<owner/repo>`
-- Primary Directory: `<optional local path>`
-- Authorized Related Repositories: `<optional list>`
+- Project: Video Demo (technical explainer films)
+- Primary repository: `amitkarpe/video-demo` (public)
+- Source repositories the films explain (read-only): `amitkarpe/aws-factory`, `amitkarpe/awsops`, `amitkarpe/nextflow-offline`, `kcloud1/agentic-pentest-poc`
+- Owner: Amit Karpe
 
 ## Current Truth
-
-- Repository created from `repo-starter`.
-- Initialization interview not yet completed.
+- All films live under `films/<source-repo>/<film>/`. Their MP4s are on GitHub Releases tagged `film-<source-repo>-<film>`.
+- Default look: `toy-world-3d` (accepted SSM Patch Manager film). Reuse first; no new theme unless Amit asks for one.
+- Every new film starts with `docs/VIDEO_INTAKE.md`, then a storyboard-only Phase 1 when reusing a house look.
+- Default OpenAI cap: USD 5 per film. The ledger stops at 90% of the cap.
+- Shared scripts: `toolkit/`. The three newest films (`ssm-patch`, `cis-hardening`, `offline-validation`) build byte-identically through it. Older films keep their own frozen scripts.
 
 ## Active Work
-
-- Issue: `<none>`
-- PR: `<none>`
-- Current milestone: `<none>`
-- Blocker: `<none>`
+- The consolidation PR brings every earlier branch's work to `main`. After it merges, the old stacked PRs are closed as superseded; their branches are kept.
+- Owner reviews pending: `cis-hardening`, `offline-validation`, `claude-film` (human listening not yet done).
 
 ## Next Action
-
-- Run the short `INIT.md` interview, then update project identity, `SPEC.md`, `ENV.md`, README purpose, and the first useful milestone.
+- Owner: merge the consolidation PR.
+- Agent: close the superseded PRs, then use the intake card for the next film.
 
 ## Restart
-
-A fresh ChatGPT/Codex session should begin with `AGENTS.md` and the active Issue/PR when one exists.
-
-Load `CONTEXT.md` only when current-state/recovery context is missing, stale, or needed to restore repository bindings. Then load any other conditional file required by the `AGENTS.md` read contract and continue.
+Begin with `AGENTS.md`, then the active Issue/PR. For a film request, read `docs/VIDEO_INTAKE.md` and `docs/STYLE_CATALOG.md` first.

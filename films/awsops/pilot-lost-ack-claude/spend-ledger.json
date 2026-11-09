@@ -1,0 +1,126 @@
+{
+  "model": "gpt-4o-mini-tts",
+  "calls": [
+    {
+      "id": "s01",
+      "est_usd": 0.012062,
+      "chars": 65,
+      "status": "ACK",
+      "t": "2026-11-08T08:36:54Z",
+      "seconds": 3.736
+    },
+    {
+      "id": "s02",
+      "est_usd": 0.004854,
+      "chars": 24,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:00Z",
+      "seconds": 2.095
+    },
+    {
+      "id": "s03",
+      "est_usd": 0.004853,
+      "chars": 20,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:02Z",
+      "seconds": 1.449
+    },
+    {
+      "id": "s04",
+      "est_usd": 0.007254,
+      "chars": 27,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:03Z",
+      "seconds": 1.807
+    },
+    {
+      "id": "s05",
+      "est_usd": 0.007257,
+      "chars": 40,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:05Z",
+      "seconds": 3.357
+    },
+    {
+      "id": "s06",
+      "est_usd": 0.007255,
+      "chars": 33,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:06Z",
+      "seconds": 1.698
+    },
+    {
+      "id": "s07",
+      "est_usd": 0.010857,
+      "chars": 42,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:08Z",
+      "seconds": 3.854
+    },
+    {
+      "id": "s08",
+      "est_usd": 0.008456,
+      "chars": 38,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:10Z",
+      "seconds": 3.475
+    },
+    {
+      "id": "s09",
+      "est_usd": 0.013263,
+      "chars": 73,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:11Z",
+      "seconds": 5.1
+    },
+    {
+      "id": "s10",
+      "est_usd": 0.004854,
+      "chars": 27,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:13Z",
+      "seconds": 2.346
+    },
+    {
+      "id": "s11",
+      "est_usd": 0.003653,
+      "chars": 22,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:15Z",
+      "seconds": 1.984
+    },
+    {
+      "id": "s12",
+      "est_usd": 0.004854,
+      "chars": 26,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:16Z",
+      "seconds": 2.115
+    },
+    {
+      "id": "s13",
+      "est_usd": 0.007255,
+      "chars": 33,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:19Z",
+      "seconds": 2.754
+    },
+    {
+      "id": "s14",
+      "est_usd": 0.013263,
+      "chars": 71,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:20Z",
+      "seconds": 4.791
+    },
+    {
+      "id": "s15",
+      "est_usd": 0.008459,
+      "chars": 53,
+      "status": "ACK",
+      "t": "2026-11-08T08:37:22Z",
+      "seconds": 3.653
+    }
+  ],
+  "estimated_usd": 0.118449
+}

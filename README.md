@@ -1,49 +1,36 @@
-# <Project Name>
+# Video Demo — technical explainer films
 
-One sentence explaining the problem this repository solves.
+Short, narrated, captioned films that explain Amit's engineering work (AWS Factory, AWSOps, Nextflow offline, the agentic pentest PoC) to engineers and managers. Each film is built as code: HyperFrames compositions (HTML, GSAP and Three.js), an OpenAI voice, a synthesized score, and a checked evidence map.
 
-## Start Here
+![House looks](styles/catalog.jpg)
 
-For agents, `AGENTS.md` is the single read router. It defines the cold-start/recovery order and when other repository contracts must be loaded.
+## Start here
+| You want to… | Read |
+|---|---|
+| **Make a new film** | [Intake card](docs/VIDEO_INTAKE.md) → [Style catalog](docs/STYLE_CATALOG.md) → [Agent Video Playbook](docs/AGENT_VIDEO_PLAYBOOK.md) |
+| Watch or reuse a finished film | [`films/`](films/README.md): one folder per source repository and film; videos on GitHub Releases |
+| Reuse a look | [`styles/`](styles/): `toy-world-3d` (default), `swiss-grid`, `clay-diorama`, `cinematic-night` (archived) |
+| Use the shared scripts | [`toolkit/`](toolkit/README.md) |
+| Agent rules and authority | [`AGENTS.md`](AGENTS.md) (router), [`SPEC.md`](SPEC.md), [`CONTEXT.md`](CONTEXT.md) |
 
-For current work, prefer the owning GitHub Issue/PR and current HEAD. Load the other root files only for the responsibility they own:
+**House rule: reuse first.** Use a house look and the toolkit. A new theme is made only when Amit asks for one by name.
 
-- `AI_NATIVE_SDLC.md` — proportional Intent -> Spec -> Plan -> Code/Test/Review lifecycle
-- `intent/README.md` — reusable Intent Gate, interview, acceptance, and first-intent record protocol
-- `CONTEXT.md` — current-only recovery state when restart/current-state context is needed
-- `SPEC.md` — execution authority and milestone contract when implementation, mutation, deployment, cleanup, or safety boundaries matter
-- `ENV.md` — project runtime/tool/cloud dependencies when environment facts matter
-- `CHATGPT.md` — repository-specific ChatGPT/Codex adapter, shorthand, and repository-binding guard
-- `INIT.md` — one-time initialization only
-- `ROADMAP.md` — useful future direction, not current authority
+## Layout
+```
+films/<source-repo>/<film>/   one self-contained film (script, src, build.py, claims, QA record, keyframes)
+styles/<look>/                reusable look: kit/, preview.jpg, README
+toolkit/                      shared build, voice, image, ledger and QA scripts (one copy)
+docs/                         playbook, intake card, style catalog, research and reviews
+labs/                         side experiments (voice lab)
+intent/                       accepted project intent
+```
 
-For optional laptop-free deployment of a Codex Cloud app, see [Cloud-first quickstart](docs/CLOUD_FIRST_QUICKSTART.md). It is a reference workflow, not an extra approval or bootstrap gate.
+## Setup (once)
+```bash
+npm ci                                   # pinned HyperFrames 0.9.20 + GSAP 3.15.0
+python3 -m venv .venv && .venv/bin/pip install numpy==2.5.4 soundfile==0.14.0 pillow==13.0.0 websockets==15.0.1
+```
+You also need Node 22+ and FFmpeg. An OpenAI key is needed only for new voice, images or paid QA, and only through an ignored `.env` or the environment, never committed. Start a film with `python3 toolkit/new_film.py --repo <source-repo> --slug <film> --style toy-world-3d`.
 
-Cloudflare is an opt-in path: [six-file static starter](examples/cloudflare-static/README.md),
-[owner onboarding and new-project checklist](docs/CLOUDFLARE_WORKERS_ONBOARDING.md),
-and [release evidence / recovery receipt](docs/DEPLOYMENT_EVIDENCE.md). The template
-provisions nothing and carries no provider credentials or active root deployment config.
-Complete `INIT.md` first; the owner's `<app-name>.amitk.life` convention is optional
-for other owners. Use native Git Builds only after the one owner integration gate.
-
-Technical explainer films: follow the single [Claude Video Production Playbook](docs/CLAUDE_VIDEO_PLAYBOOK.md); link to it rather than copying its rules.
-
-Do not use this README as a second copy of the agent bootstrap policy.
-
-## Template Model
-
-Keep root contracts separate by responsibility:
-
-- `AGENTS.md` — universal agent entry/router and local repository rules
-- `CHATGPT.md` — thin repository-specific ChatGPT/Codex adapter
-- `CONTEXT.md` — current-only project/repository recovery state
-- `SPEC.md` — execution authority and milestone contract when needed
-- `INIT.md` — one-time first-intent bootstrap for a new repository
-- `ENV.md` — project runtime/tool/cloud dependencies when needed
-- `ROADMAP.md` — useful future milestones, not current authority
-
-Historical detail belongs in Git history, closed Issues/PRs, or `docs/history/` when needed — not in `CONTEXT.md`.
-
-Reusable cross-project policy belongs in the canonical `amitkarpe/agents` repository, read locally from its verified `~/.agents/` checkout, and should normally be referenced rather than recopied here. Machine-specific facts belong in the active `~/.config/agent/HOST.md` when available.
-
-Preserve useful local knowledge. Context-loading economy means reading the right file at the right time, not deleting information.
+## Template model
+The shared agent contracts are kept and routed by `AGENTS.md`: `AI_NATIVE_SDLC.md`, `intent/README.md`, `CHATGPT.md`, `ENV.md`, `INIT.md`, `ROADMAP.md`. Reusable cross-project policy lives in `amitkarpe/agents` and is linked, not copied.
