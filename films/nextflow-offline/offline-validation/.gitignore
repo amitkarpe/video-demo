@@ -11,3 +11,4 @@ voice/m_*.mp3
 review/voice.wav
 review/snap/
 out/*.mp4
+out/
