@@ -1,0 +1,902 @@
+{
+  "s01.t1": {
+    "seconds_raw": 4.1,
+    "provider_transcript": "A scientific workflow depends on much more than its own code.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 335,
+      "input_tokens": 207,
+      "output_tokens": 128,
+      "input_token_details": {
+        "text_tokens": 207,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 46,
+        "audio_tokens": 82,
+        "reasoning_tokens": 20
+      }
+    },
+    "cost_usd": 0.00718,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s02.t1": {
+    "seconds_raw": 7.3,
+    "provider_transcript": "It needs container images, plugins, reference files and input data — all of them, at the moment it runs.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 425,
+      "input_tokens": 218,
+      "output_tokens": 207,
+      "input_token_details": {
+        "text_tokens": 218,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 61,
+        "audio_tokens": 146,
+        "reasoning_tokens": 20
+      }
+    },
+    "cost_usd": 0.0117312,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s03.t1": {
+    "seconds_raw": 6.2,
+    "provider_transcript": "In a controlled environment with no internet, one missing piece stops the analysis.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 386,
+      "input_tokens": 210,
+      "output_tokens": 176,
+      "input_token_details": {
+        "text_tokens": 210,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 52,
+        "audio_tokens": 124,
+        "reasoning_tokens": 21
+      }
+    },
+    "cost_usd": 0.010024,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s04.t1": {
+    "seconds_raw": 6.45,
+    "provider_transcript": "Nextflow Offline removes that risk: everything is prepared first, then run with confidence.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 388,
+      "input_tokens": 212,
+      "output_tokens": 176,
+      "input_token_details": {
+        "text_tokens": 212,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 47,
+        "audio_tokens": 129,
+        "reasoning_tokens": 13
+      }
+    },
+    "cost_usd": 0.0102832,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s05.t1": {
+    "seconds_raw": 11.1,
+    "provider_transcript": "We'll follow one real workflow: a germline variant-calling test from N-F core SAH-rek, using a small public test dataset. One release, from preparation to proven result.",
+    "provider_verbatim_match": false,
+    "usage": {
+      "total_tokens": 531,
+      "input_tokens": 230,
+      "output_tokens": 301,
+      "input_token_details": {
+        "text_tokens": 230,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 79,
+        "audio_tokens": 222,
+        "reasoning_tokens": 21
+      }
+    },
+    "cost_usd": 0.0170752,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s06.t1": {
+    "seconds_raw": 4.3,
+    "provider_transcript": "Everything starts in GitLab, the single trusted home for the solution.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 337,
+      "input_tokens": 209,
+      "output_tokens": 128,
+      "input_token_details": {
+        "text_tokens": 209,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 42,
+        "audio_tokens": 86,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.0073479999999999995,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s07.t1": {
+    "seconds_raw": 6.65,
+    "provider_transcript": "The workflow code lives in a GitLab repository. Its container images live in the GitLab container registry.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 431,
+      "input_tokens": 216,
+      "output_tokens": 215,
+      "input_token_details": {
+        "text_tokens": 216,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 82,
+        "audio_tokens": 133,
+        "reasoning_tokens": 45
+      }
+    },
+    "cost_usd": 0.011344,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s08.t1": {
+    "seconds_raw": 3.65,
+    "provider_transcript": "The reference data and test datasets are hosted there too.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 318,
+      "input_tokens": 206,
+      "output_tokens": 112,
+      "input_token_details": {
+        "text_tokens": 206,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 39,
+        "audio_tokens": 73,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.006432,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s09.t1": {
+    "seconds_raw": 6.3,
+    "provider_transcript": "Content is scanned for security as it arrives, and the operations team reviews every finding.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 391,
+      "input_tokens": 212,
+      "output_tokens": 179,
+      "input_token_details": {
+        "text_tokens": 212,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 53,
+        "audio_tokens": 126,
+        "reasoning_tokens": 20
+      }
+    },
+    "cost_usd": 0.010184,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s10.t1": {
+    "seconds_raw": 6.55,
+    "provider_transcript": "From GitLab, a GitLab Runner prepares the release. The workflow code goes to AWS CodeCommit.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 424,
+      "input_tokens": 216,
+      "output_tokens": 208,
+      "input_token_details": {
+        "text_tokens": 216,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 77,
+        "audio_tokens": 131,
+        "reasoning_tokens": 40
+      }
+    },
+    "cost_usd": 0.011095999999999998,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s11.t1": {
+    "seconds_raw": 6.55,
+    "provider_transcript": "Each container image goes to private Amazon ECR, locked to its exact identity.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 388,
+      "input_tokens": 211,
+      "output_tokens": 177,
+      "input_token_details": {
+        "text_tokens": 211,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 46,
+        "audio_tokens": 131,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.010332,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s12.t1": {
+    "seconds_raw": 8.95,
+    "provider_transcript": "The workflow, plugins, references and data are packed into one bundle in Amazon S3, with a fingerprint for every file.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 465,
+      "input_tokens": 220,
+      "output_tokens": 245,
+      "input_token_details": {
+        "text_tokens": 220,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 66,
+        "audio_tokens": 179,
+        "reasoning_tokens": 23
+      }
+    },
+    "cost_usd": 0.013919999999999998,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s13.t1": {
+    "seconds_raw": 4.4,
+    "provider_transcript": "Together, they form one complete, self-contained release.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 341,
+      "input_tokens": 206,
+      "output_tokens": 135,
+      "input_token_details": {
+        "text_tokens": 206,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 47,
+        "audio_tokens": 88,
+        "reasoning_tokens": 22
+      }
+    },
+    "cost_usd": 0.0075840000000000005,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s14.t1": {
+    "seconds_raw": 9.3,
+    "provider_transcript": "Nothing is trusted just because it was uploaded. Every file and every image is read back and compared against its fingerprint.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 466,
+      "input_tokens": 218,
+      "output_tokens": 248,
+      "input_token_details": {
+        "text_tokens": 218,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 62,
+        "audio_tokens": 186,
+        "reasoning_tokens": 19
+      }
+    },
+    "cost_usd": 0.0143152,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s15.t1": {
+    "seconds_raw": 5.2,
+    "provider_transcript": "Only when everything matches is the release registered and ready to run.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 352,
+      "input_tokens": 208,
+      "output_tokens": 144,
+      "input_token_details": {
+        "text_tokens": 208,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 40,
+        "audio_tokens": 104,
+        "reasoning_tokens": 11
+      }
+    },
+    "cost_usd": 0.008447999999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s16.t1": {
+    "seconds_raw": 6.45,
+    "provider_transcript": "If anything is missing or different, the release stops here, long before it reaches a run.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 400,
+      "input_tokens": 214,
+      "output_tokens": 186,
+      "input_token_details": {
+        "text_tokens": 214,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 57,
+        "audio_tokens": 129,
+        "reasoning_tokens": 22
+      }
+    },
+    "cost_usd": 0.0105312,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s17.t1": {
+    "seconds_raw": 5.05,
+    "provider_transcript": "An approved run request in GIT-lab starts a controlled run with its own unique identity.",
+    "provider_verbatim_match": false,
+    "usage": {
+      "total_tokens": 389,
+      "input_tokens": 212,
+      "output_tokens": 177,
+      "input_token_details": {
+        "text_tokens": 212,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 76,
+        "audio_tokens": 101,
+        "reasoning_tokens": 41
+      }
+    },
+    "cost_usd": 0.009136,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s18.t1": {
+    "seconds_raw": 14.85,
+    "provider_transcript": "AWS CodePipeline leads the run through ten gated stages. It checks the source, the release, the data, the images and the runtime before anything executes, then validates the results and publishes the report.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 630,
+      "input_tokens": 235,
+      "output_tokens": 395,
+      "input_token_details": {
+        "text_tokens": 235,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 98,
+        "audio_tokens": 297,
+        "reasoning_tokens": 34
+      }
+    },
+    "cost_usd": 0.0223,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s19.t1": {
+    "seconds_raw": 8.3,
+    "provider_transcript": "CodeBuild does the work of each stage, and AWS Systems Manager sends commands to a private EC2 host with no internet route.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 447,
+      "input_tokens": 221,
+      "output_tokens": 226,
+      "input_token_details": {
+        "text_tokens": 221,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 60,
+        "audio_tokens": 166,
+        "reasoning_tokens": 16
+      }
+    },
+    "cost_usd": 0.012948,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s20.t1": {
+    "seconds_raw": 4.55,
+    "provider_transcript": "Private endpoints connect it only to the A-W-S services it needs.",
+    "provider_verbatim_match": false,
+    "usage": {
+      "total_tokens": 348,
+      "input_tokens": 207,
+      "output_tokens": 141,
+      "input_token_details": {
+        "text_tokens": 207,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 50,
+        "audio_tokens": 91,
+        "reasoning_tokens": 22
+      }
+    },
+    "cost_usd": 0.007903199999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s21.t1": {
+    "seconds_raw": 8.45,
+    "provider_transcript": "On the host, the bundle is checked again against its fingerprints. The exact images are loaded into an isolated container store.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 444,
+      "input_tokens": 219,
+      "output_tokens": 225,
+      "input_token_details": {
+        "text_tokens": 219,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 56,
+        "audio_tokens": 169,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.0130872,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s22.t1": {
+    "seconds_raw": 4.75,
+    "provider_transcript": "Nextflow then runs in offline mode, using only what was prepared.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 349,
+      "input_tokens": 209,
+      "output_tokens": 140,
+      "input_token_details": {
+        "text_tokens": 209,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 45,
+        "audio_tokens": 95,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.0080472,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s23.t1": {
+    "seconds_raw": 6.25,
+    "provider_transcript": "Plugin downloads are switched off, task containers have no network, and no image can be pulled.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 389,
+      "input_tokens": 214,
+      "output_tokens": 175,
+      "input_token_details": {
+        "text_tokens": 214,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 50,
+        "audio_tokens": 125,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.010056,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s24.t1": {
+    "seconds_raw": 3.6,
+    "provider_transcript": "Everything the analysis needs is already there.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 311,
+      "input_tokens": 203,
+      "output_tokens": 108,
+      "input_token_details": {
+        "text_tokens": 203,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 36,
+        "audio_tokens": 72,
+        "reasoning_tokens": 14
+      }
+    },
+    "cost_usd": 0.0063352,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s25.t1": {
+    "seconds_raw": 3.85,
+    "provider_transcript": "When the run ends, the result is checked, not assumed.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 327,
+      "input_tokens": 208,
+      "output_tokens": 119,
+      "input_token_details": {
+        "text_tokens": 208,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 0,
+        "cached_tokens_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 42,
+        "audio_tokens": 77,
+        "reasoning_tokens": 15
+      }
+    },
+    "cost_usd": 0.006768,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s26.t1": {
+    "seconds_raw": 9.3,
+    "provider_transcript": "The pipeline confirms the run succeeded, that the offline controls were in place, and that the expected outputs exist.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 463,
+      "input_tokens": 217,
+      "output_tokens": 246,
+      "input_token_details": {
+        "text_tokens": 217,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 60,
+        "audio_tokens": 186,
+        "reasoning_tokens": 18
+      }
+    },
+    "cost_usd": 0.0142632,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s27.t1": {
+    "seconds_raw": 5.25,
+    "provider_transcript": "The answer is a clear PASS or FAIL, with an evidence report the team can review.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 378,
+      "input_tokens": 213,
+      "output_tokens": 165,
+      "input_token_details": {
+        "text_tokens": 213,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 60,
+        "audio_tokens": 105,
+        "reasoning_tokens": 26
+      }
+    },
+    "cost_usd": 0.0090632,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s28.t1": {
+    "seconds_raw": 9.65,
+    "provider_transcript": "So the journey is complete: hosted and scanned in GitLab, prepared and verified in AWS, executed offline and backed by evidence.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 476,
+      "input_tokens": 221,
+      "output_tokens": 255,
+      "input_token_details": {
+        "text_tokens": 221,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 62,
+        "audio_tokens": 193,
+        "reasoning_tokens": 16
+      }
+    },
+    "cost_usd": 0.0147752,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s29.t1": {
+    "seconds_raw": 3.8,
+    "provider_transcript": "Tested end to end, and repeatable for every release.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 336,
+      "input_tokens": 208,
+      "output_tokens": 128,
+      "input_token_details": {
+        "text_tokens": 208,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 52,
+        "audio_tokens": 76,
+        "reasoning_tokens": 25
+      }
+    },
+    "cost_usd": 0.006995199999999999,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  },
+  "s30.t1": {
+    "seconds_raw": 6.25,
+    "provider_transcript": "Prepare once. Verify everything. Run with confidence.",
+    "provider_verbatim_match": true,
+    "usage": {
+      "total_tokens": 372,
+      "input_tokens": 205,
+      "output_tokens": 167,
+      "input_token_details": {
+        "text_tokens": 205,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "cached_tokens": 128,
+        "cached_tokens_details": {
+          "text_tokens": 128,
+          "audio_tokens": 0,
+          "image_tokens": 0
+        }
+      },
+      "output_token_details": {
+        "text_tokens": 42,
+        "audio_tokens": 125,
+        "reasoning_tokens": 16
+      }
+    },
+    "cost_usd": 0.009879200000000001,
+    "model": "gpt-realtime-2.1",
+    "voice": "marin",
+    "response_status": "completed"
+  }
+}

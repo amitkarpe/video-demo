@@ -1,0 +1,50 @@
+[
+  {
+    "caption": "No public IPv4. No NAT. No internet gateway.",
+    "spoken": "No public I P version four. No NAT. No internet gateway."
+  },
+  {
+    "caption": "Yet this private EC2 instance can reach S3.",
+    "spoken": "Yet this private E C two instance can reach S three."
+  },
+  {
+    "caption": "First, DNS resolves the S3 name to S3 service IP addresses.",
+    "spoken": "First, D N S resolves the S three name to S three service I P addresses."
+  },
+  {
+    "caption": "The subnet route table looks for a match.",
+    "spoken": "The subnet route table looks for a match."
+  },
+  {
+    "caption": "The destination matches the regional, AWS-managed S3 prefix list.",
+    "spoken": "The destination matches the regional, A W S managed S three prefix list."
+  },
+  {
+    "caption": "That route targets a gateway endpoint.",
+    "spoken": "That route targets a gateway endpoint."
+  },
+  {
+    "caption": "Follow the packet. Same-Region S3. Entirely on the AWS network.",
+    "spoken": "Follow the packet. Same Region S three. Entirely on the A W S network."
+  },
+  {
+    "caption": "No interface ENI. No private endpoint IP. No NAT.",
+    "spoken": "No interface E N I. No private endpoint I P. No NAT."
+  },
+  {
+    "caption": "But a path is not permission.",
+    "spoken": "But a path is not permission."
+  },
+  {
+    "caption": "Security groups and network ACLs must allow the traffic.",
+    "spoken": "Security groups and network A C Ls must allow the traffic."
+  },
+  {
+    "caption": "IAM, the endpoint policy, and the bucket policy still govern object access.",
+    "spoken": "I A M, the endpoint policy, and the bucket policy still govern object access."
+  },
+  {
+    "caption": "The route changed. The permissions didn't disappear.",
+    "spoken": "The route changed. The permissions didn't disappear."
+  }
+]

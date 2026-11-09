@@ -1,0 +1,23 @@
+No public IPv4. No NAT. No internet gateway.
+
+Yet this private EC2 instance can reach S3.
+
+First, DNS resolves the S3 name to S3 service IP addresses.
+
+The subnet route table looks for a match.
+
+The destination matches the regional, AWS-managed S3 prefix list.
+
+That route targets a gateway endpoint.
+
+Follow the packet. Same-Region S3. Entirely on the AWS network.
+
+No interface ENI. No private endpoint IP. No NAT.
+
+But a path is not permission.
+
+Security groups and network ACLs must allow the traffic.
+
+IAM, the endpoint policy, and the bucket policy still govern object access.
+
+The route changed. The permissions didn't disappear.

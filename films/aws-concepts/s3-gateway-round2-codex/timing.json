@@ -1,0 +1,65 @@
+{
+  "duration": 46,
+  "cues": [
+    {
+      "start": 0.6,
+      "duration": 3.425,
+      "text": "No public IPv4. No NAT. No internet gateway."
+    },
+    {
+      "start": 4.275,
+      "duration": 2.8,
+      "text": "Yet this private EC2 instance can reach S3."
+    },
+    {
+      "start": 7.555,
+      "duration": 4.3875,
+      "text": "First, DNS resolves the S3 name to S3 service IP addresses."
+    },
+    {
+      "start": 12.1925,
+      "duration": 2.1,
+      "text": "The subnet route table looks for a match."
+    },
+    {
+      "start": 14.5425,
+      "duration": 4.45,
+      "text": "The destination matches the regional, AWS-managed S3 prefix list."
+    },
+    {
+      "start": 19.2425,
+      "duration": 2.375,
+      "text": "That route targets a gateway endpoint."
+    },
+    {
+      "start": 22.0975,
+      "duration": 4.2625,
+      "text": "Follow the packet. Same-Region S3. Entirely on the AWS network."
+    },
+    {
+      "start": 26.61,
+      "duration": 3.15,
+      "text": "No interface ENI. No private endpoint IP. No NAT."
+    },
+    {
+      "start": 30.24,
+      "duration": 1.7625,
+      "text": "But a path is not permission."
+    },
+    {
+      "start": 32.2525,
+      "duration": 3.5375,
+      "text": "Security groups and network ACLs must allow the traffic."
+    },
+    {
+      "start": 36.04,
+      "duration": 4.75,
+      "text": "IAM, the endpoint policy, and the bucket policy still govern object access."
+    },
+    {
+      "start": 41.27,
+      "duration": 2.875,
+      "text": "The route changed. The permissions didn't disappear."
+    }
+  ]
+}

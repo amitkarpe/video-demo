@@ -1,0 +1,132 @@
+[
+  {
+    "scene": "opening",
+    "text": "A new golden image arrives. But a successful build is not yet a trusted production release.",
+    "spoken": "A new golden image arrives. But a successful build is not yet a trusted production release."
+  },
+  {
+    "scene": "opening",
+    "text": "BlueOps turns that gap into a controlled journey: build a shared base, prove each workload, then earn the right to promote.",
+    "spoken": "Blue Ops turns that gap into a controlled journey: build a shared base, prove each workload, then earn the right to promote."
+  },
+  {
+    "scene": "upstream",
+    "text": "The journey starts with a GovTech GCC Golden Amazon Linux 2023 image: a baseline with hardening and some operations agents.",
+    "spoken": "The journey starts with a Gov Tech G C C Golden Amazon Linux twenty twenty three image: a baseline with hardening and some operations agents."
+  },
+  {
+    "scene": "upstream",
+    "text": "An EventBridge discovery signal is part of the proposed design. Record the immutable source identity before the factory moves.",
+    "spoken": "An EventBridge discovery signal is part of the proposed design. Record the immutable source identity before the factory moves."
+  },
+  {
+    "scene": "base",
+    "text": "Image Builder combines that approved source with approved GCC agent packages and a selected CIS hardening profile. The product is Hardened Base OS.",
+    "spoken": "Image Builder combines that approved source with approved G C C agent packages and a selected C I S hardening profile. The product is Hardened Base OS."
+  },
+  {
+    "scene": "base",
+    "text": "Package-only means no production manager registration baked into the image. Selected controls do not mean full CIS compliance or complete security-scan acceptance.",
+    "spoken": "Package-only means no production manager registration baked into the image. Selected controls do not mean full C I S compliance or complete security-scan acceptance."
+  },
+  {
+    "scene": "families",
+    "text": "Three child families derive directly from that base: GitLab, MongoDB, and CloudOS ECS Worker. The shared base stays in DEV.",
+    "spoken": "Three child families derive directly from that base: Git Lab, Mongo D B, and CloudOS E C S Worker. The shared base stays in development."
+  },
+  {
+    "scene": "families",
+    "text": "GitLab carries its own required runtime. MongoDB is non-container by default. GitLab plus Nextflow is an optional extension, not a fourth core family.",
+    "spoken": "Git Lab carries its own required runtime. Mongo D B is non-container by default. Git Lab plus Nextflow is an optional extension, not a fourth core family."
+  },
+  {
+    "scene": "dev",
+    "text": "Now the test floor. Every result must identify the exact candidate. Private connectivity, no public IP, SSM readback, packages, configuration and provenance all matter.",
+    "spoken": "Now the test floor. Every result must identify the exact candidate. Private connectivity, no public I P, S S M readback, packages, configuration and provenance all matter."
+  },
+  {
+    "scene": "gitlab",
+    "text": "For GitLab, demand healthy service, representative clone and push, CRUD, persistence, and reboot proof.",
+    "spoken": "For Git Lab, demand healthy service, representative clone and push, create, read, update and delete, persistence, and reboot proof."
+  },
+  {
+    "scene": "gitlab",
+    "text": "Current private runtime checks cover cold boot and reboot. They do not by themselves prove authenticated repository workflows or a production cutover.",
+    "spoken": "Current private runtime checks cover cold boot and reboot. They do not by themselves prove authenticated repository workflows or a production cutover."
+  },
+  {
+    "scene": "mongo",
+    "text": "MongoDB needs a running process, CRUD and backup-restore smoke. Those standalone checks do not prove a healthy replica set.",
+    "spoken": "Mongo D B needs a running process, create, read, update and delete and backup-restore smoke. Those standalone checks do not prove a healthy replica set."
+  },
+  {
+    "scene": "mongo",
+    "text": "A proposed higher-confidence cluster gate would test replication and recovery. Until it passes, cluster readiness remains unknown.",
+    "spoken": "A proposed higher-confidence cluster gate would test replication and recovery. Until it passes, cluster readiness remains unknown."
+  },
+  {
+    "scene": "ecs",
+    "text": "CloudOS ECS Worker must place tasks on the exact candidate. Zero placed tasks is a failure, even when the image build is green.",
+    "spoken": "CloudOS E C S Worker must place tasks on the exact candidate. Zero placed tasks is a failure, even when the image build is green."
+  },
+  {
+    "scene": "ecs",
+    "text": "Our proposed demo suite adds mock workloads, service-to-service network flows, and scoped Parameter Store reads through authorized IAM. These are simulated tests, not live evidence.",
+    "spoken": "Our proposed demo suite adds mock workloads, service-to-service network flows, and scoped Parameter Store reads through authorized I A M. These are simulated tests, not live evidence."
+  },
+  {
+    "scene": "approval",
+    "text": "Phase A is a controlled release. DEV proof comes first. Only validated child images move toward production acceptance.",
+    "spoken": "Phase A is a controlled release. development proof comes first. Only validated child images move toward production acceptance."
+  },
+  {
+    "scene": "approval",
+    "text": "Verify encryption, AMI launch access, and usable backing snapshots and KMS access. A policy observation alone does not prove a successful private launch.",
+    "spoken": "Verify encryption, A M I launch access, and usable backing snapshots and K M S access. A policy observation alone does not prove a successful private launch."
+  },
+  {
+    "scene": "prod",
+    "text": "Test the exact image consumed in PROD, with that environment's own agent configuration. DEV success cannot stand in for PROD runtime acceptance.",
+    "spoken": "Test the exact image consumed in production, with that environment's own agent configuration. development success cannot stand in for production runtime acceptance."
+  },
+  {
+    "scene": "prod",
+    "text": "The Ops engineer reviews the evidence and gives explicit approval for this rollout. Build success, validation and human approval are separate states.",
+    "spoken": "The Ops engineer reviews the evidence and gives explicit approval for this rollout. Build success, validation and human approval are separate states."
+  },
+  {
+    "scene": "future",
+    "text": "Phase B is a future operating policy. Candidates could build and validate weekly. The proposed promotion window is the first Saturday night each month.",
+    "spoken": "Phase B is a future operating policy. Candidates could build and validate weekly. The proposed promotion window is the first Saturday night each month."
+  },
+  {
+    "scene": "future",
+    "text": "Promotion without per-release Ops approval becomes possible only after management, security and change governance approve that policy and its conditions.",
+    "spoken": "Promotion without per-release Ops approval becomes possible only after management, security and change governance approve that policy and its conditions."
+  },
+  {
+    "scene": "future",
+    "text": "The current repository does not establish unattended monthly PROD rollout. A critical vulnerability can instead trigger an urgent, Ops-approved release.",
+    "spoken": "The current repository does not establish unattended monthly production rollout. A critical vulnerability can instead trigger an urgent, Ops-approved release."
+  },
+  {
+    "scene": "blocked",
+    "text": "A failed or unknown check, missing approval or policy, missing access, or an unhealthy PROD canary closes the gate. Nothing advances on an assumption.",
+    "spoken": "A failed or unknown check, missing approval or policy, missing access, or an unhealthy production canary closes the gate. Nothing advances on an assumption."
+  },
+  {
+    "scene": "rollback",
+    "text": "Keep the prior known-good release and a tested data-recovery path. Read back the rollout result. If the canary fails, stop and use the approved rollback plan.",
+    "spoken": "Keep the prior known-good release and a tested data-recovery path. Read back the rollout result. If the canary fails, stop and use the approved rollback plan."
+  },
+  {
+    "scene": "rollback",
+    "text": "A few minutes of downtime may be acceptable, if approved. Reversibility and observable acceptance matter more than a green build badge.",
+    "spoken": "A few minutes of downtime may be acceptable, if approved. Reversibility and observable acceptance matter more than a green build badge."
+  },
+  {
+    "scene": "payoff",
+    "text": "Build once. Validate every workload. Promote only what is proven.",
+    "spoken": "Build once. Validate every workload. Promote only what is proven."
+  }
+]

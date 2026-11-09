@@ -1,0 +1,51 @@
+[
+  {
+    "start": 0,
+    "duration": 20,
+    "sequence": "cold open",
+    "tool": "ffplay",
+    "exitCode": 0
+  },
+  {
+    "start": 110,
+    "duration": 15,
+    "sequence": "trust boundary",
+    "tool": "ffplay",
+    "exitCode": 0
+  },
+  {
+    "start": 178,
+    "duration": 15,
+    "sequence": "scope digest drift",
+    "tool": "ffplay",
+    "exitCode": 0
+  },
+  {
+    "start": 258,
+    "duration": 15,
+    "sequence": "atomic decision race",
+    "tool": "ffplay",
+    "exitCode": 0
+  },
+  {
+    "start": 395,
+    "duration": 28,
+    "sequence": "lost response / same run",
+    "tool": "ffplay",
+    "exitCode": 0
+  },
+  {
+    "start": 495,
+    "duration": 20,
+    "sequence": "four evidence sources",
+    "tool": "ffplay",
+    "exitCode": 0
+  },
+  {
+    "start": 629,
+    "duration": 20,
+    "sequence": "closing architecture",
+    "tool": "ffplay",
+    "exitCode": 0
+  }
+]

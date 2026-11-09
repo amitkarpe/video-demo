@@ -1,0 +1,159 @@
+1
+00:00:02,000 --> 00:00:05,122
+Every month, a new golden image arrives.
+
+2
+00:00:05,622 --> 00:00:10,331
+Building from it is easy. Proving it is safe to run in production is the hard part.
+
+3
+00:00:10,931 --> 00:00:14,000
+This is BlueOps: the AMI Factory.
+
+4
+00:00:15,000 --> 00:00:23,752
+Upstream, GovTech publishes a Golden Amazon Linux 2023 image, already hardened, with some security and operations agents.
+
+5
+00:00:24,152 --> 00:00:30,362
+A discovery signal, proposed here as an EventBridge event, captures its exact image ID.
+
+6
+00:00:30,662 --> 00:00:35,180
+From that moment, every step traces back to one immutable source.
+
+7
+00:00:35,980 --> 00:00:39,434
+Station one builds the Hardened Base OS.
+
+8
+00:00:39,734 --> 00:00:45,918
+Image Builder starts from the approved golden image and installs the GCC agent packages.
+
+9
+00:00:46,168 --> 00:00:49,795
+Packages only: no production manager registration is baked in.
+
+10
+00:00:50,195 --> 00:00:57,256
+Then it applies a selected CIS hardening profile. Selected controls, not a claim of full benchmark compliance.
+
+11
+00:00:57,656 --> 00:01:06,686
+Checks run on a private instance: no public IP, SSM online, the expected packages, the recorded profile.
+
+12
+00:01:07,086 --> 00:01:12,935
+The Hardened Base OS never goes to production. It is the parent for everything that does.
+
+13
+00:01:13,835 --> 00:01:18,042
+From that one parent, three production families branch directly.
+
+14
+00:01:18,342 --> 00:01:21,405
+GitLab, which carries its own container runtime.
+
+15
+00:01:21,605 --> 00:01:24,608
+MongoDB, which runs without containers.
+
+16
+00:01:24,808 --> 00:01:30,303
+And the CloudOS ECS Worker, which adds the container engine and the ECS agent.
+
+17
+00:01:30,653 --> 00:01:35,307
+GitLab with Nextflow is an optional extension, not a fourth family.
+
+18
+00:01:36,207 --> 00:01:41,984
+A green build log is not confidence. So each family goes to its own DEV proving ground.
+
+19
+00:01:42,484 --> 00:01:48,961
+GitLab must come up healthy, accept a clone and a push, create and read data, and keep it after a reboot.
+
+20
+00:01:49,361 --> 00:01:57,339
+MongoDB must listen only privately, answer a ping, and pass create, read, update, delete, and a dump and restore.
+
+21
+00:01:57,639 --> 00:02:04,606
+A single-node smoke test is not a cluster, so a replica-set gate is the proposed next level of confidence.
+
+22
+00:02:05,106 --> 00:02:13,336
+The ECS Worker must really place tasks on the exact candidate image. Zero placed tasks is a failure.
+
+23
+00:02:13,636 --> 00:02:21,508
+The proposed next step runs mock services that talk over the expected ports and read only their own parameters, through scoped IAM.
+
+24
+00:02:22,008 --> 00:02:29,342
+Every candidate also proves its lineage, encrypted and shareable snapshots, and a clean private launch.
+
+25
+00:02:29,642 --> 00:02:32,699
+A fail, or an unknown, stops the line.
+
+26
+00:02:33,599 --> 00:02:40,097
+Notice the separate states. Built is not verified. Verified in DEV is not accepted in production.
+
+27
+00:02:40,997 --> 00:02:43,387
+Phase A is the controlled rollout.
+
+28
+00:02:43,687 --> 00:02:51,155
+The validated child image is shared to production, launched privately, and checked again with production's own configuration.
+
+29
+00:02:51,555 --> 00:02:55,813
+An Ops engineer reviews the evidence, and gives explicit approval.
+
+30
+00:02:56,163 --> 00:03:02,293
+Only then does the approved pointer move, and the previous release stays ready for rollback.
+
+31
+00:03:03,193 --> 00:03:07,169
+Phase B is a proposal for the future, not today's system.
+
+32
+00:03:07,569 --> 00:03:10,668
+Candidates could build and validate every week.
+
+33
+00:03:10,968 --> 00:03:16,725
+On the first Saturday night of each month, a scheduled promotion could run without a per-release approval.
+
+34
+00:03:17,025 --> 00:03:23,560
+But only after management, security and change governance approve that policy and its conditions.
+
+35
+00:03:24,060 --> 00:03:32,497
+A failed or unknown check, a missing approval, missing snapshot or key access, or an unhealthy production canary blocks it.
+
+36
+00:03:32,997 --> 00:03:37,469
+A critical vulnerability can still trigger an urgent, Ops-approved release.
+
+37
+00:03:37,869 --> 00:03:44,162
+And if the canary turns red, the rollout returns to the last known-good image, within a short, agreed maintenance window.
+
+38
+00:03:45,262 --> 00:03:46,615
+Build once.
+
+39
+00:03:47,115 --> 00:03:49,580
+Validate every workload.
+
+40
+00:03:50,080 --> 00:03:52,290
+Promote only what is proven.

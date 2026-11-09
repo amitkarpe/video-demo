@@ -1,0 +1,55 @@
+1
+00:00:01,400 --> 00:00:04,427
+This EC2 instance has no public IP.
+
+2
+00:00:04,627 --> 00:00:06,773
+No NAT. No internet gateway.
+
+3
+00:00:07,073 --> 00:00:10,003
+Yet it still reads from Amazon S3.
+
+4
+00:00:10,403 --> 00:00:11,792
+So what's the path?
+
+5
+00:00:12,242 --> 00:00:16,779
+DNS first: the bucket name resolves to Amazon S3's public IP addresses.
+
+6
+00:00:17,129 --> 00:00:19,003
+Then the route table decides.
+
+7
+00:00:19,253 --> 00:00:26,168
+One route does it. Destination: the AWS-managed S3 prefix list for this Region. Target: the gateway endpoint.
+
+8
+00:00:26,468 --> 00:00:30,641
+Matching traffic takes that route and stays on the AWS network.
+
+9
+00:00:31,141 --> 00:00:36,798
+It's not an interface endpoint: no network interface, no private IP. Not a NAT either.
+
+10
+00:00:36,948 --> 00:00:38,702
+Just a route target.
+
+11
+00:00:39,302 --> 00:00:41,802
+But a route is not a permission.
+
+12
+00:00:42,102 --> 00:00:46,636
+Security groups and network ACLs must still allow the traffic.
+
+13
+00:00:46,836 --> 00:00:51,708
+IAM, the endpoint policy and the bucket policy still decide access.
+
+14
+00:00:52,358 --> 00:00:55,315
+The route changed. The permissions didn't disappear.

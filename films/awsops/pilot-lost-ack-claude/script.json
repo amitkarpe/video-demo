@@ -1,0 +1,109 @@
+{
+  "title": "The reply disappeared",
+  "voice": "bm_george",
+  "speed": 0.95,
+  "lead_in": 1.3,
+  "lines": [
+    {
+      "id": "s01",
+      "caption": "In this simulated branch, an approved request leaves the backend.",
+      "speak": "In this simulated branch, an approved request leaves the backend.",
+      "gap_after": 0.35
+    },
+    {
+      "id": "s02",
+      "caption": "The reply never arrives.",
+      "speak": "The reply never arrives.",
+      "gap_after": 1.1
+    },
+    {
+      "id": "s03",
+      "caption": "Did the change fail?",
+      "speak": "Did the change fail?",
+      "gap_after": 0.25
+    },
+    {
+      "id": "s04",
+      "caption": "Or did only the reply fail?",
+      "speak": "Or did only the reply fail?",
+      "gap_after": 0.7
+    },
+    {
+      "id": "s05",
+      "caption": "The SQLite ledger already says CALLING.",
+      "speak": "The S Q Lite ledger already says, calling.",
+      "gap_after": 0.3,
+      "speak_openai": "The SQLite ledger already says, CALLING."
+    },
+    {
+      "id": "s06",
+      "caption": "It was committed before the call.",
+      "speak": "It was committed before the call.",
+      "gap_after": 0.6
+    },
+    {
+      "id": "s07",
+      "caption": "So AWSOps does not send that write again.",
+      "speak": "So A W S Ops does not send that write again.",
+      "gap_after": 0.3,
+      "speak_openai": "So AWS Ops does not send that write again."
+    },
+    {
+      "id": "s08",
+      "caption": "It reconciles the same run, read-only.",
+      "speak": "It reconciles the same run, read only.",
+      "gap_after": 0.6
+    },
+    {
+      "id": "s09",
+      "caption": "A matching S3 policy, independently read back, answers one question only.",
+      "speak": "A matching S three policy, independently read back, answers one question only.",
+      "gap_after": 0.5,
+      "speak_openai": "A matching S3 policy, independently read back, answers one question only."
+    },
+    {
+      "id": "s10",
+      "caption": "Execution is still unknown.",
+      "speak": "Execution is still unknown.",
+      "gap_after": 0.2
+    },
+    {
+      "id": "s11",
+      "caption": "Compliance is unknown.",
+      "speak": "Compliance is unknown.",
+      "gap_after": 0.2
+    },
+    {
+      "id": "s12",
+      "caption": "Freshness is not verified.",
+      "speak": "Freshness is not verified.",
+      "gap_after": 0.3
+    },
+    {
+      "id": "s13",
+      "caption": "No AWS Config evaluation has run.",
+      "speak": "No Config evaluation has run.",
+      "gap_after": 0.7,
+      "speak_openai": "No AWS Config evaluation has run."
+    },
+    {
+      "id": "s14",
+      "caption": "Until the missing evidence is resolved, the outcome stays NEEDS_REVIEW.",
+      "speak": "Until the missing evidence is resolved, the outcome stays, needs review.",
+      "gap_after": 0.6,
+      "speak_openai": "Until the missing evidence is resolved, the outcome stays NEEDS REVIEW."
+    },
+    {
+      "id": "s15",
+      "caption": "This demonstrates control logic, not live acceptance.",
+      "speak": "This demonstrates control logic, not live acceptance.",
+      "gap_after": 1.5
+    }
+  ],
+  "openai": {
+    "model": "gpt-4o-mini-tts",
+    "voice": "cedar",
+    "response_format": "wav",
+    "instructions": "Calm, precise senior cloud engineer narrating a technical explainer. Measured pace, neutral accent, low drama, no sales tone. Short natural pauses at commas and full stops. Say SQLite as 'sequel-lite', AWS as the letters A-W-S, S3 as 'S three'."
+  }
+}

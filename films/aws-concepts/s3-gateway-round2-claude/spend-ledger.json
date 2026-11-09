@@ -1,0 +1,238 @@
+{
+  "model": "gpt-4o-mini-tts",
+  "calls": [
+    {
+      "id": "s01",
+      "est_usd": 0.009712,
+      "chars": 45,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:18Z",
+      "seconds": 3.828
+    },
+    {
+      "id": "s02",
+      "est_usd": 0.006109,
+      "chars": 28,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:20Z",
+      "seconds": 2.234
+    },
+    {
+      "id": "s03",
+      "est_usd": 0.009711,
+      "chars": 42,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:23Z",
+      "seconds": 3.22
+    },
+    {
+      "id": "s04",
+      "est_usd": 0.00851,
+      "chars": 33,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:25Z",
+      "seconds": 1.829
+    },
+    {
+      "id": "s05",
+      "est_usd": 0.014517,
+      "chars": 72,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:27Z",
+      "seconds": 5.511
+    },
+    {
+      "id": "s06",
+      "est_usd": 0.006109,
+      "chars": 29,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:28Z",
+      "seconds": 1.896
+    },
+    {
+      "id": "s07",
+      "est_usd": 0.020525,
+      "chars": 108,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:30Z",
+      "seconds": 8.15
+    },
+    {
+      "id": "s08",
+      "est_usd": 0.004909,
+      "chars": 29,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:32Z",
+      "seconds": 1.824
+    },
+    {
+      "id": "s09",
+      "est_usd": 0.018119,
+      "chars": 79,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:34Z",
+      "seconds": 5.559
+    },
+    {
+      "id": "s10",
+      "est_usd": 0.019321,
+      "chars": 90,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:36Z",
+      "seconds": 6.746
+    },
+    {
+      "id": "s11",
+      "est_usd": 0.004907,
+      "chars": 20,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:38Z",
+      "seconds": 1.336
+    },
+    {
+      "id": "s12",
+      "est_usd": 0.010911,
+      "chars": 40,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:40Z",
+      "seconds": 3.919
+    },
+    {
+      "id": "s13",
+      "est_usd": 0.015718,
+      "chars": 73,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:42Z",
+      "seconds": 5.457
+    },
+    {
+      "id": "s14",
+      "est_usd": 0.013316,
+      "chars": 67,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:44Z",
+      "seconds": 4.07
+    },
+    {
+      "id": "s15",
+      "est_usd": 0.008513,
+      "chars": 52,
+      "status": "ACK",
+      "t": "2026-11-08T09:15:46Z",
+      "seconds": 3.25
+    },
+    {
+      "id": "s01",
+      "est_usd": 0.008519,
+      "chars": 35,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:07Z",
+      "seconds": 3.027
+    },
+    {
+      "id": "s02",
+      "est_usd": 0.006118,
+      "chars": 28,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:08Z",
+      "seconds": 2.486
+    },
+    {
+      "id": "s03",
+      "est_usd": 0.008519,
+      "chars": 34,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:10Z",
+      "seconds": 2.93
+    },
+    {
+      "id": "s04",
+      "est_usd": 0.004916,
+      "chars": 19,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:12Z",
+      "seconds": 1.389
+    },
+    {
+      "id": "s05",
+      "est_usd": 0.014526,
+      "chars": 71,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:14Z",
+      "seconds": 4.717
+    },
+    {
+      "id": "s06",
+      "est_usd": 0.006118,
+      "chars": 29,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:16Z",
+      "seconds": 1.874
+    },
+    {
+      "id": "s07",
+      "est_usd": 0.020534,
+      "chars": 109,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:17Z",
+      "seconds": 7.615
+    },
+    {
+      "id": "s08",
+      "est_usd": 0.013325,
+      "chars": 63,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:19Z",
+      "seconds": 4.173
+    },
+    {
+      "id": "s09",
+      "est_usd": 0.018129,
+      "chars": 86,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:21Z",
+      "seconds": 6.317
+    },
+    {
+      "id": "s10",
+      "est_usd": 0.004916,
+      "chars": 20,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:23Z",
+      "seconds": 1.754
+    },
+    {
+      "id": "s11",
+      "est_usd": 0.008519,
+      "chars": 32,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:24Z",
+      "seconds": 2.5
+    },
+    {
+      "id": "s12",
+      "est_usd": 0.012125,
+      "chars": 62,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:26Z",
+      "seconds": 4.974
+    },
+    {
+      "id": "s13",
+      "est_usd": 0.013326,
+      "chars": 67,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:27Z",
+      "seconds": 4.972
+    },
+    {
+      "id": "s14",
+      "est_usd": 0.008523,
+      "chars": 52,
+      "status": "ACK",
+      "t": "2026-11-08T09:16:29Z",
+      "seconds": 3.057
+    }
+  ],
+  "estimated_usd": 0.31902
+}

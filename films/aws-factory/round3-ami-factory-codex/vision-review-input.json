@@ -1,0 +1,20 @@
+{
+  "prompt": "Review these timestamped frames from an original 268-second factory explainer. Assess visible legibility, collisions/cropping, narrative clarity and honest distinctions between current evidence, required tests and proposed policy. Do not infer motion or listening from stills. No numeric score. Return JSON with blocking_findings (each timestamp, visible evidence, concrete fix), improvements, strengths, limitations. In the required story, Golden AL2023 feeds Hardened Base OS, with THREE DIRECT children GitLab, MongoDB, CloudOS ECS Worker; the base stays DEV. Phase A needs DEV proof, effective shareability, exact PROD image/configuration/canary and explicit Ops approval. Phase B is a proposed weekly candidate/monthly first-Saturday-night policy needing prior management/security/change approval; current unattended PROD is NOT established. Mongo standalone does not prove cluster; ECS zero placed tasks fails. Unknown or failed evidence/approval/access/canary blocks. The film is illustrative, no live operations. Prior known-good and data recovery are separate. Please flag only defects supported by the supplied images; distinguish suggestions from blockers.",
+  "images": {
+    "005s.jpg": "bd6450fc0c0dd6d9085462c7f1df1054d25823f2272f631c614ffcddcf5d2246",
+    "030s.jpg": "97eedf06a63a858c9b7b8cf121d7835b125b816f16cf0cacd3bd87a3fb5bb57c",
+    "050s.jpg": "4031b4261dd08a53aa694b242081b643ede358d1f7a71c090cfa6a33e2bac2d4",
+    "066s.jpg": "304f98281cf731a750ebf28cd9eb07b0da8740efa2390808d3a8b5a565d803e7",
+    "084s.jpg": "61f9b613e9b8fd758177f022e7788a18aed60b500595beb8337391cd4b438e8b",
+    "107s.jpg": "36b041c047f759cd1b0f440acd1ceca1af0f2f4cfddcadbed27cca46d2aa9e43",
+    "127s.jpg": "666060b2eca6aa8c768d46f26550605ce4dc0fa25f15b4801de39d0d9c1da309",
+    "149s.jpg": "34ba4bc8019db12bf46f699533aff43b3d2e43789d5fa1f6548483968422b9c9",
+    "172s.jpg": "fb7c663e915ac032a13aa89f33fb48e08edc5c74f1848983f551f812534f1dae",
+    "193s.jpg": "3bf454487bc02295792af44437f61ef4c32a2bf082be88b1b483856d2ef525eb",
+    "221s.jpg": "7e911ba1ee58cd268f4e8c3e41834d3d208168fcc16e03345ec94b69713a15b6",
+    "234s.jpg": "f6e5e3e75517f035d0de232e291689c646b3f476ad191b3367681e9fc05049aa",
+    "247s.jpg": "d7c413c36048a714e2a0adffcef954c65edcd5d45487922ccccd98a058294718",
+    "263s.jpg": "3dc0eb8667f8c3aaa526e21a3a7c767a3c2c56b9a0acb0f02bec776613a9da2f"
+  },
+  "max_completion_tokens": 2000
+}

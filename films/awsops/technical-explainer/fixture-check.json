@@ -1,0 +1,8 @@
+{
+  "kind": "OFFLINE_PUBLIC_FIXTURE_CHECK",
+  "provenance": "IMPORTED_ASSERTION",
+  "realWrites": 0,
+  "unknownFieldRejected": true,
+  "scopeMatches": true,
+  "changedRevisionMatches": false
+}

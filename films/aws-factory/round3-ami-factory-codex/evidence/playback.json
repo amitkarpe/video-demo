@@ -1,0 +1,24 @@
+{
+  "checked_at_sgt": "2026-11-08T18:27:35+08:00",
+  "video_sha256": "3e01ae8dd0e64708040999912d97f043f25235f0db1d78bb0099823bb38e8953",
+  "browser": "ChatGPT in-app browser",
+  "currentTime": 268,
+  "duration": 268,
+  "paused": true,
+  "ended": true,
+  "readyState": 4,
+  "videoWidth": 1920,
+  "videoHeight": 1080,
+  "muted": false,
+  "volume": 1,
+  "error": null,
+  "played": [
+    [
+      0,
+      268
+    ]
+  ],
+  "playback_rate": 1,
+  "audible_review": "NOT_VERIFIED",
+  "observation": "Observed complete continuous playback through the final file; separate user-facing player opened at start."
+}

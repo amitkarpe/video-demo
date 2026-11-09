@@ -1,0 +1,8 @@
+{
+  "source": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+  "archive_sha256": "d2d166c453526471749d520e0db022c459abef759d2946cf2dd1d1c992dc6526",
+  "files": {
+    "ec2.svg": "5a7a0cef7a9f44ccdd544564ce9076abec3024090be0d6454504c49d149ce9ec",
+    "s3.svg": "b92c5101cc6565dd12df37655802279f8fba0c719279f62f93106d26750b36c6"
+  }
+}

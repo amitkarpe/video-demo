@@ -1,0 +1,54 @@
+1
+00:00:00,600 --> 00:00:04,025
+No public IPv4. No NAT. No internet gateway.
+
+2
+00:00:04,275 --> 00:00:07,075
+Yet this private EC2 instance can reach S3.
+
+3
+00:00:07,555 --> 00:00:11,942
+First, DNS resolves the S3 name to S3 service
+IP addresses.
+
+4
+00:00:12,192 --> 00:00:14,292
+The subnet route table looks for a match.
+
+5
+00:00:14,542 --> 00:00:18,992
+The destination matches the regional, AWS-
+managed S3 prefix list.
+
+6
+00:00:19,242 --> 00:00:21,618
+That route targets a gateway endpoint.
+
+7
+00:00:22,098 --> 00:00:26,360
+Follow the packet. Same-Region S3. Entirely on
+the AWS network.
+
+8
+00:00:26,610 --> 00:00:29,760
+No interface ENI. No private endpoint IP. No
+NAT.
+
+9
+00:00:30,240 --> 00:00:32,002
+But a path is not permission.
+
+10
+00:00:32,252 --> 00:00:35,790
+Security groups and network ACLs must allow the
+traffic.
+
+11
+00:00:36,040 --> 00:00:40,790
+IAM, the endpoint policy, and the bucket policy
+still govern object access.
+
+12
+00:00:41,270 --> 00:00:44,145
+The route changed. The permissions didn't
+disappear.

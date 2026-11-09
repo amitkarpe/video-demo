@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920,height=1080">
+<title>NO NAT. STILL S3. — S3 gateway endpoint explainer (ILLUSTRATIVE)</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+:root{
+  --ink:#060914; --ink2:#0b1024; --glass:#0f1630cc; --line:#2a3566; --text:#eef1ff; --dim:#9aa5cf; --faint:#5d6797;
+  --vpc:#8c4fff; --subnet:#00a4a6; --mint:#3df5c8; --cyan:#4cc9ff; --amber:#ffc24b; --coral:#ff5c7a;
+  --sans:"Inter","Helvetica Neue",Arial,sans-serif; --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;background:var(--ink);overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;background:var(--ink);font-family:var(--sans);color:var(--text)}
+.abs{position:absolute}
+#bg{position:absolute;left:-480px;top:-270px;width:2880px;height:1620px;
+  background:
+   radial-gradient(1100px 700px at 50% 45%, #18205099 0%, #06091400 70%),
+   radial-gradient(circle at 1px 1px, #2b3570 1.2px, transparent 1.6px) 0 0/36px 36px;}
+#vignette{position:absolute;inset:0;background:radial-gradient(1300px 820px at 50% 46%, transparent 55%, #000000c0 100%);pointer-events:none}
+#world{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+.lbl{position:absolute;font:600 22px var(--sans);color:var(--dim);white-space:nowrap}
+.mono{font-family:var(--mono)}
+.chip{position:absolute;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#eceaff;box-shadow:0 0 0 3px #8c4fff55,0 10px 30px #0008}
+.chip img{width:70%;height:70%}
+.svc img{display:block}
+.badge{position:absolute;padding:9px 18px;border-radius:12px;font:700 24px var(--mono);letter-spacing:1px;white-space:nowrap;background:#1a0d17ee;border:2px solid var(--coral);color:#ffd2db}
+.ok{background:#07211cee;border-color:var(--mint);color:#c9fff0}
+.card{position:absolute;padding:14px 20px;border-radius:14px;background:#0d1430ee;border:2px solid var(--line);white-space:nowrap}
+.card .t{font:800 26px var(--sans);letter-spacing:.5px;color:var(--text)}
+.card .s{font:500 22px var(--mono);color:var(--dim);margin-top:4px}
+.tick{color:var(--mint);font-weight:900}
+.cross{color:var(--coral);font-weight:900}
+.notc .t{font-size:30px!important}.notc .s{font-size:25px}
+/* HUD */
+#hud{position:absolute;inset:0;pointer-events:none}
+#tag{position:absolute;left:34px;top:28px;padding:9px 18px;border-radius:999px;border:2px solid var(--amber);background:#1d1505d9;color:var(--amber);font:800 21px var(--mono);letter-spacing:2px}
+.chap{position:absolute;right:34px;top:28px;padding:9px 18px;border-radius:999px;border:2px solid var(--line);background:#0b1024d9;color:var(--text);font:800 21px var(--mono);letter-spacing:3px;opacity:0}
+#aitag{position:absolute;right:34px;top:84px;padding:6px 14px;border-radius:999px;border:2px solid #3a4475;background:#0b1024d9;color:var(--dim);font:700 18px var(--mono);letter-spacing:2px}
+.caption{position:absolute;left:50%;bottom:40px;transform:translateX(-50%);max-width:1560px;padding:12px 30px;border-radius:14px;background:#04060fd9;color:#fff;font:600 40px/1.25 var(--sans);text-align:center;letter-spacing:.2px}
+/* title */
+#title{position:absolute;left:0;top:0;width:1920px;height:1080px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(900px 500px at 50% 50%, #121a42 0%, #060914 75%)}
+#title .l1,#title .l2{font:900 168px/1 var(--sans);letter-spacing:-3px}
+#title .l1{color:#fff}
+#title .l2{color:var(--mint);text-shadow:0 0 60px #3df5c855}
+#title .sub{margin-top:30px;font:700 26px var(--mono);color:var(--dim);letter-spacing:6px}
+/* route table overlay */
+#rt{position:absolute;left:250px;top:150px;width:1420px;height:620px;border-radius:26px;background:#0b1129f4;border:2px solid #3b4a8c;box-shadow:0 40px 120px #000c,0 0 0 1px #000;transform-origin:50% 50%;opacity:0}
+#rt .hdr{position:absolute;left:44px;top:30px;font:800 30px var(--sans);color:#fff}
+#rt .hdr span{font:600 22px var(--mono);color:var(--dim);margin-left:14px}
+#rt .colh{position:absolute;top:96px;font:800 22px var(--mono);letter-spacing:4px;color:var(--faint)}
+.row{position:absolute;left:30px;width:1360px;height:110px;border-radius:16px}
+.row .d,.row .g{position:absolute;top:18px;font:700 38px var(--mono);color:#fff}
+.row .d{left:290px}.row .g{left:860px}
+.row .ds,.row .gs{position:absolute;top:66px;font:500 24px var(--mono);color:var(--dim)}
+.row .ds{left:290px}.row .gs{left:860px}
+#r1{top:140px;background:#121a3a}
+#r2{top:268px;background:#121a3a}
+#r3{top:396px;border:2px dashed #5a3346;background:transparent}
+#r3 .d,#r3 .g{color:#8e6676}
+#r2bar{position:absolute;left:30px;top:268px;width:1360px;height:110px;border-radius:16px;background:linear-gradient(90deg,#3df5c822,#3df5c855);border:2px solid var(--mint);transform-origin:0 50%;opacity:0}
+#dcell{position:absolute;left:304px;top:268px;width:540px;height:110px;border-radius:14px;border:3px solid var(--amber);opacity:0}
+#tcell{position:absolute;left:876px;top:268px;width:500px;height:110px;border-radius:14px;border:3px solid var(--mint);opacity:0}
+#probe{position:absolute;left:40px;top:170px;padding:8px 12px;border-radius:10px;background:#3df5c8;color:#05261d;font:800 26px var(--mono);white-space:nowrap}
+#fan{position:absolute;left:320px;top:520px;display:flex;gap:14px;opacity:0}
+#fan div{padding:8px 14px;border-radius:10px;border:2px solid #7a6431;background:#211a08;color:#ffe2a0;font:700 24px var(--mono)}
+#fanNote{position:absolute;left:320px;top:576px;font:600 24px var(--mono);color:var(--amber);opacity:0}
+/* payoff */
+#pay{position:absolute;left:0;top:0;width:1920px;height:1080px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding-bottom:120px}
+#pay .a{font:900 96px/1.05 var(--sans);color:var(--mint);opacity:0;text-shadow:0 0 50px #3df5c844}
+#pay .b{font:900 96px/1.05 var(--sans);color:var(--amber);opacity:0;text-shadow:0 0 50px #ffc24b44}
+#dim{position:absolute;inset:0;background:#05070fe6;opacity:0}
+#end{position:absolute;left:0;bottom:150px;width:1920px;text-align:center;opacity:0}
+#end .t{font:900 64px var(--sans);letter-spacing:-1px}
+#end .t b{color:var(--mint)}
+#end .src{margin-top:14px;font:600 22px var(--mono);color:var(--dim)}
+#credit{position:absolute;left:0;bottom:16px;width:1920px;text-align:center;font:500 17px var(--sans);color:#8c96c2;opacity:0}
+#flash{position:absolute;inset:0;background:#c8fff0;opacity:0;mix-blend-mode:screen}
+#rewind{position:absolute;left:50%;top:150px;transform:translateX(-50%);padding:10px 26px;border-radius:12px;background:#ffffff14;border:2px solid #ffffff55;font:900 34px var(--mono);letter-spacing:6px;color:#fff;opacity:0}
+#scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,#ffffff09 0 2px,transparent 2px 6px);opacity:0}
+#fade{position:absolute;inset:0;background:#000;opacity:1}
+</style>
+</head>
+<body>
+<div id="stage" class="clip" data-composition-id="main" data-start="0" data-duration="58.315" data-width="1920" data-height="1080" data-track-index="0">
+  <div id="bg" data-layout-ignore></div>
+
+  <!-- ===================== WORLD (camera moves this layer) ===================== -->
+  <div id="world" data-layout-allow-overflow>
+    <svg class="abs" style="left:0;top:0;overflow:visible" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs>
+        <linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#3df5c8"/><stop offset="1" stop-color="#4cc9ff"/></linearGradient>
+        <linearGradient id="netg" x1="0" x2="1"><stop offset="0" stop-color="#4cc9ff" stop-opacity=".0"/><stop offset=".15" stop-color="#4cc9ff" stop-opacity=".22"/><stop offset=".85" stop-color="#4cc9ff" stop-opacity=".22"/><stop offset="1" stop-color="#4cc9ff" stop-opacity="0"/></linearGradient>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <!-- Region -->
+      <rect x="60" y="110" width="1800" height="830" rx="28" fill="none" stroke="#33407a" stroke-width="2.5" stroke-dasharray="10 10"/>
+      <!-- AWS network band (outside the VPC, inside the Region) -->
+      <rect id="netband" x="1095" y="470" width="470" height="80" rx="40" fill="url(#netg)"/>
+      <!-- VPC -->
+      <rect id="vpcbox" x="110" y="170" width="985" height="720" rx="24" fill="#8c4fff0d" stroke="#8c4fff" stroke-width="3"/>
+      <!-- Private subnet -->
+      <rect id="subnet" x="160" y="290" width="640" height="560" rx="18" fill="#00a4a60f" stroke="#00a4a6" stroke-width="3"/>
+      <!-- NACL gate on subnet edge -->
+      <g id="nacl" opacity="0">
+        <rect x="788" y="455" width="24" height="110" rx="6" fill="#0b1024" stroke="#3df5c8" stroke-width="3"/>
+        <line x1="800" y1="462" x2="800" y2="558" stroke="#3df5c8" stroke-width="3" stroke-dasharray="6 6"/>
+      </g>
+      <!-- the route (drawn on in s08) -->
+      <line id="routeGlow" x1="400" y1="510" x2="1600" y2="510" stroke="url(#beam)" stroke-width="22" stroke-linecap="round" opacity="0" filter="url(#glow)"/>
+      <line id="route" x1="400" y1="510" x2="1600" y2="510" stroke="url(#beam)" stroke-width="8" stroke-linecap="round" stroke-dasharray="1200" stroke-dashoffset="1200"/>
+      <!-- hook streak (unexplained path) -->
+      <line id="streak" x1="400" y1="510" x2="1600" y2="510" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-dasharray="1200" stroke-dashoffset="1200" opacity=".75"/>
+      <!-- DNS query path -->
+      <path id="dnsPath" d="M 395 560 C 520 700, 720 760, 905 760" fill="none" stroke="#c9b6ff" stroke-width="4" stroke-dasharray="10 10" opacity="0"/>
+      <!-- SG ring -->
+      <circle id="sgRing" cx="330" cy="510" r="84" fill="none" stroke="#3df5c8" stroke-width="4" stroke-dasharray="14 10" opacity="0"/>
+      <!-- endpoint policy ring -->
+      <circle id="epRing" cx="1095" cy="510" r="86" fill="none" stroke="#3df5c8" stroke-width="4" stroke-dasharray="14 10" opacity="0"/>
+      <!-- S3 gate (closed shutter) -->
+      <g id="shutter" opacity="0">
+        <rect x="1520" y="400" width="26" height="220" rx="8" fill="#2a0f19" stroke="#ff5c7a" stroke-width="3"/>
+      </g>
+      <!-- strike lines -->
+      <line id="stIgw" x1="585" y1="130" x2="695" y2="215" stroke="#ff5c7a" stroke-width="7" stroke-linecap="round" stroke-dasharray="140" stroke-dashoffset="140"/>
+      <line id="stNat" x1="870" y1="300" x2="1000" y2="400" stroke="#ff5c7a" stroke-width="7" stroke-linecap="round" stroke-dasharray="165" stroke-dashoffset="165"/>
+      <line id="stEni" x1="462" y1="384" x2="790" y2="472" stroke="#ff5c7a" stroke-width="7" stroke-linecap="round" stroke-dasharray="345" stroke-dashoffset="345"/>
+    </svg>
+
+    <!-- labels: region / vpc / subnet -->
+    <div class="lbl mono" style="left:90px;top:122px;font-size:20px;color:#6f7bb3" data-layout-ignore>AWS Region · ap-southeast-1</div>
+    <div class="lbl" style="left:132px;top:184px;color:#c6a8ff;display:flex;align-items:center;gap:10px"><img src="assets/aws-icons/Virtual-private-cloud-VPC_32.svg" width="34" height="34" alt="">VPC <span class="mono" style="color:#9d89d6">10.0.0.0/16</span></div>
+    <div class="lbl" style="left:178px;top:304px;color:#66e0e1;display:flex;align-items:center;gap:10px"><img src="assets/aws-icons/Private-subnet_32.svg" width="32" height="32" alt="">Private subnet <span class="mono" style="color:#5cb7b8">10.0.1.0/24</span></div>
+
+    <!-- EC2 -->
+    <div id="ec2" class="svc abs" style="left:270px;top:450px"><img src="assets/aws-icons/Arch_Amazon-EC2_64.svg" width="120" height="120" alt="Amazon EC2"></div>
+    <div id="ec2lab" class="lbl" style="left:205px;top:600px;text-align:center;width:250px;color:#fff;font-weight:800">EC2 instance<div class="mono" style="font-size:19px;color:var(--dim);font-weight:500">10.0.1.25 · private</div></div>
+
+    <!-- hook badges -->
+    <div id="bIp"  class="badge" style="left:430px;top:372px;opacity:0">✕ PUBLIC IPv4: none</div>
+    <div id="bNat" class="badge" style="left:430px;top:432px;opacity:0">✕ NAT: none</div>
+    <div id="bIgw" class="badge" style="left:430px;top:492px;opacity:0">✕ INTERNET GATEWAY: none</div>
+
+    <!-- ghosts: IGW on VPC edge, NAT where a public subnet would be -->
+    <div id="ghIgw" class="abs" style="left:600px;top:132px;opacity:.22"><div class="chip" style="position:relative;width:76px;height:76px"><img src="assets/aws-icons/Res_Amazon-VPC_Internet-Gateway_48.svg" alt="internet gateway (absent)"></div></div>
+    <div id="ghNat" class="abs" style="left:890px;top:300px;opacity:.22"><div class="chip" style="position:relative;width:88px;height:88px"><img src="assets/aws-icons/Res_Amazon-VPC_NAT-Gateway_48.svg" alt="NAT gateway (absent)"></div></div>
+    <div id="ghNatL" class="lbl mono" style="left:850px;top:398px;font-size:19px;color:#ff8ea3;opacity:0">no NAT device</div>
+    <div id="ghIgwL" class="lbl mono" style="left:700px;top:150px;font-size:19px;color:#ff8ea3;opacity:0">no internet gateway</div>
+
+    <!-- DNS resolver -->
+    <div id="dns" class="abs" style="left:905px;top:722px;opacity:.55"><div class="chip" style="position:relative;width:80px;height:80px"><img src="assets/aws-icons/Res_Amazon-Route-53_Resolver_48.svg" alt="Route 53 Resolver"></div></div>
+    <div id="dnsL" data-layout-allow-overlap class="lbl" style="left:835px;top:808px;width:240px;text-align:center;font-size:19px;opacity:.55">Amazon DNS<div class="mono" style="font-size:17px;color:var(--dim)">Route 53 Resolver</div></div>
+    <div id="qBubble" class="card" style="left:440px;top:652px;opacity:0;border-color:#8c6cff"><div class="t" style="font-size:20px;color:#cdbcff">DNS QUERY</div><div class="s" style="color:#fff">my-bucket.s3.ap-southeast-1.amazonaws.com ?</div></div>
+    <div id="aBubble" class="card" style="left:440px;top:652px;opacity:0;border-color:var(--mint)"><div class="t" style="font-size:20px;color:var(--mint)">ANSWER · A record</div><div class="s" style="color:#fff">52.219.·.· <span style="color:var(--dim)">— an Amazon S3 public IP</span></div></div>
+
+    <!-- route table chip (expands into #rt) -->
+    <div id="rtbChip" class="card" style="left:182px;top:728px;padding:10px 14px;border-color:#3b4a8c">
+      <div class="t" style="font-size:19px">Route table</div>
+      <svg width="190" height="64" viewBox="0 0 190 64" style="display:block;margin-top:6px"><rect x="0" y="2" width="190" height="16" rx="4" fill="#1d2652"/><rect x="0" y="24" width="190" height="16" rx="4" fill="#1d2652"/><rect x="0" y="46" width="190" height="16" rx="4" fill="#1d2652" opacity=".4"/></svg>
+    </div>
+
+    <!-- interface-endpoint ghost (what it is NOT) -->
+    <div id="ghEni" class="abs" style="left:440px;top:392px;opacity:0;display:flex;align-items:center;gap:12px">
+      <div class="chip" style="position:relative;width:70px;height:70px;opacity:.75"><img src="assets/aws-icons/Res_Amazon-VPC_Elastic-Network-Interface_48.svg" alt="network interface"></div>
+      <div class="mono" style="font:600 20px var(--mono);color:#c8cff3;line-height:1.3">interface endpoint ENI<br>10.0.1.57</div>
+    </div>
+
+    <!-- gateway endpoint on the VPC edge -->
+    <div id="gwe" class="abs" style="left:1045px;top:460px"><div class="chip" style="position:relative;width:100px;height:100px;box-shadow:0 0 0 4px #3df5c866,0 0 40px #3df5c844"><img src="assets/aws-icons/Res_Amazon-VPC_Endpoints_48.svg" alt="VPC endpoint"></div></div>
+    <div id="gweL" class="lbl" style="left:960px;top:580px;width:270px;text-align:center;color:#fff;font-weight:800">S3 gateway endpoint<div class="mono" style="font-size:18px;color:var(--dim);font-weight:500">vpce-0a1b2c3d</div></div>
+    <div id="rtgt" class="card ok" style="left:952px;top:346px;padding:7px 14px;opacity:0;background:#07211cee;border-color:var(--mint)"><div class="s" style="margin:0;color:#c9fff0">pl-0123abcd → vpce-0a1b2c3d</div></div>
+
+    <div id="netL" class="lbl mono" style="left:1205px;top:430px;color:#9fe6ff;font-size:21px;opacity:0;letter-spacing:3px">AWS NETWORK</div>
+
+    <!-- S3 -->
+    <div id="s3" class="svc abs" style="left:1585px;top:440px"><img src="assets/aws-icons/Arch_Amazon-Simple-Storage-Service_64.svg" width="140" height="140" alt="Amazon S3"></div>
+    <div id="s3L" class="lbl" style="left:1530px;top:590px;width:250px;text-align:center;color:#fff;font-weight:800">Amazon S3<div class="mono" style="font-size:18px;color:var(--dim);font-weight:500">outside your VPC</div></div>
+    <div id="bucket" class="abs" style="left:1625px;top:662px;display:flex;align-items:center;gap:8px;opacity:0"><img src="assets/aws-icons/Res_Amazon-Simple-Storage-Service_Bucket_48.svg" width="44" height="44" alt="bucket"><span class="mono" style="font:600 19px var(--mono);color:#cfe7a3">my-bucket</span></div>
+
+    <!-- permission gates -->
+    <div id="gSg" class="card ok" style="left:176px;top:352px;opacity:0"><div class="t"><span class="tick">✓</span> Security group</div><div class="s">out: TCP 443 → S3 prefix list</div></div>
+    <div id="gNacl" class="card ok" style="left:618px;top:352px;opacity:0"><div class="t"><span class="tick">✓</span> Network ACL</div><div class="s">443 to S3 ranges + return</div></div>
+    <div id="gEp" class="card ok" style="left:960px;top:642px;opacity:0"><div class="t"><span class="tick">✓</span> Endpoint policy</div><div class="s">default: full access</div></div>
+    <div id="gIam" class="card ok" style="left:1270px;top:212px;opacity:0;display:flex;gap:14px;align-items:center"><img src="assets/aws-icons/Arch_AWS-Identity-and-Access-Management_64.svg" width="52" height="52" alt="IAM"><div><div class="t"><span class="tick">✓</span> IAM policy</div><div class="s">role may s3:GetObject</div></div></div>
+    <div id="gBp" class="card ok" style="left:1420px;top:300px;opacity:0"><div class="t"><span class="tick">✓</span> Bucket policy</div><div class="s">no Deny for this request</div></div>
+    <div id="denyNote" class="card" style="left:1410px;top:730px;opacity:0;border-color:var(--coral);background:#1a0d17ee"><div class="t" style="color:#ffb3c1;font-size:21px">any explicit Deny</div><div class="s" style="color:#ffd2db">→ 403 AccessDenied</div></div>
+    <div id="notPerm" class="card" style="left:1160px;top:250px;opacity:0;border-color:var(--coral);background:#1a0d17ee"><div class="t" style="color:#ffd2db;font-size:30px">route ≠ permission</div></div>
+
+    <!-- "what it is not" plaque -->
+    <div id="notCard" class="card notc" style="left:1125px;top:128px;opacity:0;border-color:#5a6ab0">
+      <div class="t" style="font-size:24px">Gateway endpoint</div>
+      <div class="s" style="color:#ffb3c1"><span class="cross">✕</span> not an interface endpoint</div>
+      <div class="s" style="color:#ffb3c1;padding-left:28px">no ENI, no private IP</div>
+      <div class="s" style="color:#ffb3c1"><span class="cross">✕</span> not a NAT</div>
+      <div class="s" style="color:#c9fff0"><span class="tick">✓</span> a route-table target</div>
+      <div class="s" style="font-size:21px;color:var(--dim);margin-top:8px">same Region · not usable from on-premises,<br>other-Region peering or a transit gateway</div>
+    </div>
+
+    <!-- packets -->
+    <div id="pkt" class="abs" style="left:0;top:0;opacity:0" data-layout-ignore>
+      <div style="position:absolute;left:-15px;top:-15px;width:30px;height:30px;border-radius:50%;background:#eafff9;box-shadow:0 0 0 6px #3df5c855,0 0 34px 10px #3df5c8aa"></div>
+      <div id="pktL" style="position:absolute;left:18px;top:-58px;width:260px;text-align:left;font:800 19px var(--mono);color:#c9fff0;white-space:nowrap">GET report.csv</div>
+    </div>
+    <div id="pkt2" class="abs" style="left:0;top:0;opacity:0" data-layout-ignore>
+      <div style="position:absolute;left:-12px;top:-12px;width:24px;height:24px;border-radius:50%;background:#fff3d6;box-shadow:0 0 0 5px #ffc24b55,0 0 28px 8px #ffc24baa"></div>
+      <div style="position:absolute;left:-60px;top:22px;width:120px;text-align:center;font:800 19px var(--mono);color:#ffe2a0;white-space:nowrap">200 OK</div>
+    </div>
+    <div id="dnsDot" class="abs" style="left:0;top:0;opacity:0" data-layout-ignore><div style="position:absolute;left:-10px;top:-10px;width:20px;height:20px;border-radius:50%;background:#e6dcff;box-shadow:0 0 22px 6px #8c6cffcc"></div></div>
+    <div id="q" class="abs" style="left:880px;top:420px;font:900 150px var(--sans);color:#ffffff;opacity:0;text-shadow:0 0 40px #4cc9ff88" data-layout-ignore>?</div>
+  </div>
+  <div id="vignette" data-layout-ignore></div>
+
+  <!-- ===================== ROUTE TABLE OVERLAY ===================== -->
+  <div id="rt">
+    <div class="hdr">Route table <span>private subnet · illustrative IDs</span></div>
+    <div class="colh" style="left:320px">DESTINATION</div>
+    <div class="colh" style="left:890px">TARGET</div>
+    <div class="row" id="r1"><div class="d">10.0.0.0/16</div><div class="g">local</div></div>
+    <div class="row" id="r2"><div class="d">pl-0123abcd</div><div class="ds">com.amazonaws.ap-southeast-1.s3</div><div class="g">vpce-0a1b2c3d</div><div class="gs">S3 gateway endpoint</div></div>
+    <div class="row" id="r3"><div class="d">0.0.0.0/0</div><div class="g">— none</div><div class="gs" style="color:#8e6676">no NAT · no internet gateway</div></div>
+    <div id="r2bar"></div>
+    <div id="dcell"></div>
+    <div id="tcell"></div>
+    <div id="probe">dst 52.219.·.·</div>
+    <div id="m1" class="abs" style="left:1320px;top:168px;font:900 46px var(--sans);color:var(--coral);opacity:0">✕</div>
+    <div id="m2" class="abs" style="left:1320px;top:296px;font:900 46px var(--sans);color:var(--mint);opacity:0">✓</div>
+    <div id="fan"><div>52.219.·.·/··</div><div>3.5.·.·/··</div><div>16.12.·.·/··</div><div>…</div></div>
+    <div id="fanNote">AWS-managed prefix list · S3 ranges for this Region</div>
+  </div>
+
+  <!-- ===================== PAYOFF ===================== -->
+  <div id="dim" data-layout-ignore></div>
+  <div id="pay"><div class="a" data-layout-allow-overlap>The route changed.</div><div class="b" data-layout-allow-overlap>The permissions didn't disappear.</div></div>
+  <div id="end">
+    <div class="t">NO NAT. <b>STILL S3.</b></div>
+    <div class="src">Sources: AWS PrivateLink Guide — "Gateway endpoints" · "Gateway endpoints for Amazon S3"</div>
+  </div>
+  <div id="credit" data-layout-ignore>ILLUSTRATIVE / SYNTHETIC — no live AWS environment · Narration: AI-generated voice (OpenAI gpt-4o-mini-tts, cedar) · AWS Architecture Icons, unmodified</div>
+
+  <!-- ===================== HUD ===================== -->
+  <div id="hud">
+    <div id="tag">ILLUSTRATIVE / SYNTHETIC</div>
+    <div id="ch1" class="chap">01 · THE PUZZLE</div>
+    <div id="ch2" class="chap">02 · DNS</div>
+    <div id="ch3" class="chap">03 · THE ROUTE</div>
+    <div id="ch4" class="chap">04 · WHAT IT ISN'T</div>
+    <div id="ch5" class="chap">05 · PERMISSIONS</div>
+    <div id="ch6" class="chap">06 · TAKEAWAY</div>
+    <div id="aitag">AI-GENERATED VOICE</div>
+  </div>
+  <div id="scan" data-layout-ignore></div>
+  <div id="rewind">◀◀ REWIND</div>
+  <div id="flash" data-layout-ignore></div>
+
+  <div id="cap-s01" class="clip caption" data-start="1.370" data-duration="3.147" data-track-index="10">This EC2 instance has no public IP.</div>
+<div id="cap-s02" class="clip caption" data-start="4.597" data-duration="2.366" data-track-index="10">No NAT. No internet gateway.</div>
+<div id="cap-s03" class="clip caption" data-start="7.043" data-duration="3.180" data-track-index="10">Yet it still reads from Amazon S3.</div>
+<div id="cap-s04" class="clip caption" data-start="10.373" data-duration="1.639" data-track-index="10">So what's the path?</div>
+<div id="cap-s05" class="clip caption" data-start="12.212" data-duration="4.787" data-track-index="10">DNS first: the bucket name resolves to Amazon S3's public IP addresses.</div>
+<div id="cap-s06" class="clip caption" data-start="17.099" data-duration="2.044" data-track-index="10">Then the route table decides.</div>
+<div id="cap-s07" class="clip caption" data-start="19.223" data-duration="7.135" data-track-index="10">One route does it. Destination: the AWS-managed S3 prefix list for this Region. Target: the gateway endpoint.</div>
+<div id="cap-s08" class="clip caption" data-start="26.438" data-duration="4.423" data-track-index="10">Matching traffic takes that route and stays on the AWS network.</div>
+<div id="cap-s09" class="clip caption" data-start="31.111" data-duration="5.727" data-track-index="10">It's not an interface endpoint: no network interface, no private IP. Not a NAT either.</div>
+<div id="cap-s10" class="clip caption" data-start="36.918" data-duration="2.004" data-track-index="10">Just a route target.</div>
+<div id="cap-s11" class="clip caption" data-start="39.272" data-duration="2.720" data-track-index="10">But a route is not a permission.</div>
+<div id="cap-s12" class="clip caption" data-start="42.072" data-duration="4.654" data-track-index="10">Security groups and network ACLs must still allow the traffic.</div>
+<div id="cap-s13" class="clip caption" data-start="46.806" data-duration="5.122" data-track-index="10">IAM, the endpoint policy and the bucket policy still decide access.</div>
+<div id="cap-s14" class="clip caption" data-start="52.328" data-duration="2.957" data-track-index="10">The route changed. The permissions didn't disappear.</div>
+
+  <div id="title"><div class="l1">NO NAT.</div><div class="l2">STILL S3.</div><div class="sub">S3 GATEWAY ENDPOINT</div></div>
+  <div id="fade" data-layout-ignore></div>
+</div>
+<audio id="mix" class="clip" data-start="0" data-duration="58.315" data-track-index="20" src="assets/mix.wav"></audio>
+
+<script>
+const C = {"s01": {"s": 1.4, "e": 4.427, "d": 3.027}, "s02": {"s": 4.627, "e": 6.773, "d": 2.146}, "s03": {"s": 7.073, "e": 10.003, "d": 2.93}, "s04": {"s": 10.403, "e": 11.792, "d": 1.389}, "s05": {"s": 12.242, "e": 16.779, "d": 4.537}, "s06": {"s": 17.129, "e": 19.003, "d": 1.874}, "s07": {"s": 19.253, "e": 26.168, "d": 6.915}, "s08": {"s": 26.468, "e": 30.641, "d": 4.173}, "s09": {"s": 31.141, "e": 36.798, "d": 5.657}, "s10": {"s": 36.948, "e": 38.702, "d": 1.754}, "s11": {"s": 39.302, "e": 41.802, "d": 2.5}, "s12": {"s": 42.102, "e": 46.636, "d": 4.534}, "s13": {"s": 46.836, "e": 51.708, "d": 4.872}, "s14": {"s": 52.358, "e": 55.315, "d": 2.957}};
+const S = id => C[id].s, E = id => C[id].e, TOTAL = 58.315;
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({paused:true, defaults:{ease:"power2.inOut"}});
+
+// camera: put world point (cx,cy) at screen (960,500) with zoom z
+const cam = (cx, cy, z, r=0) => ({x: 960 - cx*z, y: 500 - cy*z, scale: z, rotation: r});
+const bgc = (cx, cy, z) => ({x: -(cx-960)*0.25, y: -(cy-500)*0.25, scale: 1 + (z-1)*0.12});
+function move(t, cx, cy, z, d=1.2, ease="power3.inOut", r=0){
+  tl.to("#world", Object.assign(cam(cx,cy,z,r), {duration:d, ease}), t);
+  tl.to("#bg", Object.assign(bgc(cx,cy,z), {duration:d, ease}), t);
+}
+const fin  = (sel, t, d=.45) => tl.fromTo(sel, {opacity:0, y:14}, {opacity:1, y:0, duration:d, ease:"power2.out"}, t);
+const fout = (sel, t, d=.35) => tl.to(sel, {opacity:0, duration:d, ease:"power1.in"}, t);
+const pop  = (sel, t) => tl.fromTo(sel, {opacity:0, scale:.6}, {opacity:1, scale:1, duration:.42, ease:"back.out(2.2)"}, t);
+const draw = (sel, t, d=.45) => tl.to(sel, {strokeDashoffset:0, duration:d, ease:"power2.out"}, t);
+function chap(id, t){ tl.to(".chap", {opacity:0, duration:.25}, t); tl.fromTo(id, {opacity:0, x:20}, {opacity:1, x:0, duration:.45, ease:"power2.out"}, t+.2); }
+// packet route helper (world coords)
+const X0 = 400, XG = 1095, XS = 1600, Y = 510;
+
+gsap.set("#world", cam(330, 510, 2.35));
+gsap.set("#bg", bgc(330, 510, 2.35));
+gsap.set("#pkt", {x:X0, y:Y}); gsap.set("#pkt2", {x:XS, y:Y}); gsap.set("#dnsDot", {x:395, y:560});
+gsap.set("#rt", {scale:.16});
+gsap.set(["#tag","#aitag"], {opacity:0});
+
+/* ---------- 0. title ---------- */
+tl.to("#fade", {opacity:0, duration:.5, ease:"power1.out"}, 0.0);
+tl.from("#title .l1", {y:80, opacity:0, duration:.55, ease:"power3.out"}, 0.1);
+tl.from("#title .l2", {y:80, opacity:0, duration:.55, ease:"power3.out"}, 0.3);
+tl.from("#title .sub", {opacity:0, duration:.5}, 0.55);
+tl.to("#title", {scale:1.6, opacity:0, duration:.55, ease:"power2.in"}, S("s01")-0.35);
+tl.to(["#tag","#aitag"], {opacity:1, duration:.5}, S("s01"));
+chap("#ch1", S("s01")+0.1);
+
+/* ---------- 1. hook ---------- */
+move(S("s01")-0.3, 360, 500, 2.15, 3.2, "power1.inOut");
+pop("#bIp", S("s01")+1.5);
+// s02: pull back, reveal what is missing
+move(S("s02")-0.1, 600, 470, 1.4, 1.3, "power3.inOut", -1.2);
+pop("#bNat", S("s02")+0.15);
+pop("#bIgw", S("s02")+0.85);
+draw("#stNat", S("s02")+0.3); fin("#ghNatL", S("s02")+0.4);
+draw("#stIgw", S("s02")+1.0); fin("#ghIgwL", S("s02")+1.1);
+// s03: wide; packet zips out and back (path not explained yet)
+move(S("s03")-0.2, 960, 510, 0.98, 1.1, "power3.inOut", 0);
+tl.to(["#bIp","#bNat","#bIgw"], {opacity:0, duration:.3}, S("s03")-0.2);
+tl.set("#pkt", {opacity:1, x:X0}, S("s03")+0.55);
+draw("#streak", S("s03")+0.55, .9);
+tl.to("#pkt", {x:XS-20, duration:.9, ease:"power2.in"}, S("s03")+0.55);
+tl.fromTo("#s3", {scale:1}, {scale:1.12, duration:.18, yoyo:true, repeat:1, ease:"power1.out"}, S("s03")+1.45);
+tl.set("#pkt", {opacity:0}, S("s03")+1.5);
+tl.set("#pkt2", {opacity:1, x:XS-20}, S("s03")+1.6);
+tl.to("#pkt2", {x:X0+20, duration:1.0, ease:"power2.inOut"}, S("s03")+1.6);
+tl.set("#pkt2", {opacity:0}, S("s03")+2.65);
+// s04: rewind
+tl.to("#scan", {opacity:1, duration:.12}, S("s04")-0.25);
+tl.to("#rewind", {opacity:1, duration:.12}, S("s04")-0.25);
+tl.to("#streak", {strokeDashoffset:1200, duration:.7, ease:"power2.in"}, S("s04")-0.2);
+tl.set("#pkt", {opacity:1, x:XS-20}, S("s04")-0.2);
+tl.to("#pkt", {x:X0, duration:.7, ease:"power2.in"}, S("s04")-0.2);
+tl.to("#scan", {opacity:0, duration:.2}, S("s04")+0.6);
+tl.to("#rewind", {opacity:0, duration:.2}, S("s04")+0.6);
+tl.fromTo("#q", {opacity:0, scale:.5}, {opacity:1, scale:1, duration:.4, ease:"back.out(2)"}, S("s04")+0.45);
+tl.to("#pkt", {opacity:0, duration:.2}, S("s04")+0.6);
+
+/* ---------- 2. DNS ---------- */
+chap("#ch2", S("s05"));
+tl.to("#q", {opacity:0, scale:1.4, duration:.35}, S("s05")-0.1);
+move(S("s05")-0.15, 650, 640, 1.45, 1.1);
+tl.to(["#dns","#dnsL"], {opacity:1, duration:.4}, S("s05")+0.2);
+tl.to("#dnsPath", {opacity:.9, duration:.3}, S("s05")+0.3);
+fin("#qBubble", S("s05")+0.1);
+tl.set("#dnsDot", {opacity:1, x:395, y:560}, S("s05")+0.4);
+tl.to("#dnsDot", {keyframes:[{x:520,y:690},{x:720,y:752},{x:905,y:760}], duration:1.0, ease:"none"}, S("s05")+0.4);
+tl.fromTo("#dns", {scale:1}, {scale:1.15, duration:.16, yoyo:true, repeat:1}, S("s05")+1.4);
+tl.to("#dnsDot", {keyframes:[{x:720,y:752},{x:520,y:690},{x:395,y:560}], duration:.9, ease:"none"}, S("s05")+1.6);
+tl.to("#qBubble", {opacity:0, duration:.25}, S("s05")+2.2);
+fin("#aBubble", S("s05")+2.3);
+tl.set("#dnsDot", {opacity:0}, S("s05")+2.5);
+// the packet is born with that destination
+tl.set("#pktL", {textContent:"dst 52.219.·.·"}, S("s05")+2.6);
+tl.set("#pkt", {x:X0, y:Y}, S("s05")+2.6);
+tl.fromTo("#pkt", {opacity:0, scale:.3}, {opacity:1, scale:1, duration:.4, ease:"back.out(2)"}, S("s05")+2.7);
+
+/* ---------- 3. route table: chip -> full table (transform) ---------- */
+chap("#ch3", S("s06"));
+tl.to(["#aBubble","#dnsPath"], {opacity:0, duration:.3}, S("s06"));
+tl.to(["#dns","#dnsL"], {opacity:.25, duration:.4}, S("s06"));
+move(S("s06")-0.1, 300, 784, 2.9, 1.0, "power3.in");
+tl.to("#rt", {opacity:1, duration:.25}, S("s06")+0.65);
+tl.to("#rt", {scale:1, duration:.75, ease:"power3.out"}, S("s06")+0.65);
+tl.to("#world", {opacity:.06, duration:.6}, S("s06")+0.7);
+tl.fromTo("#probe", {opacity:0, x:-30}, {opacity:1, x:0, duration:.35}, S("s06")+1.3);
+// test row 1 (no match), then row 2 (match)
+tl.to("#m1", {opacity:1, duration:.2}, S("s07")+0.25);
+tl.to("#probe", {y:128, duration:.45, ease:"power2.inOut"}, S("s07")+0.7);
+tl.to("#m1", {opacity:.35, duration:.3}, S("s07")+0.9);
+tl.to("#dcell", {opacity:1, duration:.3}, S("s07")+1.6);
+tl.fromTo("#fan", {opacity:0, y:-20}, {opacity:1, y:0, duration:.45, ease:"power2.out"}, S("s07")+2.0);
+fin("#fanNote", S("s07")+2.4);
+tl.to("#m2", {opacity:1, duration:.2}, S("s07")+3.4);
+tl.to("#tcell", {opacity:1, duration:.3}, S("s07")+E("s07")-S("s07")-1.7);
+tl.fromTo("#tcell", {scale:1}, {scale:1.04, duration:.2, yoyo:true, repeat:1}, S("s07")+E("s07")-S("s07")-1.6);
+
+/* ---------- 3b. the row becomes the road (transform) ---------- */
+tl.to("#r2bar", {opacity:1, duration:.2}, S("s08")-0.15);
+tl.fromTo("#r2bar", {scaleX:1}, {scaleX:1.04, duration:.35, ease:"power2.out"}, S("s08")-0.15);
+tl.to(["#r1","#r3","#fan","#fanNote","#m1","#m2","#probe","#dcell","#tcell",".colh","#rt .hdr"], {opacity:0, duration:.3}, S("s08")+0.1);
+tl.to("#rt", {scaleY:.06, duration:.45, ease:"power3.in"}, S("s08")+0.25);
+tl.to("#rt", {opacity:0, duration:.25}, S("s08")+0.6);
+tl.to("#flash", {opacity:.35, duration:.08, yoyo:true, repeat:1}, S("s08")+0.6);
+tl.to("#world", {opacity:1, duration:.3}, S("s08")+0.5);
+move(S("s08")+0.5, 1000, 510, 0.98, 0.9, "power3.out");
+draw("#route", S("s08")+0.55, 1.1);
+tl.to("#routeGlow", {opacity:.55, duration:.6}, S("s08")+0.8);
+tl.to("#pkt", {x:XG, duration:1.0, ease:"power2.inOut"}, S("s08")+0.9);
+tl.fromTo("#gwe", {scale:1}, {scale:1.15, duration:.16, yoyo:true, repeat:1}, S("s08")+1.85);
+fin("#netL", S("s08")+1.7);
+tl.to("#netband", {opacity:1, duration:.3}, S("s08")+1.7);
+tl.to("#pkt", {x:XS-20, duration:.9, ease:"power2.inOut"}, S("s08")+2.05);
+tl.fromTo("#s3", {scale:1}, {scale:1.12, duration:.16, yoyo:true, repeat:1}, S("s08")+2.9);
+fin("#bucket", S("s08")+2.9);
+tl.set("#pkt", {opacity:0}, S("s08")+3.0);
+
+/* ---------- 4. what it is not ---------- */
+chap("#ch4", S("s09"));
+move(S("s09")-0.2, 900, 480, 1.02, 1.1);
+fin("#ghEni", S("s09")+0.2);
+draw("#stEni", S("s09")+1.5);
+tl.to("#ghEni", {opacity:.55, duration:.4}, S("s09")+2.6);
+fin("#notCard", S("s09")+0.6, .5);
+tl.to(["#ghNat"], {opacity:.6, duration:.3}, S("s09")+3.6);
+tl.fromTo("#stNat", {opacity:.4}, {opacity:1, duration:.2, yoyo:true, repeat:3}, S("s09")+3.7);
+// "just a route target": endpoint docks to its route entry
+move(S("s10")-0.2, 1095, 480, 1.7, 0.9);
+tl.to("#notCard", {opacity:0, duration:.3}, S("s10")-0.2);
+tl.to(["#ghEni","#stEni"], {opacity:0, duration:.3}, S("s10")-0.2);
+pop("#rtgt", S("s10")+0.2);
+tl.fromTo("#gwe", {scale:1}, {scale:.82, duration:.4, ease:"power2.inOut"}, S("s10")+0.2);
+tl.to("#gwe", {scale:1, duration:.4}, S("s10")+1.2);
+
+/* ---------- 5. permissions ---------- */
+chap("#ch5", S("s11"));
+tl.to(["#ghNatL","#ghIgwL"], {opacity:0, duration:.3}, S("s11"));
+move(S("s11")-0.2, 1000, 500, 0.98, 1.0);
+tl.set("#pkt", {x:X0, opacity:1, scale:1}, S("s11")+0.1);
+tl.to("#pkt", {x:1490, duration:1.2, ease:"power2.in"}, S("s11")+0.1);
+tl.fromTo("#shutter", {opacity:0, y:-220}, {opacity:1, y:0, duration:.3, ease:"bounce.out"}, S("s11")+0.9);
+tl.to("#pkt", {x:1470, duration:.25, ease:"power2.out"}, S("s11")+1.3);
+pop("#notPerm", S("s11")+1.35);
+// network layer controls (instance side)
+move(S("s12")-0.15, 520, 520, 1.45, 1.0);
+tl.to("#pkt", {opacity:0, duration:.2}, S("s12")-0.15);
+tl.to("#notPerm", {opacity:0, duration:.3}, S("s12")-0.1);
+tl.to("#sgRing", {opacity:1, duration:.4}, S("s12")+0.3);
+tl.fromTo("#sgRing", {rotation:0, transformOrigin:"50% 50%"}, {rotation:90, duration:4, ease:"none"}, S("s12")+0.3);
+fin("#gSg", S("s12")+0.5);
+tl.to("#nacl", {opacity:1, duration:.4}, S("s12")+1.6);
+fin("#gNacl", S("s12")+1.8);
+// policy controls (endpoint + S3)
+move(S("s13")-0.2, 1330, 470, 1.25, 1.1);
+tl.to("#epRing", {opacity:1, duration:.4}, S("s13")+0.6);
+fin("#gEp", S("s13")+0.9);
+fin("#gIam", S("s13")+0.2);
+fin("#gBp", S("s13")+1.9);
+tl.to("#shutter", {opacity:0, y:-220, duration:.4, ease:"power2.in"}, S("s13")+2.8);
+tl.set("#pkt", {x:XG, opacity:1}, S("s13")+2.9);
+tl.to("#pkt", {x:XS-20, duration:.75, ease:"power2.inOut"}, S("s13")+2.9);
+tl.set("#pkt", {opacity:0}, S("s13")+3.7);
+tl.set("#pkt2", {x:XS-20, opacity:1}, S("s13")+3.75);
+tl.to("#pkt2", {x:XG, duration:.8, ease:"power2.inOut"}, S("s13")+3.75);
+fin("#denyNote", S("s13")+3.3);
+
+/* ---------- 6. payoff ---------- */
+chap("#ch6", S("s14")-0.3);
+move(S("s14")-0.4, 960, 520, 0.9, 1.4);
+tl.to("#dim", {opacity:.82, duration:.6}, S("s14")-0.2);
+tl.to("#world", {opacity:0, duration:.6}, S("s14")-0.2);
+tl.fromTo("#pay .a", {opacity:0, y:30}, {opacity:1, y:0, duration:.5, ease:"power3.out"}, S("s14")+0.05);
+tl.fromTo("#pay .b", {opacity:0, y:30}, {opacity:1, y:0, duration:.5, ease:"power3.out"}, S("s14")+1.25);
+tl.to("#pay", {y:-150, scale:.82, duration:.7, ease:"power2.inOut"}, E("s14")+0.25);
+tl.to("#end", {opacity:1, duration:.6}, E("s14")+0.45);
+tl.to("#credit", {opacity:1, duration:.6}, E("s14")+0.55);
+tl.to("#fade", {opacity:1, duration:.5}, TOTAL-0.5);
+
+window.__timelines.main = tl;
+</script>
+</body>
+</html>

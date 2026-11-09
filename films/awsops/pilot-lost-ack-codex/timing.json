@@ -1,0 +1,65 @@
+{
+  "duration": 45,
+  "cues": [
+    {
+      "text": "This is a simulation. An approved S3 policy request leaves the backend.",
+      "start": 0.65,
+      "duration": 4.75
+    },
+    {
+      "text": "But the reply disappears.",
+      "start": 5.72,
+      "duration": 1.575
+    },
+    {
+      "text": "Did the change fail? Or just the reply?",
+      "start": 7.945,
+      "duration": 2.375
+    },
+    {
+      "text": "Before the call, the durable ledger already records CALLING.",
+      "start": 10.97,
+      "duration": 3.675
+    },
+    {
+      "text": "AWSOps keeps that uncertainty. It does not blindly send another write.",
+      "start": 14.965,
+      "duration": 4.575
+    },
+    {
+      "text": "It reconciles the same run, using read-only provider checks.",
+      "start": 19.86,
+      "duration": 3.625
+    },
+    {
+      "text": "Here, the observed policy matches.",
+      "start": 23.805,
+      "duration": 1.988
+    },
+    {
+      "text": "But a matching policy is not fresh Config compliance.",
+      "start": 26.442,
+      "duration": 3.312
+    },
+    {
+      "text": "Execution stays UNKNOWN. Compliance stays UNKNOWN.",
+      "start": 30.075,
+      "duration": 3.038
+    },
+    {
+      "text": "Freshness stays NOT_VERIFIED.",
+      "start": 33.432,
+      "duration": 1.825
+    },
+    {
+      "text": "The outcome: NEEDS_REVIEW.",
+      "start": 35.578,
+      "duration": 1.55
+    },
+    {
+      "text": "The missing evidence stays visible. This demonstrates control logic, not live acceptance.",
+      "start": 37.778,
+      "duration": 5.312
+    }
+  ]
+}

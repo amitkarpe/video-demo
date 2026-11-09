@@ -1,0 +1,125 @@
+{
+  "version": 2,
+  "baseline": "995e8287847b77f81707e485f9767700bc98c162",
+  "previousVersionCommit": "ccc0807153da93006b55ce48b934351978ad78ed",
+  "awsopsSource": "15c12fb5362dd05fc4d8aaf10ebd31d3ce2935d9",
+  "date": "2026-11-08",
+  "media": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "45.000000",
+      "size": "5072330"
+    }
+  },
+  "mp4Sha256": "4659c2112dbe0e7dddb57bf2eb19d0df5901c59089c560be582b47bdebbe3c2e",
+  "renderInputSha256": "f36c7b73c28ae65065a1ef6a59061bbd6c6546914cc8f64ef51d5ae78e717f40",
+  "fullDecode": "PASS: entire final MP4 decoded with FFmpeg, exit 0",
+  "lint": "PASS: zero errors, zero warnings",
+  "motion": [
+    {
+      "times": [
+        3,
+        4
+      ],
+      "crop": "1030:180:440:440",
+      "changedChannelBytes": 50662,
+      "totalBytes": 556200,
+      "purpose": "outbound request"
+    },
+    {
+      "times": [
+        6,
+        6.8
+      ],
+      "crop": "1200:450:400:350",
+      "changedChannelBytes": 434900,
+      "totalBytes": 1620000,
+      "purpose": "lost reply/camera emphasis"
+    },
+    {
+      "times": [
+        20,
+        22
+      ],
+      "crop": "1100:200:500:300",
+      "changedChannelBytes": 57002,
+      "totalBytes": 660000,
+      "purpose": "same-run read-only arc"
+    },
+    {
+      "times": [
+        24,
+        24.5
+      ],
+      "crop": "1200:350:500:300",
+      "changedChannelBytes": 267043,
+      "totalBytes": 1260000,
+      "purpose": "S3 observation transfers into readback"
+    },
+    {
+      "times": [
+        27,
+        28
+      ],
+      "crop": "1680:50:120:620",
+      "changedChannelBytes": 7777,
+      "totalBytes": 252000,
+      "purpose": "focus underline; full field contrast retained"
+    }
+  ],
+  "captions": {
+    "count": 12,
+    "overlaps": 0,
+    "timing": "Measured full sentence clips; retimed to new OpenAI audio; independent word alignment NOT_VERIFIED",
+    "visual": "Final 720p mechanism, evidence transition and payoff samples; essential evidence fields retain full contrast"
+  },
+  "audio": {
+    "model": "tts-1-hd",
+    "voice": "onyx",
+    "speed": 1.0,
+    "integratedLUFS": "-16.39",
+    "truePeakDbTP": "-1.50",
+    "audibleReview": "NOT_VERIFIED: no agent audible input channel; Amit listening fallback",
+    "master": "FFmpeg loudnorm -16 LUFS / -1.5 dBTP target; encoded video stream unchanged"
+  },
+  "openai": {
+    "calls": 12,
+    "inputCharacters": 614,
+    "meteredBillableUSD": "0.01842",
+    "capUSD": "5",
+    "unusedUSD": "4.98158",
+    "invoiceReconciliation": "NOT_VERIFIED",
+    "ledger": "openai-spend.json",
+    "guardChecks": [
+      "next call over cap: PASS, zero network",
+      "uncertain prior call: PASS, zero network"
+    ],
+    "pcmPayloadsUnchangedAfterHeaderRepair": true
+  },
+  "render": "HyperFrames 0.9.20, GSAP 3.15.0, Node 26.12.1, FFmpeg 9.0.2; final capture 29.3 seconds",
+  "preview": {
+    "file": "preview.mp4",
+    "sourceIntervalSeconds": [
+      19,
+      29
+    ],
+    "sha256": "5087b2453b685cf707c2b098e1dcc37ea875df1357f9a3bf35a5c5fcfcb7ba27"
+  },
+  "hostPathRepair": "Old chat path is a directory symlink to the requested registered worktree; default CLI resolves to correct checkout",
+  "desktopPlayback": "PARTIAL: final 45-second file reopened from disk in QuickTime, play on at 0.098s and progression to 4.530s observed. After owner interruption, two Computer Use readbacks timed out; end-of-file UI observation not verified. Full final-file FFmpeg decode passed. Owner will play/listen for acceptance.",
+  "ownerCreativeAcceptance": "PENDING"
+}

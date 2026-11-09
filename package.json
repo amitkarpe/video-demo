@@ -1,0 +1,15 @@
+{
+  "name": "video-demo",
+  "private": true,
+  "type": "module",
+  "description": "Technical explainer films; one pinned HyperFrames + GSAP toolchain for every film under films/",
+  "scripts": {
+    "postinstall": "node toolkit/postinstall.mjs",
+    "check": "npx --no-install hyperframes check",
+    "render": "npx --no-install hyperframes render"
+  },
+  "dependencies": {
+    "gsap": "3.15.0",
+    "hyperframes": "0.9.20"
+  }
+}

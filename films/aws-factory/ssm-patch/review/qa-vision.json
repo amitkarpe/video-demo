@@ -1,0 +1,178 @@
+{
+  "model": "gpt-5.5",
+  "usage": {
+    "input_tokens": 29903,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 28928
+    },
+    "output_tokens": 3332,
+    "output_tokens_details": {
+      "reasoning_tokens": 2027
+    },
+    "total_tokens": 33235
+  },
+  "cost_usd": 0.249475,
+  "review": {
+    "frames": [
+      {
+        "file": "t0004.0-s01.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0008.9-s02.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0013.9-s03.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0017.5-s04.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0023.8-s05.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0032.3-s06.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0038.0-s07.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0044.7-s08.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0053.2-s09.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0061.5-s10.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0067.7-s11.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0073.6-s12.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0077.2-s13.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0082.7-s14.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0092.3-s15.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0100.4-s16.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The patch-flow strip is very dense across the full width; the smaller step labels and arrow separators are borderline at 720p.",
+            "fix": "Increase the strip height/type size or reveal fewer steps at once while keeping the same sequence."
+          }
+        ]
+      },
+      {
+        "file": "t0105.5-s17.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The patch-flow strip remains dense; secondary step labels are small for 720p viewing.",
+            "fix": "Use larger type or simplify the visible strip for this shot."
+          }
+        ]
+      },
+      {
+        "file": "t0112.7-s18.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The patch-flow strip uses small text and tight spacing, especially on the longer install-window label.",
+            "fix": "Enlarge the strip text or break the flow into a shorter highlighted segment."
+          }
+        ]
+      },
+      {
+        "file": "t0119.6-s19.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The full patch-flow strip is visually busy, and the small step labels compete with the GitLab status label.",
+            "fix": "Reduce non-highlighted strip contrast or scale the strip up."
+          }
+        ]
+      },
+      {
+        "file": "t0128.1-s20.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The CloudOS status label is long and sits over a busy crane/cluster area, making it slightly harder to scan at 720p.",
+            "fix": "Shorten the label or place it over a cleaner background area."
+          }
+        ]
+      },
+      {
+        "file": "t0135.9-s21.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0142.6-s22.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0146.6-s23.jpg",
+        "issues": []
+      },
+      {
+        "file": "t0155.1-s24.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The report card shows MongoDB servers as both scanned and installed, but the required flow says MongoDB is the example where nothing is missing, so the group is compliant and nothing is installed.",
+            "fix": "Change the MongoDB row to something like \"scanned \u2713\" and \"compliant \u2713\" or \"nothing missing \u2713\" instead of \"installed \u2713\"."
+          },
+          {
+            "severity": "medium",
+            "issue": "The caption says \"daily and weekly operations reports,\" which exposes report cadence not required by the accuracy brief and conflicts with the public-output rule to avoid schedule details.",
+            "fix": "Use generic wording such as \"Operations reports list each server's patch result.\""
+          }
+        ]
+      },
+      {
+        "file": "t0163.0-s25.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The report card again shows MongoDB servers as \"installed \u2713\" even though MongoDB is the nothing-missing/compliant example and should not show an install result.",
+            "fix": "Replace the MongoDB \"installed \u2713\" badge with \"compliant \u2713\" or \"nothing missing \u2713\"."
+          }
+        ]
+      },
+      {
+        "file": "t0171.1-s26.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "The closing card and caption say \"daily check,\" adding a schedule cadence that is not in the required check rule and conflicts with the generic public-output constraint.",
+            "fix": "Change to schedule-neutral wording such as \"And regular checks that no server is left behind.\""
+          }
+        ]
+      }
+    ],
+    "overall": "The film mostly follows the required factory/patch-flow story and the visual style is consistent. Main required fix: do not show MongoDB as installed in the reports, because MongoDB is the compliant/nothing-missing example. Also remove unnecessary cadence wording from the reporting/check language, and consider enlarging or simplifying the dense patch-flow strip for 720p readability."
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "issue": 19,
+  "STARTED_AT_SGT": "2026-11-08T17:13:19+08:00",
+  "ARTIFACT_READY_AT_SGT": "2026-11-08T17:24:14+08:00",
+  "artifact_elapsed_minutes": 10.93,
+  "actual_model": "gpt-6-astra",
+  "actual_effort": "high",
+  "model_evidence": "Current session turn metadata, not a requested/default model.",
+  "provider_usage_observed_delta": {
+    "input_tokens": 5058601,
+    "cached_input_tokens": 4960128,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 32448,
+    "reasoning_output_tokens": 10536,
+    "total_tokens": 5091049
+  },
+  "usage_baseline_at": "2026-11-08T09:12:57.943Z",
+  "usage_observed_through": "2026-11-08T09:23:56.663Z",
+  "usage_scope": "Runtime-reported provider counters for this Round-2 turn through the stated cutoff. Excludes subsequent GitHub closeout and final response; not an invoice.",
+  "rough_inference_cost_usd": "UNAVAILABLE",
+  "inference_cost_reason": "No billed inference amount or verified applicable Astra tariff is exposed by this session.",
+  "media_api_spend_usd": "0.02007",
+  "media_api_cap_usd": "5.00",
+  "media_api_remaining_usd": "4.97993",
+  "speech_calls": 12,
+  "paid_retries": 0,
+  "spoken_script_versions": 1,
+  "full_render_versions": 3,
+  "render_revisions_after_first": 2,
+  "disposable_preflight_renders": 1,
+  "budget_guards": "PASS: over-cap and uncertain-prior-call each caused zero network calls and no ledger mutation.",
+  "playback": {
+    "surface": "Visible in-app browser, local player",
+    "status": "PASS",
+    "played_seconds": [
+      0,
+      46
+    ],
+    "ended": true,
+    "error": null,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "http_artifact_sha256": "697839bab05dfea31885b5b93cbee2d3085a88f77d6078485475a966c1f94cc7"
+  },
+  "native_quicktime_control": "UNAVAILABLE: two bounded attempts timed out; browser playback used instead.",
+  "AUDIBLE_REVIEW": "NOT_VERIFIED",
+  "owner_acceptance": "PENDING",
+  "visual_review": {
+    "encoded_720p_frames": [
+      "hook 3s",
+      "DNS 10s",
+      "mechanism 20.5s",
+      "packet 24.5s",
+      "endpoint 28s",
+      "traffic rules 34s",
+      "policies 38.5s",
+      "transition 41.4s",
+      "payoff 43s"
+    ],
+    "observations": "Corrected route gradient, packet alignment, route-panel overlap, camera clipping and dimmed policy text. Final samples readable; subjective visual preference remains owner review."
+  },
+  "constraints": {
+    "first_round_untouched": true,
+    "rival_round2_not_inspected": true,
+    "aws_api_calls": 0,
+    "new_dependencies": 0,
+    "new_worktree": "/Users/apple/git/worktree/video-demo-19-s3-gateway",
+    "base_commit": "995e8287847b77f81707e485f9767700bc98c162"
+  }
+}

@@ -1,0 +1,754 @@
+[
+  {
+    "start": 0.85,
+    "end": 3.015,
+    "text": "A new golden image arrives.",
+    "lines": [
+      "A new golden image arrives."
+    ],
+    "cue": 0
+  },
+  {
+    "start": 3.04,
+    "end": 4.795,
+    "text": "But a successful build is not yet a",
+    "lines": [
+      "But a successful build is not yet a"
+    ],
+    "cue": 0
+  },
+  {
+    "start": 4.82,
+    "end": 6.3,
+    "text": "trusted production release.",
+    "lines": [
+      "trusted production release."
+    ],
+    "cue": 0
+  },
+  {
+    "start": 6.98,
+    "end": 9.935,
+    "text": "BlueOps turns that gap into a controlled journey:",
+    "lines": [
+      "BlueOps turns that gap",
+      "into a controlled journey:"
+    ],
+    "cue": 1
+  },
+  {
+    "start": 9.96,
+    "end": 12.615,
+    "text": "build a shared base, prove each workload, then earn",
+    "lines": [
+      "build a shared base, prove",
+      "each workload, then earn"
+    ],
+    "cue": 1
+  },
+  {
+    "start": 12.64,
+    "end": 13.88,
+    "text": "the right to promote.",
+    "lines": [
+      "the right to promote."
+    ],
+    "cue": 1
+  },
+  {
+    "start": 14.93,
+    "end": 19.075,
+    "text": "The journey starts with a GovTech GCC Golden Amazon",
+    "lines": [
+      "The journey starts with a",
+      "GovTech GCC Golden Amazon"
+    ],
+    "cue": 2
+  },
+  {
+    "start": 19.1,
+    "end": 22.615,
+    "text": "Linux 2023 image: a baseline with hardening and",
+    "lines": [
+      "Linux 2023 image: a",
+      "baseline with hardening and"
+    ],
+    "cue": 2
+  },
+  {
+    "start": 22.64,
+    "end": 23.98,
+    "text": "some operations agents.",
+    "lines": [
+      "some operations agents."
+    ],
+    "cue": 2
+  },
+  {
+    "start": 24.46,
+    "end": 27.335,
+    "text": "An EventBridge discovery signal is part of the proposed",
+    "lines": [
+      "An EventBridge discovery",
+      "signal is part of the proposed"
+    ],
+    "cue": 3
+  },
+  {
+    "start": 27.36,
+    "end": 30.855,
+    "text": "design. Record the immutable source identity before",
+    "lines": [
+      "design. Record the immutable",
+      "source identity before"
+    ],
+    "cue": 3
+  },
+  {
+    "start": 30.88,
+    "end": 31.91,
+    "text": "the factory moves.",
+    "lines": [
+      "the factory moves."
+    ],
+    "cue": 3
+  },
+  {
+    "start": 33.01,
+    "end": 37.335,
+    "text": "Image Builder combines that approved source with approved GCC",
+    "lines": [
+      "Image Builder combines that",
+      "approved source with approved GCC"
+    ],
+    "cue": 4
+  },
+  {
+    "start": 37.36,
+    "end": 42.075,
+    "text": "agent packages and a selected CIS hardening profile.",
+    "lines": [
+      "agent packages and a selected",
+      "CIS hardening profile."
+    ],
+    "cue": 4
+  },
+  {
+    "start": 42.1,
+    "end": 44.36,
+    "text": "The product is Hardened Base OS.",
+    "lines": [
+      "The product is Hardened Base OS."
+    ],
+    "cue": 4
+  },
+  {
+    "start": 44.89,
+    "end": 48.875,
+    "text": "Package-only means no production manager registration baked into the",
+    "lines": [
+      "Package-only means no production",
+      "manager registration baked into the"
+    ],
+    "cue": 5
+  },
+  {
+    "start": 48.9,
+    "end": 52.595,
+    "text": "image. Selected controls do not mean full CIS compliance",
+    "lines": [
+      "image. Selected controls do",
+      "not mean full CIS compliance"
+    ],
+    "cue": 5
+  },
+  {
+    "start": 52.62,
+    "end": 55.14,
+    "text": "or complete security-scan acceptance.",
+    "lines": [
+      "or complete security-scan acceptance."
+    ],
+    "cue": 5
+  },
+  {
+    "start": 56.24,
+    "end": 59.635,
+    "text": "Three child families derive directly from that base:",
+    "lines": [
+      "Three child families derive",
+      "directly from that base:"
+    ],
+    "cue": 6
+  },
+  {
+    "start": 59.66,
+    "end": 64.175,
+    "text": "GitLab, MongoDB, and CloudOS ECS Worker.",
+    "lines": [
+      "GitLab, MongoDB, and CloudOS ECS Worker."
+    ],
+    "cue": 6
+  },
+  {
+    "start": 64.2,
+    "end": 66.19,
+    "text": "The shared base stays in DEV.",
+    "lines": [
+      "The shared base stays in DEV."
+    ],
+    "cue": 6
+  },
+  {
+    "start": 66.86,
+    "end": 69.935,
+    "text": "GitLab carries its own required runtime.",
+    "lines": [
+      "GitLab carries its own required runtime."
+    ],
+    "cue": 7
+  },
+  {
+    "start": 69.96,
+    "end": 72.895,
+    "text": "MongoDB is non-container by default.",
+    "lines": [
+      "MongoDB is non-container by default."
+    ],
+    "cue": 7
+  },
+  {
+    "start": 72.92,
+    "end": 76.455,
+    "text": "GitLab plus Nextflow is an optional extension, not a",
+    "lines": [
+      "GitLab plus Nextflow is an",
+      "optional extension, not a"
+    ],
+    "cue": 7
+  },
+  {
+    "start": 76.48,
+    "end": 77.42,
+    "text": "fourth core family.",
+    "lines": [
+      "fourth core family."
+    ],
+    "cue": 7
+  },
+  {
+    "start": 78.48,
+    "end": 80.475,
+    "text": "Now the test floor.",
+    "lines": [
+      "Now the test floor."
+    ],
+    "cue": 8
+  },
+  {
+    "start": 80.5,
+    "end": 82.735,
+    "text": "Every result must identify the exact candidate.",
+    "lines": [
+      "Every result must identify",
+      "the exact candidate."
+    ],
+    "cue": 8
+  },
+  {
+    "start": 82.76,
+    "end": 89.195,
+    "text": "Private connectivity, no public IP, SSM readback, packages, configuration",
+    "lines": [
+      "Private connectivity, no public IP,",
+      "SSM readback, packages, configuration"
+    ],
+    "cue": 8
+  },
+  {
+    "start": 89.22,
+    "end": 90.52,
+    "text": "and provenance all matter.",
+    "lines": [
+      "and provenance all matter."
+    ],
+    "cue": 8
+  },
+  {
+    "start": 91.74,
+    "end": 97.375,
+    "text": "For GitLab, demand healthy service, representative clone and push,",
+    "lines": [
+      "For GitLab, demand healthy service,",
+      "representative clone and push,"
+    ],
+    "cue": 9
+  },
+  {
+    "start": 97.4,
+    "end": 100.52,
+    "text": "CRUD, persistence, and reboot proof.",
+    "lines": [
+      "CRUD, persistence, and reboot proof."
+    ],
+    "cue": 9
+  },
+  {
+    "start": 101.2,
+    "end": 105.335,
+    "text": "Current private runtime checks cover cold boot and reboot.",
+    "lines": [
+      "Current private runtime checks",
+      "cover cold boot and reboot."
+    ],
+    "cue": 10
+  },
+  {
+    "start": 105.36,
+    "end": 108.815,
+    "text": "They do not by themselves prove authenticated repository workflows",
+    "lines": [
+      "They do not by themselves prove",
+      "authenticated repository workflows"
+    ],
+    "cue": 10
+  },
+  {
+    "start": 108.84,
+    "end": 110.55,
+    "text": "or a production cutover.",
+    "lines": [
+      "or a production cutover."
+    ],
+    "cue": 10
+  },
+  {
+    "start": 112.02,
+    "end": 119.375,
+    "text": "MongoDB needs a running process, CRUD and backup-restore smoke.",
+    "lines": [
+      "MongoDB needs a running process,",
+      "CRUD and backup-restore smoke."
+    ],
+    "cue": 11
+  },
+  {
+    "start": 119.4,
+    "end": 121.475,
+    "text": "Those standalone checks do not prove a",
+    "lines": [
+      "Those standalone checks do not prove a"
+    ],
+    "cue": 11
+  },
+  {
+    "start": 121.5,
+    "end": 122.4,
+    "text": "healthy replica set.",
+    "lines": [
+      "healthy replica set."
+    ],
+    "cue": 11
+  },
+  {
+    "start": 122.98,
+    "end": 126.595,
+    "text": "A proposed higher-confidence cluster gate would test replication and",
+    "lines": [
+      "A proposed higher-confidence cluster",
+      "gate would test replication and"
+    ],
+    "cue": 12
+  },
+  {
+    "start": 126.62,
+    "end": 130.43,
+    "text": "recovery. Until it passes, cluster readiness remains unknown.",
+    "lines": [
+      "recovery. Until it passes,",
+      "cluster readiness remains unknown."
+    ],
+    "cue": 12
+  },
+  {
+    "start": 132.18,
+    "end": 136.255,
+    "text": "CloudOS ECS Worker must place tasks on the exact",
+    "lines": [
+      "CloudOS ECS Worker must",
+      "place tasks on the exact"
+    ],
+    "cue": 13
+  },
+  {
+    "start": 136.28,
+    "end": 140.195,
+    "text": "candidate. Zero placed tasks is a failure, even when",
+    "lines": [
+      "candidate. Zero placed tasks",
+      "is a failure, even when"
+    ],
+    "cue": 13
+  },
+  {
+    "start": 140.22,
+    "end": 141.98,
+    "text": "the image build is green.",
+    "lines": [
+      "the image build is green."
+    ],
+    "cue": 13
+  },
+  {
+    "start": 142.56,
+    "end": 147.375,
+    "text": "Our proposed demo suite adds mock workloads, service-to-service network",
+    "lines": [
+      "Our proposed demo suite adds mock",
+      "workloads, service-to-service network"
+    ],
+    "cue": 14
+  },
+  {
+    "start": 147.4,
+    "end": 152.915,
+    "text": "flows, and scoped Parameter Store reads through authorized IAM.",
+    "lines": [
+      "flows, and scoped Parameter Store",
+      "reads through authorized IAM."
+    ],
+    "cue": 14
+  },
+  {
+    "start": 152.94,
+    "end": 156.31,
+    "text": "These are simulated tests, not live evidence.",
+    "lines": [
+      "These are simulated tests, not live evidence."
+    ],
+    "cue": 14
+  },
+  {
+    "start": 157.42,
+    "end": 159.585,
+    "text": "Phase A is a controlled release.",
+    "lines": [
+      "Phase A is a controlled release."
+    ],
+    "cue": 15
+  },
+  {
+    "start": 159.61,
+    "end": 162.015,
+    "text": "DEV proof comes first.",
+    "lines": [
+      "DEV proof comes first."
+    ],
+    "cue": 15
+  },
+  {
+    "start": 162.04,
+    "end": 165.21,
+    "text": "Only validated child images move toward production acceptance.",
+    "lines": [
+      "Only validated child images move",
+      "toward production acceptance."
+    ],
+    "cue": 15
+  },
+  {
+    "start": 165.69,
+    "end": 170.215,
+    "text": "Verify encryption, AMI launch access, and usable backing snapshots",
+    "lines": [
+      "Verify encryption, AMI launch",
+      "access, and usable backing snapshots"
+    ],
+    "cue": 16
+  },
+  {
+    "start": 170.24,
+    "end": 174.295,
+    "text": "and KMS access. A policy observation alone does not",
+    "lines": [
+      "and KMS access. A policy",
+      "observation alone does not"
+    ],
+    "cue": 16
+  },
+  {
+    "start": 174.32,
+    "end": 175.94,
+    "text": "prove a successful private launch.",
+    "lines": [
+      "prove a successful private launch."
+    ],
+    "cue": 16
+  },
+  {
+    "start": 177.16,
+    "end": 180.255,
+    "text": "Test the exact image consumed in PROD, with that",
+    "lines": [
+      "Test the exact image",
+      "consumed in PROD, with that"
+    ],
+    "cue": 17
+  },
+  {
+    "start": 180.28,
+    "end": 182.235,
+    "text": "environment's own agent configuration.",
+    "lines": [
+      "environment's own agent configuration."
+    ],
+    "cue": 17
+  },
+  {
+    "start": 182.26,
+    "end": 187.04,
+    "text": "DEV success cannot stand in for PROD runtime acceptance.",
+    "lines": [
+      "DEV success cannot stand in",
+      "for PROD runtime acceptance."
+    ],
+    "cue": 17
+  },
+  {
+    "start": 187.52,
+    "end": 191.215,
+    "text": "The Ops engineer reviews the evidence and gives explicit",
+    "lines": [
+      "The Ops engineer reviews the",
+      "evidence and gives explicit"
+    ],
+    "cue": 18
+  },
+  {
+    "start": 191.24,
+    "end": 192.555,
+    "text": "approval for this rollout.",
+    "lines": [
+      "approval for this rollout."
+    ],
+    "cue": 18
+  },
+  {
+    "start": 192.58,
+    "end": 197.47,
+    "text": "Build success, validation and human approval are separate states.",
+    "lines": [
+      "Build success, validation and",
+      "human approval are separate states."
+    ],
+    "cue": 18
+  },
+  {
+    "start": 198.62,
+    "end": 202.235,
+    "text": "Phase B is a future operating policy.",
+    "lines": [
+      "Phase B is a future operating policy."
+    ],
+    "cue": 19
+  },
+  {
+    "start": 202.26,
+    "end": 204.715,
+    "text": "Candidates could build and validate weekly.",
+    "lines": [
+      "Candidates could build and validate weekly."
+    ],
+    "cue": 19
+  },
+  {
+    "start": 204.74,
+    "end": 207.275,
+    "text": "The proposed promotion window is the first Saturday",
+    "lines": [
+      "The proposed promotion",
+      "window is the first Saturday"
+    ],
+    "cue": 19
+  },
+  {
+    "start": 207.3,
+    "end": 208.27,
+    "text": "night each month.",
+    "lines": [
+      "night each month."
+    ],
+    "cue": 19
+  },
+  {
+    "start": 208.98,
+    "end": 212.795,
+    "text": "Promotion without per-release Ops approval becomes possible only after",
+    "lines": [
+      "Promotion without per-release Ops",
+      "approval becomes possible only after"
+    ],
+    "cue": 20
+  },
+  {
+    "start": 212.82,
+    "end": 216.115,
+    "text": "management, security and change governance approve that policy",
+    "lines": [
+      "management, security and change",
+      "governance approve that policy"
+    ],
+    "cue": 20
+  },
+  {
+    "start": 216.14,
+    "end": 217.35,
+    "text": "and its conditions.",
+    "lines": [
+      "and its conditions."
+    ],
+    "cue": 20
+  },
+  {
+    "start": 217.83,
+    "end": 221.275,
+    "text": "The current repository does not establish unattended monthly PROD",
+    "lines": [
+      "The current repository does not",
+      "establish unattended monthly PROD"
+    ],
+    "cue": 21
+  },
+  {
+    "start": 221.3,
+    "end": 224.635,
+    "text": "rollout. A critical vulnerability can instead trigger an",
+    "lines": [
+      "rollout. A critical vulnerability",
+      "can instead trigger an"
+    ],
+    "cue": 21
+  },
+  {
+    "start": 224.66,
+    "end": 226.63,
+    "text": "urgent, Ops-approved release.",
+    "lines": [
+      "urgent, Ops-approved release."
+    ],
+    "cue": 21
+  },
+  {
+    "start": 227.84,
+    "end": 231.855,
+    "text": "A failed or unknown check, missing approval or policy,",
+    "lines": [
+      "A failed or unknown check,",
+      "missing approval or policy,"
+    ],
+    "cue": 22
+  },
+  {
+    "start": 231.88,
+    "end": 235.415,
+    "text": "missing access, or an unhealthy PROD canary closes the",
+    "lines": [
+      "missing access, or an unhealthy",
+      "PROD canary closes the"
+    ],
+    "cue": 22
+  },
+  {
+    "start": 235.44,
+    "end": 237.98,
+    "text": "gate. Nothing advances on an assumption.",
+    "lines": [
+      "gate. Nothing advances on an assumption."
+    ],
+    "cue": 22
+  },
+  {
+    "start": 239.18,
+    "end": 242.275,
+    "text": "Keep the prior known-good release and a tested data-recovery",
+    "lines": [
+      "Keep the prior known-good release",
+      "and a tested data-recovery"
+    ],
+    "cue": 23
+  },
+  {
+    "start": 242.3,
+    "end": 245.135,
+    "text": "path. Read back the rollout result.",
+    "lines": [
+      "path. Read back the rollout result."
+    ],
+    "cue": 23
+  },
+  {
+    "start": 245.16,
+    "end": 247.555,
+    "text": "If the canary fails, stop and use the",
+    "lines": [
+      "If the canary fails, stop and use the"
+    ],
+    "cue": 23
+  },
+  {
+    "start": 247.58,
+    "end": 248.93,
+    "text": "approved rollback plan.",
+    "lines": [
+      "approved rollback plan."
+    ],
+    "cue": 23
+  },
+  {
+    "start": 249.41,
+    "end": 252.375,
+    "text": "A few minutes of downtime may be acceptable, if",
+    "lines": [
+      "A few minutes of downtime",
+      "may be acceptable, if"
+    ],
+    "cue": 24
+  },
+  {
+    "start": 252.4,
+    "end": 257.315,
+    "text": "approved. Reversibility and observable acceptance matter more than a",
+    "lines": [
+      "approved. Reversibility and observable",
+      "acceptance matter more than a"
+    ],
+    "cue": 24
+  },
+  {
+    "start": 257.34,
+    "end": 258.46,
+    "text": "green build badge.",
+    "lines": [
+      "green build badge."
+    ],
+    "cue": 24
+  },
+  {
+    "start": 259.82,
+    "end": 262.935,
+    "text": "Build once. Validate every workload.",
+    "lines": [
+      "Build once. Validate every workload."
+    ],
+    "cue": 25
+  },
+  {
+    "start": 262.96,
+    "end": 264.51,
+    "text": "Promote only what is proven.",
+    "lines": [
+      "Promote only what is proven."
+    ],
+    "cue": 25
+  }
+]

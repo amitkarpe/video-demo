@@ -1,0 +1,51 @@
+A new golden image arrives. But a successful build is not yet a trusted production release.
+
+BlueOps turns that gap into a controlled journey: build a shared base, prove each workload, then earn the right to promote.
+
+The journey starts with a GovTech GCC Golden Amazon Linux 2023 image: a baseline with hardening and some operations agents.
+
+An EventBridge discovery signal is part of the proposed design. Record the immutable source identity before the factory moves.
+
+Image Builder combines that approved source with approved GCC agent packages and a selected CIS hardening profile. The product is Hardened Base OS.
+
+Package-only means no production manager registration baked into the image. Selected controls do not mean full CIS compliance or complete security-scan acceptance.
+
+Three child families derive directly from that base: GitLab, MongoDB, and CloudOS ECS Worker. The shared base stays in DEV.
+
+GitLab carries its own required runtime. MongoDB is non-container by default. GitLab plus Nextflow is an optional extension, not a fourth core family.
+
+Now the test floor. Every result must identify the exact candidate. Private connectivity, no public IP, SSM readback, packages, configuration and provenance all matter.
+
+For GitLab, demand healthy service, representative clone and push, CRUD, persistence, and reboot proof.
+
+Current private runtime checks cover cold boot and reboot. They do not by themselves prove authenticated repository workflows or a production cutover.
+
+MongoDB needs a running process, CRUD and backup-restore smoke. Those standalone checks do not prove a healthy replica set.
+
+A proposed higher-confidence cluster gate would test replication and recovery. Until it passes, cluster readiness remains unknown.
+
+CloudOS ECS Worker must place tasks on the exact candidate. Zero placed tasks is a failure, even when the image build is green.
+
+Our proposed demo suite adds mock workloads, service-to-service network flows, and scoped Parameter Store reads through authorized IAM. These are simulated tests, not live evidence.
+
+Phase A is a controlled release. DEV proof comes first. Only validated child images move toward production acceptance.
+
+Verify encryption, AMI launch access, and usable backing snapshots and KMS access. A policy observation alone does not prove a successful private launch.
+
+Test the exact image consumed in PROD, with that environment's own agent configuration. DEV success cannot stand in for PROD runtime acceptance.
+
+The Ops engineer reviews the evidence and gives explicit approval for this rollout. Build success, validation and human approval are separate states.
+
+Phase B is a future operating policy. Candidates could build and validate weekly. The proposed promotion window is the first Saturday night each month.
+
+Promotion without per-release Ops approval becomes possible only after management, security and change governance approve that policy and its conditions.
+
+The current repository does not establish unattended monthly PROD rollout. A critical vulnerability can instead trigger an urgent, Ops-approved release.
+
+A failed or unknown check, missing approval or policy, missing access, or an unhealthy PROD canary closes the gate. Nothing advances on an assumption.
+
+Keep the prior known-good release and a tested data-recovery path. Read back the rollout result. If the canary fails, stop and use the approved rollback plan.
+
+A few minutes of downtime may be acceptable, if approved. Reversibility and observable acceptance matter more than a green build badge.
+
+Build once. Validate every workload. Promote only what is proven.

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920,height=1080">
+<title>CIS Hardening in AWS Factory — Fix What We Can, Accept What We Must</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+:root{--bg:#f2f2f2;--navy:#0a1e3d;--gold:#d4a017;--goldtext:#8a6400;--soft:#46546e;--card:#ffffff;--stop:#b3261e;--ok:#1e7a46;
+  --font:"Helvetica Neue",Helvetica,Arial,sans-serif;--shadow:20px 20px 0 rgba(10,30,61,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg)}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--bg);font-family:var(--font);color:var(--navy)}
+.abs{position:absolute}
+#grid{position:absolute;left:-120px;top:-120px;width:2160px;height:1320px;background-image:linear-gradient(#0a1e3d12 1px,transparent 1px),linear-gradient(90deg,#0a1e3d12 1px,transparent 1px),linear-gradient(#0a1e3d22 1px,transparent 1px),linear-gradient(90deg,#0a1e3d22 1px,transparent 1px);background-size:60px 60px,60px 60px,240px 240px,240px 240px}
+.scene{position:absolute;inset:0;opacity:0}
+.kick{position:absolute;left:120px;top:84px;padding-left:18px;border-left:10px solid var(--gold);font:900 28px var(--font);letter-spacing:3px;text-transform:uppercase}
+.ttl{position:absolute;left:120px;width:1680px;font:900 78px/1.06 var(--font)}
+.sub{position:absolute;left:120px;width:1680px;font:300 40px/1.3 var(--font);color:var(--soft)}
+.card{position:absolute;padding:34px 40px 38px;background:var(--card);box-shadow:var(--shadow);border:2px solid #0a1e3d14}
+.card .h{font:900 44px/1.12 var(--font)}.card .b{margin-top:12px;font:300 32px/1.35 var(--font);color:var(--soft)}
+.tag{display:inline-block;margin-bottom:14px;padding:6px 16px;border-radius:999px;font:900 22px var(--font);letter-spacing:2px}
+.node{position:absolute;width:250px;min-height:124px;padding:22px;background:var(--card);border:3px solid var(--navy);box-shadow:var(--shadow);font:900 34px/1.12 var(--font);text-align:center;display:flex;flex-direction:column;justify-content:center;opacity:0}
+.node.gold{background:var(--gold)}.node.navy{background:var(--navy);color:#fff}
+.nb{margin-top:8px;font:300 24px/1.25 var(--font)}
+.arr{position:absolute;height:6px;background:var(--navy);transform-origin:0 50%;transform:scaleX(0)}
+.arr:after{content:"";position:absolute;right:-6px;top:-11px;border:14px solid transparent;border-left:20px solid var(--navy);border-right:0}
+.bk{position:absolute;top:300px;width:540px;height:590px;padding:36px 38px;box-shadow:var(--shadow);opacity:0}
+.bh{font:900 48px/1.08 var(--font)}.bs{margin-top:8px;font:300 29px var(--font)}
+.bl{margin-top:24px;font:300 30px/1.55 var(--font)}
+.bl div{opacity:0}
+.sq{position:absolute;width:30px;height:30px;background:var(--navy)}
+.out{position:absolute;width:300px;padding:20px;border:6px solid;background:#fff;font:300 30px/1.25 var(--font);text-align:center;box-shadow:var(--shadow);opacity:0}
+.out b{display:block;font:900 58px var(--font)}
+.spr{position:absolute;opacity:0;filter:drop-shadow(0 18px 24px #0a1e3d33)}
+.row{display:flex;align-items:center;gap:16px;margin-top:16px;font:300 32px var(--font)}
+.pill{display:inline-block;padding:6px 16px;border-radius:999px;font:900 22px var(--font);letter-spacing:2px}
+#aitag{position:absolute;right:40px;top:40px;padding:6px 14px;border:2px solid #0a1e3d33;background:#ffffffcc;font:700 17px var(--font);letter-spacing:2px;color:var(--soft);opacity:0}
+#count{position:absolute;right:40px;top:84px;font:900 26px var(--font);letter-spacing:3px;color:var(--soft);opacity:0}
+.chap{display:none}
+.caption{position:absolute;left:50%;bottom:36px;transform:translateX(-50%);max-width:1560px;padding:12px 30px;background:var(--navy);color:#fff;font:500 37px/1.28 var(--font);text-align:center}
+#fade{position:absolute;inset:0;background:#f2f2f2;opacity:1}
+</style>
+</head>
+<body>
+<div id="stage" class="clip" data-composition-id="main" data-start="0" data-duration="156.327" data-width="1920" data-height="1080" data-track-index="0">
+  <div id="grid" data-layout-ignore></div>
+
+  <!-- 1 · the question -->
+  <div id="sc1" class="scene" style="opacity:1">
+    <div class="kick">AWS Factory · Amazon Linux 2023</div>
+    <div id="h1a" class="ttl" style="top:180px;width:600px;font-size:54px;opacity:0">Hundreds of security settings</div>
+    <div id="h1b" class="ttl" style="top:170px;width:640px;font-size:66px;opacity:0"><span id="n243">0</span> security checks.</div>
+    <div id="h1c" class="ttl" style="top:330px;width:640px;font-size:66px;color:var(--goldtext);opacity:0">Do we fix them all?</div>
+    <div id="h1d" class="sub" style="top:490px;width:640px;font-weight:700;color:var(--navy);opacity:0">No — and that is a decision,<br>not an accident.</div>
+    <div id="h1e" class="sub" style="top:640px;width:640px;font-size:30px;opacity:0">The CIS Benchmark · Level 1 and Level 2</div>
+  </div>
+
+  <!-- 2 · what is CIS -->
+  <div id="sc2" class="scene">
+    <div class="kick">What is CIS?</div>
+    <div id="h2a" class="ttl" style="top:170px;font-size:68px;opacity:0">Center for Internet Security</div>
+    <div id="h2b" class="sub" style="top:260px;opacity:0">publishes a public checklist for hardening servers</div>
+    <div id="l1" class="card" style="left:120px;top:400px;width:720px;opacity:0"><div class="tag" style="background:var(--navy);color:#fff">LEVEL 1</div><div class="h">Essential</div><div class="b">Safe defaults almost every server should have.</div></div>
+    <div id="l2" class="card" style="left:120px;top:660px;width:720px;opacity:0"><div class="tag" style="background:var(--gold);color:var(--navy)">LEVEL 2</div><div class="h">Defence in depth</div><div class="b">Stricter settings for sensitive systems. Some cost more to apply.</div></div>
+    <img id="spSafety" class="spr" src="media/derived/images/safety.png" style="left:1130px;top:300px;width:500px" alt="AI-generated clay illustration of a locked server cabinet with safety equipment">
+    <div id="h2c" class="abs" style="left:1000px;top:830px;width:760px;text-align:center;font:900 36px var(--font);opacity:0">A building-safety code — for servers</div>
+  </div>
+
+  <!-- 3 · the factory line -->
+  <div id="sc3" class="scene">
+    <div class="kick">Where hardening happens</div>
+    <div id="h3a" class="ttl" style="top:170px;font-size:62px;opacity:0">One production line</div>
+    <img id="spFactory" class="spr" src="media/derived/images/factory.png" style="left:560px;top:330px;width:800px" alt="AI-generated clay illustration of a small factory conveyor with three boxes">
+    <div id="n1" class="node" style="left:100px;top:480px">Parent image<div class="nb">GovTech</div></div>
+    <div id="a1" class="arr" style="left:360px;top:540px;width:100px"></div>
+    <div id="n2" class="node gold" style="left:480px;top:420px;width:400px;min-height:240px;font-size:44px">Base image<div class="nb">+ CIS fixes · security agents · latest patches</div></div>
+    <div id="a2" class="arr" style="left:890px;top:540px;width:100px"></div>
+    <div id="n3" class="node" style="left:1010px;top:320px">ECS image</div>
+    <div id="n4" class="node" style="left:1010px;top:480px">MongoDB image</div>
+    <div id="n5" class="node" style="left:1010px;top:640px">GitLab image</div>
+    <div id="a3" class="arr" style="left:1270px;top:540px;width:110px"></div>
+    <div id="n6" class="node navy" style="left:1400px;top:480px">Test<br>&amp; share</div>
+    <svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080" data-layout-ignore>
+      <path id="loop" d="M 1525 612 C 1525 860, 225 860, 225 612" fill="none" stroke="#d4a017" stroke-width="6" stroke-dasharray="1700" stroke-dashoffset="1700"/>
+    </svg>
+    <div id="h3b" class="abs" style="left:0;top:780px;width:1920px;text-align:center;font:900 36px var(--font);color:var(--navy);opacity:0"><span style="background:#ffffff;border:3px solid var(--gold);padding:8px 20px">runs again on every new parent image or new patches</span></div>
+  </div>
+
+  <!-- 4 · three buckets -->
+  <div id="sc4" class="scene">
+    <div class="kick">Three buckets</div>
+    <div id="h4a" class="ttl" style="top:158px;font-size:50px;opacity:0">Every check the scanner can test lands in one of three buckets</div>
+    <div id="b1" class="bk" style="left:110px;background:var(--navy);color:#fff"><div class="bh">Hardened upstream</div><div class="bs">by the GovTech parent image</div></div>
+    <div id="b2" class="bk" style="left:690px;background:var(--gold)"><div class="bh">Fixed by us</div><div class="bs">in the base image</div>
+      <div class="bl"><div>• login lockout · password rules</div><div>• file and log permissions</div><div>• audit rules</div><div>• unused networking off</div><div>• signed package sources</div></div></div>
+    <div id="b3" class="bk" style="left:1270px;background:#fff;border:5px dashed var(--navy)"><div class="bh">Accepted risk</div><div class="bs">approved by the owner</div>
+      <div class="bl" style="margin-top:20px"><div>• separate disk partitions ×5</div><div>• start-up file permissions ×1</div></div></div>
+    <div id="h4b" class="abs" style="left:110px;top:234px;font:700 28px var(--font);color:var(--soft);opacity:0">Square counts in the first two buckets are illustrative · the accepted bucket is exact: 6</div>
+  </div>
+
+  <!-- 5 · why accept a risk -->
+  <div id="sc5" class="scene">
+    <div class="kick">Why accept a risk?</div>
+    <div id="h5a" class="ttl" style="top:170px;font-size:66px;opacity:0">Some fixes cost more than the risk they remove</div>
+    <div id="c51" class="card" style="left:120px;top:330px;width:830px;opacity:0"><div class="h">Separate disk partitions ×5</div><div class="b">A new disk layout for every image — and moving every running workload.</div>
+      <div style="display:flex;gap:10px;margin-top:22px" id="disk"><i style="flex:1;height:54px;background:var(--navy)"></i><i style="flex:1;height:54px;background:var(--navy)"></i><i style="flex:1;height:54px;background:var(--navy)"></i><i style="flex:1;height:54px;background:var(--navy)"></i><i style="flex:1;height:54px;background:var(--navy)"></i></div>
+      <div class="row"><span class="pill" style="background:var(--gold)">HIGH COST</span><span class="pill" style="background:var(--navy);color:#fff">HIGH COMPLEXITY</span></div></div>
+    <div id="c52" class="card" style="left:120px;top:690px;width:830px;opacity:0"><div class="h">User start-up file permissions ×1</div><div class="b">User start-up files that installed agents can change.</div></div>
+    <div id="c53" class="card" style="left:1030px;top:330px;width:770px;opacity:0;border:4px solid var(--navy)">
+      <div class="tag" style="background:var(--navy);color:#fff">APPROVED EXCEPTIONS · IN CODE</div>
+      <div class="row"><span style="font-weight:900">5 ×</span> separate disk partitions</div>
+      <div class="row"><span style="font-weight:900">1 ×</span> user start-up file permissions</div>
+      <div class="row" style="margin-top:26px;color:var(--soft)">owner approved · visible · reviewable</div></div>
+  </div>
+
+  <!-- 6 · the release gate -->
+  <div id="sc6" class="scene">
+    <div class="kick">The release gate</div>
+    <div id="h6a" class="ttl" style="top:160px;font-size:62px;opacity:0">That list is also the release gate</div>
+    <img id="spGate" class="spr" src="media/derived/images/gate.png" style="left:1440px;top:150px;width:340px" alt="AI-generated clay illustration of a checkpoint barrier">
+    <div id="g1" class="node" style="left:80px;top:440px;width:220px">Build</div>
+    <div id="ga1" class="arr" style="left:305px;top:500px;width:70px"></div>
+    <div id="g2" class="node" style="left:390px;top:440px;width:220px">Reboot</div>
+    <div id="ga2" class="arr" style="left:615px;top:500px;width:70px"></div>
+    <div id="g3" class="node gold" style="left:700px;top:400px;width:390px;min-height:210px;font-size:44px">Scan<div class="nb">CIS Level 2 + HCR checks</div></div>
+    <div id="ga3" class="arr" style="left:1095px;top:500px;width:70px"></div>
+    <div id="g4" class="node" style="left:1180px;top:440px;width:290px">Compare with the approved list</div>
+    <div id="o1" class="out" style="left:1560px;top:400px;border-color:var(--stop);color:var(--stop)">New failure<b>STOP</b></div>
+    <div id="o2" class="out" style="left:1560px;top:660px;border-color:var(--ok);color:var(--ok)">Only approved<b>SHIP</b></div>
+    <div id="tok" class="abs" style="left:110px;top:620px;padding:8px 16px;background:var(--navy);color:#fff;font:900 22px var(--font);letter-spacing:2px;opacity:0">RELEASE</div>
+    <div id="fl" class="card" style="left:120px;top:690px;width:1000px;padding:24px 32px;opacity:0"><div class="row" style="margin-top:0"><span class="pill" style="background:var(--stop);color:#fff">FAILED</span><span>a scanner result stays exactly as reported</span></div><div class="row" style="color:var(--soft);font-size:28px">never relabelled to look green</div></div>
+  </div>
+
+  <!-- 7 · close -->
+  <div id="sc7" class="scene">
+    <div id="h7a" class="abs" style="left:0;top:300px;width:1920px;text-align:center;font:900 100px/1.08 var(--font);opacity:0">Fix what we can.<br><span style="color:var(--goldtext)">Accept what we must.</span></div>
+    <div id="h7b" class="abs" style="left:0;top:560px;width:1920px;text-align:center;font:300 42px var(--font);color:var(--soft);opacity:0">On purpose · in writing · re-checked every release</div>
+    <div id="credit" class="abs" style="left:160px;bottom:40px;width:1600px;text-align:center;font:300 23px/1.5 var(--font);color:var(--soft);opacity:0" data-layout-ignore>AWS Factory · CIS Benchmark for Amazon Linux 2023 · a public-safe summary: control numbers and private details are not shown<br>Narration: AI-generated voice (OpenAI gpt-realtime-2.1, marin) · Clay illustrations: OpenAI gpt-image-2.6-sunburst<br>Labels and diagrams: code, in the HyperFrames Swiss Grid style</div>
+  </div>
+
+  <div id="sqs" class="abs" style="left:0;top:0;width:1920px;height:1080px" data-layout-ignore></div>
+  <div id="hud" class="abs" style="inset:0" data-layout-ignore>
+    <div id="aitag">AI VOICE · AI ILLUSTRATION · CODE LABELS</div>
+    <div id="count"><span id="cn1" style="position:absolute;right:0;white-space:nowrap;opacity:1">01 / 06</span><span id="cn2" style="position:absolute;right:0;white-space:nowrap;opacity:0">02 / 06</span><span id="cn3" style="position:absolute;right:0;white-space:nowrap;opacity:0">03 / 06</span><span id="cn4" style="position:absolute;right:0;white-space:nowrap;opacity:0">04 / 06</span><span id="cn5" style="position:absolute;right:0;white-space:nowrap;opacity:0">05 / 06</span><span id="cn6" style="position:absolute;right:0;white-space:nowrap;opacity:0">06 / 06</span></div>
+    <div id="chap-c1" class="chap">THE QUESTION</div>
+    <div id="chap-c2" class="chap">WHAT IS CIS</div>
+    <div id="chap-c3" class="chap">WHERE HARDENING HAPPENS</div>
+    <div id="chap-c4" class="chap">THREE BUCKETS</div>
+    <div id="chap-c5" class="chap">WHY ACCEPT A RISK</div>
+    <div id="chap-c6" class="chap">THE RELEASE GATE</div>
+  </div>
+  <div id="cap000" class="clip caption" data-start="1.370" data-duration="4.124" data-track-index="10">Every server image ships with hundreds of security settings.</div>
+<div id="cap001" class="clip caption" data-start="5.544" data-duration="8.337" data-track-index="10">For Amazon Linux 2023, the CIS Benchmark lists 243 checks. So, do we fix them all?</div>
+<div id="cap002" class="clip caption" data-start="13.931" data-duration="4.929" data-track-index="10">The honest answer is no — and that is a decision, not an accident.</div>
+<div id="cap003" class="clip caption" data-start="19.510" data-duration="2.781" data-track-index="10">CIS, the Center for Internet Security,</div>
+<div id="cap004" class="clip caption" data-start="22.331" data-duration="4.137" data-track-index="10">publishes a public checklist for hardening servers.</div>
+<div id="cap005" class="clip caption" data-start="26.518" data-duration="3.391" data-track-index="10">Level 1 covers the essentials every server should have.</div>
+<div id="cap006" class="clip caption" data-start="29.949" data-duration="3.827" data-track-index="10">Level 2 goes further: stricter settings for sensitive systems,</div>
+<div id="cap007" class="clip caption" data-start="33.816" data-duration="2.408" data-track-index="10">some of which cost more to apply.</div>
+<div id="cap008" class="clip caption" data-start="36.274" data-duration="4.549" data-track-index="10">Think of it as a building-safety code, written for servers.</div>
+<div id="cap009" class="clip caption" data-start="41.473" data-duration="4.215" data-track-index="10">In AWS Factory, hardening happens on one production line.</div>
+<div id="cap010" class="clip caption" data-start="45.738" data-duration="3.135" data-track-index="10">It starts from the GovTech parent image.</div>
+<div id="cap011" class="clip caption" data-start="48.913" data-duration="5.517" data-track-index="10">The base image adds CIS fixes, security agents and the latest patches.</div>
+<div id="cap012" class="clip caption" data-start="54.470" data-duration="4.644" data-track-index="10">Then the ECS, MongoDB and GitLab images are built from that</div>
+<div id="cap013" class="clip caption" data-start="59.153" data-duration="2.335" data-track-index="10">base, tested, and shared.</div>
+<div id="cap014" class="clip caption" data-start="61.538" data-duration="4.930" data-track-index="10">The line runs again whenever there is a new parent image or new patches.</div>
+<div id="cap015" class="clip caption" data-start="67.118" data-duration="4.134" data-track-index="10">Every check the scanner can test lands in one of three buckets.</div>
+<div id="cap016" class="clip caption" data-start="71.302" data-duration="4.056" data-track-index="10">Many arrive already hardened by the GovTech parent image.</div>
+<div id="cap017" class="clip caption" data-start="75.408" data-duration="4.763" data-track-index="10">Others we fix ourselves in the base image: login lockout and password rules,</div>
+<div id="cap018" class="clip caption" data-start="80.211" data-duration="4.447" data-track-index="10">file and log permissions, audit rules, switching off unused networking,</div>
+<div id="cap019" class="clip caption" data-start="84.698" data-duration="3.194" data-track-index="10">and checking that package sources are signed.</div>
+<div id="cap020" class="clip caption" data-start="87.942" data-duration="4.455" data-track-index="10">And a small set we accept as a risk — with the owner's approval.</div>
+<div id="cap021" class="clip caption" data-start="93.047" data-duration="5.483" data-track-index="10">Why accept a risk at all? Because some fixes cost more than the risk they remove.</div>
+<div id="cap022" class="clip caption" data-start="98.580" data-duration="3.596" data-track-index="10">Five controls ask for separate disk partitions for system folders.</div>
+<div id="cap023" class="clip caption" data-start="102.216" data-duration="3.155" data-track-index="10">Meeting them would mean a new disk layout for every image,</div>
+<div id="cap024" class="clip caption" data-start="105.411" data-duration="2.223" data-track-index="10">and moving every running workload.</div>
+<div id="cap025" class="clip caption" data-start="107.684" data-duration="3.188" data-track-index="10">One more checks the permissions of user start-up files,</div>
+<div id="cap026" class="clip caption" data-start="110.912" data-duration="2.346" data-track-index="10">which installed agents can change.</div>
+<div id="cap027" class="clip caption" data-start="113.308" data-duration="3.069" data-track-index="10">Each accepted control is named in the factory's code,</div>
+<div id="cap028" class="clip caption" data-start="116.417" data-duration="3.048" data-track-index="10">so the trade-off stays visible and reviewable.</div>
+<div id="cap029" class="clip caption" data-start="120.115" data-duration="3.276" data-track-index="10">That list is also the release gate.</div>
+<div id="cap030" class="clip caption" data-start="123.441" data-duration="4.532" data-track-index="10">Every release builds the base image, reboots a test host,</div>
+<div id="cap031" class="clip caption" data-start="128.013" data-duration="4.361" data-track-index="10">and scans it against CIS Level 2, plus HCR checks.</div>
+<div id="cap032" class="clip caption" data-start="132.424" data-duration="5.266" data-track-index="10">The results are compared with the approved list. A new failure stops the release;</div>
+<div id="cap033" class="clip caption" data-start="137.730" data-duration="2.970" data-track-index="10">only the approved exceptions may remain.</div>
+<div id="cap034" class="clip caption" data-start="140.750" data-duration="3.209" data-track-index="10">And scanner results are never relabelled to look green.</div>
+<div id="cap035" class="clip caption" data-start="144.609" data-duration="7.038" data-track-index="10">Fix what we can. Accept what we must — on purpose, in writing, and re-checked every release.</div>
+  <div id="fade" data-layout-ignore></div>
+  <audio id="mix" class="clip" data-start="0" data-duration="156.327" data-track-index="20" src="assets/mix.wav"></audio>
+</div>
+
+<script>
+const C = {"s01": {"s": 1.4, "e": 5.174, "d": 3.774}, "s02": {"s": 5.574, "e": 13.561, "d": 7.987}, "s03": {"s": 13.961, "e": 18.54, "d": 4.579}, "s04": {"s": 19.54, "e": 26.148, "d": 6.608}, "s05": {"s": 26.548, "e": 35.904, "d": 9.356}, "s06": {"s": 36.304, "e": 40.503, "d": 4.199}, "s07": {"s": 41.503, "e": 45.368, "d": 3.865}, "s08": {"s": 45.768, "e": 61.168, "d": 15.4}, "s09": {"s": 61.568, "e": 66.148, "d": 4.58}, "s10": {"s": 67.148, "e": 70.932, "d": 3.784}, "s11": {"s": 71.332, "e": 75.038, "d": 3.706}, "s12": {"s": 75.438, "e": 87.572, "d": 12.134}, "s13": {"s": 87.972, "e": 92.077, "d": 4.105}, "s14": {"s": 93.077, "e": 98.21, "d": 5.133}, "s15": {"s": 98.61, "e": 107.314, "d": 8.704}, "s16": {"s": 107.714, "e": 112.938, "d": 5.224}, "s17": {"s": 113.338, "e": 119.145, "d": 5.807}, "s18": {"s": 120.145, "e": 123.071, "d": 2.926}, "s19": {"s": 123.471, "e": 132.054, "d": 8.583}, "s20": {"s": 132.454, "e": 140.38, "d": 7.926}, "s21": {"s": 140.78, "e": 143.639, "d": 2.859}, "s22": {"s": 144.639, "e": 151.327, "d": 6.688}}, CH = [{"id": "c1", "label": "THE QUESTION", "t": 1.4}, {"id": "c2", "label": "WHAT IS CIS", "t": 19.54}, {"id": "c3", "label": "WHERE HARDENING HAPPENS", "t": 41.503}, {"id": "c4", "label": "THREE BUCKETS", "t": 67.148}, {"id": "c5", "label": "WHY ACCEPT A RISK", "t": 93.077}, {"id": "c6", "label": "THE RELEASE GATE", "t": 120.145}, {"id": "c7", "label": "", "t": 144.639}], TOTAL = 156.327;
+const S = id => C[id].s, E = id => C[id].e, D = id => C[id].d, F = (id, f) => C[id].s + C[id].d * f;
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({paused:true, defaults:{ease:"power2.inOut"}});
+const fin  = (sel, t, d=.5, y=20) => tl.fromTo(sel, {opacity:0, y}, {opacity:1, y:0, duration:d, ease:"power2.out"}, t);
+const fout = (sel, t, d=.4) => tl.to(sel, {opacity:0, duration:d, ease:"power1.in"}, t);
+const pop  = (sel, t, s=.7) => tl.fromTo(sel, {opacity:0, scale:s}, {opacity:1, scale:1, duration:.45, ease:"back.out(2)"}, t);
+const grow = (sel, t, d=.45) => tl.to(sel, {scaleX:1, duration:d, ease:"power2.out"}, t);
+function xfade(a, b, t, d=.6){ tl.to(a, {opacity:0, duration:d}, t); tl.to(b, {opacity:1, duration:d}, t + .1); }
+function counter(n, t){ tl.to("#cn" + (n - 1), {opacity:0, duration:.25}, t - .25); tl.to("#cn" + n, {opacity:1, duration:.3}, t); }
+
+/* the 243 checks: one square each, persistent across scenes */
+const SQ = []; const OX = 800, OY = 230;
+for (let k = 0; k < 243; k++) {
+  const el = document.createElement("div"); el.className = "sq";
+  el.style.left = (OX + (k % 27) * 40) + "px"; el.style.top = (OY + Math.floor(k / 27) * 40) + "px"; el.style.opacity = 0;
+  document.getElementById("sqs").appendChild(el); SQ.push(el);
+}
+const ACCEPT = [17, 52, 88, 131, 170, 214];     // six squares stand for the six accepted controls
+const UP = [], FIX = [];
+SQ.forEach((el, k) => { if (ACCEPT.includes(k)) return; (k % 9 < 4 ? UP : FIX).push(el); });   // illustrative split
+
+/* ===== 1 · the question ===== */
+tl.to("#fade", {opacity:0, duration:1.2, ease:"power1.out"}, 0.1);
+tl.to("#aitag", {opacity:1, duration:.5}, 0.8); tl.to("#count", {opacity:1, duration:.5}, 0.8);
+tl.fromTo("#grid", {x:0, y:0}, {x:-120, y:-120, duration:TOTAL, ease:"none"}, 0);
+["#sc1","#sc2","#sc3","#sc4","#sc5","#sc6","#sc7"].forEach((sc, i) => { const a = [0, S("s04"), S("s07"), S("s10"), S("s14"), S("s18"), S("s22"), TOTAL]; tl.fromTo(sc, {scale:1}, {scale:1.03, transformOrigin:"50% 45%", duration:a[i + 1] - a[i] + 0.6, ease:"none"}, Math.max(0, a[i] - 0.6)); });
+fin("#h1a", S("s01") + 0.1);
+SQ.forEach((el, k) => tl.fromTo(el, {opacity:0, scale:.2}, {opacity:1, scale:1, duration:.3, ease:"back.out(2)"}, S("s01") + 0.4 + (k % 27) * 0.045 + Math.floor(k / 27) * 0.03));
+fout("#h1a", S("s02") - 0.1, .3);
+fin("#h1b", S("s02") + 0.1);
+const cnt = {v:0}; tl.to(cnt, {v:243, duration:D("s02") * .45, ease:"power2.out", onUpdate:() => { document.getElementById("n243").textContent = Math.round(cnt.v); }}, S("s02") + 0.1);
+fin("#h1c", F("s02", .62));
+fin("#h1e", F("s02", .3), .5, 10);
+fin("#h1d", S("s03") + 0.2);
+ACCEPT.forEach((k, i) => tl.to(SQ[k], {backgroundColor:"#ffffff", outline:"3px dashed #0a1e3d", duration:.3}, F("s03", .45) + i * .08));
+
+/* ===== 2 · what is CIS ===== */
+xfade("#sc1", "#sc2", S("s04") - 0.5);
+counter(2, S("s04") - 0.3);
+tl.to(SQ, {opacity:0, scale:.6, duration:.5, stagger:.002}, S("s04") - 0.6);
+fin("#h2a", S("s04") + 0.1); fin("#h2b", F("s04", .45));
+fin("#l1", S("s05") + 0.2, .6, 40); fin("#l2", F("s05", .45), .6, 40);
+pop("#spSafety", S("s06") - 0.2, .6); fin("#h2c", S("s06") + 0.3);
+tl.to("#spSafety", {y:-14, duration:2.4, ease:"sine.inOut", yoyo:true, repeat:1}, S("s06") + 0.5);
+
+/* ===== 3 · the factory line ===== */
+xfade("#sc2", "#sc3", S("s07") - 0.5);
+counter(3, S("s07") - 0.3);
+fin("#h3a", S("s07") + 0.1);
+pop("#spFactory", S("s07") + 0.3, .7);
+tl.to("#spFactory", {opacity:0, y:-60, scale:.7, duration:.6}, S("s08") - 0.1);
+pop("#n1", F("s08", .04)); grow("#a1", F("s08", .2)); pop("#n2", F("s08", .24));
+grow("#a2", F("s08", .55)); pop("#n3", F("s08", .58)); pop("#n4", F("s08", .64)); pop("#n5", F("s08", .7));
+grow("#a3", F("s08", .86)); pop("#n6", F("s08", .9));
+tl.to("#loop", {strokeDashoffset:0, duration:1.6, ease:"power2.inOut"}, S("s09") + 0.1);
+fin("#h3b", F("s09", .45));
+tl.to("#n2", {boxShadow:"20px 20px 0 rgba(212,160,23,.45)", duration:.6, yoyo:true, repeat:1}, F("s09", .6));
+
+/* ===== 4 · three buckets ===== */
+xfade("#sc3", "#sc4", S("s10") - 0.5);
+counter(4, S("s10") - 0.3);
+fin("#h4a", S("s10") + 0.1);
+tl.to(SQ, {opacity:1, scale:1, duration:.4, stagger:.002}, S("s10") + 0.2);
+["#b1", "#b2", "#b3"].forEach((b, i) => fin(b, S("s11") - 0.2 + i * .15, .5, 30));
+function pile(list, x0, y0, cols, t, size=.66, gap=27, color=null){
+  list.forEach((el, i) => { const k = SQ.indexOf(el); const ox = OX + (k % 27) * 40, oy = OY + Math.floor(k / 27) * 40;
+    tl.to(el, Object.assign({x: x0 + (i % cols) * gap - ox, y: y0 + Math.floor(i / cols) * gap - oy, scale:size, transformOrigin:"0 0", duration:.8, ease:"power3.inOut"}, color ? {backgroundColor: color} : {}), t + i * .006); });
+}
+pile(UP, 150, 520, 17, S("s11") + 0.1, .66, 27, "#e8ecf3");
+pile(FIX, 728, 726, 23, S("s11") + 0.3, .55, 21);
+document.querySelectorAll("#b2 .bl div").forEach((d, i) => fin(d, F("s12", .15 + i * .14), .35, 8));
+pile(ACCEPT.map(k => SQ[k]), 1320, 730, 6, S("s11") + 0.5, 1.2, 62);
+ACCEPT.forEach((k, i) => tl.fromTo(SQ[k], {backgroundColor:"#ffffff"}, {backgroundColor:"#d4a017", duration:.3, yoyo:true, repeat:1}, S("s13") + 0.3 + i * .1));
+document.querySelectorAll("#b3 .bl div").forEach((d, i) => fin(d, F("s13", .3 + i * .2), .35, 8));
+tl.to("#b3", {boxShadow:"20px 20px 0 rgba(212,160,23,.55)", duration:.5}, F("s13", .5));
+fin("#h4b", S("s11") + 0.4, .5, 0);
+tl.to(FIX.slice(0, 40), {y:"-=6", duration:1.2, ease:"sine.inOut", yoyo:true, repeat:1, stagger:.01}, E("s13") - 0.6);
+
+/* ===== 5 · why accept a risk ===== */
+xfade("#sc4", "#sc5", S("s14") - 0.5);
+counter(5, S("s14") - 0.3);
+tl.to(SQ, {opacity:0, duration:.4}, S("s14") - 0.5);
+fin("#h5a", S("s14") + 0.1);
+fin("#c51", S("s15") + 0.1, .6, 30);
+tl.fromTo("#disk i", {scaleX:1, x:0}, {x:(i) => (i - 2) * 14, duration:1.2, ease:"power2.inOut", stagger:.08}, F("s15", .35));
+fin("#c52", S("s16") + 0.1, .6, 30);
+fin("#c53", S("s17") + 0.1, .6, 30);
+tl.to("#c53", {boxShadow:"20px 20px 0 rgba(212,160,23,.5)", duration:.6}, F("s17", .55));
+
+/* ===== 6 · the release gate ===== */
+xfade("#sc5", "#sc6", S("s18") - 0.5);
+counter(6, S("s18") - 0.3);
+fin("#h6a", S("s18") + 0.1); pop("#spGate", S("s18") + 0.3, .7);
+pop("#g1", S("s19") + 0.1); grow("#ga1", F("s19", .2)); pop("#g2", F("s19", .25));
+grow("#ga2", F("s19", .45)); pop("#g3", F("s19", .5));
+grow("#ga3", F("s19", .8)); pop("#g4", F("s19", .84));
+tl.fromTo("#tok", {opacity:0, x:0, y:0}, {opacity:1, duration:.3}, S("s19") + 0.2);
+tl.to("#tok", {x:300, duration:.7}, F("s19", .25)); tl.to("#tok", {x:720, duration:.7}, F("s19", .5)); tl.to("#tok", {x:1150, duration:.7}, F("s19", .84));
+pop("#o1", F("s20", .45)); tl.to("#o1", {backgroundColor:"#fbe9e7", duration:.25, yoyo:true, repeat:3}, F("s20", .5));
+pop("#o2", F("s20", .78));
+tl.to("#tok", {x:1300, y:150, backgroundColor:"#1e7a46", duration:.8}, F("s20", .82));
+tl.to("#spGate", {y:-12, duration:2, ease:"sine.inOut", yoyo:true, repeat:1}, S("s20"));
+fin("#fl", S("s21") + 0.1, .5, 30);
+
+/* ===== 7 · close ===== */
+xfade("#sc6", "#sc7", S("s22") - 0.5);
+tl.to(["#count"], {opacity:0, duration:.4}, S("s22") - 0.5);
+fin("#h7a", S("s22") - 0.1, .8, 30); fin("#h7b", F("s22", .6), .6, 10);
+fin("#credit", E("s22") + 1.0, .8, 0);
+tl.to("#fade", {opacity:1, duration:1.4, ease:"power1.in"}, TOTAL - 1.5);
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

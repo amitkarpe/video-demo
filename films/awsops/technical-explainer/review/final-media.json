@@ -1,0 +1,29 @@
+{
+  "sha256": "dae56a170a89b35e9ca3f15f7253808b37387c50993b02c0730304fd6a32a125",
+  "ffprobe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1",
+        "start_time": "0.000000",
+        "duration": "649.000000"
+      },
+      {
+        "codec_name": "aac",
+        "avg_frame_rate": "0/0",
+        "start_time": "0.000000",
+        "duration": "649.000000"
+      }
+    ],
+    "format": {
+      "duration": "649.000000",
+      "size": "67134850"
+    }
+  },
+  "fullDecodeExitCode": 0,
+  "outputCopyMatches": true
+}

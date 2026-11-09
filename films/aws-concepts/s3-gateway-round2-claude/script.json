@@ -1,0 +1,83 @@
+{
+  "title": "NO NAT. STILL S3.",
+  "lead_in": 1.4,
+  "tail": 3.0,
+  "openai": {
+    "model": "gpt-4o-mini-tts",
+    "voice": "cedar",
+    "response_format": "wav",
+    "instructions": "Voice: a confident, warm senior AWS network engineer telling a short visual story to peers. Tone: clear and crisp, quietly intrigued on the opening mystery, deliberate on the twist, and landing the final two sentences with calm emphasis. Pacing: brisk and energetic, a little faster than a normal explainer, never rushed or clipped; only short pauses at colons and full stops. No sales tone, no drama. Pronunciation: EC2 as 'E C two', IPv4 as 'I P v four', NAT as the word 'nat', S3 as 'S three', DNS as letters, IAM as 'I am', ACLs as 'A C Ls', AWS as letters."
+  },
+  "lines": [
+    {
+      "id": "s01",
+      "caption": "This EC2 instance has no public IP.",
+      "gap_after": 0.2
+    },
+    {
+      "id": "s02",
+      "caption": "No NAT. No internet gateway.",
+      "gap_after": 0.3
+    },
+    {
+      "id": "s03",
+      "caption": "Yet it still reads from Amazon S3.",
+      "gap_after": 0.4
+    },
+    {
+      "id": "s04",
+      "caption": "So what's the path?",
+      "gap_after": 0.45
+    },
+    {
+      "id": "s05",
+      "caption": "DNS first: the bucket name resolves to Amazon S3's public IP addresses.",
+      "gap_after": 0.35
+    },
+    {
+      "id": "s06",
+      "caption": "Then the route table decides.",
+      "gap_after": 0.25
+    },
+    {
+      "id": "s07",
+      "caption": "One route does it. Destination: the AWS-managed S3 prefix list for this Region. Target: the gateway endpoint.",
+      "gap_after": 0.3
+    },
+    {
+      "id": "s08",
+      "caption": "Matching traffic takes that route and stays on the AWS network.",
+      "gap_after": 0.5
+    },
+    {
+      "id": "s09",
+      "caption": "It's not an interface endpoint: no network interface, no private IP. Not a NAT either.",
+      "gap_after": 0.15
+    },
+    {
+      "id": "s10",
+      "caption": "Just a route target.",
+      "gap_after": 0.6
+    },
+    {
+      "id": "s11",
+      "caption": "But a route is not a permission.",
+      "gap_after": 0.3
+    },
+    {
+      "id": "s12",
+      "caption": "Security groups and network ACLs must still allow the traffic.",
+      "gap_after": 0.2
+    },
+    {
+      "id": "s13",
+      "caption": "IAM, the endpoint policy and the bucket policy still decide access.",
+      "gap_after": 0.65
+    },
+    {
+      "id": "s14",
+      "caption": "The route changed. The permissions didn't disappear.",
+      "gap_after": 0.0
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+[
+  {
+    "cue": 0,
+    "operation": "delete",
+    "script": "A",
+    "asr": ""
+  },
+  {
+    "cue": 4,
+    "operation": "replace",
+    "script": "Image Builder",
+    "asr": "ImageBuilder"
+  },
+  {
+    "cue": 5,
+    "operation": "replace",
+    "script": "Package-only",
+    "asr": "Package only"
+  },
+  {
+    "cue": 5,
+    "operation": "replace",
+    "script": "security-scan",
+    "asr": "security scan"
+  },
+  {
+    "cue": 6,
+    "operation": "replace",
+    "script": "Three",
+    "asr": "Free"
+  },
+  {
+    "cue": 6,
+    "operation": "replace",
+    "script": "DEV.",
+    "asr": "development"
+  },
+  {
+    "cue": 7,
+    "operation": "replace",
+    "script": "non-container",
+    "asr": "non container"
+  },
+  {
+    "cue": 9,
+    "operation": "replace",
+    "script": "CRUD,",
+    "asr": "create read update and delete"
+  },
+  {
+    "cue": 11,
+    "operation": "replace",
+    "script": "CRUD",
+    "asr": "create read update"
+  },
+  {
+    "cue": 11,
+    "operation": "replace",
+    "script": "backup-restore",
+    "asr": "delete and backup restore"
+  },
+  {
+    "cue": 12,
+    "operation": "replace",
+    "script": "higher-confidence",
+    "asr": "higher confidence"
+  },
+  {
+    "cue": 13,
+    "operation": "replace",
+    "script": "placed",
+    "asr": "place"
+  },
+  {
+    "cue": 14,
+    "operation": "replace",
+    "script": "service-to-service",
+    "asr": "service to service"
+  },
+  {
+    "cue": 15,
+    "operation": "replace",
+    "script": "DEV",
+    "asr": "Development"
+  },
+  {
+    "cue": 17,
+    "operation": "replace",
+    "script": "PROD,",
+    "asr": "production"
+  },
+  {
+    "cue": 17,
+    "operation": "replace",
+    "script": "DEV",
+    "asr": "Development"
+  },
+  {
+    "cue": 17,
+    "operation": "replace",
+    "script": "PROD",
+    "asr": "production"
+  },
+  {
+    "cue": 20,
+    "operation": "replace",
+    "script": "per-release",
+    "asr": "per release"
+  },
+  {
+    "cue": 21,
+    "operation": "replace",
+    "script": "PROD",
+    "asr": "production"
+  },
+  {
+    "cue": 21,
+    "operation": "replace",
+    "script": "Ops-approved",
+    "asr": "ops approved"
+  },
+  {
+    "cue": 22,
+    "operation": "replace",
+    "script": "PROD canary",
+    "asr": "production cannery"
+  },
+  {
+    "cue": 23,
+    "operation": "replace",
+    "script": "known-good",
+    "asr": "known good"
+  },
+  {
+    "cue": 23,
+    "operation": "replace",
+    "script": "data-recovery",
+    "asr": "data recovery"
+  }
+]

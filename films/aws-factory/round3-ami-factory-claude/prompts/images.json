@@ -1,0 +1,52 @@
+{
+  "style": "Cinematic 2.5D illustrated concept art for an animated technical film. Stylized semi-realistic, clean readable shapes, deep navy and electric-blue night palette with warm gold accents, soft volumetric light, gentle rim lighting, subtle film grain, high detail, calm and premium. Absolutely no text, no letters, no numbers, no logos, no brand marks, no watermarks, no user-interface panels.",
+  "images": [
+    {
+      "id": "hero_factory",
+      "size": "2048x1152",
+      "quality": "high",
+      "prompt": "Wide establishing shot at night of a vast, elegant automated factory hall seen from a slightly elevated three-quarter angle. On the far left, a glowing golden arrival gate where a single luminous golden disc rides in on a conveyor. The conveyor leads to a central forging station bathed in blue light, then splits into three separate production lines heading right toward three distinct bays. Polished floor with reflections, light haze, distant catwalks. Generous empty dark space in the top third for titles. The mood is precise, trustworthy and quietly epic."
+    },
+    {
+      "id": "golden_core",
+      "size": "1024x1024",
+      "quality": "high",
+      "background": "transparent",
+      "prompt": "A single floating golden disc artifact representing a pristine operating-system image: a thick glowing gold coin with fine engraved circuit patterns and a soft inner light, seen at a slight three-quarter angle, isolated on a transparent background, gentle glow, no shadow plate."
+    },
+    {
+      "id": "hardened_core",
+      "size": "1024x1024",
+      "quality": "high",
+      "background": "transparent",
+      "edit_from": "golden_core",
+      "prompt": "Transform this golden disc into a hardened version: keep the same gold disc and angle at the centre, now encased in a precise armored shell of interlocking blue steel plates with a few small glowing cyan rivets and a thin protective ring, as if forged and sealed in a secure workshop. Still floating on a transparent background."
+    },
+    {
+      "id": "three_machines",
+      "size": "2560x1024",
+      "quality": "high",
+      "background": "transparent",
+      "prompt": "Three separate, clearly spaced stylized machines standing side by side on a transparent background, the same scale and style, each with a small glowing armored blue core socket at its base (the shared parent). Left: a code workshop machine with branching copper pipes that split and merge like a version-control tree, warm orange accents. Middle: a sturdy data vault machine with stacked rotating data drums and a heavy round door, green accents, no containers. Right: a container dock machine with a small gantry crane stacking bright cargo containers onto a rack, cyan accents. Wide empty gaps between the three machines."
+    },
+    {
+      "id": "proving_grounds",
+      "size": "2048x1152",
+      "quality": "high",
+      "prompt": "Interior of a dark high-tech testing hangar at night with three separate glass test bays side by side, each lit from above by a cool spotlight, empty test rigs with probes and sensor arms waiting inside, soft blue haze, reflective floor. Large clean dark space across the lower third and the top for overlays. Wide cinematic composition, symmetric."
+    },
+    {
+      "id": "ops_engineer",
+      "size": "1024x1536",
+      "quality": "high",
+      "background": "transparent",
+      "prompt": "A friendly stylized operations engineer character in a navy jacket, gender-neutral, standing at a slim review console, carefully inspecting a floating evidence card, one hand holding a glowing golden approval key. Three-quarter view, full body, transparent background, warm rim light."
+    },
+    {
+      "id": "night_release",
+      "size": "2048x1152",
+      "quality": "high",
+      "prompt": "Night-time wide shot of a calm modern city skyline under a large full moon. In the foreground, a secure production data-center fortress with a gated bridge; a small glowing golden capsule waits at the gate. Above the skyline, a faint circular celestial calendar ring of thirty small light points with one point brighter than the rest, suggesting a scheduled monthly night. Quiet, controlled, cinematic; generous dark sky for titles."
+    }
+  ]
+}

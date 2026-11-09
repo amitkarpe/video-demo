@@ -1,6 +1,6 @@
 # Codex Cloud development setup (optional)
 
-This is the **single repository-owned guide** for preparing an approved development workflow in Codex Cloud. It does not choose the project's purpose or authorize cloud access, spending or deployment. [`AGENTS.md`](../AGENTS.md) routes the agent; [`INIT.md`](../INIT.md) owns first-intent acceptance; [`ENV.md`](../ENV.md) owns project-specific requirements; [the cloud-first quickstart](CLOUD_FIRST_QUICKSTART.md) separately covers hosting and release.
+This is the **single repository-owned guide** for preparing an approved development workflow in Codex Cloud. It does not choose the project's purpose or authorize cloud access, spending or deployment. [`AGENTS.md`](../AGENTS.md) routes the agent; [`INIT.md`](../INIT.md) owns first-intent acceptance; [`ENV.md`](../ENV.md) owns project-specific requirements.
 
 The universal `repo-starter` is **UNCONFIGURED**: leave its Codex Cloud **Install script unset**, its `INIT.md` at `NOT_INITIALIZED` and its `ENV.md` at `NOT_READY`. Do not install tools merely because an optional example exists.
 

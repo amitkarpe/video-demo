@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920,height=1080">
+<title>The reply disappeared — AWSOps lost-acknowledgement pilot (SYNTHETIC)</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+:root{
+  --ink:#050a13; --panel:#0c1829; --panel2:#101f34; --line:#27415b; --text:#eaf2fa; --dim:#8aa0b6;
+  --amber:#ffb020; --cyan:#38d4ff; --mint:#55e0a0; --red:#ff5d6c; --grey:#6b7f93;
+  --mono:"JetBrains Mono","SF Mono",Menlo,Consolas,monospace;
+  --sans:"Inter","SF Pro Display","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--ink);color:var(--text);font-family:var(--sans)}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden}
+#bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse 70% 60% at 50% 42%,#0f2138 0%,#08111f 55%,#050a13 100%)}
+#bg:after{content:"";position:absolute;inset:0;background-image:
+  linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:60px 60px}
+#world{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+.abs{position:absolute}
+.panel{position:absolute;border:2px solid var(--line);border-radius:22px;background:#0a1626cc}
+.card{position:absolute;border:2px solid var(--line);border-radius:16px;background:var(--panel2)}
+.plabel{position:absolute;font:700 24px var(--mono);letter-spacing:5px;color:var(--dim)}
+.mono{font-family:var(--mono)}
+.pill{position:absolute;border-radius:10px;font:700 26px var(--mono);display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.tiny{font:600 24px var(--mono);color:var(--dim)}
+/* packets */
+.pkt{position:absolute;height:52px;width:280px;border-radius:12px;font:700 28px var(--mono);display:flex;align-items:center;justify-content:center;gap:10px;white-space:nowrap;opacity:0}
+#pktW{background:#f1f6fb;color:#0b1626;box-shadow:0 0 28px #ffffff55}
+#pktR{border:3px dashed var(--red);color:var(--red);background:#2a0d1488}
+#probe{width:276px;background:var(--cyan);color:#04202b;box-shadow:0 0 28px #38d4ff66}
+#obs{width:276px;background:var(--mint);color:#052416;box-shadow:0 0 28px #55e0a066}
+.runchip{font:700 18px var(--mono);background:#0b1626;color:var(--amber);border-radius:6px;padding:2px 7px}
+/* state pills */
+.st{position:absolute;top:0;left:0;height:100%;width:100%;border-radius:10px;font:800 30px var(--mono);display:flex;align-items:center;justify-content:center;letter-spacing:2px}
+/* hud */
+#hud{position:absolute;inset:0;pointer-events:none}
+#pill{position:absolute;left:36px;top:30px;padding:10px 22px;border:2px solid var(--amber);border-radius:999px;color:var(--amber);font:800 24px var(--mono);letter-spacing:3px;background:#1a1204cc}
+#runtag{position:absolute;right:36px;top:30px;padding:10px 20px;border:2px solid var(--line);border-radius:999px;color:var(--dim);font:700 22px var(--mono);letter-spacing:2px;background:#0a1626cc}
+#aitag{position:absolute;right:36px;top:92px;padding:6px 16px;border:2px solid var(--line);border-radius:999px;color:var(--dim);font:700 20px var(--mono);letter-spacing:2px;background:#0a1626cc}
+.caption{position:absolute;left:150px;width:1620px;bottom:62px;text-align:center;padding:18px 30px;border-radius:14px;background:#02070ed9;color:#fff;font:600 41px/1.25 var(--sans)}
+/* ladder */
+#ladder{position:absolute;left:396px;top:104px;width:980px;opacity:0;transform:scale(1.15);transform-origin:0 0}
+#ladder .ttl{font:800 26px var(--mono);letter-spacing:6px;color:var(--dim);margin-bottom:16px}
+.row{position:absolute;left:0;width:980px;height:108px;border:2px solid var(--line);border-radius:16px;background:var(--panel);opacity:0}
+.row .ic{position:absolute;left:18px;top:14px;width:80px;height:80px}
+.row .lab{position:absolute;left:122px;top:16px;font:800 28px var(--mono);letter-spacing:3px}
+.row .note{position:absolute;left:122px;top:58px;font:600 25px var(--sans);color:var(--dim)}
+.row .val{position:absolute;right:20px;top:22px;width:330px;height:64px}
+#stamp{position:absolute;left:560px;top:738px;width:800px;height:104px;border:7px solid var(--amber);border-radius:18px;color:var(--amber);font:900 68px var(--mono);letter-spacing:6px;display:flex;align-items:center;justify-content:center;opacity:0;transform:rotate(-2.5deg);background:#1a1204e6}
+#footer{position:absolute;left:0;width:1920px;top:862px;text-align:center;font:700 28px var(--mono);letter-spacing:2px;color:var(--amber);opacity:0}
+#credit{position:absolute;left:36px;bottom:14px;font:500 17px var(--sans);color:#7f95aa;opacity:0}
+#fade{position:absolute;inset:0;background:#000;opacity:1}
+</style>
+</head>
+<body>
+<div id="stage" class="clip" data-composition-id="main" data-start="0" data-duration="53.714" data-width="1920" data-height="1080" data-track-index="0">
+  <div id="bg"></div>
+
+  <div id="world" data-layout-allow-overflow>
+    <!-- ============ lanes, rails, boundary ============ -->
+    <svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
+      <defs>
+        <linearGradient id="seam" x1="0" x2="1"><stop offset="0" stop-color="#38d4ff" stop-opacity="0"/><stop offset=".5" stop-color="#38d4ff" stop-opacity=".22"/><stop offset="1" stop-color="#38d4ff" stop-opacity="0"/></linearGradient>
+      </defs>
+      <rect id="seamGlow" x="890" y="150" width="80" height="690" fill="url(#seam)" opacity=".5"/>
+      <line id="bound" x1="930" y1="150" x2="930" y2="840" stroke="#4d7391" stroke-width="3" stroke-dasharray="14 12"/>
+      <!-- faint lane rails -->
+      <path d="M110 360 H1290" stroke="#1b3047" stroke-width="3" fill="none"/>
+      <path d="M1290 450 H820" stroke="#1b3047" stroke-width="3" fill="none" stroke-dasharray="3 9"/>
+      <path d="M820 756 H1000 V500 H1290" stroke="#16304a" stroke-width="3" fill="none" stroke-dasharray="3 9"/>
+      <!-- ack signal (will be lost) -->
+      <path id="ackSig" d="M1290 450 H1010" stroke="#55e0a0" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="280" stroke-dashoffset="280" opacity="0"/>
+      <g id="ackX" opacity="0"><circle cx="985" cy="450" r="26" fill="#2a0d14" stroke="#ff5d6c" stroke-width="4"/><path d="M973 438 L997 462 M997 438 L973 462" stroke="#ff5d6c" stroke-width="5" stroke-linecap="round"/></g>
+      <!-- gate -->
+      <g id="gate" opacity="0"><rect x="826" y="318" width="12" height="84" rx="4" fill="#ff5d6c"/><rect x="820" y="312" width="24" height="8" rx="3" fill="#ff5d6c"/><rect x="820" y="400" width="24" height="8" rx="3" fill="#ff5d6c"/></g>
+    </svg>
+    <div id="lblSdk" class="plabel" data-layout-ignore style="left:866px;top:124px;letter-spacing:4px;opacity:0">SDK BOUNDARY</div>
+    <div class="plabel" data-layout-ignore style="left:830px;top:850px;letter-spacing:3px;font-size:20px">MOCK PROVIDER · NO AWS CALL</div>
+
+    <!-- ============ backend ============ -->
+    <div id="backend" class="panel" style="left:80px;top:170px;width:740px;height:640px"></div>
+    <div class="plabel" data-layout-ignore style="left:112px;top:192px">TRUSTED BACKEND</div>
+
+    <div id="decision" class="card" style="left:110px;top:236px;width:680px;height:76px;border-color:#2c6a55;opacity:0">
+      <svg class="abs" style="left:18px;top:16px" width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="19" fill="none" stroke="#55e0a0" stroke-width="3"/><path id="dcheck" d="M12 23 L19 30 L32 14" fill="none" stroke="#55e0a0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40"/></svg>
+      <div class="abs mono" style="left:78px;top:10px;font-weight:800;font-size:30px;color:var(--mint);letter-spacing:2px">APPROVE_ONCE</div>
+      <div class="abs tiny" data-layout-ignore style="left:78px;top:46px;font-size:21px">decision consumed before any provider call</div>
+    </div>
+
+    <div class="abs tiny" data-layout-ignore style="left:112px;top:330px;font-size:20px;letter-spacing:3px">PROVIDER CALL ▸</div>
+
+    <div id="ledger" class="card" style="left:110px;top:404px;width:680px;height:296px;opacity:0">
+      <div class="abs mono" style="left:24px;top:14px;font-weight:800;font-size:25px;letter-spacing:4px;color:var(--cyan)">LEDGER</div>
+      <div class="abs tiny" data-layout-ignore style="left:150px;top:17px;font-size:21px">SQLite · synchronous=FULL · private file</div>
+      <!-- custom SQLite-style cylinder -->
+      <svg class="abs" style="left:26px;top:62px" width="92" height="116" viewBox="0 0 92 116">
+        <ellipse cx="46" cy="20" rx="38" ry="14" fill="#0d2740" stroke="#38d4ff" stroke-width="3"/>
+        <path d="M8 20 V92 C8 100 25 106 46 106 C67 106 84 100 84 92 V20" fill="#0d2740" stroke="#38d4ff" stroke-width="3"/>
+        <path d="M8 46 C8 54 25 60 46 60 C67 60 84 54 84 46 M8 70 C8 78 25 84 46 84 C67 84 84 78 84 70" fill="none" stroke="#38d4ff" stroke-width="2" opacity=".6"/>
+      </svg>
+      
+      <!-- table row -->
+      <div class="abs tiny" data-layout-ignore style="left:150px;top:62px;font-size:19px;letter-spacing:3px">STEP</div>
+      <div class="abs tiny" data-layout-ignore style="left:390px;top:62px;font-size:19px;letter-spacing:3px">STATE</div>
+      <div class="abs" style="left:140px;top:90px;width:520px;height:62px;border:2px solid var(--line);border-radius:12px;background:#0a1626">
+        <div class="abs mono" style="left:20px;top:14px;font-weight:700;font-size:30px">policy</div>
+        <div class="abs" style="left:240px;top:7px;width:256px;height:46px">
+          <div id="pillIntent" class="st" style="background:#223548;color:#b8c8d8">INTENT</div>
+          <div id="pillCalling" class="st" style="background:var(--amber);color:#2a1a00;opacity:0">CALLING</div>
+        </div>
+      </div>
+      <!-- sequence strip -->
+      <div id="seq" class="abs" style="left:28px;top:170px;width:630px;height:56px;opacity:0">
+        <div id="q1" class="pill" style="left:0;top:0;width:128px;height:52px;border:2px solid var(--grey);font-size:21px;color:#b8c8d8">INTENT</div>
+        <div class="abs mono" style="left:132px;top:12px;font-size:26px;color:var(--grey)">▸</div>
+        <div id="q2" class="pill" style="left:160px;top:0;width:150px;height:52px;border:3px solid var(--amber);font-size:23px;color:var(--amber);background:#2a1a0055">CALLING</div>
+        <div class="abs mono" style="left:314px;top:12px;font-size:26px;color:var(--grey)">▸</div>
+        <div id="q3" class="pill" style="left:342px;top:0;width:140px;height:52px;border:2px solid var(--grey);font-size:21px;color:#b8c8d8">SDK CALL</div>
+        <div class="abs mono" style="left:486px;top:12px;font-size:26px;color:var(--grey)">▸</div>
+        <div id="q4" class="pill" style="left:514px;top:0;width:116px;height:52px;border:2px dashed var(--red);font-size:21px;color:var(--red)">✕ ACK</div>
+      </div>
+      <div id="before" class="abs" style="left:28px;top:232px;width:630px;height:52px;opacity:0">
+        <svg class="abs" style="left:0;top:0" width="630" height="52" viewBox="0 0 630 52"><path d="M235 0 V22 H417 V0" fill="none" stroke="#55e0a0" stroke-width="3"/><path d="M417 22 l-9 -7 m9 7 l-9 7" stroke="#55e0a0" stroke-width="3" fill="none"/></svg>
+        <div class="abs mono" style="left:96px;top:24px;width:460px;text-align:center;font-weight:800;font-size:24px;color:var(--mint);letter-spacing:1px;white-space:nowrap">SAVED BEFORE THE CALL</div>
+      </div>
+    </div>
+
+    <div id="recon" class="card" style="left:110px;top:716px;width:680px;height:80px;opacity:.4">
+      <div class="abs mono" style="left:24px;top:12px;font-weight:800;font-size:25px;letter-spacing:4px;color:var(--cyan)">RECONCILER</div>
+      <div id="reconState" class="abs tiny" data-layout-ignore style="left:24px;top:46px;font-size:21px">idle · read-only · same run only</div>
+      <div id="reconMatch" class="pill" style="right:18px;top:16px;width:300px;height:48px;background:var(--mint);color:#052416;font-size:24px;opacity:0">readback: MATCH</div>
+    </div>
+
+    <!-- ============ provider side ============ -->
+    <div class="plabel" data-layout-ignore style="left:1060px;top:192px">PROVIDER · MOCK</div>
+    <div id="s3" class="abs" style="left:1290px;top:330px;width:200px;height:200px;opacity:0">
+      <img src="assets/aws-icons/Arch_Amazon-Simple-Storage-Service_64.svg" width="200" height="200" alt="Amazon S3 (official AWS Architecture Icon)">
+    </div>
+    <div id="s3ring" class="abs" style="left:1270px;top:310px;width:240px;height:240px;border:4px solid var(--cyan);border-radius:50%;opacity:0"></div>
+    <div id="s3lab" class="abs" style="left:1060px;top:552px;width:760px;text-align:center;opacity:0">
+      <div class="mono" style="font-weight:800;font-size:28px">resource-disposable-s3-canary</div>
+      <div class="tiny" style="margin-top:4px">mock-a · ap-southeast-1 · SYNTHETIC</div>
+    </div>
+    <div id="fog" class="abs" style="left:1230px;top:290px;width:340px;height:280px;border-radius:50%;background:radial-gradient(circle,#050a13dd 0%,#050a1399 45%,#050a1300 72%);opacity:0"></div>
+    <div id="qmark" class="abs mono" style="left:1330px;top:340px;width:140px;text-align:center;font-weight:900;font-size:120px;color:var(--amber);opacity:0">?</div>
+
+    <div id="cardB" class="card" style="left:1060px;top:624px;width:360px;height:176px;border-style:dashed;border-color:var(--grey);opacity:0">
+      <div class="abs mono" style="left:18px;top:14px;font-weight:800;font-size:25px;color:var(--red);white-space:nowrap">B: NOT APPLIED</div>
+      <div class="abs" style="left:18px;top:62px;font:600 27px/1.3 var(--sans);color:var(--dim)">The change failed.<br>No policy on the bucket.</div>
+    </div>
+    <div id="cardA" class="card" style="left:1440px;top:624px;width:380px;height:176px;border-style:dashed;border-color:var(--grey);opacity:0">
+      <div class="abs mono" style="left:18px;top:14px;font-weight:800;font-size:25px;color:var(--amber);white-space:nowrap">A: APPLIED · NO REPLY</div>
+      <div id="polTxt" class="abs mono" style="left:18px;top:62px;font:600 25px/1.35 var(--mono);color:#c4d3e2;white-space:pre">Deny  s3:*
+bucket + objects
+if SecureTransport=false</div>
+    </div>
+
+    <!-- ============ moving things ============ -->
+    <div id="pktW" class="pkt" style="left:830px;top:334px">PutBucketPolicy</div>
+    <div id="pktR" class="pkt" style="left:440px;top:334px">PutBucketPolicy</div>
+    <div id="noResend" class="abs mono" style="left:850px;top:262px;font-weight:900;font-size:30px;letter-spacing:3px;color:var(--red);opacity:0;white-space:nowrap">NO RESEND</div>
+    <div id="probe" class="pkt" style="left:830px;top:731px">GetBucketPolicy</div>
+    <div id="obs" class="pkt" style="left:1000px;top:475px">Deny · observed</div>
+    <div id="readLbl" class="abs mono" style="left:830px;top:676px;width:170px;color:var(--cyan);font-weight:800;font-size:26px;line-height:1.2;opacity:0">READ-ONLY<br>SAME RUN A</div>
+    <div id="waitRing" class="abs" style="left:792px;top:424px;width:52px;height:52px;border:4px solid var(--amber);border-radius:50%;opacity:0"></div>
+  </div>
+
+  <!-- ============ evidence ladder (HUD space) ============ -->
+  <div id="ladder">
+    <div class="ttl" id="ladderTtl" style="opacity:0">FOUR SEPARATE FACTS</div>
+    <svg class="abs" style="left:-60px;top:0" width="80" height="520" viewBox="0 0 80 520" id="rungs" fill="none">
+      <path id="conn1" d="M64 200 H34 V82 H60" stroke="#ff5d6c" stroke-width="3" stroke-dasharray="8 6" opacity="0"/>
+      <path id="conn2" d="M64 200 H34 V320 H60" stroke="#ff5d6c" stroke-width="3" stroke-dasharray="8 6" opacity="0"/>
+      <g id="x1" opacity="0"><circle cx="34" cy="136" r="15" fill="#2a0d14" stroke="#ff5d6c" stroke-width="3"/><path d="M28 130 L40 142 M40 130 L28 142" stroke="#ff5d6c" stroke-width="3.5" stroke-linecap="round"/></g>
+      <g id="x2" opacity="0"><circle cx="34" cy="262" r="15" fill="#2a0d14" stroke="#ff5d6c" stroke-width="3"/><path d="M28 256 L40 268 M40 256 L28 268" stroke="#ff5d6c" stroke-width="3.5" stroke-linecap="round"/></g>
+    </svg>
+    <div id="rowExec" class="row" style="top:54px;border-color:#5a4210">
+      <svg class="ic" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="30" stroke="#ffb020" stroke-width="4"/><path d="M28 28 L52 52 M52 28 L28 52" stroke="#ffb020" stroke-width="5" stroke-linecap="round" opacity=".0"/><text x="40" y="53" text-anchor="middle" font-family="Menlo,monospace" font-size="38" font-weight="800" fill="#ffb020">?</text></svg>
+      <div class="lab" style="color:var(--text)">EXECUTION</div>
+      <div class="note">SDK reply lost · never resolved to ACK</div>
+      <div class="val"><div id="vExecPh" class="st" style="background:#17263a;color:#4d6176">…</div><div id="vExec" class="st" style="background:var(--amber);color:#2a1a00;opacity:0">UNKNOWN</div></div>
+    </div>
+    <div id="rowRead" class="row" style="top:172px;border-color:#245e49">
+      <img class="ic" src="assets/aws-icons/Arch_Amazon-Simple-Storage-Service_64.svg" alt="Amazon S3 (official AWS Architecture Icon)">
+      <div class="lab" style="color:var(--text)">PROVIDER READBACK</div>
+      <div class="note">policy read back, read-only</div>
+      <div class="val"><div id="vReadPh" class="st" style="background:#17263a;color:#4d6176">…</div><div id="vRead" class="st" style="background:var(--mint);color:#052416;opacity:0">MATCH</div></div>
+    </div>
+    <div id="rowComp" class="row" style="top:290px;border-color:#3a4a5c">
+      <div id="cfgIcon" class="ic" style="opacity:.38;filter:grayscale(.7)"><img src="assets/aws-icons/Arch_AWS-Config_64.svg" width="80" height="80" alt="AWS Config (official AWS Architecture Icon)"></div>
+      <svg id="cfgDash" class="ic" viewBox="0 0 80 80" fill="none" style="opacity:0"><rect x="3" y="3" width="74" height="74" rx="10" stroke="#ff5d6c" stroke-width="3" stroke-dasharray="7 6"/></svg>
+      <div class="lab" style="color:var(--text)">COMPLIANCE</div>
+      <div id="compNote" class="note">AWS Config not evaluated</div>
+      <div class="val"><div id="vCompPh" class="st" style="background:#17263a;color:#4d6176">…</div><div id="vComp" class="st" style="background:#8a6a1a;color:#fff6dd;opacity:0">UNKNOWN</div></div>
+    </div>
+    <div id="rowFresh" class="row" style="top:408px;border-color:#3a4a5c">
+      <svg class="ic" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="30" stroke="#8aa0b6" stroke-width="4"/><path d="M40 20 V42 L54 50" stroke="#8aa0b6" stroke-width="5" stroke-linecap="round"/></svg>
+      <div class="lab" style="color:var(--text)">FRESHNESS</div>
+      <div class="note">no fresh evidence acquired</div>
+      <div class="val"><div id="vFreshPh" class="st" style="background:#17263a;color:#4d6176">…</div><div id="vFresh" class="st" style="background:#46586b;color:#f1f6fb;opacity:0;font-size:27px">NOT_VERIFIED</div></div>
+    </div>
+  </div>
+  <div id="stamp">NEEDS_REVIEW</div>
+  <div id="footer">SYNTHETIC / MOCK · CONTROL LOGIC DEMONSTRATED · LIVE ACCEPTANCE STILL PENDING</div>
+
+  <!-- ============ HUD ============ -->
+  <div id="hud">
+    <div id="pill">SYNTHETIC / MOCK WALKTHROUGH</div>
+    <div id="aitag">AI-GENERATED VOICE</div>
+    <div id="runtag">RUN A · run-canary-3f9c… · SYNTHETIC ID</div>
+    <div id="credit" data-layout-ignore>Narration: AI-generated voice (OpenAI TTS, gpt-4o-mini-tts, cedar) · AWS service icons: AWS Architecture Icons, unmodified · aws.amazon.com/architecture/icons</div>
+  </div>
+  <div id="cap-s01" class="clip caption" data-start="1.250" data-duration="3.936" data-track-index="10">In this simulated branch, an approved request leaves the backend.</div>
+<div id="cap-s02" class="clip caption" data-start="5.336" data-duration="2.295" data-track-index="10">The reply never arrives.</div>
+<div id="cap-s03" class="clip caption" data-start="8.531" data-duration="1.649" data-track-index="10">Did the change fail?</div>
+<div id="cap-s04" class="clip caption" data-start="10.230" data-duration="2.007" data-track-index="10">Or did only the reply fail?</div>
+<div id="cap-s05" class="clip caption" data-start="12.737" data-duration="3.557" data-track-index="10">The SQLite ledger already says CALLING.</div>
+<div id="cap-s06" class="clip caption" data-start="16.394" data-duration="1.898" data-track-index="10">It was committed before the call.</div>
+<div id="cap-s07" class="clip caption" data-start="18.692" data-duration="4.054" data-track-index="10">So AWSOps does not send that write again.</div>
+<div id="cap-s08" class="clip caption" data-start="22.846" data-duration="3.675" data-track-index="10">It reconciles the same run, read-only.</div>
+<div id="cap-s09" class="clip caption" data-start="26.921" data-duration="5.300" data-track-index="10">A matching S3 policy, independently read back, answers one question only.</div>
+<div id="cap-s10" class="clip caption" data-start="32.521" data-duration="2.546" data-track-index="10">Execution is still unknown.</div>
+<div id="cap-s11" class="clip caption" data-start="35.067" data-duration="2.184" data-track-index="10">Compliance is unknown.</div>
+<div id="cap-s12" class="clip caption" data-start="37.251" data-duration="2.315" data-track-index="10">Freshness is not verified.</div>
+<div id="cap-s13" class="clip caption" data-start="39.666" data-duration="2.954" data-track-index="10">No AWS Config evaluation has run.</div>
+<div id="cap-s14" class="clip caption" data-start="43.120" data-duration="4.991" data-track-index="10">Until the missing evidence is resolved, the outcome stays NEEDS_REVIEW.</div>
+<div id="cap-s15" class="clip caption" data-start="48.511" data-duration="3.853" data-track-index="10">This demonstrates control logic, not live acceptance.</div>
+  <div id="fade"></div>
+</div>
+<audio id="aud-s01" class="clip" data-start="1.300" data-duration="3.736" data-track-index="20" src="assets/voice-s01.wav"></audio>
+<audio id="aud-s02" class="clip" data-start="5.386" data-duration="2.095" data-track-index="20" src="assets/voice-s02.wav"></audio>
+<audio id="aud-s03" class="clip" data-start="8.581" data-duration="1.449" data-track-index="20" src="assets/voice-s03.wav"></audio>
+<audio id="aud-s04" class="clip" data-start="10.280" data-duration="1.807" data-track-index="20" src="assets/voice-s04.wav"></audio>
+<audio id="aud-s05" class="clip" data-start="12.787" data-duration="3.357" data-track-index="20" src="assets/voice-s05.wav"></audio>
+<audio id="aud-s06" class="clip" data-start="16.444" data-duration="1.698" data-track-index="20" src="assets/voice-s06.wav"></audio>
+<audio id="aud-s07" class="clip" data-start="18.742" data-duration="3.854" data-track-index="20" src="assets/voice-s07.wav"></audio>
+<audio id="aud-s08" class="clip" data-start="22.896" data-duration="3.475" data-track-index="20" src="assets/voice-s08.wav"></audio>
+<audio id="aud-s09" class="clip" data-start="26.971" data-duration="5.100" data-track-index="20" src="assets/voice-s09.wav"></audio>
+<audio id="aud-s10" class="clip" data-start="32.571" data-duration="2.346" data-track-index="20" src="assets/voice-s10.wav"></audio>
+<audio id="aud-s11" class="clip" data-start="35.117" data-duration="1.984" data-track-index="20" src="assets/voice-s11.wav"></audio>
+<audio id="aud-s12" class="clip" data-start="37.301" data-duration="2.115" data-track-index="20" src="assets/voice-s12.wav"></audio>
+<audio id="aud-s13" class="clip" data-start="39.716" data-duration="2.754" data-track-index="20" src="assets/voice-s13.wav"></audio>
+<audio id="aud-s14" class="clip" data-start="43.170" data-duration="4.791" data-track-index="20" src="assets/voice-s14.wav"></audio>
+<audio id="aud-s15" class="clip" data-start="48.561" data-duration="3.653" data-track-index="20" src="assets/voice-s15.wav"></audio>
+
+<script>
+const C = {"s01": {"s": 1.3, "e": 5.036, "d": 3.736}, "s02": {"s": 5.386, "e": 7.481, "d": 2.095}, "s03": {"s": 8.581, "e": 10.03, "d": 1.449}, "s04": {"s": 10.28, "e": 12.087, "d": 1.807}, "s05": {"s": 12.787, "e": 16.144, "d": 3.357}, "s06": {"s": 16.444, "e": 18.142, "d": 1.698}, "s07": {"s": 18.742, "e": 22.596, "d": 3.854}, "s08": {"s": 22.896, "e": 26.371, "d": 3.475}, "s09": {"s": 26.971, "e": 32.071, "d": 5.1}, "s10": {"s": 32.571, "e": 34.917, "d": 2.346}, "s11": {"s": 35.117, "e": 37.101, "d": 1.984}, "s12": {"s": 37.301, "e": 39.416, "d": 2.115}, "s13": {"s": 39.716, "e": 42.47, "d": 2.754}, "s14": {"s": 43.17, "e": 47.961, "d": 4.791}, "s15": {"s": 48.561, "e": 52.214, "d": 3.653}};            // per-line {s,e,d} injected by build.py
+const S = id => C[id].s, E = id => C[id].e;
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({paused:true, defaults:{ease:"power2.inOut"}});
+
+// camera: centre (cx,cy) at scale z
+const cam = (cx, cy, z) => ({x: 960 - cx*z, y: 470 - cy*z, scale: z});
+gsap.set("#world", cam(450, 480, 1.22));
+gsap.set(["#hud #pill","#hud #runtag","#hud #aitag"], {opacity:0});
+
+/* ---------- 0. cold open ---------- */
+tl.to("#fade", {opacity:0, duration:1.0, ease:"power1.out"}, 0.05);
+tl.to("#lblSdk", {opacity:1, duration:.5}, S("s01")+1.4);
+tl.to("#hud #pill", {opacity:1, duration:.6}, 0.7);
+tl.to("#hud #runtag", {opacity:1, duration:.6}, 0.9);
+tl.to("#hud #aitag", {opacity:1, duration:.6}, 1.0);
+tl.to("#backend", {opacity:1, duration:.01}, 0);
+tl.to("#decision", {opacity:1, duration:.5}, 0.4);
+tl.to("#dcheck", {strokeDashoffset:0, duration:.5, ease:"power1.out"}, 0.7);
+tl.to("#ledger", {opacity:1, duration:.5}, 0.65);
+tl.to("#recon", {opacity:.4, duration:.01}, 0);
+tl.to("#s3", {opacity:1, duration:.6}, 0.9);
+tl.to("#s3lab", {opacity:1, duration:.6}, 1.0);
+
+/* ---------- 1. s01  request leaves ---------- */
+tl.to("#world", {...cam(960, 470, 1.0), duration: E("s01")-1.0, ease:"power2.inOut"}, 1.0);
+// ledger claims CALLING *before* the packet leaves (plant); small, quiet
+tl.to("#pillCalling", {opacity:1, duration:.18}, S("s01")+0.9);
+tl.to("#pillIntent", {opacity:0, duration:.18}, S("s01")+0.9);
+tl.fromTo("#pillCalling", {scale:1.08}, {scale:1, duration:.3, ease:"power2.out"}, S("s01")+0.9);
+tl.fromTo("#pktW", {opacity:0, x:-40, scale:.7}, {opacity:1, x:0, scale:1, duration:.45, ease:"power2.out"}, S("s01")+1.35);
+tl.to("#pktW", {x:236, duration:1.9, ease:"power2.inOut"}, S("s01")+1.8);          // crosses seam x=930 around mid-flight
+tl.fromTo("#seamGlow", {opacity:.5}, {opacity:1, duration:.25, yoyo:true, repeat:1}, S("s01")+2.65);
+
+/* ---------- 2. s02  the reply never arrives ---------- */
+tl.to("#pktW", {x:236+30, opacity:0, scale:.6, duration:.5, ease:"power2.in"}, E("s01")+0.2);
+tl.fromTo("#s3ring", {opacity:.9, scale:.85}, {opacity:0, scale:1.15, duration:.8, ease:"power1.out"}, E("s01")+0.35);
+tl.to("#fog", {opacity:1, duration:.6}, S("s02")+0.2);
+tl.to("#qmark", {opacity:.95, duration:.5}, S("s02")+0.5);
+tl.set("#ackSig", {opacity:1}, S("s02")+0.35);
+tl.to("#ackSig", {strokeDashoffset:0, duration:.75, ease:"power1.out"}, S("s02")+0.35);
+// the signal breaks up and dies before it reaches the seam
+tl.to("#ackSig", {strokeDasharray:"14 16", opacity:0, duration:.7, ease:"power1.in"}, S("s02")+1.2);
+tl.to("#ackX", {opacity:1, duration:.25}, S("s02")+1.55);
+tl.fromTo("#ackX", {scale:.3, transformOrigin:"985px 450px"}, {scale:1, transformOrigin:"985px 450px", duration:.35, ease:"back.out(2)"}, S("s02")+1.55);
+tl.fromTo("#waitRing", {opacity:0, scale:.7}, {opacity:.95, scale:1, duration:.4, ease:"power2.out"}, S("s02")+1.7);
+tl.to("#waitRing", {scale:1.35, opacity:.15, duration:1.1, repeat:2, ease:"power1.out"}, S("s02")+2.1);
+tl.to("#world", {...cam(1010, 470, 1.18), duration: 3.4, ease:"power1.inOut"}, S("s02")+0.4);   // slow push into the silence
+
+/* ---------- 3. s03/s04  two possible worlds ---------- */
+tl.to("#world", {...cam(1330, 520, 1.16), duration:1.2, ease:"power2.inOut"}, S("s03")-0.1);
+tl.to(["#cardB","#cardA"], {opacity:.55, duration:.5}, S("s03")-0.05);
+tl.to("#cardB", {opacity:1, borderColor:"#ff5d6c", duration:.35}, S("s03")+0.1);
+tl.to("#cardB", {opacity:.45, borderColor:"#6b7f93", duration:.3}, E("s03")+0.1);
+tl.to("#cardA", {opacity:1, borderColor:"#ffb020", duration:.35}, S("s04")+0.05);
+tl.fromTo("#qmark", {y:0}, {y:-8, duration:.6, repeat:5, yoyo:true, ease:"sine.inOut"}, S("s03"));
+
+/* ---------- 4. s05/s06  the ledger already says CALLING ---------- */
+tl.to("#qmark", {opacity:0, duration:.3}, S("s05")-0.3);
+tl.to("#world", {...cam(450, 650, 1.6), duration:1.0, ease:"power3.inOut"}, S("s05")-0.45);
+tl.to(["#cardA","#cardB","#s3","#s3lab","#fog","#recon","#pktW"], {opacity:.12, duration:.5}, S("s05")-0.3);
+tl.to("#seq", {opacity:1, duration:.4}, S("s05")+0.1);
+tl.fromTo("#pillCalling", {boxShadow:"0 0 0 0 #ffb02000"}, {boxShadow:"0 0 34px 6px #ffb020aa", duration:.45, yoyo:true, repeat:3}, S("s05")+0.25);
+tl.fromTo("#q2", {scale:1}, {scale:1.12, duration:.3, yoyo:true, repeat:1, transformOrigin:"50% 50%"}, S("s05")+0.5);
+tl.to("#before", {opacity:1, duration:.45}, S("s06")+0.1);
+tl.fromTo("#before path", {strokeDasharray:300, strokeDashoffset:300}, {strokeDashoffset:0, duration:.6, ease:"power1.out"}, S("s06")+0.1);
+
+/* ---------- 5. s07/s08  no blind retry, same-run read-only reconcile ---------- */
+tl.to("#world", {...cam(960, 470, 1.0), duration:1.1, ease:"power2.inOut"}, S("s07")-0.15);
+tl.to(["#cardA","#cardB","#s3","#s3lab","#recon"], {opacity:1, duration:.5}, S("s07")-0.1);
+tl.to("#cardB", {opacity:.45, duration:.1}, S("s07")-0.1);
+tl.to("#before", {opacity:0, duration:.3}, S("s07")-0.2);
+tl.fromTo("#pktR", {opacity:0, x:-40}, {opacity:1, x:0, duration:.4, ease:"power2.out"}, S("s07")+0.2);
+tl.to("#pktR", {x:100, duration:.55, ease:"power2.in"}, S("s07")+0.7);            // pushes at the gate…
+tl.to("#gate", {opacity:1, duration:.15}, S("s07")+1.05);
+tl.to("#pktR", {x:92, duration:.1, yoyo:true, repeat:3, ease:"none"}, S("s07")+1.25);   // …and bounces
+tl.to("#pktR", {opacity:0, scale:.85, duration:.45}, S("s07")+1.7);
+tl.to("#noResend", {opacity:1, duration:.2}, S("s07")+1.3);
+tl.to(["#noResend","#gate"], {opacity:.0, duration:.5}, S("s08")+0.9);
+// reconcile along the read-only rail
+tl.to("#recon", {borderColor:"#38d4ff", opacity:1, duration:.4}, S("s08")+0.0);
+tl.to("#reconState", {color:"#38d4ff", duration:.3}, S("s08")+0.0);
+tl.fromTo("#probe", {opacity:0, scale:.8}, {opacity:1, scale:1, duration:.3, ease:"power2.out"}, S("s08")+0.35);
+tl.to("#readLbl", {opacity:1, duration:.4}, S("s08")+0.5);
+tl.to("#probe", {x:170, duration:.5, ease:"power1.inOut"}, S("s08")+0.6);
+tl.to("#probe", {y:-256, duration:.7, ease:"power1.inOut"}, S("s08")+1.1);
+
+/* ---------- 6. s09  provider readback MATCH (one question only) ---------- */
+tl.to("#world", {...cam(1220, 500, 1.12), duration:1.0, ease:"power2.inOut"}, S("s08")+1.7);
+tl.fromTo("#s3ring", {opacity:.95, scale:.85, borderColor:"#38d4ff"}, {opacity:0, scale:1.2, duration:.8, ease:"power1.out"}, S("s09")+0.15);
+tl.to("#fog", {opacity:0, duration:.7}, S("s09")+0.2);
+tl.to("#qmark", {opacity:0, duration:.2}, S("s09")+0.1);
+tl.to("#cardB", {opacity:0, duration:.5}, S("s09")+0.2);
+tl.to("#cardA", {borderStyle:"solid", borderColor:"#55e0a0", opacity:1, duration:.5}, S("s09")+0.4);
+tl.to("#probe", {opacity:0, duration:.25}, S("s09")+0.5);
+tl.fromTo("#obs", {opacity:0, scale:.85}, {opacity:1, scale:1, duration:.3, ease:"power2.out"}, S("s09")+0.7);
+tl.to("#obs", {y:256, duration:.7, ease:"power1.inOut"}, S("s09")+1.2);
+tl.to("#obs", {x:-170, duration:.7, ease:"power1.inOut"}, S("s09")+1.9);
+tl.to("#obs", {opacity:0, duration:.25}, S("s09")+2.65);
+tl.to("#reconMatch", {opacity:1, duration:.3}, S("s09")+2.7);
+tl.to("#readLbl", {opacity:0, duration:.3}, S("s09")+2.0);
+// open the ladder: world recedes, four lanes appear, only READBACK is filled
+tl.to("#world", {opacity:0, scale:.97, duration:.5, ease:"power1.inOut", transformOrigin:"0 0"}, S("s09")+3.2);
+tl.to("#ladder", {opacity:1, duration:.5}, S("s09")+3.75);
+tl.to("#ladderTtl", {opacity:1, duration:.4}, S("s09")+3.85);
+tl.to(["#rowExec","#rowRead","#rowComp","#rowFresh"], {opacity:1, duration:.4, stagger:.12}, S("s09")+3.8);
+tl.to("#vReadPh", {opacity:0, duration:.2}, S("s09")+4.6);
+tl.to("#vRead", {opacity:1, duration:.3}, S("s09")+4.6);
+tl.fromTo("#rowRead", {boxShadow:"0 0 0 0 #55e0a000"}, {boxShadow:"0 0 40px 4px #55e0a066", duration:.5, yoyo:true, repeat:1}, S("s09")+4.6);
+
+/* ---------- 7. s10–s13  everything else stays what it was ---------- */
+tl.to("#vExecPh", {opacity:0, duration:.2}, S("s10")+0.2);
+tl.to("#vExec", {opacity:1, duration:.3}, S("s10")+0.2);
+tl.to("#conn1", {opacity:1, duration:.3}, S("s10")+0.5);
+tl.fromTo("#conn1", {strokeDasharray:"200", strokeDashoffset:200}, {strokeDashoffset:0, duration:.5}, S("s10")+0.5);
+tl.to("#x1", {opacity:1, duration:.25}, S("s10")+0.9);
+tl.to("#vCompPh", {opacity:0, duration:.2}, S("s11")+0.15);
+tl.to("#vComp", {opacity:1, duration:.3}, S("s11")+0.15);
+tl.to("#conn2", {opacity:1, duration:.3}, S("s11")+0.4);
+tl.fromTo("#conn2", {strokeDasharray:"200", strokeDashoffset:200}, {strokeDashoffset:0, duration:.5}, S("s11")+0.4);
+tl.to("#x2", {opacity:1, duration:.25}, S("s11")+0.8);
+tl.to("#vFreshPh", {opacity:0, duration:.2}, S("s12")+0.15);
+tl.to("#vFresh", {opacity:1, duration:.3}, S("s12")+0.15);
+// s13: Config really was not called
+tl.to("#cfgDash", {opacity:1, duration:.4}, S("s13")+0.2);
+tl.to("#cfgIcon", {opacity:.62, duration:.4}, S("s13")+0.2);
+tl.fromTo("#rowComp", {boxShadow:"0 0 0 0 #ff5d6c00"}, {boxShadow:"0 0 36px 4px #ff5d6c55", duration:.5, yoyo:true, repeat:1}, S("s13")+0.2);
+tl.to("#compNote", {color:"#ff8f99", duration:.3}, S("s13")+0.3);
+
+/* ---------- 8. s14  stamp ---------- */
+tl.fromTo("#stamp", {opacity:0, scale:1.5}, {opacity:1, scale:1, duration:.45, ease:"back.out(1.6)"}, S("s14")+2.3);
+tl.fromTo("#stamp", {boxShadow:"0 0 0 0 #ffb02000"}, {boxShadow:"0 0 50px 6px #ffb02088", duration:.7, yoyo:true, repeat:1}, S("s14")+2.75);
+
+/* ---------- 9. s15  honest ending ---------- */
+tl.to("#footer", {opacity:1, duration:.6}, S("s15")+0.15);
+tl.to("#credit", {opacity:1, duration:.6}, S("s15")+0.5);
+tl.to("#fade", {opacity:1, duration:1.1, ease:"power1.in"}, 53.714 - 1.15);
+
+window.__timelines.main = tl;
+</script>
+</body>
+</html>

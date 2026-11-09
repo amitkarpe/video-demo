@@ -1,6 +1,8 @@
 # Initialization
 
-Status: NOT_INITIALIZED
+Status: INITIALIZED
+
+Initialized: accepted bootstrap intent `intent/0001-project-bootstrap/` (Issue #1, 2026-11-07); repository contracts filled in by the consolidation PR (2026-11-10).
 
 Use this file only for first-time repository setup or when Amit explicitly asks to reinitialize the project.
 

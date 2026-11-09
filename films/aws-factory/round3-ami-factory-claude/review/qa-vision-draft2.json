@@ -1,0 +1,167 @@
+{
+  "model": "gpt-5.5",
+  "usage": {
+    "input_tokens": 16950,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 3464,
+    "output_tokens_details": {
+      "reasoning_tokens": 2018
+    },
+    "total_tokens": 20414
+  },
+  "cost_usd": 0.18867,
+  "review": {
+    "frames": [
+      {
+        "file": "end.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The small line under the decision pills, \u201cfive separate decisions \u2013 none implies the next,\u201d is low-contrast and small at 720p.",
+            "fix": "Increase the font size and contrast, or move the point into a larger caption/pill."
+          },
+          {
+            "severity": "low",
+            "issue": "The footer disclaimer/credits are too small to read comfortably at 720p.",
+            "fix": "Keep the critical \u201cillustrative, not a live AWS run, no real IDs\u201d message in the readable top badge and either enlarge the footer or treat it as non-essential credits."
+          }
+        ]
+      },
+      {
+        "file": "s03.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "The subtitle says \u201cFrom GovTech Golden AMI,\u201d but the required lineage is GovTech/GCC Golden Amazon Linux 2023. This drops \u201cGCC\u201d and \u201cAmazon Linux 2023.\u201d",
+            "fix": "Change the line to \u201cFrom GovTech/GCC Golden Amazon Linux 2023 to a trusted DEV \u2192 PROD rollout.\u201d"
+          }
+        ]
+      },
+      {
+        "file": "s05.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The gray body text in the \u201cGovTech / GCC Golden AMI\u201d card is small and low-contrast at 720p.",
+            "fix": "Increase size/weight and brighten the body copy, especially \u201cAmazon Linux 2023,\u201d \u201cbaseline hardening,\u201d and \u201csome security & operations agents.\u201d"
+          }
+        ]
+      },
+      {
+        "file": "s06.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The gray body text in the upstream card remains small and low-contrast at 720p.",
+            "fix": "Increase the body font size/contrast or simplify the card to the key lineage label."
+          }
+        ]
+      },
+      {
+        "file": "s11.jpg",
+        "issues": []
+      },
+      {
+        "file": "s12.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "The bottom subtitle visually collides with the lower-left \u201cnever shipped to PROD\u201d callout area, making the frame feel crowded.",
+            "fix": "Move the callout higher or move the subtitle lower/shorten it so the two elements do not compete."
+          }
+        ]
+      },
+      {
+        "file": "s17.jpg",
+        "issues": []
+      },
+      {
+        "file": "s21.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "The GitLab and ECS Worker panels are partially cropped/faded at the left and right edges, including clipped text on the GitLab side.",
+            "fix": "Reframe or scale the three-panel layout so all panel headings and checks are fully inside the 16:9 safe area."
+          }
+        ]
+      },
+      {
+        "file": "s23.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "The left GitLab panel is clipped off-screen, and the MongoDB panel text is dimmed enough to be hard to read at 720p.",
+            "fix": "Keep all panels within frame, or remove/darken inactive panels further and avoid leaving clipped readable text at the edge."
+          },
+          {
+            "severity": "low",
+            "issue": "The MongoDB \u201cPROPOSED\u201d tag sits awkwardly across the boundary between panels.",
+            "fix": "Keep the tag fully inside the MongoDB card or remove it from this ECS-focused frame."
+          }
+        ]
+      },
+      {
+        "file": "s24.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The frame is visually dense: three validation cards, multiple proposed tags, bottom status chips, and a large subtitle all compete at 720p.",
+            "fix": "Reduce on-screen copy or split the validation cards and bottom evidence chips across separate shots."
+          }
+        ]
+      },
+      {
+        "file": "s26.jpg",
+        "issues": []
+      },
+      {
+        "file": "s29.jpg",
+        "issues": [
+          {
+            "severity": "low",
+            "issue": "The long \u201cPROD \u00b7 private launch\u201d line is small for 720p and may be difficult to read, especially the clause about PROD parameters.",
+            "fix": "Break the line into two larger bullets or increase the font size/weight."
+          }
+        ]
+      },
+      {
+        "file": "s30.jpg",
+        "issues": []
+      },
+      {
+        "file": "s35.jpg",
+        "issues": [
+          {
+            "severity": "medium",
+            "issue": "The blocker list says \u201cmissing approval or policy,\u201d but Phase B specifically requires management/security/change-governance approval of the policy.",
+            "fix": "Change to \u201cmissing management/security/change-governance approval of policy.\u201d"
+          },
+          {
+            "severity": "medium",
+            "issue": "The blocker list says \u201cmissing snapshot or key access,\u201d but the required wording is missing snapshot/KMS access.",
+            "fix": "Change to \u201cmissing snapshot or KMS access.\u201d"
+          }
+        ]
+      },
+      {
+        "file": "s37.jpg",
+        "issues": [
+          {
+            "severity": "high",
+            "issue": "The critical vulnerability box says \u201cOps-approved,\u201d which implies Ops approval alone can authorize an urgent out-of-band release. That conflicts with the rule that Phase B policy requires management/security/change-governance approval.",
+            "fix": "Change to \u201capproved emergency change under management/security/change-governance policy\u201d or \u201cOps initiates under pre-approved emergency policy.\u201d"
+          },
+          {
+            "severity": "low",
+            "issue": "The small explanatory line in the canary rollback box is long and low-contrast at 720p.",
+            "fix": "Shorten it or enlarge/brighten the text, e.g. \u201cRollback within approved maintenance window.\u201d"
+          }
+        ]
+      }
+    ],
+    "overall": "Most frames respect the required illustrative/not-live positioning and correctly label proposed EventBridge discovery, MongoDB replica-set gate, and ECS mock/parameter checks. Main accuracy risks are the opening lineage shorthand, Phase B approval wording, KMS wording, and the s37 implication that Ops approval alone is sufficient. Main visual issues are small low-contrast technical text, clipped side panels in the DEV validation sequence, and occasional crowding around subtitles/callouts."
+  }
+}

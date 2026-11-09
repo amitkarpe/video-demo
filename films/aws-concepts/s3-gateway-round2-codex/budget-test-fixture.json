@@ -1,0 +1,78 @@
+{
+  "model": "tts-1-hd",
+  "voice": "nova",
+  "calls": [
+    {
+      "cue": 0,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "90eab69986be829bee89806964e821316631643c5e3216a10f09e3cbab20a9d7"
+    },
+    {
+      "cue": 1,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "817a97903b66f9199d6967de8336d8d81afa670a472866b369678b88d0573b4a"
+    },
+    {
+      "cue": 2,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "e05adf5193a8d513dfcbb354eebcc57a74bdf823a55dc5fb8c7a36b389ad882a"
+    },
+    {
+      "cue": 3,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "0fc766899f3f62efe76394a84e4c9595ce719e2c4f595d54b6405c832f1312dd"
+    },
+    {
+      "cue": 4,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "f067561e190f37442b4e152812442f12813066500e4a6407b9c2cb0610a61ed7"
+    },
+    {
+      "cue": 5,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "2dd612233a629563e30fba817ca751796a19bdd92ad134b944902097f98289ec"
+    },
+    {
+      "cue": 6,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "95b88e310ede911a9493e9ad6af0edd219f200af75760b11d7485359c886c221"
+    },
+    {
+      "cue": 7,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "4b20de990575b29abf41f681d75642adb3456280cf5169537fdb6b55e7774ee0"
+    },
+    {
+      "cue": 8,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "c1fe6f01058247b7ed1c08118f3b9076a492959c986de1bd02cc906ffcb1a688"
+    },
+    {
+      "cue": 9,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "989524ee5f35a774b03922ac464f99cc1394620e2e5f355432d2610914874338"
+    },
+    {
+      "cue": 10,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "143e7d3b41b3e866af70ab8ac8dd9d4421dde744cacb9b6b9b31a7b865213f36"
+    },
+    {
+      "cue": 11,
+      "status": "completed",
+      "reserved_usd": "0",
+      "input_sha256": "c4d984c67e87011cdbde965f769c869eb58de93f3aa00b9ca206e7e40c6c14a2"
+    }
+  ]
+}

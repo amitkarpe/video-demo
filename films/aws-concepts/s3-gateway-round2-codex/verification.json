@@ -1,0 +1,55 @@
+{
+  "duration_seconds": 46.0,
+  "video_codec": "h264",
+  "width": 1920,
+  "height": 1080,
+  "fps": "30/1",
+  "audio_codec": "aac",
+  "audio_sample_rate": "48000",
+  "bytes": 7536645,
+  "sha256": "697839bab05dfea31885b5b93cbee2d3085a88f77d6078485475a966c1f94cc7",
+  "full_decode": "PASS",
+  "captions": {
+    "cues": 12,
+    "overlaps": 0,
+    "max_characters_per_second": 19.52
+  },
+  "loudness_lufs": "-16.59",
+  "true_peak_dbtp": "-1.43",
+  "encoded_motion": [
+    {
+      "seconds": [
+        19.5,
+        20.5
+      ],
+      "changed_pixels": 2358,
+      "total_pixels": 58000,
+      "threshold": 8
+    },
+    {
+      "seconds": [
+        24,
+        25
+      ],
+      "changed_pixels": 546,
+      "total_pixels": 58000,
+      "threshold": 8
+    },
+    {
+      "seconds": [
+        42,
+        43
+      ],
+      "changed_pixels": 7399,
+      "total_pixels": 58000,
+      "threshold": 8
+    }
+  ],
+  "keyframe_times": {
+    "hook": 3,
+    "mechanism": 20.5,
+    "payoff": 43
+  },
+  "AUDIBLE_REVIEW": "NOT_VERIFIED",
+  "owner_acceptance": "PENDING"
+}
