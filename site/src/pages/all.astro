@@ -1,0 +1,33 @@
+---
+// Every public film in one sortable-by-eye table (newest first), grouped by project family.
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { videos, families, repos, looks, url, frame, mmss, niceDate, byNewest } from '../lib/videos';
+---
+<StarlightPage frontmatter={{ title: 'All videos', description: 'Every public film, grouped by project, with its source repository, look, length and date.', tableOfContents: false }} headings={[]}>
+  {families.map((f) => {
+    const rows = videos.filter((v) => v.family === f.id).sort(byNewest);
+    return rows.length > 0 && (
+      <>
+        <h2 id={f.id}>{f.name}</h2>
+        <p class="vp-dim">{f.blurb}</p>
+        <div class="vt-wrap not-content">
+          <table class="vt">
+            <thead><tr><th></th><th>Film</th><th>Repository</th><th>Look</th><th>Length</th><th>Date</th></tr></thead>
+            <tbody>
+              {rows.map((v) => (
+                <tr>
+                  <td><a href={url(`videos/${v.slug}/`)} tabindex="-1" aria-hidden="true"><img src={frame(v.slug, 2)} alt="" width="112" height="63" loading="lazy" /></a></td>
+                  <td><a href={url(`videos/${v.slug}/`)}>{v.title}</a><small>{v.revision}{v.current ? ' · current' : ''}</small></td>
+                  <td>{repos[v.repo]?.url ? <a href={repos[v.repo].url!}>{repos[v.repo].name}</a> : repos[v.repo]?.name}</td>
+                  <td>{looks[v.look]}</td>
+                  <td>{mmss(v.durationSec)}</td>
+                  <td class="vt-date">{niceDate(v.date)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
+    );
+  })}
+</StarlightPage>

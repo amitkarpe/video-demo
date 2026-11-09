@@ -1,0 +1,138 @@
+---
+// One page per public video: the player (streamed from the public release asset), facts, lineage and key frames.
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { videos, repos, looks, url, frame, mmss, niceDate, familyName, series, transcript, type Video } from '../../lib/videos';
+
+export function getStaticPaths() {
+  return videos.map((v) => ({ params: { slug: v.slug }, props: { v } }));
+}
+const { v } = Astro.props as { v: Video };
+const repo = repos[v.repo];
+const line = series(v);
+const i = line.findIndex((x) => x.slug === v.slug);
+const prev = line[i - 1];
+const next = line[i + 1];
+const spots = [0.12, 0.37, 0.63, 0.88];
+const mb = v.bytes ? `${Math.round(v.bytes / 1e6)} MB` : '';
+const words = transcript(v);
+---
+
+<StarlightPage
+  frontmatter={{ title: v.title, description: v.summary, tableOfContents: false }}
+  headings={[]}
+>
+  <div class="vp-player not-content">
+    {/* <source type="video/mp4"> is required: GitHub serves release assets as application/octet-stream, which Safari
+        (macOS and iOS) refuses with a bare src; with the type hint it streams and seeks. Tested in Safari 26.1 and Chromium. */}
+    <video controls preload="metadata" playsinline poster={frame(v.slug, 1)} width={v.width} height={v.height}>
+      <source src={v.mp4} type="video/mp4" />
+      <a href={v.mp4}>Download the MP4</a>
+    </video>
+  </div>
+
+  <div class="vp-facts not-content">
+    <span class={`vs-fam vs-fam-${v.family}`}>{familyName(v.family)}</span>
+    <span class="vs-tag">{v.revision}</span>
+    {v.current && <span class="vs-tag vp-current">Current</span>}
+    <span class="vs-tag">{mmss(v.durationSec)}</span>
+    <span class="vs-tag">{v.width}×{v.height}</span>
+    <span class="vs-tag">{looks[v.look]}</span>
+    <span class="vs-tag">{niceDate(v.date)}</span>
+  </div>
+
+  <p class="vp-summary">{v.summary}</p>
+  {v.notes && <p class="vp-notes">{v.notes}</p>}
+
+  <table class="vp-table">
+    <tbody>
+      <tr>
+        <th>Source repository</th>
+        <td>
+          {repo?.url ? (
+            <><a href={repo.url}>{repo.name}</a>{repo.visibility === 'private' && <span class="vp-private" title="Private repository: the link works only for people with access">private</span>}</>
+          ) : (
+            <>{repo?.name} <span class="vp-dim">({repo?.note})</span></>
+          )}
+        </td>
+      </tr>
+      <tr><th>Status</th><td>{v.status}</td></tr>
+      <tr><th>Made in</th><td>{v.made === 'video-factory' ? 'The video factory (published with the owner’s approval)' : 'The video-demo archive'}</td></tr>
+      <tr>
+        <th>Watch elsewhere</th>
+        <td>
+          <a href={v.release}>GitHub Release</a> · <a href={v.mp4} download>Download MP4{mb && ` (${mb})`}</a>
+          {v.extra?.map((e: { label: string; mp4: string }) => <> · <a href={e.mp4}>{e.label}</a></>)}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="key-frames">Key frames</h2>
+  <p class="vp-dim">Click a frame to jump there in the player.</p>
+  <div class="vp-frames not-content">
+    {spots.map((f, n) => (
+      <button type="button" class="vp-frame" data-t={(v.durationSec ?? 0) * f} aria-label={`Play from ${mmss((v.durationSec ?? 0) * f)}`}>
+        <img src={frame(v.slug, n + 1)} alt={`Frame at ${mmss((v.durationSec ?? 0) * f)}`} loading="lazy" width="640" height="360" />
+        <span>{mmss((v.durationSec ?? 0) * f)}</span>
+      </button>
+    ))}
+  </div>
+
+  {words.length > 0 && (
+    <>
+      <h2 id="transcript">Transcript</h2>
+      <details class="vp-transcript">
+        <summary>Read what the narrator says ({words.join(' ').split(/\s+/).length} words)</summary>
+        {words.map((l) => (/^\d\d — /.test(l) || /^[A-Z0-9 ,'?—-]{12,}$/.test(l) ? <h3>{l}</h3> : <p>{l}</p>))}
+      </details>
+    </>
+  )}
+
+  {line.length > 1 && (
+    <>
+      <h2 id="lineage">Lineage</h2>
+      <p class="vp-dim">Films in the same line of work, oldest first. Several films per project are normal: each one tried a new idea or look.</p>
+      <ol class="vp-lineage not-content">
+        {line.map((x) => (
+          <li class={x.slug === v.slug ? 'is-here' : ''}>
+            <a href={url(`videos/${x.slug}/`)}>
+              <img src={frame(x.slug, 2)} alt="" loading="lazy" width="160" height="90" />
+              <span>
+                <b>{x.short ?? x.title}</b>
+                <small>{x.revision} · {mmss(x.durationSec)} · {niceDate(x.date)}{x.current ? ' · current' : ''}</small>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <nav class="vp-prevnext not-content" aria-label="Previous and next in this line">
+        {prev ? <a href={url(`videos/${prev.slug}/`)}>← Earlier: {prev.short ?? prev.title}</a> : <span />}
+        {next ? <a href={url(`videos/${next.slug}/`)}>Later: {next.short ?? next.title} →</a> : <span />}
+      </nav>
+    </>
+  )}
+</StarlightPage>
+
+<script>
+  const video = document.querySelector<HTMLVideoElement>('.vp-player video');
+  // GitHub's release download redirects to a signed URL that expires after about an hour. If a long pause outlives it,
+  // the next range request fails: reload the source once and continue from the same time.
+  let lastRetry = 0;
+  video?.querySelector('source')?.addEventListener('error', retry);
+  video?.addEventListener('error', retry);
+  function retry() {
+    if (!video || Date.now() - lastRetry < 15000) return;
+    lastRetry = Date.now();
+    const t = video.currentTime, wasPlaying = !video.paused;
+    video.load();
+    video.addEventListener('loadedmetadata', () => { video.currentTime = t; if (wasPlaying) video.play().catch(() => {}); }, { once: true });
+  }
+  document.querySelectorAll<HTMLButtonElement>('.vp-frame').forEach((b) =>
+    b.addEventListener('click', () => {
+      if (!video) return;
+      video.currentTime = Number(b.dataset.t);
+      video.play().catch(() => {});
+      video.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })
+  );
+</script>
