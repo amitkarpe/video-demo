@@ -18,12 +18,11 @@ Status: INITIALIZED
 - Shared scripts: `toolkit/`. The three newest films (`ssm-patch`, `cis-hardening`, `offline-validation`) build byte-identically through it. Older films keep their own frozen scripts.
 
 ## Active Work
-- The consolidation PR brings every earlier branch's work to `main`. After it merges, the old stacked PRs are closed as superseded; their branches are kept.
+- No open PRs. Consolidation (#40) is merged; the earlier film PRs are closed as superseded, and their branches are kept.
 - Owner reviews pending: `cis-hardening`, `offline-validation`, `claude-film` (human listening not yet done).
 
 ## Next Action
-- Owner: merge the consolidation PR.
-- Agent: close the superseded PRs, then use the intake card for the next film.
+- Next film request: run `docs/VIDEO_INTAKE.md`, reuse a house look, start with `toolkit/new_film.py`.
 
 ## Restart
 Begin with `AGENTS.md`, then the active Issue/PR. For a film request, read `docs/VIDEO_INTAKE.md` and `docs/STYLE_CATALOG.md` first.
