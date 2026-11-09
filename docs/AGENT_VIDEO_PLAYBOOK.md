@@ -1,10 +1,10 @@
-# Claude Video Production Playbook
+# Agent Video Playbook
 
-Status: active · Reviewed: 2026-11-08 · Owner: Amit Karpe · Canonical home: `amitkarpe/video-demo/docs/CLAUDE_VIDEO_PLAYBOOK.md`
+Status: active · Reviewed: 2026-11-09 · Owner: Amit Karpe · Canonical home: `amitkarpe/video-demo/docs/AGENT_VIDEO_PLAYBOOK.md` (renamed from `CLAUDE_VIDEO_PLAYBOOK.md`)
 
-This is the one reusable guide for producing technical explainer films with Claude Code. A fresh session needs only this file, the project's goal and its authorized sources. It needs no earlier chat, old worktree paths or private repositories.
+This is the one reusable guide for producing technical explainer films with a coding agent. It is the protocol we learned and keep improving: every new video project starts here. Claude Code was the first implementer, but the rules are tool-neutral. A fresh session needs only this file, the project's goal and its authorized sources. It needs no earlier chat, old worktree paths or private repositories.
 
-**Roles.** ChatGPT/Astra owns the plan, teaching angle, factual narrative and first script. Claude owns art direction within that brief, storyboard, production, verification and iterative improvement. Amit owns final creative and listening acceptance. This is the owner's workflow choice. It is not a claim that one model is universally better.
+**Roles.** A planner (for example ChatGPT/Astra) owns the plan, teaching angle, factual narrative and first script. The video agent (for example Claude Code) owns art direction within that brief, storyboard, production, verification and iterative improvement. Amit owns final creative and listening acceptance. This is the owner's workflow choice. It is not a claim that one model is universally better.
 
 **Authority.** This guide grants no tools, credentials, network access, spending, hearing ability or repository permission. The owning goal and the repository's own rules decide what is allowed. When they conflict with this guide, they win.
 
@@ -24,11 +24,11 @@ This is the one reusable guide for producing technical explainer films with Clau
 
 ---
 
-## 1. Planner-to-Claude contract
+## 1. Planner-to-agent contract
 
-**Inputs Claude must receive (or confirm absent):** use the goal template in §8.1. It covers the exact source revision, output location and visibility, approved project name, audience and knowledge level, the one remembered outcome, essential facts with states, available assets, script lock level, reference style, API budget, required outputs, the writer, and the actions that are not authorized.
+**Inputs the agent must receive (or confirm absent):** use the goal template in §8.1. It covers the exact source revision, output location and visibility, approved project name, audience and knowledge level, the one remembered outcome, essential facts with states, available assets, script lock level, reference style, API budget, required outputs, the writer, and the actions that are not authorized.
 
-**Editorial freedom.** Unless the goal says the wording is locked, Claude may rephrase for the ear and change pacing, transitions, shots, scene order and duration, as long as the meaning is preserved. Record any material editorial change in the delivery report. Do not freeze a weak script just because a planner wrote it.
+**Editorial freedom.** Unless the goal says the wording is locked, the agent may rephrase for the ear and change pacing, transitions, shots, scene order and duration, as long as the meaning is preserved. Record any material editorial change in the delivery report. Do not freeze a weak script just because a planner wrote it.
 
 **What needs correction or approval:** a change to facts, audience, scope, security posture, authority, or a claim's state. Routine art and production choices do not.
 
@@ -48,7 +48,7 @@ Prove each capability in the **selected session and execution location** (local,
 
 | Capability | Safe verification | Fallback | Blocks if |
 |---|---|---|---|
-| Execution | Run a shell command; write and read a scratch file in the project; open an image file for inspection | Ask the owner to start a Claude Code session (Desktop **Code** tab or CLI) | Chat-only session, no shell, or read-only project |
+| Execution | Run a shell command; write and read a scratch file in the project; open an image file for inspection | Ask the owner to start an agent session with a shell (for example Claude Code: Desktop **Code** tab or CLI) | Chat-only session, no shell, or read-only project |
 | Sources | `git ls-remote` / `git rev-parse <rev>` for the source; read one source file | Owner supplies material, or an explicit "story-only" brief | Required source unreadable |
 | Delivery | `git remote -v`; push permission to a new branch; existing authenticated `gh` (or the hosting CLI); output repo visibility; any push-triggered deploys | Deliver the files locally and report | Cannot write to the output location |
 | Node / npm | `node --version` (HyperFrames documents **Node 22+** as the minimum); `npm --version` | Use the project's existing compatible install; do not upgrade blindly | Below the minimum, with no approved install |
@@ -133,9 +133,81 @@ Reserve each call from the *current* published per-token or per-minute prices. O
 
 Run internally: claim map → editorial brief → visual and voice treatment → **three representative compositions** (problem, mechanism, payoff) → **moving slice of the hardest middle scene** (tests mechanism, motion, voice and captions together) → full production → review of the final encoded file → targeted repairs → delivery.
 
-- **Approval pauses.** Under an approved one-go goal, the slice is a **self-review checkpoint, not an owner approval pause**. Add an owner taste gate only when the goal asks for one or a material change needs approval. This replaces the older two-phase pilot rule (discovery → approval → execution) for goals that already grant execution.
+- **Approval pauses.** The default for a new project is the two-phase workflow in §4.1: one owner review of a cheap storyboard, then autonomous production. Inside Phase 2, the hardest-scene slice is a **self-review checkpoint, not another owner pause**. Skip Phase 1 only when the owner explicitly says so.
 - **Effort follows the story.** Let duration, image count, research depth and revision count follow the story and the measured defects. There are no quotas.
 - **When to stop.** Stop when the acceptance checks pass or a precise external blocker remains. Unrestricted iteration is not endless re-rendering: reuse cached media and re-render only the affected scenes before the final export.
+
+### 4.1 Two phases (default for every new project)
+
+The owner reviews a cheap storyboard before any full production, and then the agent produces without further stops. Reviewing stills catches most taste and story problems (style, order, tone, emphasis) for about 10–15% of the effort, and it beats judging a finished film.
+
+**Phase 1: discover and propose.** The agent works autonomously and ends with one review pack.
+1. **Discover.**
+   - Read the brief and the source at a pinned revision, and build the claim map.
+   - Research only where uncertainty could change the story.
+   - Record GOAL / REAL BLOCKER / MINIMUM USEFUL ACTION / STOP CONDITION in the owning issue.
+2. **Ask once.** Put every material question in the pack, each with a recommended default. Do not drip questions over several rounds.
+3. **Review pack** (draft PR plus pictures sent to the owner):
+   - a one-paragraph intent: audience, remembered sentence, length
+   - **style options**: the same 1–2 key frames in 2–3 styles (§4.2), rendered as real frames
+   - **a 5–10 slide storyboard**: numbered real frames, each with on-screen text and its narration line
+   - the script draft, the evidence map and **one 10-second voice sample**
+   - the budget estimate
+4. **Stop.** Ask for per-slide feedback (keep, change or drop) plus one overall verdict. The cost is usually under USD 0.30.
+
+**Phase 2: produce** (only after approval). This runs autonomously to the end, stopping only for a real blocker.
+- Script and style are locked at approval, because later changes cost re-renders.
+- Approved storyboard frames become the scenes, and their media is reused.
+- Run every gate in §6.2 on the final file, then deliver in the same PR.
+- A short "go" from the owner approves the recommended options.
+
+### 4.2 Style: start from native HyperFrames looks
+
+Do not invent a look by default. Start from the renderer's own styles, then add generated art where it carries meaning.
+
+| Native style | Command | Good for |
+|---|---|---|
+| Swiss Grid | `npx hyperframes init <dir> --example swiss-grid` | technical, structured, corporate stories |
+| Warm Grain | `--example warm-grain` | calm, editorial, branding |
+| Decision Tree | `--example decision-tree` | diagrams and tutorials |
+| NYT Graph | `--example nyt-graph` | charts and data stories |
+| Kinetic Type | `--example kinetic-type` | type-led intros |
+| Vignelli | `--example vignelli` | bold announcements |
+| Play Mode | `--example play-mode` | energetic, playful |
+| Product Promo | `--example product-promo` | product showcases |
+
+- **Explainer blocks:** `npx hyperframes add flowchart`, `hw-pipeline` (hand-drawn), `exploded-stack` (architecture layers), `data-chart`. Browse them with `npx hyperframes catalog`.
+- **Copying a look:** take its tokens (background, palette, type, radius, shadow) from the example's source. Capture comparison frames with `npx hyperframes snapshot <dir> --at …`.
+- **Earlier looks:** the first four films used a "cinematic night world" (dark AI concept-art plates). The owner asked for variety, so vary the look between projects. A bright "clay diorama" is a good spot-illustration style over a native look.
+
+### 4.3 Visual-first review
+
+The owner reviews pictures, not paragraphs:
+- every option and storyboard slide is a rendered frame or contact sheet, with a short label and a copy-paste name
+- keep the text around it short
+- when the owner works remotely, send the images directly
+
+### 4.4 Public or private output
+
+Decide visibility before writing anything. For security and compliance topics in a public repository, keep the film and its evidence map at the category level:
+- no control numbers, account, instance or image IDs, dates, internal hostnames or credential details
+- keep the exact mapping in the private source
+- never state an approval authority the source does not name
+- scan the committed files for IDs and credential patterns before every push
+
+### 4.5 Reuse the last film's toolkit
+
+Start from the most recent film folder rather than from scratch:
+- `tools/`: spend ledger, immutable media, image generation with reference edits, Realtime narration, derive, QA frames, transcription and vision QA, finalize
+- `build.py`: captions, a synthesized score and effects, a two-pass loudness mix
+
+Adapt only the scene cues and the template. Lessons from the last films:
+- animate transforms (`x`, `y`, `scale`), not `left`/`top`
+- relative bobs (`y:"-=6"`) must not overwrite earlier transforms
+- no-op `tl.call` disables frame dedup
+- GSAP 3 has no `className` tweens; tween properties instead
+- merge caption fragments under 24 characters
+- keep generated sprites away from the HUD
 
 **Shot rules.**
 - **One job per shot.** Each shot has a focus, a visible action or state change, and a teaching purpose.
@@ -288,7 +360,7 @@ Media: OpenAI artwork <required|optional>; OpenAI narration <required|optional>;
 Models: image <id>, narration <id + API: speech|realtime>; permitted successors <list|none>
 API/media cap: USD <n> (credits count); paid QA <allowed|not allowed>
 Required outputs: MP4 1080p, SRT, transcript, keyframes, source, ledger, QA record
-Script author: <planner>; repository writer (only one): Claude (this session)    Owner gates: <none | after slice | other>
+Script author: <planner>; repository writer (only one): the video agent (this session)    Owner gates: <none | after slice | other>
 Not authorized: <cloud ops, deployment, credential changes, merge, public hosting, other>
 ```
 
@@ -323,6 +395,7 @@ Not done / limits: <...>    Next action: <one>
 | Round 1: [#17](https://github.com/amitkarpe/video-demo/pull/17), [#18](https://github.com/amitkarpe/video-demo/pull/18) | OpenAI narration with code-drawn visuals (no generated images in these two pilots). A spend estimate is needed when the API returns no usage |
 | Round 2: [#21](https://github.com/amitkarpe/video-demo/pull/21), [#22](https://github.com/amitkarpe/video-demo/pull/22) | Keep Claude's spatial "row becomes the route" reveal and Codex's legibility and full-duration browser-playback proof |
 | Round 3: [#26 @75aff57](https://github.com/amitkarpe/video-demo/pull/26), [#25 @468a21b](https://github.com/amitkarpe/video-demo/pull/25) | Generated art carries the world and code carries the claims. Dense or dim panels and card-on-background scenes regress clarity. Realtime narration worked, but the originals were not preserved untouched. Machine vision reviews needed written dispositions. ~2.7 s of player progress ≠ viewing. Codex's hash-verified cached speech, ≤2-line caption cues and independent transcription cross-check are good practice |
+| Nextflow film [#31](https://github.com/amitkarpe/video-demo/pull/31); CIS film [#33](https://github.com/amitkarpe/video-demo/pull/33) | Owner-directed confident wording needs an evidence map that marks owner-direction claims. The two-phase review (#33) and native styles shortened production to about 16 minutes after approval. Public security films stay at category level |
 
 Historical scores from these rounds were not measured with full viewing and listening. Do not reuse them as benchmarks. More image calls, longer runtime, more tokens or a newer model are not proven causes of quality.
 

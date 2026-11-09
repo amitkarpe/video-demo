@@ -26,7 +26,7 @@ provisions nothing and carries no provider credentials or active root deployment
 Complete `INIT.md` first; the owner's `<app-name>.amitk.life` convention is optional
 for other owners. Use native Git Builds only after the one owner integration gate.
 
-Technical explainer films: follow the single [Claude Video Production Playbook](docs/CLAUDE_VIDEO_PLAYBOOK.md); link to it rather than copying its rules.
+Technical explainer films: follow the single [Agent Video Playbook](docs/AGENT_VIDEO_PLAYBOOK.md); link to it rather than copying its rules.
 
 Do not use this README as a second copy of the agent bootstrap policy.
 
