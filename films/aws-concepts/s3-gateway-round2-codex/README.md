@@ -1,6 +1,6 @@
 # NO NAT. STILL S3.
 
-**Watch:** [pilot.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-aws-concepts-s3-gateway-round2-codex/pilot.mp4) (sha256 `697839bab05d…`) · [preview.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-aws-concepts-s3-gateway-round2-codex/preview.mp4) (sha256 `abc9b46ec335…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-aws-concepts-s3-gateway-round2-codex), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
+**Watch:** Release removed (10 Nov 2026, owner decision). It held `pilot.mp4` (sha256 `697839bab05d…`) · `preview.mp4` (sha256 `abc9b46ec335…`). Paths such as `out/*.mp4` below are where a local build writes them.
 
 
 A 46-second, 1080p/30 fps technical animation for [issue #19](https://github.com/amitkarpe/video-demo/issues/19).
@@ -8,7 +8,7 @@ An amber packet travels from private EC2, through the route-table decision and
 S3 gateway endpoint, to a same-Region S3 bucket outside the VPC. The film then
 separates connectivity from access authorization.
 
-**Review:** [Full MP4](https://github.com/amitkarpe/video-demo/releases/download/film-aws-concepts-s3-gateway-round2-codex/pilot.mp4) · [12-second mechanism preview](https://github.com/amitkarpe/video-demo/releases/download/film-aws-concepts-s3-gateway-round2-codex/preview.mp4) ·
+**Review:** Full MP4 (release removed) · 12-second mechanism preview (release removed) ·
 [Captions](captions.srt) · [Transcript](transcript.txt) · [Local player](player.html)
 
 **Status:** delivered for human review. `AUDIBLE_REVIEW=NOT_VERIFIED`.

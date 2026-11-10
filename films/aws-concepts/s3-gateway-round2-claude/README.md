@@ -1,6 +1,6 @@
 # Round 2 — Claude lane: "NO NAT. STILL S3." (ILLUSTRATIVE / SYNTHETIC)
 
-**Watch:** [round2-claude-s3-gateway-preview.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-aws-concepts-s3-gateway-round2-claude/round2-claude-s3-gateway-preview.mp4) (sha256 `cfab86f8b41e…`) · [round2-claude-s3-gateway.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-aws-concepts-s3-gateway-round2-claude/round2-claude-s3-gateway.mp4) (sha256 `13e055ba9415…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-aws-concepts-s3-gateway-round2-claude), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
+**Watch:** Release removed (10 Nov 2026, owner decision). It held `round2-claude-s3-gateway-preview.mp4` (sha256 `cfab86f8b41e…`) · `round2-claude-s3-gateway.mp4` (sha256 `13e055ba9415…`). Paths such as `out/*.mp4` below are where a local build writes them.
 
 
 A 58.3 s narrated, animated explainer for [Issue #20](https://github.com/amitkarpe/video-demo/issues/20).

@@ -1,11 +1,11 @@
 # Pilot A v2 — The reply disappeared
 
-**Watch:** [pilot.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-awsops-pilot-lost-ack-codex/pilot.mp4) (sha256 `4659c2112dbe…`) · [preview.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-awsops-pilot-lost-ack-codex/preview.mp4) (sha256 `5087b2453b68…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-awsops-pilot-lost-ack-codex), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
+**Watch:** Release removed (10 Nov 2026, owner decision). It held `pilot.mp4` (sha256 `4659c2112dbe…`) · `preview.mp4` (sha256 `5087b2453b68…`). Paths such as `out/*.mp4` below are where a local build writes them.
 
 
 One 45-second AWSOps technical short for experienced CloudOps / DevSecOps engineers. **Source-grounded simulation. Human listening and creative acceptance: PENDING.**
 
-[Full MP4](https://github.com/amitkarpe/video-demo/releases/download/film-awsops-pilot-lost-ack-codex/pilot.mp4) · [Mechanism preview](https://github.com/amitkarpe/video-demo/releases/download/film-awsops-pilot-lost-ack-codex/preview.mp4) · [Captions](captions.srt) · [Transcript](transcript.txt) · [Verification](verification.json) · [Call-by-call OpenAI meter](openai-spend.json) · [Sources](SOURCES.md)
+Full MP4 (release removed) · Mechanism preview (release removed) · [Captions](captions.srt) · [Transcript](transcript.txt) · [Verification](verification.json) · [Call-by-call OpenAI meter](openai-spend.json) · [Sources](SOURCES.md)
 
 Download the MP4 and open it in QuickTime/VLC if GitHub does not show an inline player. English captions are burned in; the separate SRT supports other players.
 

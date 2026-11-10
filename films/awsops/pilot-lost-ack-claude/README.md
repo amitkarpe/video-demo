@@ -1,6 +1,6 @@
 # Pilot B (Claude lane) — "The reply disappeared" (SYNTHETIC / MOCK)
 
-**Watch:** [claude-unknown-ack-preview.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-awsops-pilot-lost-ack-claude/claude-unknown-ack-preview.mp4) (sha256 `ac02ce4dff15…`) · [claude-unknown-ack.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-awsops-pilot-lost-ack-claude/claude-unknown-ack.mp4) (sha256 `e96384b9c60b…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-awsops-pilot-lost-ack-claude), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
+**Watch:** Release removed (10 Nov 2026, owner decision). It held `claude-unknown-ack-preview.mp4` (sha256 `ac02ce4dff15…`) · `claude-unknown-ack.mp4` (sha256 `e96384b9c60b…`). Paths such as `out/*.mp4` below are where a local build writes them.
 
 
 One independent ~54 s narrated, animated explainer for [Issue #16](https://github.com/amitkarpe/video-demo/issues/16).

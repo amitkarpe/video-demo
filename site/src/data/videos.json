@@ -1,5 +1,5 @@
 {
- "about": "The films shown on this public showcase (inventory of 10 Nov 2026; trimmed to 13 films the same day). Other releases in this repository may be published but not shown. Durations, sizes and resolutions were measured with ffprobe from the release asset. Dates are when the film was first delivered. Rival films are named by lane or entry (A, B, C), without model or vendor names (POLICY). Films not yet approved for publication are listed in the private video-factory, not here.",
+ "about": "The films shown on this public showcase (inventory of 10 Nov 2026; trimmed to 12 films the same day). Other releases in this repository may be published but not shown. Durations, sizes and resolutions were measured with ffprobe from the release asset. Dates are when the film was first delivered. Rival films are named by lane or entry (A, B, C), without model or vendor names (POLICY). Films not yet approved for publication are listed in the private video-factory, not here.",
  "repos": {
   "aws-factory": {
    "name": "AWS Factory",
@@ -53,8 +53,7 @@
   "toy-world-3d": "Toy world 3D (Three.js)",
   "island-3d": "Island world 3D (Three.js)",
   "cinematic-night": "Cinematic night",
-  "swiss-grid": "Swiss grid (native HyperFrames)",
-  "illustrated": "Illustrated motion"
+  "swiss-grid": "Swiss grid (native HyperFrames)"
  },
  "videos": [
   {
@@ -295,35 +294,6 @@
    "made": "video-demo",
    "short": "Scanner Noise to Findings",
    "film": "films/agentic-pentest-poc/claude-film"
-  },
-  {
-   "slug": "pentest-morning-after",
-   "public": true,
-   "title": "The Morning After — a Fictional Short",
-   "revision": "Style experiment (v2)",
-   "status": "Experiment",
-   "summary": "A fictional company discovers an intrusion; its CEO, CISO and engineer talk about alert overload and an isolated agentic pentest proof of concept.",
-   "repo": "agentic-pentest-poc",
-   "family": "pentest",
-   "look": "illustrated",
-   "date": "2026-11-07",
-   "durationSec": 44.0,
-   "width": 1920,
-   "height": 1080,
-   "bytes": 32496932,
-   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-agentic-pentest-poc-story",
-   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-agentic-pentest-poc-story/security-story-v2.mp4",
-   "extra": [
-    {
-     "label": "Version 1",
-     "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-agentic-pentest-poc-story/security-story.mp4"
-    }
-   ],
-   "series": "pentest",
-   "order": 4,
-   "made": "video-demo",
-   "short": "The Morning After",
-   "film": "films/agentic-pentest-poc/story"
   },
   {
    "slug": "aws-factory-ssm-patch",

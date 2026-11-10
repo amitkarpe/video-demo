@@ -1,6 +1,6 @@
 # BlueOps — The Trust Factory
 
-**Watch:** [blueops-trust-factory.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-aws-factory-round3-ami-factory-codex/blueops-trust-factory.mp4) (sha256 `3e01ae8dd0e6…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-aws-factory-round3-ami-factory-codex), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
+**Watch:** Release removed (10 Nov 2026, owner decision). It held `blueops-trust-factory.mp4` (sha256 `3e01ae8dd0e6…`). Paths such as `out/*.mp4` below are where a local build writes them.
 
 
 A 4:28 illustrated factory film for [Round 3 / issue #24](https://github.com/amitkarpe/video-demo/issues/24). It follows a golden AL2023 image through a package-only shared base, three workload families, DEV proof, separate PROD acceptance, human approval, a proposed future release policy, and recovery.
