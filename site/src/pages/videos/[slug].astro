@@ -8,6 +8,8 @@ export function getStaticPaths() {
 }
 const { v } = Astro.props as { v: Video };
 const repo = repos[v.repo];
+// Other repositories the film shows (optional "repos" list); the first, main one is v.repo.
+const also = ((v.repos ?? []) as string[]).filter((r) => r !== v.repo && repos[r]).map((r) => repos[r]);
 const line = series(v);
 const i = line.findIndex((x) => x.slug === v.slug);
 const prev = line[i - 1];
@@ -55,6 +57,12 @@ const words = transcript(v);
           )}
         </td>
       </tr>
+      {also.length > 0 && (
+        <tr>
+          <th>Also features</th>
+          <td>{also.map((r, n) => (<>{n > 0 && ' · '}{r.url ? <a href={r.url}>{r.name}</a> : r.name}{r.visibility === 'private' && <span class="vp-private" title="Private repository: the link works only for people with access">private</span>}</>))}</td>
+        </tr>
+      )}
       <tr><th>Status</th><td>{v.status}</td></tr>
       <tr><th>Made in</th><td>{v.made === 'video-factory' ? 'The video factory (published with the owner’s approval)' : 'The video-demo archive'}</td></tr>
       <tr>

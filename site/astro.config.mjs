@@ -31,7 +31,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Video Showcase',
-      description: 'Narrated, animated films that explain the engineering work: AWS Factory, AWSOps, Nextflow Offline and Agentic Pentest.',
+      description: 'Narrated, animated films that explain the engineering work: AWS Factory, an operations vision, Nextflow Offline and Agentic Pentest.',
       social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/amitkarpe/video-demo' }],
       customCss: ['./src/styles/custom.css'],
       sidebar,
