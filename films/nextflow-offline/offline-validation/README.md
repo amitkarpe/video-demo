@@ -1,6 +1,6 @@
 # Nextflow Offline — Prepare Once, Run with Confidence
 
-**Watch:** [claude-nextflow-offline.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-nextflow-offline-offline-validation/claude-nextflow-offline.mp4) (sha256 `4bc740294c9a…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-nextflow-offline-offline-validation), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
+**Watch:** [offline-validation-r1.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-nextflow-offline-offline-validation/offline-validation-r1.mp4) (sha256 `4bc740294c9a…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-nextflow-offline-offline-validation), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
 
 
 A 3 min 32 s narrated, animated explainer for managers and engineers, made by Claude as the sole video implementer, from the owner's brief in `amitkarpe/nextflow-offline` Issue #765 and the owner's direction of 9 Nov 2026.
@@ -22,7 +22,7 @@ The language is deliberately high-level (owner direction). The film shows no cod
 
 | Path | What it is |
 |---|---|
-| `out/claude-nextflow-offline.mp4` | Final film: H.264 High 1920×1080 30 fps, AAC-LC 48 kHz stereo, 3 min 32 s, 80.9 MB, −16.0 LUFS |
+| `out/offline-validation-r1.mp4` | Final film: H.264 High 1920×1080 30 fps, AAC-LC 48 kHz stereo, 3 min 32 s, 80.9 MB, −16.0 LUFS |
 | `captions.srt`, `transcript.txt`, `cues.json` | Captions and transcript timed from the measured post-edit narration |
 | `keyframes/*.png` | Frames taken from the final MP4 |
 | `CLAIMS.md` | Evidence map: each statement, its state and its source at the pinned revision |
