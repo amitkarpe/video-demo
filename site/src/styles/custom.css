@@ -12,8 +12,6 @@
   --fam-awsops: #6366f1;
   --fam-nextflow: #10b981;
   --fam-pentest: #ef4444;
-  --fam-aws-concepts: #0ea5e9;
-  --fam-tooling: #a855f7;
 }
 :root[data-theme='light'] {
   --sl-color-accent-low: #ccfbf1;
@@ -75,8 +73,6 @@
 .vs-fam-awsops { --fam: var(--fam-awsops); }
 .vs-fam-nextflow { --fam: var(--fam-nextflow); color: #032016; }
 .vs-fam-pentest { --fam: var(--fam-pentest); }
-.vs-fam-aws-concepts { --fam: var(--fam-aws-concepts); color: #04202e; }
-.vs-fam-tooling { --fam: var(--fam-tooling); }
 .vs-empty { color: var(--sl-color-gray-3); }
 
 /* video page */

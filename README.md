@@ -2,7 +2,7 @@
 
 > **New films are made in the private factory [`amitkarpe/video-factory`](https://github.com/amitkarpe/video-factory)** (start protocol, toolkit, house styles). This public repository is the **showcase and archive**: the 20 films made here between 7 and 10 Nov 2026, plus factory films that Amit approves for public release (as GitHub Releases `film-<source-repo>-<film>`).
 
-**Watch them all:** [the showcase site](https://amitkarpe.github.io/video-demo/) — every public film embedded, searchable, with its source repository and lineage (built from [`site/`](site/README.md)).
+**Watch them all:** [the showcase site](https://amitkarpe.github.io/video-demo/) — the chosen films embedded, searchable, with its source repository and lineage (built from [`site/`](site/README.md)).
 
 Short, narrated, captioned films that explain Amit's engineering work (AWS Factory, AWSOps, Nextflow offline, the agentic pentest PoC) to engineers and managers. Each film is built as code: HyperFrames compositions (HTML, GSAP and Three.js), an OpenAI voice, a synthesized score, and a checked evidence map.
 

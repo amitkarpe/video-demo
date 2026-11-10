@@ -1,13 +1,13 @@
 # Showcase site
 
-**Purpose:** one public, searchable page for every film released so far. Each film is embedded and playable, with its summary, source repository, look, length, date, lineage, key frames and transcript. Built with Astro + Starlight; search is Starlight's built-in Pagefind.
+**Purpose:** one public, searchable page for the films chosen for the showcase (13 on 10 Nov 2026). Each film is embedded and playable, with its summary, source repository, look, length, date, lineage, key frames and transcript. Built with Astro + Starlight; search is Starlight's built-in Pagefind.
 
 **Live:** https://amitkarpe.github.io/video-demo/
 
 ## Inputs
 | File | What it is |
 |---|---|
-| `src/data/videos.json` | The inventory of every **published** film, with its repository, family, look, length, date, release and lineage (`series`, `order`). Films that are not approved for publication are listed in the private `amitkarpe/video-factory` `docs/showcase-pending.json`, never here (this repository is public). |
+| `src/data/videos.json` | The inventory of every film **shown** on the site (a public release that is not listed here is not shown), with its repository, family, look, length, date, release and lineage (`series`, `order`). Films that are not approved for publication are listed in the private `amitkarpe/video-factory` `docs/showcase-pending.json`, never here (this repository is public). |
 | `public/frames/<slug>-1..4.jpg` | Four small JPG frames per public film (640 px, 12/37/63/88 %); frame 2 is the card poster. Made by `scripts/frames.py` from the release MP4. |
 | `src/data/transcripts/<slug>.txt` | Transcripts of factory films (public copies). Archived films use `../films/<repo>/<film>/transcript.txt` or `captions.srt`. |
 
