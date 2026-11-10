@@ -28,7 +28,7 @@ Grouped by source repository. Styles: see [the catalog](../docs/STYLE_CATALOG.md
 | [`cinematic`](agentic-pentest-poc/cinematic/README.md) | Cinematic pentest teaser | cinematic test | Style experiment · Release removed (10 Nov 2026, owner decision) | [#7](https://github.com/amitkarpe/video-demo/pull/7) |
 | [`claude-film`](agentic-pentest-poc/claude-film/README.md) | Agentic Pentest POC — From Scanner Noise to Reviewable Findings | cinematic-night | Delivered; listening review pending | [#30](https://github.com/amitkarpe/video-demo/pull/30) |
 | [`engineering-deep-dive`](agentic-pentest-poc/engineering-deep-dive/README.md) | Inside Agentic Pentest — engineering deep dive | technical deep dive | Delivered · Release removed (10 Nov 2026, owner decision) | [#11](https://github.com/amitkarpe/video-demo/pull/11) |
-| [`story`](agentic-pentest-poc/story/README.md) | The morning after — fictional short | story with characters | Style experiment | [#7](https://github.com/amitkarpe/video-demo/pull/7) |
+| [`story`](agentic-pentest-poc/story/README.md) | The morning after — fictional short | story with characters | Style experiment · Release removed (10 Nov 2026, owner decision) | [#7](https://github.com/amitkarpe/video-demo/pull/7) |
 | [`technical-pipeline`](agentic-pentest-poc/technical-pipeline/README.md) | Agentic pentest: technical pipeline | technical pipeline | Style experiment · Release removed (10 Nov 2026, owner decision) | [#7](https://github.com/amitkarpe/video-demo/pull/7) |
 
 ## `awsops`
