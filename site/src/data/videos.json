@@ -1,15 +1,10 @@
 {
- "about": "The films shown on this public showcase (inventory of 10 Nov 2026; trimmed to 12 films the same day). Other releases in this repository may be published but not shown. Durations, sizes and resolutions were measured with ffprobe from the release asset. Dates are when the film was first delivered. Rival films are named by lane or entry (A, B, C), without model or vendor names (POLICY). Films not yet approved for publication are listed in the private video-factory, not here.",
+ "about": "The films shown on this public showcase (inventory of 10 Nov 2026; trimmed to 8 films the same day). Other releases in this repository may be published but not shown. Durations, sizes and resolutions were measured with ffprobe from the release asset. Dates are when the film was first delivered. Rival films are named by lane or entry (A, B, C), without model or vendor names (POLICY). Films not yet approved for publication are listed in the private video-factory, not here.",
  "repos": {
   "aws-factory": {
    "name": "AWS Factory",
    "url": "https://github.com/amitkarpe/aws-factory",
    "visibility": "private"
-  },
-  "awsops": {
-   "name": "AWSOps",
-   "url": "https://github.com/amitkarpe/awsops",
-   "visibility": "public"
   },
   "nextflow-offline": {
    "name": "Nextflow Offline",
@@ -20,11 +15,6 @@
    "name": "Agentic Pentest POC",
    "url": "https://github.com/kcloud1/agentic-pentest-poc",
    "visibility": "private"
-  },
-  "agentcore2": {
-   "name": "agentCore2",
-   "url": "https://github.com/mytestlab123/agentcore2",
-   "visibility": "public"
   }
  },
  "families": [
@@ -32,11 +22,6 @@
    "id": "aws-factory",
    "name": "AWS Factory",
    "blurb": "The AMI factory: one hardened base image, three workload families, proof in DEV before PROD."
-  },
-  {
-   "id": "awsops",
-   "name": "Operations vision",
-   "blurb": "An AI operations workforce under human control: agentCore2, AWS Ops and AWS Factory as one connected loop."
   },
   {
    "id": "nextflow",
@@ -57,11 +42,11 @@
  },
  "videos": [
   {
-   "slug": "aws-factory-intro-b",
+   "slug": "aws-factory-intro",
    "public": true,
    "current": true,
-   "title": "AWS Factory — One Image, the Whole Loop (intro, entry B)",
-   "revision": "Intro · entry B",
+   "title": "AWS Factory — One Image, the Whole Loop",
+   "revision": "Introduction",
    "status": "Accepted",
    "summary": "A 1:48 introduction to AWS Factory in the toy world: build only when something changed, prove on real test servers, rehearse the swap, approve, and feed findings back.",
    "repo": "aws-factory",
@@ -77,121 +62,9 @@
    "series": "aws-factory",
    "order": 6,
    "made": "video-factory",
-   "notes": "The chosen introduction. Its rival is entry A. AI narration.",
-   "short": "AWS Factory intro · entry B",
-   "transcript": "src/data/transcripts/aws-factory-intro-b.txt"
-  },
-  {
-   "slug": "aws-factory-intro-a",
-   "public": true,
-   "title": "AWS Factory: Build, Prove, Rehearse (intro, entry A)",
-   "revision": "Intro · entry A",
-   "status": "Rival entry (not chosen)",
-   "summary": "The rival 1:43 introduction: one approved image, hardened, proved on throwaway test hosts, rehearsed, and approved by a person at the last step.",
-   "repo": "aws-factory",
-   "family": "aws-factory",
-   "look": "toy-world-3d",
-   "date": "2026-11-10",
-   "durationSec": 102.6,
-   "width": 1920,
-   "height": 1080,
-   "bytes": 29582010,
-   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-aws-factory-intro",
-   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-aws-factory-intro/intro.mp4",
-   "series": "aws-factory",
-   "order": 5,
-   "made": "video-factory",
-   "notes": "The rival introduction to entry B, from the same brief. AI narration.",
-   "short": "AWS Factory intro · entry A",
-   "transcript": "src/data/transcripts/aws-factory-intro-a.txt"
-  },
-  {
-   "slug": "awsops-operations-r1-b",
-   "public": true,
-   "current": true,
-   "title": "Operations, Reimagined — Round 1, entry B",
-   "revision": "Round 1 · entry B",
-   "status": "Selected (Round 1)",
-   "summary": "An AI operations workforce under human control: one finding becomes one controlled change, signals guide the next improvement, and a small team runs a growing estate.",
-   "repo": "awsops",
-   "repos": [
-    "awsops",
-    "agentcore2",
-    "aws-factory"
-   ],
-   "family": "awsops",
-   "look": "toy-world-3d",
-   "date": "2026-11-10",
-   "durationSec": 145.7,
-   "width": 1920,
-   "height": 1080,
-   "bytes": 53092130,
-   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-awsops-operations-vision-r1-b",
-   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-awsops-operations-vision-r1-b/operations-vision-r1-b.mp4",
-   "series": "awsops",
-   "order": 5,
-   "made": "video-factory",
-   "notes": "Round 1 winner. Its rivals are entries A and C, from the same brief. AI narration.",
-   "short": "Operations, Reimagined · entry B",
-   "transcript": "src/data/transcripts/awsops-operations-r1-b.txt"
-  },
-  {
-   "slug": "awsops-operations-r1-a",
-   "public": true,
-   "title": "Operations, Reimagined — Round 1, entry A",
-   "revision": "Round 1 · entry A",
-   "status": "Rival entry (not selected)",
-   "summary": "The same brief, entry A: one signal, one approved change, and one connected operating loop.",
-   "repo": "awsops",
-   "repos": [
-    "awsops",
-    "agentcore2",
-    "aws-factory"
-   ],
-   "family": "awsops",
-   "look": "toy-world-3d",
-   "date": "2026-11-10",
-   "durationSec": 130.7,
-   "width": 1920,
-   "height": 1080,
-   "bytes": 48567221,
-   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-awsops-operations-vision-r1-a",
-   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-awsops-operations-vision-r1-a/operations-vision-r1-a.mp4",
-   "series": "awsops",
-   "order": 4,
-   "made": "video-factory",
-   "notes": "A Round 1 rival to entry B, from the same brief. AI narration.",
-   "short": "Operations, Reimagined · entry A",
-   "transcript": "src/data/transcripts/awsops-operations-r1-a.txt"
-  },
-  {
-   "slug": "awsops-operations-r1-c",
-   "public": true,
-   "title": "Operations, Reimagined — Round 1, entry C",
-   "revision": "Round 1 · entry C",
-   "status": "Rival entry (not selected)",
-   "summary": "The same brief, entry C: from one finding to a verified fix, with AWS Factory rehearsing recovery.",
-   "repo": "awsops",
-   "repos": [
-    "awsops",
-    "agentcore2",
-    "aws-factory"
-   ],
-   "family": "awsops",
-   "look": "toy-world-3d",
-   "date": "2026-11-10",
-   "durationSec": 133.0,
-   "width": 1920,
-   "height": 1080,
-   "bytes": 44466630,
-   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-awsops-operations-vision-r1-c",
-   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-awsops-operations-vision-r1-c/operations-vision-r1-c.mp4",
-   "series": "awsops",
-   "order": 6,
-   "made": "video-factory",
-   "notes": "A Round 1 rival to entry B, from the same brief. AI narration.",
-   "short": "Operations, Reimagined · entry C",
-   "transcript": "src/data/transcripts/awsops-operations-r1-c.txt"
+   "notes": "AI narration.",
+   "short": "AWS Factory intro",
+   "transcript": "src/data/transcripts/aws-factory-intro.txt"
   },
   {
    "slug": "nextflow-offline-r2",
@@ -234,7 +107,7 @@
    "height": 1080,
    "bytes": 80894073,
    "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-nextflow-offline-offline-validation",
-   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-nextflow-offline-offline-validation/claude-nextflow-offline.mp4",
+   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-nextflow-offline-offline-validation/offline-validation-r1.mp4",
    "series": "nextflow",
    "order": 1,
    "made": "video-demo",
@@ -281,19 +154,19 @@
    "width": 1920,
    "height": 1080,
    "bytes": 79111359,
-   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-agentic-pentest-poc-claude-film",
-   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-agentic-pentest-poc-claude-film/claude-agentic-pentest.mp4",
+   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-agentic-pentest-poc-scanner-noise",
+   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-agentic-pentest-poc-scanner-noise/scanner-noise.mp4",
    "extra": [
     {
      "label": "30 s preview",
-     "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-agentic-pentest-poc-claude-film/claude-agentic-pentest-preview.mp4"
+     "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-agentic-pentest-poc-scanner-noise/scanner-noise-preview.mp4"
     }
    ],
    "series": "pentest",
    "order": 7,
    "made": "video-demo",
    "short": "Scanner Noise to Findings",
-   "film": "films/agentic-pentest-poc/claude-film"
+   "film": "films/agentic-pentest-poc/scanner-noise"
   },
   {
    "slug": "aws-factory-ssm-patch",
@@ -342,7 +215,7 @@
    "film": "films/aws-factory/cis-hardening"
   },
   {
-   "slug": "aws-factory-round3-lane-b",
+   "slug": "aws-factory-blueops",
    "public": true,
    "title": "Round 3 — BlueOps: the AMI Factory",
    "revision": "Round 3",
@@ -356,19 +229,19 @@
    "width": 1920,
    "height": 1080,
    "bytes": 60199574,
-   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-aws-factory-round3-ami-factory-claude",
-   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-aws-factory-round3-ami-factory-claude/round3-claude-blueops-ami.mp4",
+   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-aws-factory-blueops-ami",
+   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-aws-factory-blueops-ami/blueops-ami.mp4",
    "extra": [
     {
      "label": "30 s preview",
-     "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-aws-factory-round3-ami-factory-claude/round3-claude-blueops-ami-preview.mp4"
+     "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-aws-factory-blueops-ami/blueops-ami-preview.mp4"
     }
    ],
    "series": "aws-factory",
    "order": 2,
    "made": "video-demo",
    "short": "BlueOps · Round 3",
-   "film": "films/aws-factory/round3-ami-factory-claude"
+   "film": "films/aws-factory/blueops-ami"
   }
  ]
 }

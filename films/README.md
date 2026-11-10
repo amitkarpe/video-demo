@@ -9,8 +9,8 @@ Grouped by source repository. Styles: see [the catalog](../docs/STYLE_CATALOG.md
 | Film | Title | Look | Status | Original PR |
 |---|---|---|---|---|
 | [`cis-hardening`](aws-factory/cis-hardening/README.md) | CIS Hardening in AWS Factory — Fix What We Can, Accept What We Must | swiss-grid + clay-diorama | Delivered; listening review pending | [#33](https://github.com/amitkarpe/video-demo/pull/33) |
-| [`round3-ami-factory-claude`](aws-factory/round3-ami-factory-claude/README.md) | Round 3, Claude lane — "BlueOps: the AMI Factory" (ILLUSTRATIVE) | cinematic-night | Round 3 comparison (Claude) | [#26](https://github.com/amitkarpe/video-demo/pull/26) |
-| [`round3-ami-factory-codex`](aws-factory/round3-ami-factory-codex/README.md) | BlueOps — The Trust Factory | illustrated factory (Codex) | Round 3 comparison (Codex) · Release removed (10 Nov 2026, owner decision) | [#25](https://github.com/amitkarpe/video-demo/pull/25) |
+| [`blueops-ami`](aws-factory/blueops-ami/README.md) | Round 3 — "BlueOps: the AMI Factory" (ILLUSTRATIVE) | cinematic-night | Round 3 film | [#26](https://github.com/amitkarpe/video-demo/pull/26) |
+| [`round3-ami-factory-codex`](aws-factory/round3-ami-factory-codex/README.md) | BlueOps — The Trust Factory | illustrated factory | Round 3 comparison · Release removed (10 Nov 2026, owner decision) | [#25](https://github.com/amitkarpe/video-demo/pull/25) |
 | [`ssm-patch`](aws-factory/ssm-patch/README.md) | Patching Running Servers in AWS Factory — Scanned Is Not Patched | toy-world-3d | **Accepted** (2026-11-09) | [#36](https://github.com/amitkarpe/video-demo/pull/36) |
 
 ## `nextflow-offline`
@@ -26,7 +26,7 @@ Grouped by source repository. Styles: see [the catalog](../docs/STYLE_CATALOG.md
 | [`benchmark`](agentic-pentest-poc/benchmark/README.md) | HyperFrames pentest benchmark | HyperFrames benchmark | First HyperFrames benchmark · Release removed (10 Nov 2026, owner decision) | [#7](https://github.com/amitkarpe/video-demo/pull/7) |
 | [`cartoon-phase1`](agentic-pentest-poc/cartoon-phase1/README.md) | Tiny Security Robots: Phase 1 | cartoon test | Style experiment · Release removed (10 Nov 2026, owner decision) | [#7](https://github.com/amitkarpe/video-demo/pull/7) |
 | [`cinematic`](agentic-pentest-poc/cinematic/README.md) | Cinematic pentest teaser | cinematic test | Style experiment · Release removed (10 Nov 2026, owner decision) | [#7](https://github.com/amitkarpe/video-demo/pull/7) |
-| [`claude-film`](agentic-pentest-poc/claude-film/README.md) | Agentic Pentest POC — From Scanner Noise to Reviewable Findings | cinematic-night | Delivered; listening review pending | [#30](https://github.com/amitkarpe/video-demo/pull/30) |
+| [`scanner-noise`](agentic-pentest-poc/scanner-noise/README.md) | Agentic Pentest POC — From Scanner Noise to Reviewable Findings | cinematic-night | Delivered; listening review pending | [#30](https://github.com/amitkarpe/video-demo/pull/30) |
 | [`engineering-deep-dive`](agentic-pentest-poc/engineering-deep-dive/README.md) | Inside Agentic Pentest — engineering deep dive | technical deep dive | Delivered · Release removed (10 Nov 2026, owner decision) | [#11](https://github.com/amitkarpe/video-demo/pull/11) |
 | [`story`](agentic-pentest-poc/story/README.md) | The morning after — fictional short | story with characters | Style experiment · Release removed (10 Nov 2026, owner decision) | [#7](https://github.com/amitkarpe/video-demo/pull/7) |
 | [`technical-pipeline`](agentic-pentest-poc/technical-pipeline/README.md) | Agentic pentest: technical pipeline | technical pipeline | Style experiment · Release removed (10 Nov 2026, owner decision) | [#7](https://github.com/amitkarpe/video-demo/pull/7) |
@@ -35,16 +35,16 @@ Grouped by source repository. Styles: see [the catalog](../docs/STYLE_CATALOG.md
 
 | Film | Title | Look | Status | Original PR |
 |---|---|---|---|---|
-| [`pilot-lost-ack-claude`](awsops/pilot-lost-ack-claude/README.md) | Pilot B (Claude lane) — "The reply disappeared" (SYNTHETIC / MOCK) | code-drawn | Pilot B (Claude) · Release removed (10 Nov 2026, owner decision) | [#18](https://github.com/amitkarpe/video-demo/pull/18) |
-| [`pilot-lost-ack-codex`](awsops/pilot-lost-ack-codex/README.md) | Pilot A v2 — The reply disappeared | code-drawn | Pilot A (Codex) · Release removed (10 Nov 2026, owner decision) | [#17](https://github.com/amitkarpe/video-demo/pull/17) |
+| [`pilot-lost-ack-claude`](awsops/pilot-lost-ack-claude/README.md) | Pilot B — "The reply disappeared" (SYNTHETIC / MOCK) | code-drawn | Pilot B · Release removed (10 Nov 2026, owner decision) | [#18](https://github.com/amitkarpe/video-demo/pull/18) |
+| [`pilot-lost-ack-codex`](awsops/pilot-lost-ack-codex/README.md) | Pilot A v2 — The reply disappeared | code-drawn | Pilot A · Release removed (10 Nov 2026, owner decision) | [#17](https://github.com/amitkarpe/video-demo/pull/17) |
 | [`technical-explainer`](awsops/technical-explainer/README.md) | Inside AWSOps: what was approved, what ran, what the evidence proves | SVG/GSAP technical | Delivered · Release removed (10 Nov 2026, owner decision) | [#13](https://github.com/amitkarpe/video-demo/pull/13) |
 
 ## `aws-concepts`
 
 | Film | Title | Look | Status | Original PR |
 |---|---|---|---|---|
-| [`s3-gateway-round2-claude`](aws-concepts/s3-gateway-round2-claude/README.md) | Round 2 — Claude lane: "NO NAT. STILL S3." (ILLUSTRATIVE / SYNTHETIC) | cinematic | Round 2 comparison (Claude) · Release removed (10 Nov 2026, owner decision) | [#22](https://github.com/amitkarpe/video-demo/pull/22) |
-| [`s3-gateway-round2-codex`](aws-concepts/s3-gateway-round2-codex/README.md) | NO NAT. STILL S3. | cinematic | Round 2 comparison (Codex) · Release removed (10 Nov 2026, owner decision) | [#21](https://github.com/amitkarpe/video-demo/pull/21) |
+| [`s3-gateway-round2-claude`](aws-concepts/s3-gateway-round2-claude/README.md) | Round 2 — "NO NAT. STILL S3." (ILLUSTRATIVE / SYNTHETIC) | cinematic | Round 2 comparison · Release removed (10 Nov 2026, owner decision) | [#22](https://github.com/amitkarpe/video-demo/pull/22) |
+| [`s3-gateway-round2-codex`](aws-concepts/s3-gateway-round2-codex/README.md) | NO NAT. STILL S3. | cinematic | Round 2 comparison · Release removed (10 Nov 2026, owner decision) | [#21](https://github.com/amitkarpe/video-demo/pull/21) |
 
 ## `demos`
 

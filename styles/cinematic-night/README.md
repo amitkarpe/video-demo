@@ -9,5 +9,5 @@ The look of the first Claude films:
 
 It looks impressive, but each film needed many generated plates and a long art-direction pass. The owner asked for variety and then for reuse, so this look is **archived: use it only when the owner names it**.
 
-- **Reference films:** [`films/nextflow-offline/offline-validation`](../../films/nextflow-offline/offline-validation/README.md) and [`films/agentic-pentest-poc/claude-film`](../../films/agentic-pentest-poc/claude-film/README.md).
+- **Reference films:** [`films/nextflow-offline/offline-validation`](../../films/nextflow-offline/offline-validation/README.md) and [`films/agentic-pentest-poc/scanner-noise`](../../films/agentic-pentest-poc/scanner-noise/README.md).
 - **Prompt recipe:** `prompts.example.json`, from the Nextflow film. Its `edit_of` entries keep one object identical across scenes.

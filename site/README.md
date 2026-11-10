@@ -1,6 +1,6 @@
 # Showcase site
 
-**Purpose:** one public, searchable page for the films chosen for the showcase (12 on 10 Nov 2026). Each film is embedded and playable, with its summary, source repository, look, length, date, lineage, key frames and transcript. Built with Astro + Starlight; search is Starlight's built-in Pagefind.
+**Purpose:** one public, searchable page for the films chosen for the showcase (8 on 10 Nov 2026). Each film is embedded and playable, with its summary, source repository, look, length, date, lineage, key frames and transcript. Built with Astro + Starlight; search is Starlight's built-in Pagefind.
 
 **Live:** https://amitkarpe.github.io/video-demo/
 

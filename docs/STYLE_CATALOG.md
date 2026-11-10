@@ -14,7 +14,7 @@
 Reference films (watch them on their GitHub Release):
 - **A:** [`films/aws-factory/ssm-patch`](../films/aws-factory/ssm-patch/README.md), accepted.
 - **B and C:** [`films/aws-factory/cis-hardening`](../films/aws-factory/cis-hardening/README.md).
-- **D:** [`films/nextflow-offline/offline-validation`](../films/nextflow-offline/offline-validation/README.md) and [`films/agentic-pentest-poc/claude-film`](../films/agentic-pentest-poc/claude-film/README.md).
+- **D:** [`films/nextflow-offline/offline-validation`](../films/nextflow-offline/offline-validation/README.md) and [`films/agentic-pentest-poc/scanner-noise`](../films/agentic-pentest-poc/scanner-noise/README.md).
 
 Native HyperFrames examples are still available as raw material (`npx hyperframes init <dir> --example <name>`): warm-grain, swiss-grid, vignelli, nyt-graph, decision-tree, kinetic-type, play-mode, product-promo. Explainer blocks: `npx hyperframes add flowchart | hw-pipeline | exploded-stack | data-chart`.
 

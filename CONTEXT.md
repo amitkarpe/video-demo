@@ -19,7 +19,7 @@ Status: INITIALIZED
 
 ## Active Work
 - No open PRs. Consolidation (#40) is merged; the earlier film PRs are closed as superseded, and their branches are kept.
-- Owner reviews pending: `cis-hardening`, `offline-validation`, `claude-film` (human listening not yet done).
+- Owner reviews pending: `cis-hardening`, `offline-validation`, `scanner-noise` (human listening not yet done).
 
 ## Next Action
 - New film requests go to the private factory `amitkarpe/video-factory`. This repository is the public showcase and archive.

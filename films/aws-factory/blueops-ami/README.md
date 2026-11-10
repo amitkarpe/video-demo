@@ -1,6 +1,6 @@
-# Round 3, Claude lane — "BlueOps: the AMI Factory" (ILLUSTRATIVE)
+# Round 3 — "BlueOps: the AMI Factory" (ILLUSTRATIVE)
 
-**Watch:** [round3-claude-blueops-ami-preview.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-aws-factory-round3-ami-factory-claude/round3-claude-blueops-ami-preview.mp4) (sha256 `2f2f4666f1aa…`) · [round3-claude-blueops-ami.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-aws-factory-round3-ami-factory-claude/round3-claude-blueops-ami.mp4) (sha256 `89f7551fdc11…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-aws-factory-round3-ami-factory-claude), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
+**Watch:** [blueops-ami-preview.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-aws-factory-blueops-ami/blueops-ami-preview.mp4) (sha256 `2f2f4666f1aa…`) · [blueops-ami.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-aws-factory-blueops-ami/blueops-ami.mp4) (sha256 `89f7551fdc11…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-aws-factory-blueops-ami), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
 
 
 A 3 min 56 s narrated, animated explainer for [Issue #23](https://github.com/amitkarpe/video-demo/issues/23).
@@ -15,8 +15,8 @@ Everything is illustrative. There are no real IDs, no AWS call and no live run.
 
 | Path | What it is |
 |---|---|
-| `out/round3-claude-blueops-ami.mp4` | Final film: H.264 High 1920×1080 30 fps, AAC 48 kHz stereo, 236.3 s, 60.2 MB (web encode, CRF 20) |
-| `out/round3-claude-blueops-ami-preview.mp4` | 30 s preview at 960×540 (three families → DEV proving grounds) |
+| `out/blueops-ami.mp4` | Final film: H.264 High 1920×1080 30 fps, AAC 48 kHz stereo, 236.3 s, 60.2 MB (web encode, CRF 20) |
+| `out/blueops-ami-preview.mp4` | 30 s preview at 960×540 (three families → DEV proving grounds) |
 | `captions.srt`, `transcript.txt` | Built from `script.json` and the measured clip lengths |
 | `keyframes/01..05-*.png` | Five frames taken from the final MP4: hook, families, DEV gates, Phase A approval, payoff |
 | `storyboard.md`, `RATIONALE.md` | Shot list; creative decisions and the alternatives considered |
@@ -38,14 +38,14 @@ Everything is illustrative. There are no real IDs, no AWS call and no live run.
 
 ```bash
 cd benchmarks/hyperframes && npm ci                    # hyperframes 0.9.20, gsap 3.15.0 (lockfile)
-cd pilots/round3-claude-blueops-ami
+cd pilots/blueops-ami
 python -m venv .venv && .venv/bin/pip install numpy==2.5.4 soundfile==0.14.0
 .venv/bin/python build.py                              # cues, SRT, transcript, assets/mix.wav, index.html
-cd ../.. && npx hyperframes check pilots/round3-claude-blueops-ami
-npx hyperframes render pilots/round3-claude-blueops-ami -o pilots/round3-claude-blueops-ami/out/master-delivery.mp4 -f 30 -q delivery
-cd pilots/round3-claude-blueops-ami
+cd ../.. && npx hyperframes check pilots/blueops-ami
+npx hyperframes render pilots/blueops-ami -o pilots/blueops-ami/out/master-delivery.mp4 -f 30 -q delivery
+cd pilots/blueops-ami
 ffmpeg -i out/master-delivery.mp4 -c:v libx264 -preset slow -crf 20 -profile:v high -pix_fmt yuv420p \
-  -c:a aac -b:a 192k -movflags +faststart out/round3-claude-blueops-ami.mp4
+  -c:a aac -b:a 192k -movflags +faststart out/blueops-ami.mp4
 ```
 
 `assets/mix.wav`, `assets/gsap.min.js` and `out/master-delivery.mp4` (≈150 MB, above GitHub's 100 MB file limit) are build outputs and are gitignored.
