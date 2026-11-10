@@ -1,0 +1,16 @@
+Every week, a new security warning reaches us.
+A flaw is found in a software package. Which of our servers have it?
+Any team can drop it in: an email, a spreadsheet, a list, or a short note.
+Our agents pick it up. They run on Amazon Bedrock AgentCore.
+It is an AWS service that other departments already use for their agents.
+The Harness runs each agent's work, and the Runtime gives every session its own sealed space.
+Identity gives each agent its own identity and keys, so it reaches only what it is allowed.
+Gateway puts our tools behind one gate, and Policy checks every call against our rules before it runs.
+Observability records every step in Amazon CloudWatch.
+The agents read our AWS environment without changing it, and find every server with that package.
+Then they prepare the exact fix: one reviewed patch for those servers, not a free command.
+Nothing changes until a person decides. One approval, for this one change.
+The patch goes out. Then we check again, separately, and the proof goes to audit.
+This is our vision: every cloud operation, done this way.
+Routine work runs on its own. Security keeps a person in the loop.
+Defence Factory. Agents prepare. People decide. The proof stays.

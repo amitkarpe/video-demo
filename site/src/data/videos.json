@@ -1,5 +1,5 @@
 {
- "about": "The films shown on this public showcase (inventory of 10 Nov 2026; trimmed to 8 films the same day). Other releases in this repository may be published but not shown. Durations, sizes and resolutions were measured with ffprobe from the release asset. Dates are when the film was first delivered. Rival films are named by lane or entry (A, B, C), without model or vendor names (POLICY). Films not yet approved for publication are listed in the private video-factory, not here.",
+ "about": "The films shown on this public showcase (inventory of 10 Nov 2026; trimmed to 8 films the same day; Defence Factory added later that day). Other releases in this repository may be published but not shown. Durations, sizes and resolutions were measured with ffprobe from the release asset. Dates are when the film was first delivered. Rival films are named by lane or entry (A, B, C), without model or vendor names (POLICY). Films not yet approved for publication are listed in the private video-factory, not here.",
  "repos": {
   "aws-factory": {
    "name": "AWS Factory",
@@ -15,9 +15,19 @@
    "name": "Agentic Pentest POC",
    "url": "https://github.com/kcloud1/agentic-pentest-poc",
    "visibility": "private"
+  },
+  "awsops": {
+   "name": "AWS Ops (Defence Factory)",
+   "url": "https://github.com/amitkarpe/awsops",
+   "visibility": "private"
   }
  },
  "families": [
+  {
+   "id": "defence-factory",
+   "name": "Defence Factory",
+   "blurb": "Agents prepare, people decide, the proof stays: security work done the agentic way on Amazon Bedrock AgentCore."
+  },
   {
    "id": "aws-factory",
    "name": "AWS Factory",
@@ -41,6 +51,31 @@
   "swiss-grid": "Swiss grid (native HyperFrames)"
  },
  "videos": [
+  {
+   "slug": "defence-factory",
+   "public": true,
+   "current": true,
+   "title": "Defence Factory — Agents Prepare, People Decide",
+   "revision": "Vision film",
+   "status": "Accepted",
+   "summary": "A 2:09 vision film in the toy world: a team drops in a security warning, agents on Amazon Bedrock AgentCore find every affected server and prepare one reviewed patch, a person approves once, and the proof goes to audit.",
+   "repo": "awsops",
+   "family": "defence-factory",
+   "look": "toy-world-3d",
+   "date": "2026-11-10",
+   "durationSec": 128.9,
+   "width": 1920,
+   "height": 1080,
+   "bytes": 39296438,
+   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-awsops-defence-factory",
+   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-awsops-defence-factory/defence-factory.mp4",
+   "series": "defence-factory",
+   "order": 9,
+   "made": "video-factory",
+   "notes": "AI narration.",
+   "short": "Defence Factory",
+   "transcript": "src/data/transcripts/defence-factory.txt"
+  },
   {
    "slug": "aws-factory-intro",
    "public": true,
