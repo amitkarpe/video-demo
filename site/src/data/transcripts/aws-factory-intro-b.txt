@@ -1,0 +1,13 @@
+Every server we run starts from one image: the golden image that GovTech releases.
+Every day, AWS Factory checks for a new image or new security updates. If nothing changed, it builds nothing.
+If something changed, Image Builder adds the updates, approved agents that stay switched off, and selected CIS settings.
+From that one hardened base come three families: GitLab, MongoDB, and the CloudOS workspace on ECS.
+Each image boots on real test servers. MongoDB must fail over, ECS must drain a node, GitLab must answer through its load balancer, and the base must pass a CIS scan.
+If one check fails, the release is held. Nothing is shared, and production keeps serving.
+When every check passes, the release becomes current and is shared with production. Shared is not deployed.
+First, the swap is rehearsed in DEV: old to new and back again, while a test client keeps working.
+In production, a person approves the change. The new server starts beside the old one, which is only stopped, so going back is quick.
+Next, these steps become one pipeline, with the same human approval.
+Then production is watched: a health probe every five minutes, alarms, and a nightly MongoDB backup.
+What production finds goes back to the factory, so the next image fixes it everywhere.
+One image, one loop: proven before it moves, approved by a person, better every round.

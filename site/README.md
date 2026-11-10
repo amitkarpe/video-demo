@@ -24,7 +24,7 @@ npx astro dev                         # local preview at http://localhost:4321/v
 
 ## Add a released film
 1. Publish its MP4 as a public release in this repository (`film-<repo>-<film>`, the factory's `publish_showcase.sh`).
-2. Add one entry to `src/data/videos.json` with `public: true`, the `mp4` and `release` URLs, `durationSec`, `series` and `order`. Use neutral names (no model or vendor names) and no exact identifiers.
+2. Add one entry to `src/data/videos.json` with `public: true`, the `mp4` and `release` URLs, `durationSec`, `series` and `order` (optional: `repos`, other repositories the film shows, each listed in `repos` at the top). Use neutral names (no model or vendor names) and no exact identifiers.
 3. `python3 scripts/frames.py <slug>`, then `./deploy.sh`.
 
 ## Verify

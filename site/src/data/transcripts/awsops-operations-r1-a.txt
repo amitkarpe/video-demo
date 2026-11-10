@@ -1,0 +1,19 @@
+Software changes faster than ever.
+More environments. More dependencies. More exposure.
+But the operations team still has the same hours in the day.
+What if every engineer had a coordinated team of AI specialists, watching the estate, explaining what matters, and preparing the next safe action?
+An AI operations workforce. Under human control.
+It starts with one operations command centre. agentCore2 brings people, priorities, decisions and evidence into the same view.
+The team sees the service that matters, with the context to act.
+AWS Ops connects a finding to a precise response. Investigate. Prepare the change, and show its impact.
+People approve the scope. Registered tools carry it out.
+Anything outside that scope stops at the gate.
+Then independent checks establish whether it worked. A green light alone never closes the problem.
+AWS Factory builds the next layer: trusted images, hardening, and validation.
+Prove the new version before promotion. When a candidate fails, stop it, and follow the rehearsed recovery plan.
+Now connect the loops. Operational signals guide the next improvement. Verified outcomes become reusable evidence.
+Every cycle aims to leave the service healthier, and the team better informed.
+Parts of this foundation already exist. The fully connected, increasingly autonomous model is the ambition: built in stages, with people accountable.
+Fewer recurring problems. Faster recovery. Lower operating effort.
+Engineers free to improve the service, instead of continually firefighting.
+With your support, we can turn this foundation into a shared organisational capability.
