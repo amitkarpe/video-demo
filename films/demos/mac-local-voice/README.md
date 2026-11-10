@@ -1,9 +1,9 @@
 # Free Mac video demo
 
-**Watch:** [kokoro-video.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-demos-mac-local-voice/kokoro-video.mp4) (sha256 `f08faa669bfd…`) · [video-demo.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-demos-mac-local-voice/video-demo.mp4) (sha256 `8c3bd1a8ed01…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-demos-mac-local-voice), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
+**Watch:** Release removed (10 Nov 2026, owner decision). It held `kokoro-video.mp4` (sha256 `f08faa669bfd…`) · `video-demo.mp4` (sha256 `8c3bd1a8ed01…`). Paths such as `out/*.mp4` below are where a local build writes them.
 
 
-The [MP4](https://github.com/amitkarpe/video-demo/releases/download/film-demos-mac-local-voice/video-demo.mp4) is a fictional, clearly labeled simulation: no AWS APIs are called, no commands are executed on a server, and no real incident data is used. It covers detection, AI investigation, an approve-once human decision, simulated Systems Manager patching, and verification/audit evidence.
+The MP4 (release removed) is a fictional, clearly labeled simulation: no AWS APIs are called, no commands are executed on a server, and no real incident data is used. It covers detection, AI investigation, an approve-once human decision, simulated Systems Manager patching, and verification/audit evidence.
 
 ## Files
 

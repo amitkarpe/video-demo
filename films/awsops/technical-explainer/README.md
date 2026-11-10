@@ -1,6 +1,6 @@
 # Inside AWSOps: what was approved, what ran, what the evidence proves
 
-**Watch:** [awsops-technical-explainer.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-awsops-technical-explainer/awsops-technical-explainer.mp4) (sha256 `dae56a170a89…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-awsops-technical-explainer), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
+**Watch:** Release removed (10 Nov 2026, owner decision). It held `awsops-technical-explainer.mp4` (sha256 `dae56a170a89…`). Paths such as `out/*.mp4` below are where a local build writes them.
 
 
 A visually revised 10:49 engineering film for AWS CloudOps, security and DevOps peers. One public S3 canary alias connects eight chapters, while animated mechanisms expose the boundaries between imported assertions, private identity binding, frozen scope, human decisions, operation attempts and independent verification.

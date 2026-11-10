@@ -1,6 +1,6 @@
 # Ten-second cloud security teaser
 
-**Watch:** [cloud-security-teaser.mp4](https://github.com/amitkarpe/video-demo/releases/download/film-demos-cloud-security-teaser/cloud-security-teaser.mp4) (sha256 `90149f7c7756…`) — video files live on the film's [GitHub Release](https://github.com/amitkarpe/video-demo/releases/tag/film-demos-cloud-security-teaser), not in git. Paths such as `out/*.mp4` below are where a local build writes them.
+**Watch:** Release removed (10 Nov 2026, owner decision). It held `cloud-security-teaser.mp4` (sha256 `90149f7c7756…`). Paths such as `out/*.mp4` below are where a local build writes them.
 
 
 A fictional cloud security sequence: detect, investigate, human approval, and verification. It is labeled **SIMULATION / AI VOICE** and makes no AWS calls.
