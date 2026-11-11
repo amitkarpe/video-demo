@@ -1,6 +1,6 @@
 A warning arrives as a mail file, with a table attached. What should happen?
 We drop the mail as it is. The page opens the mail, reads the table inside it, and says which part it did not read: the logo picture.
-One approval. The fix runs, the versions are read back, and seven of seven servers are on the safe version.
+Two approvals: the L1 ops engineer, then the Team leader. The fix runs, and all seven servers are checked and safe.
 The proof page keeps the result, with the mail and its table as the source.
 The lab version reads a text-only mail and a scanned PDF. On sample data the page says it could not read them, so a person looks. Nothing is guessed.
 Defense Factory. Mail in, fix out. And it says what it cannot read.
