@@ -1,0 +1,29 @@
+One blood sample. One sequencing run. And out comes a flood: hundreds of millions of short fragments of DNA, called reads.
+On their own, the reads say nothing. The answers are still hidden inside.
+This film shows how those reads become answers.
+Turning reads into answers is not one program. It is a recipe: many steps, in order.
+Picture each step as a small workshop by the water. Boats carry files from one workshop to the next.
+By hand, somebody would have to start each step, wait, check, and move the files. For hundreds of samples, that does not work.
+Nextflow is the manager of the recipe. Think of a harbour master.
+You write the recipe once. Nextflow reads it, starts each step when its inputs arrive, and runs many steps at the same time.
+If a step fails, it tries again. And it keeps a record of every step it ran.
+Each step needs its own software tools, in exact versions.
+So each workshop keeps its tools in one sealed crate, called a container. Same crate, same tools, same result, every time.
+Because the tools travel in crates, the same recipe runs on a laptop, on a computing cluster, or in the cloud.
+And if a run stops halfway, Nextflow resumes from the last finished step. Nothing is done twice.
+You do not have to write every recipe yourself. nf-core is a community library of more than a hundred tested recipes, called pipelines.
+From that shelf we take one: Sarek. Sarek finds the differences in a person's DNA.
+Here is Sarek at work. First, quality control: weak reads are trimmed away.
+Next, alignment. A tool called BWA places every read at its position on the human reference genome, like pieces on a puzzle picture.
+Then clean-up: duplicate reads are marked, and quality scores are corrected.
+Now variant calling. Tools such as Strelka compare the sample with the reference, position by position, and list every difference. Each difference is called a variant.
+Finally, annotation and a report: what each variant may mean, and how good the data was.
+Sarek answers two kinds of question.
+Germline: which variants was this person born with? One sample is enough.
+Somatic: what changed in a tumour? Here a tool called Mutect2 compares the tumour sample with a normal sample from the same patient.
+At the end there are two things: a list of variants, and a quality report.
+From hundreds of millions of reads, to a short list a scientist can study. The same recipe, the same result, for every sample.
+But look closely. Every workshop has a line to the internet.
+When a run starts, Nextflow fetches the recipe, the crates of tools, and the reference data from online.
+So what happens in a place that has no internet at all?
+That is the next film: The Sealed Room.

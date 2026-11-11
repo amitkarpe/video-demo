@@ -1,0 +1,30 @@
+In the last film, one careful boat trip carried a pipeline into a sealed room.
+Here is the machine we built to do that, again and again.
+Prepare once. Promote everywhere.
+This is our development environment: three islands.
+On the connected mainland, GitLab collects the pipeline: its code, its containers and its data.
+In the vault, the release is stored in three parts. Code in AWS CodeCommit. Container images in Amazon ECR. And one data bundle in Amazon S3.
+On the sealed island, a host with no internet route runs the pipeline offline, and reports pass or fail.
+Five pipeline releases have passed this way, three of them Sarek.
+But research does not happen in our development environment.
+It happens in many separate AWS accounts, one for each research programme. We call each one a TDR account.
+Each TDR account is its own sealed island. And on each island stands CloudOS, the workspace where researchers run their analyses.
+Every one of them needs the same pipelines, with the same guarantee.
+So we do not prepare again. We promote. The path is proven in development, and every research account will follow it.
+A release that passed is already complete: the code, the images and the bundle, each with its fingerprint.
+The first trip goes to a rehearsal account, not to a real research island.
+If anything is wrong, it shows there, where no researcher is waiting.
+To enter an account, the machine needs a key. We keep that key narrow.
+Each account gets one role, written in Terraform. It trusts only the development environment, and it allows only what a promotion needs.
+Then the release is copied. Never rebuilt.
+Every container image arrives with the same fingerprint it left with.
+The bundle gets new address labels for its new home, and a fresh list of fingerprints. The code lands in that account's own CodeCommit, under a fixed version tag.
+A copy is still only a promise. So the pipeline runs once more, offline, at the destination.
+The code comes from that account's CodeCommit. The run must succeed, use nothing from the internet, and produce the expected results.
+Only then does the island show pass.
+Nobody has to remember to do this. When a release passes in development, AWS CodePipeline starts the promotion by itself, one island after another.
+For a researcher, all of this is invisible.
+In CloudOS, they pick Sarek, press run, and get results. CloudOS reads the pipeline from CodeCommit inside their own account. Nothing comes from the internet.
+And every island keeps its record: which release arrived, its fingerprints, and the result of its offline run.
+One machine. One release. Many sealed islands.
+Prepare once. Promote everywhere. Run with confidence.
