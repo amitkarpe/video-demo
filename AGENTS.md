@@ -111,7 +111,7 @@ Do not reread all root context files before every PR, handoff, or continuation.
 2. **Reuse first:** use a house look from [`docs/STYLE_CATALOG.md`](docs/STYLE_CATALOG.md) (default `toy-world-3d`) and the shared [`toolkit/`](toolkit/README.md). **Never invent a new theme or style** unless Amit explicitly asks for a new one. "Three.js" or "3D" means the toy-world kit, not a new world.
 3. **Two phases:** a storyboard Phase 1 for review, then autonomous production after "go" ([playbook §4.1](docs/AGENT_VIDEO_PLAYBOOK.md)).
 4. **Layout:** one film per `films/<source-repo>/<film>/`. The MP4 goes to the GitHub Release `film-<source-repo>-<film>`, not into git.
-5. **Defaults:** USD 5 OpenAI cap per film; public and generic output; source repositories read-only; the owning agent reviews and merges its own PR by the tiers in the factory's `POLICY.md` ("Merge and review tiers"): media and site data need script checks only, docs one review, code one review; Amit is out of review and merge. A new public film or page still needs Amit's word.
+5. **Defaults:** USD 5 OpenAI cap per film; public and generic output; source repositories read-only; the owning agent reviews and merges its own PR by the tiers in the factory's `POLICY.md` ("Merge and review tiers"): media and site data need script checks only, docs one review, code one review; Amit is out of review and merge. Publishing a finished film or page needs no word from Amit (11 Nov 2026), after the tier-0 checks.
 
 ## Release and cleanup (Amit, 11 Nov 2026)
 
