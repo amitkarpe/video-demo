@@ -1,0 +1,7 @@
+A warning we already fixed arrives again, forwarded by another team. What should happen?
+We drop it on the page. It remembers: each fix was handled before, so there is no new task. The kernel update is still open, and still waits for a person.
+One click opens the proof of the earlier fix.
+Now two files arrive, one with columns the page does not know. It reads what it can, and says plainly which file it could not read.
+An empty file is never an all-clear. Nothing was read, so nothing was checked, and a person looks at it.
+Every drop and every decision leaves a line in the audit log: who approved what, with the proof.
+Defense Factory. It remembers. It never guesses. The proof stays.
