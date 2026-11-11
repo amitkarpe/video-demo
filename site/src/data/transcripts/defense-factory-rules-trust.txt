@@ -2,7 +2,7 @@ Two questions. Do our resources follow the rules? And when may a fix run with no
 A rule check reads the account and changes nothing. It counts what fails, and what belongs to this project.
 Safe fixes are ticked. A fix that costs money is not ticked. Where there is no fixed command, a person looks.
 One approval runs the ticked fixes, one at a time. The proof page shows each rule before and after.
-Trust is earned. A fix type with a clean record can be promoted, to run with no approval.
+Trust is earned. A fix type with a clean record can be promoted, to run with no approval in the lab.
 The promotion has limits. Never a critical fix. Never a restart. Only a few servers in one run.
 One fix that does not hold ends it at once. And a person can stop it here at any time.
 Defense Factory. Rules and earned trust. Approve first. Automate later.
