@@ -20,6 +20,11 @@
    "name": "AWS Ops (Defence Factory)",
    "url": "https://github.com/amitkarpe/awsops",
    "visibility": "private"
+  },
+  "defense-factory": {
+   "name": "Defense Factory",
+   "url": "https://github.com/amitkarpe/defense-factory",
+   "visibility": "private"
   }
  },
  "families": [
@@ -48,7 +53,8 @@
   "toy-world-3d": "Toy world 3D (Three.js)",
   "island-3d": "Island world 3D (Three.js)",
   "cinematic-night": "Cinematic night",
-  "swiss-grid": "Swiss grid (native HyperFrames)"
+  "swiss-grid": "Swiss grid (native HyperFrames)",
+  "screen-demo": "Screen demo (the real page, recorded)"
  },
  "videos": [
   {
@@ -75,6 +81,31 @@
    "notes": "AI narration.",
    "short": "Defence Factory",
    "transcript": "src/data/transcripts/defence-factory.txt"
+  },
+  {
+   "slug": "defense-factory-advisory-fix-proof",
+   "public": true,
+   "current": true,
+   "title": "Defense Factory — Advisory, Fix, Proof",
+   "revision": "Product demo",
+   "status": "Published",
+   "summary": "A 1:11 demo of the real Defense Factory page on sample data: drop a security advisory, see the affected servers (one set aside for a person, one package not ours), approve once, watch the fix run and every server checked again, then open the proof page.",
+   "repo": "defense-factory",
+   "family": "defence-factory",
+   "look": "screen-demo",
+   "date": "2026-11-11",
+   "durationSec": 71.3,
+   "width": 1920,
+   "height": 1080,
+   "bytes": 4288866,
+   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-defense-factory-advisory-fix-proof",
+   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-defense-factory-advisory-fix-proof/advisory-fix-proof.mp4",
+   "series": "defence-factory",
+   "order": 10,
+   "made": "video-factory",
+   "notes": "AI narration. Sample data: invented servers, nothing real runs.",
+   "short": "Advisory, fix, proof",
+   "transcript": "src/data/transcripts/defense-factory-advisory-fix-proof.txt"
   },
   {
    "slug": "aws-factory-intro",
