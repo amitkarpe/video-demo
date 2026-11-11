@@ -20,6 +20,15 @@ Short, narrated, captioned films that explain Amit's engineering work (AWS Facto
 
 **House rule: reuse first.** Use a house look and the toolkit. A new theme is made only when Amit asks for one by name.
 
+## Release, cleanup and big files
+
+- **Finished video:** published in [`amitkarpe/video-demo`](https://github.com/amitkarpe/video-demo) as a GitHub Release plus the showcase page.
+- **Source and QA record:** stay in [`amitkarpe/video-factory`](https://github.com/amitkarpe/video-factory).
+- **After the release** is published and its checksum checked, the agent deletes all raw and intermediate files without asking: temporary branches, old renders, worktrees and local copies.
+- **Never commit a video or any media file over 1 MB, on any branch.** Git keeps it in history forever: a revert or a deleted branch does not make the repository smaller. Media goes on GitHub Releases.
+
+Full rule: [`AGENTS.md`](AGENTS.md#release-and-cleanup-amit-11-nov-2026).
+
 ## Layout
 ```
 films/<source-repo>/<film>/   one self-contained film (script, src, build.py, claims, QA record, keyframes)
