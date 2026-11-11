@@ -1,0 +1,30 @@
+A research team starts an analysis. The first step begins, and stops.
+Nothing is wrong with the science. The computer simply has no internet, and the run asked for something online.
+This is the story of the sealed room.
+Why would anyone work without internet? Because some data must never leave.
+A hospital holds patient genomes. A national data platform holds health records for millions. A secure computing centre holds research that is not yet public.
+So they build a sealed room: a place where data can be analysed, and nothing gets out. Nothing gets in by accident, either.
+A normal Nextflow run quietly reaches for four things online.
+One: the recipe itself, the pipeline code.
+Two: the crates of tools, the containers. A large pipeline can need dozens.
+Three: plug-ins, small add-ons that Nextflow downloads when it starts.
+And four: reference data, such as the human reference genome.
+In the sealed room, each of those four is a closed door.
+The idea is simple. Collect everything on the connected side. Carry it through one guarded gate. Then run inside, with nothing missing.
+Step one: collect. On the connected shore, a tool from the nf-core community downloads the pipeline and every container it names.
+Add the plug-ins and the reference data, and you have one complete shipment.
+Step two: carry. The shipment passes the gate, where it can be scanned and checked.
+Step three: load. Inside, the containers go into a local store, and the data onto local disks.
+Then Nextflow is told one thing: stay offline. Use only what is here.
+It sounds easy. In practice, it breaks in small ways.
+One crate is missing, because the pipeline chose it only while running.
+A label has changed: the name is the same, but the contents are different.
+Or a plug-in tries to call home. And each failure shows up late, hours into a run.
+The cure is discipline, not hope.
+Give every file and every container a fingerprint. Check them all before the run, not during it.
+And afterwards, prove that nothing reached out.
+Who needs this? Hospitals and clinical laboratories. National health data platforms. Secure research environments. Anyone whose data must stay inside.
+Done once, by hand, this is one careful boat trip.
+But pipelines change. New versions arrive. And there is more than one sealed room.
+One boat becomes a timetable of boats. That needs a machine.
+That is the next film: how we built it.
