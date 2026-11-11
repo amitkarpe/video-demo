@@ -1,0 +1,9 @@
+A new security warning arrives. Which of our servers does it touch?
+In Defense Factory, we drop the warning on one calm page. Here we use a sample file, so nothing real runs.
+The page reads it and finds every affected server. Seven need a fix, grouped by package, the urgent ones first.
+One fix needs a restart window, so it is set aside for a person. A package we do not run is shown as not in our lab.
+A person reviews the plan and approves once, for this one change.
+The fix runs server by server. Then each server is checked again, up to three times.
+Seven of seven are fixed and checked. The open item stays open, in plain sight.
+The proof page records what was fixed, who approved it, and every check, ready for audit.
+Defense Factory. Agents prepare. People decide. The proof stays.
