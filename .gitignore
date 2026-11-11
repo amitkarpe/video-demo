@@ -19,3 +19,10 @@ films/**/assets/mix.wav
 films/**/assets/mix-prenorm.wav
 films/**/review/tmp/
 films/**/phase1/_snap/
+
+# Never in Git: render output and work folders (rule: AGENTS.md "Big files: never in Git")
+films/**/out/
+benchmarks/**/out/
+**/work-*/
+*.mov
+*.mkv

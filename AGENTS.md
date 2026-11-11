@@ -113,6 +113,34 @@ Do not reread all root context files before every PR, handoff, or continuation.
 4. **Layout:** one film per `films/<source-repo>/<film>/`. The MP4 goes to the GitHub Release `film-<source-repo>-<film>`, not into git.
 5. **Defaults:** USD 5 OpenAI cap per film; public and generic output; source repositories read-only; no merge without Amit's word.
 
+## Release and cleanup (Amit, 11 Nov 2026)
+
+Every agent follows this for every film. It also applies to a fresh session with no other context.
+
+1. **Where things live.**
+   - Every finished video is published in **`amitkarpe/video-demo`**: a GitHub Release `film-<source-repo>-<film>` plus the showcase page (`toolkit/publish_showcase.sh` in the factory).
+   - Its source and QA record stay in **`amitkarpe/video-factory`**: script, scenes, build tools, `CLAIMS.md`, `review/VERIFICATION.md`, keyframes and captions.
+2. **Release without blocking.** When Amit says release, do the whole path with no more questions:
+   1. private release (`toolkit/release.sh`);
+   2. public release and page (`toolkit/publish_showcase.sh`);
+   3. check that the page plays and that each uploaded file's sha256 equals `review/VERIFICATION.md`;
+   4. send Amit one short report with the links.
+3. **Clean up without asking.** After the release is published and its checksum is checked, delete all raw and intermediate files of that film:
+   - temporary branches;
+   - old renders and replaced release assets;
+   - render worktrees (`git worktree remove`);
+   - `out/` and `work-*` folders;
+   - local copies (Downloads, project files).
+
+   Say in the report what was deleted.
+
+## Big files: never in Git
+
+- **Never commit a video, a final render, a mixed soundtrack or any media file over 1 MB, on any branch.** This includes a draft branch, a temporary branch and an unmerged PR, not only `main`. Media deliverables go on GitHub Releases (up to 2 GB per file). Small inputs under 1 MB are allowed: per-line voice clips, a voice sample, keyframes, contact sheets.
+- **Why:** Git keeps every committed file forever. A revert, a deleted file or a deleted branch does not make the repository smaller. GitHub also keeps the commits of every PR (`refs/pull/*`), merged or not. Only a history rewrite with a force push removes a file, and agents must never do that. GitHub refuses files over 100 MB and warns at 50 MB.
+- **Proof:** video-demo uses about 815 MB on GitHub. MP4 and WAV files of up to 87 MB were committed in early November 2026 and stay in its history, although `main` no longer has them.
+- **Before every push:** run `git diff --cached --stat origin/main` and check that no new file is over 1 MB.
+
 ## Rules
 
 - Follow KISS: optimize for one useful outcome, not the smallest possible task.
