@@ -533,6 +533,31 @@
    "made": "video-demo",
    "short": "BlueOps · Round 3",
    "film": "films/aws-factory/blueops-ami"
+  },
+  {
+   "slug": "defense-factory-problem-first",
+   "public": true,
+   "current": true,
+   "title": "Defense Factory — Problem First",
+   "revision": "Product demo",
+   "status": "Published",
+   "summary": "A 1:22 film that starts with a real public notice for curl (Amazon Linux, 9 Nov 2026) and the hand work it causes: read it, find the servers, check each one, decide, ask, patch, check again. Then the same notice on the Defense Factory page on sample data: affected servers, one approval, the fix, every server checked again, the proof. It ends with the numbers from a pilot on 10 public advisories (11 rows): 0 false all-clears, 10 of 11 match the expected answer. The expected answers were set by an agent acting as L1; a person's check comes next. The page numbers are sample numbers. About 10 minutes down to 2 per advisory is an agent estimate.",
+   "repo": "defense-factory",
+   "family": "defence-factory",
+   "look": "screen-demo",
+   "date": "2026-11-12",
+   "durationSec": 82.1,
+   "width": 1920,
+   "height": 1080,
+   "bytes": 3669750,
+   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-defense-factory-problem-first",
+   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-defense-factory-problem-first/problem-first.mp4",
+   "series": "defence-factory",
+   "order": 80,
+   "made": "video-factory",
+   "notes": "AI narration. Sample numbers: the page shots use sample data, invented servers, nothing real runs. The pilot numbers come from 10 public advisories. 10 minutes down to 2 per advisory is an agent estimate.",
+   "short": "Problem first",
+   "transcript": "src/data/transcripts/defense-factory-problem-first.txt"
   }
  ]
 }
