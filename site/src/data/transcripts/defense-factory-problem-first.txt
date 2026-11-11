@@ -1,0 +1,9 @@
+On 9 November, Amazon Linux published a security notice for curl. It is public.
+Which of our servers does it touch? Today a person answers that by hand. The clock starts.
+Read it. Find the servers. Check each one. Decide. Ask. Patch. Check again. About ten minutes by hand, per advisory.
+Now the same notice, on one page. We drop it in.
+Amazon Inspector says which servers are affected: 4 servers need a fix (sample numbers).
+One person approves. The fix runs, and each server is checked again: 4 of 4 on the safe version (sample numbers).
+Same answer, same proof. The page has it in one place, with who approved it and when. By hand, it was notes.
+10 public advisories, 11 rows. 0 false all-clears. 10 of 11 match the expected answer. About 10 minutes down to 2 per advisory: an agent estimate.
+Give us about ten past advisories. Read-only: nothing is fixed. We measure it against today, and you decide.
