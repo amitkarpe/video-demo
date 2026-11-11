@@ -1,0 +1,8 @@
+Each month we make a fresh, fully patched server image. And we tidy up what still costs money.
+After the weekly patching, one click makes this month's image: a fully patched copy of a server.
+One approval replaces the servers with new ones from that image. One at a time, with a check after each.
+If the new image is wrong, one click takes the servers back to the image before.
+The cost check lists what costs money for nothing: unused disks, snapshots, stopped servers. A check changes nothing.
+Only this project's own leftovers can be deleted here, and only after an approval. The rest goes on a list for its owner.
+The page shows both leftovers deleted, and the saving each month. The proof stays.
+Defense Factory. Images and costs. Approve, check, proof.
