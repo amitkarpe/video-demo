@@ -1,0 +1,25 @@
+A security warning arrives. Which servers does it touch? Who fixes it? Where is the proof? Today that work is manual and slow.
+This is Defense Factory, as it runs today. One calm page. We drop the warning. This is sample data, so nothing real runs.
+The page finds every affected server and ticks the safe fixes. A fix that needs a restart is set aside for a person.
+A person approves once. The fix runs. Each server is checked again.
+The proof page keeps what was fixed, who approved it, and what is still open.
+The same warning again? The page remembers. No new task.
+A file it cannot read is never an all-clear. A person looks.
+A warning can arrive as a mail. The page opens it and reads the table inside.
+Routine work uses the same loop. Weekly patching: scan, one approval, proof.
+A fresh server image each month, with a way back.
+And a cost check that lists what costs money for nothing.
+Rule checks read the account and change nothing. Safe fixes wait for one approval.
+Trust is earned. A manager can promote a fix type with a clean record to run with no approval. Anyone can stop it.
+Every drop and every decision is one line in the audit log.
+Each of these loops has also run end to end on real servers in a personal lab. This film shows sample data only.
+Next: what is planned. These screens are concepts. They are not built yet.
+Planned: parallel labs. Each worker will get its own fresh test stack, so no test waits for another.
+Planned: an agent sidebar. You will watch what the agent reads, step by step, with its cost in dollars. It only watches. It runs nothing.
+Planned: the same loop for storage buckets and container images. Find, approve once, fix, prove.
+And planned: every change to the product itself will be tested automatically before it is merged.
+And this is the direction.
+Many accounts on one page. Each with its own findings, and its own proof.
+A change proven in the development environment moves to the production environment with one approval, inside the formal change process.
+One calm page for the whole AWS estate.
+Defense Factory. Agents prepare. People decide. The proof stays.
