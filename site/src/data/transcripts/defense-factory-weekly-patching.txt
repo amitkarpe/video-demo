@@ -1,0 +1,7 @@
+Every week, servers miss new patches. Who decides what is installed, and where is the proof?
+The Operations page shows which servers miss patches. A scan only reports. Nothing on the servers changes.
+We open the exact list. The restart switch stays off. One approval covers this list, and the install goes one server at a time.
+The page shows every approved patch installed. Six patches wait for the next restart, and the page says so plainly.
+The proof page keeps who approved, and each server before and after.
+The audit log has one line for the scan, and one for the approval.
+Defense Factory. Weekly patching. Scan, approve, proof.
