@@ -1,0 +1,92 @@
+## Chapter 01
+Defense Factory, chapter one of eight. One security notice, from the first page to the proof.
+A security notice arrives. We drop it on the page, as a file or as pasted text.
+The page matches it to the servers that run that package. Seven servers need a fix.
+A person approves, and the page shows who. A critical notice needs two approvals.
+The fix runs one server at a time, with a health check after each one.
+Then the scanner agrees in about 98 seconds. Before this project, it had not agreed after more than 31 minutes.
+Last, the audit. AWS's own record shows the change, under the approver's session.
+Next, chapter two: Patching, images and cost.
+
+## Chapter 02
+Chapter two of eight. Patching, images and cost.
+Routine work uses the same loop. Every week, patches. Every month, a fresh server image. And a check on what costs money for nothing. One approval each, and the proof stays.
+The Operations page shows which servers miss patches. A scan only reports. Nothing on the servers changes.
+We open the exact list. The restart switch stays off. One approval covers this list, and the install goes one server at a time.
+The page shows every approved patch installed. Six patches wait for the next restart, and the page says so plainly.
+Each month, one click makes a fresh image: a fully patched copy of a server.
+One approval replaces the servers with new ones from that image. One at a time, with a check after each.
+If the new image is wrong, one click takes the servers back to the image before.
+The cost check lists what costs money for nothing: unused disks, snapshots, stopped servers. A check changes nothing.
+Only this project's own leftovers can be deleted here, and only after an approval. The rest goes on a list for its owner.
+The page shows both leftovers deleted, and the saving each month. The proof stays.
+Defense Factory, chapter 2 of eight. Next, 3/8: Every way in, and it remembers.
+
+## Chapter 03
+Chapter three of eight. Every way in, and it remembers.
+A notice can be a file, pasted text, an Excel sheet, a mail, or a scanned PDF. All of them go into the same loop, and come out as one list.
+We drop a mail as it is. The page opens the mail, reads the table inside it, and says which part it did not read: the logo picture.
+Every notice gets one of four answers. Fix it. Hosted, so no action. Not ours. Or needs a person. Confirming hosted or not ours writes one log line, and sends no command.
+The same notice again, from another team? The page remembers. Each fix was handled before, so there is no new task. The kernel update is still open, and still waits for a person.
+In our tests, repeats were found seven times out of seven. And look-alikes were kept apart three times out of three.
+Now two files arrive, and one has columns the page does not know. It reads what it can, and says plainly which file it could not read.
+An empty file is never an all-clear. Nothing was read, so nothing was checked, and a person looks.
+Defense Factory, chapter 3 of eight. Next, 4/8: Rules and earned trust.
+
+## Chapter 04
+Chapter four of eight. Rules and earned trust.
+Do our resources follow the rules? One click runs a rule check. It reads the account and changes nothing. It counts what fails, and what belongs to this project.
+On the lab account, the check found four hundred eighty-four failed rules. Eighteen are on this project's own resources. Only those are ours to fix.
+Safe fixes are ticked. A fix that costs money is not ticked. Where there is no fixed command, a person looks.
+One approval runs the ticked fixes, one at a time. The proof page shows each rule before and after.
+In the lab, one approval made four changes. The check ran again in twenty seconds, and five of five approved rules now pass.
+A bigger fix runs in batches: the first server alone, then two at a time, with a health check after each. A snapshot of the disk is the way back.
+Trust is earned. A fix type with a clean record can be promoted, to run with no approval in the lab. Clean: five fixes in a row, from at least two runs, each confirmed by the scanner.
+The promotion has limits. Never a critical fix. Never a restart. Only a few servers in one run.
+One fix that does not hold ends it at once. In the lab, a fix broken on purpose stopped on the first server. A person can also stop it, with one click and one confirmation.
+Defense Factory, chapter 4 of eight. Next, 5/8: Critical fixes, names and AWS's own record.
+
+## Chapter 05
+Chapter five of eight. Critical fixes, names, and AWS's own record.
+A critical notice has a clock. Reply within seventy-two hours. Fix within seven days. Critical means rated critical, or on the list of flaws that attackers really use.
+We drop a critical notice. The page says it plainly: this fix needs two approvals, and the second comes from the Team leader.
+The L1 ops engineer approves first. The Team leader approves second. In the lab, the bridge refused the first approver as the second.
+Then the fix runs server by server, and each server is checked again.
+The proof names both people, and every check. Ready for audit.
+In the lab, the person on the page is the name of the AWS session. The work runs as one role, with short-lived keys.
+Each Audit line can show AWS's own record. The tidy-up shows its two deletes, under the manager's session. The cost check shows reads only.
+And the scanner agrees, ninety-eight seconds after the fix. Before this project, it took more than thirty-one minutes.
+Defense Factory, chapter 5 of eight. Next, 6/8: More things to protect.
+
+## Chapter 06
+Chapter six of eight. More things to protect.
+The same loop protects more than servers: container images, functions, and storage buckets. Check, one approval, proof.
+A container image on an old base. The scanner, Trivy, finds thirty-four known problems in it, two of them critical, and says which version fixes each library.
+One approval rebuilds it on the newest base, as a new tag. The old tag stays. Then the new image is scanned again, by Trivy and by Amazon's own advisories, and both agree.
+A function on an old runtime, and a function with an old library inside. Three other functions are counted, and never touched.
+One approval moves the old runtime to the new one, and the library to its newest release. Then AWS is read back, and the function runs and says its own version.
+Buckets get three safe fixes: block public access, allow only HTTPS, and turn on versioning. Only on this lab's own sample buckets.
+Every write checks the project tag on the resource itself. Other teams' resources are counted, and never touched.
+Defense Factory, chapter 6 of eight. Next, 7/8: Does it work? Ten real notices.
+
+## Chapter 07
+Chapter seven of eight. Does it work? Ten real notices.
+On 9 November, Amazon Linux published a security notice for curl. It is public. Which of our servers does it touch? Today a person answers that by hand. The clock starts.
+Read it. Find the servers. Check each one. Decide. Ask. Patch. Check again. About ten minutes by hand, per notice. That is an agent's estimate, not timed by a person.
+Now the same notice, on one page. We drop it in.
+The page says which servers are affected: four servers need a fix. These are sample numbers.
+One person approves. The fix runs, and each server is checked again: four of four on the safe version. About two minutes to read and decide. An agent estimate.
+Same answer, same proof. The page keeps it in one place, with who approved it and when. By hand, it was notes.
+Ten public notices, eleven rows. Zero false all-clears. Ten of eleven answers match the expected answer. The one miss goes the safe way: a person looks.
+Give us about ten past notices. Read-only: nothing is fixed. We measure it against today, and you decide.
+Defense Factory, chapter 7 of eight. Next, 8/8: Today, next, and the vision.
+
+## Chapter 08
+Chapter eight of eight. Today, next, and the vision.
+Today: seven chapters, one loop. A notice, patches, images, rules, containers, functions and buckets. Each has run end to end on real lab servers.
+The page has a watch-only sidebar for the AI agent. It has no chat box and no tools. It cannot start anything. On sample data it does not run.
+In the lab, you watch each step live, and the agent's cost is shown in dollars. It only reads.
+Next, not built yet: the work environment. A change proven in development moves up, with the same approvals. People decide each step. This is a concept.
+The direction: many accounts on one calm page. Each with its own findings, and its own proof. A concept, not a plan.
+Defense Factory. Agents prepare. People decide. The proof stays.
+
