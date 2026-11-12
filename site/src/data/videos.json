@@ -47,31 +47,6 @@
    "id": "pentest",
    "name": "Agentic Pentest",
    "blurb": "Scanners, a tool-less AI and a policy gate that turn noise into reviewable findings."
-  },
-  {
-   "slug": "defense-factory-ops-film",
-   "public": true,
-   "current": true,
-   "title": "Defense Factory — The Ops Film",
-   "revision": "8 chapters",
-   "status": "Published",
-   "summary": "An 11:41 film for an Ops team, in 8 chapters: one public notice end to end, weekly patching, every way a notice gets in, rules and trust, critical servers and who did what (live lab recording, AWS's own CloudTrail record), more to protect (containers, functions, buckets), does it work (pilot numbers), and today, next and the vision. Page scenes use sample data. Chapter 5 is recorded live in a free lab account with test approvals by an agent, not a human. Concept screens in chapter 8 are stamped CONCEPT - NOT BUILT.",
-   "repo": "defense-factory",
-   "family": "defence-factory",
-   "look": "screen-demo",
-   "date": "2026-11-12",
-   "durationSec": 700.8,
-   "width": 1920,
-   "height": 1080,
-   "bytes": 72715446,
-   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-defense-factory-ops-film",
-   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-defense-factory-ops-film/ops-film.mp4",
-   "series": "defence-factory",
-   "order": 81,
-   "made": "video-factory",
-   "notes": "AI narration. Sample data on page scenes; live lab scenes in a free lab account with test approvals by an agent. Minutes saved are an agent estimate.",
-   "short": "Ops film",
-   "transcript": "src/data/transcripts/defense-factory-ops-film.txt"
   }
  ],
  "looks": {
@@ -583,6 +558,31 @@
    "notes": "AI narration. Sample numbers: the page shots use sample data, invented servers, nothing real runs. The pilot numbers come from 10 public advisories. 10 minutes down to 2 per advisory is an agent estimate.",
    "short": "Problem first",
    "transcript": "src/data/transcripts/defense-factory-problem-first.txt"
+  },
+  {
+   "slug": "defense-factory-ops-film",
+   "public": true,
+   "current": true,
+   "title": "Defense Factory — The Ops Film",
+   "revision": "8 chapters",
+   "status": "Published",
+   "summary": "An 11:41 film for an Ops team, in 8 chapters: one public notice end to end, weekly patching, every way a notice gets in, rules and trust, critical servers and who did what (live lab recording, AWS's own CloudTrail record), more to protect (containers, functions, buckets), does it work (pilot numbers), and today, next and the vision. Page scenes use sample data. Chapter 5 is recorded live in a free lab account with test approvals by an agent, not a human. Concept screens in chapter 8 are stamped CONCEPT - NOT BUILT.",
+   "repo": "defense-factory",
+   "family": "defence-factory",
+   "look": "screen-demo",
+   "date": "2026-11-12",
+   "durationSec": 700.8,
+   "width": 1920,
+   "height": 1080,
+   "bytes": 72715446,
+   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-defense-factory-ops-film",
+   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-defense-factory-ops-film/ops-film.mp4",
+   "series": "defence-factory",
+   "order": 81,
+   "made": "video-factory",
+   "notes": "AI narration. Sample data on page scenes; live lab scenes in a free lab account with test approvals by an agent. Minutes saved are an agent estimate.",
+   "short": "Ops film",
+   "transcript": "src/data/transcripts/defense-factory-ops-film.txt"
   }
  ]
 }
