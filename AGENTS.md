@@ -143,7 +143,8 @@ Every agent follows this for every film. It also applies to a fresh session with
 
 ## Rules
 
-- Follow KISS: optimize for one useful outcome, not the smallest possible task.
+- **First principle: KISS-FIRST** (Amit core, section 0): the smallest working solution with the tools
+  that already exist. Before adding anything, ask: can we remove this? Can we do it with less?
 - For meaningful new work, before treating intent as ready, check whether external technology uncertainty or current repository/runtime/environment uncertainty could materially change the outcome, constraints, architecture, or acceptance. Use brief **Research** for outside-in uncertainty and **Discovery** for inside-out current-state uncertainty. Skip this gate when the work is bounded and sufficiently known. Findings refine the owning intent/Issue; no separate research/discovery artifact is required unless it has continuing value.
 - Preserve existing work. Do not revert unrelated changes or use destructive Git actions without authority.
 - Keep durable code, decisions, and reports in Git. Never commit secrets, credentials, authentication state, or copied repositories.
