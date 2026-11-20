@@ -164,6 +164,8 @@ Every agent follows this for every film. It also applies to a fresh session with
 
 When configured, use `~/.agents/AGENTS.md` from the verified canonical `amitkarpe/agents` checkout for portable guidance, and `~/.config/agent/HOST.md` for active host facts. Required local exceptions stay in the owning host/provider configuration. Tool homes such as `~/.codex/` remain tool-specific adapters/runtime state.
 
+**Agent rules are private.** `amitkarpe/agents` is a private repository (goal R, 20 Nov 2026), so links to it return 404 without access to it.
+
 Agent OS is reusable guidance, never automatic project authority. Current user instruction plus this repository's local rules, applicable `SPEC.md`, owning Issue/PR, and project context take precedence.
 
 ## Portfolio Economy Defaults
