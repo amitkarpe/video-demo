@@ -25,6 +25,11 @@
    "name": "Defense Factory",
    "url": "https://github.com/amitkarpe/defense-factory",
    "visibility": "private"
+  },
+  "pentest-pf": {
+   "name": "PenTest platform (PF)",
+   "url": "https://github.com/kcloud1/PenTest",
+   "visibility": "private"
   }
  },
  "families": [
@@ -583,6 +588,29 @@
    "notes": "AI narration. Sample data on page scenes; live lab scenes in a free lab account with test approvals by an agent. Minutes saved are an agent estimate.",
    "short": "Ops film",
    "transcript": "src/data/transcripts/defense-factory-ops-film.txt"
+  },
+  {
+   "slug": "pentest-pf-intro",
+   "public": true,
+   "title": "PF — From a Request Email to a Proven Answer",
+   "revision": "Intro film, version 1",
+   "status": "Current",
+   "summary": "A pentest request arrives by email. Agents read it, plan a lab run, explain the findings and give each one a verdict; only what is really exploitable needs a production change. A proof of concept, in a local lab.",
+   "repo": "pentest-pf",
+   "family": "pentest",
+   "look": "screen-demo",
+   "date": "2026-11-23",
+   "durationSec": 81.7,
+   "width": 1920,
+   "height": 1080,
+   "bytes": 13185188,
+   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-PenTest-intro-v1",
+   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-PenTest-intro-v1/intro-v1.mp4",
+   "series": "pentest",
+   "order": 9,
+   "made": "video-factory",
+   "short": "PF Intro",
+   "transcript": "src/data/transcripts/pentest-pf-intro.txt"
   }
  ]
 }
