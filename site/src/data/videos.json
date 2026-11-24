@@ -719,7 +719,7 @@
      "title": "Defense Factory for Ops: deck",
      "file": "decks/defense-factory-ops.html",
      "frame": "deck-defense-factory.jpg",
-     "note": "The \"Open live\" links point to the lab console on the presenter's own laptop, so they work only there."
+     "note": "8 slides: the console page by page, plus real sign-in in the lab. Sample data; the live buttons show only on the presenter's own laptop."
     }
    ]
   }
