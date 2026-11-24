@@ -594,7 +594,7 @@
    "public": true,
    "title": "PF — From a Request Email to a Proven Answer",
    "revision": "Intro film, version 1",
-   "status": "Current",
+   "status": "Replaced by version 2",
    "summary": "A pentest request arrives by email. Agents read it, plan a lab run, explain the findings and give each one a verdict; only what is really exploitable needs a production change. A proof of concept, in a local lab.",
    "repo": "pentest-pf",
    "family": "pentest",
@@ -610,7 +610,118 @@
    "order": 9,
    "made": "video-factory",
    "short": "PF Intro",
-   "transcript": "src/data/transcripts/pentest-pf-intro.txt"
+   "transcript": "src/data/transcripts/pentest-pf-intro.txt",
+   "current": false
+  },
+  {
+   "public": true,
+   "current": true,
+   "width": 1920,
+   "height": 1080,
+   "made": "video-factory",
+   "look": "screen-demo",
+   "slug": "pentest-pf-intro-v2",
+   "title": "PenTest Factory — Two Ways In, One Proven Answer",
+   "revision": "Intro film, version 2",
+   "status": "Current",
+   "summary": "Two ways into the PenTest platform. Track A starts with an email: the Intake Desk reads it, the Intake Agent says what it understood and what is missing, the Planner picks a lab recipe, the run goes live and the report gives every finding a verdict. Track B is the wizard: one click. Every agent step is on record with model, time and tokens, and the report has an AI assistant, Ask the analyst. A proof of concept, in a local lab, on a synthetic request.",
+   "repo": "pentest-pf",
+   "family": "pentest",
+   "date": "2026-11-24",
+   "durationSec": 114.4,
+   "bytes": 22648750,
+   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-PenTest-intro-v2",
+   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-PenTest-intro-v2/intro-v2.mp4",
+   "series": "pentest",
+   "order": 10,
+   "short": "PF Intro v2",
+   "notes": "AI narration (local voice). Recorded from the real app on a synthetic request.",
+   "transcript": "src/data/transcripts/pentest-pf-intro-v2.txt"
+  },
+  {
+   "public": true,
+   "current": true,
+   "width": 1920,
+   "height": 1080,
+   "made": "video-factory",
+   "look": "screen-demo",
+   "slug": "defense-factory-intro",
+   "title": "Defense Factory — Introduction",
+   "revision": "Introduction film",
+   "status": "Published",
+   "summary": "A 1:31 introduction to the Defense Factory console: a notice comes in, and the question is who allowed the fix and whether it can be proved. Recorded from the real console with sample data.",
+   "repo": "defense-factory",
+   "family": "defence-factory",
+   "date": "2026-11-21",
+   "durationSec": 90.8,
+   "bytes": 26178950,
+   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-defense-factory-intro",
+   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-defense-factory-intro/defense-factory-intro.mp4",
+   "series": "defence-factory",
+   "order": 82,
+   "short": "DF Intro",
+   "notes": "AI narration. Sample data.",
+   "transcript": "src/data/transcripts/defense-factory-intro.txt"
+  },
+  {
+   "public": true,
+   "current": true,
+   "width": 1920,
+   "height": 1080,
+   "made": "video-factory",
+   "look": "screen-demo",
+   "slug": "defense-factory-training",
+   "title": "Defense Factory — Console Training",
+   "revision": "12 chapters",
+   "status": "Published",
+   "summary": "A 5:26 page-by-page training for the Defense Factory console on AWS, in the lab: notice, approvals, audit and proof, patching, fleet, the read-first pages, automation, your role, reply, and what is coming. Sample data; it shows the v0.5.0 console.",
+   "repo": "defense-factory",
+   "family": "defence-factory",
+   "date": "2026-11-21",
+   "durationSec": 326.3,
+   "bytes": 13038981,
+   "release": "https://github.com/amitkarpe/video-demo/releases/tag/film-defense-factory-training",
+   "mp4": "https://github.com/amitkarpe/video-demo/releases/download/film-defense-factory-training/training.mp4",
+   "series": "defence-factory",
+   "order": 83,
+   "short": "DF Training",
+   "notes": "AI narration. Sample data. Shows the v0.5.0 console; later releases add more.",
+   "transcript": "src/data/transcripts/defense-factory-training.txt"
+  }
+ ],
+ "sections": [
+  {
+   "id": "pentest-factory",
+   "name": "PenTest Factory",
+   "blurb": "A request email in, a proven answer out: agents read, plan and explain; scanners and scripts do the checks in a local lab.",
+   "films": [
+    "pentest-pf-intro-v2"
+   ],
+   "decks": [
+    {
+     "title": "PenTest Factory: one-page demo deck",
+     "file": "decks/pentest-factory-demo.html",
+     "frame": "deck-pentest-factory.jpg",
+     "note": "7 slides. The \"Open live\" buttons point to the lab on the presenter's own laptop, so they work only there."
+    }
+   ]
+  },
+  {
+   "id": "defense-factory",
+   "name": "Defense Factory",
+   "blurb": "Agents prepare, people decide, the proof stays: the console for security notices, approvals, patching and audit.",
+   "films": [
+    "defense-factory-intro",
+    "defense-factory-training"
+   ],
+   "decks": [
+    {
+     "title": "Defense Factory for Ops: deck",
+     "file": "decks/defense-factory-ops.html",
+     "frame": "deck-defense-factory.jpg",
+     "note": "The \"Open live\" links point to the lab console on the presenter's own laptop, so they work only there."
+    }
+   ]
   }
  ]
 }
