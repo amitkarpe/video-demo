@@ -702,7 +702,7 @@
      "title": "PenTest Factory: one-page demo deck",
      "file": "decks/pentest-factory-demo.html",
      "frame": "deck-pentest-factory.jpg",
-     "note": "7 slides. The \"Open live\" buttons point to the lab on the presenter's own laptop, so they work only there."
+     "note": "7 slides: the email flow, the wizard, the run result, limits and the ask. Recorded screenshots; the live buttons show only on the presenter's own laptop."
     }
    ]
   },
