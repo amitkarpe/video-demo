@@ -1,0 +1,31 @@
+This runs on AWS, in our lab. Here is the question. Who allowed this fix?
+
+And can we prove it was fixed?
+
+Every day, notices come in. One night, a critical one lands. The clock starts.
+
+A reply in 72 hours. A fix in seven days.
+
+The scanner says which servers are affected. Not the AI. Nothing has been written.
+
+One person asks.
+
+A different manager opens it. A critical fix needs two approvals.
+
+The one who asks never decides. Then a fixed command runs. Not the AI.
+
+Then the proof. Who asked. Who approved. When.
+
+And what each server said when it was read back. Two of two, fixed and checked.
+
+If a fix fails, it stops. The next server is not touched.
+
+A manager approves the roll back, and it is checked.
+
+Click a notice, a patch or a server, and the AI explains it.
+
+Every line names its source. It writes nothing. The AI only reads.
+
+The console makes no AWS call.
+
+Defense Factory. Speed you can sign for.

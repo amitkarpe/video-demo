@@ -1,0 +1,46 @@
+---
+// Home: one section per product (films first, then its deck). Data: "sections" in src/data/videos.json.
+import data from '../data/videos.json';
+import { videos, url, frame, mmss, niceDate } from '../lib/videos';
+const sections = (data as any).sections as { id: string; name: string; blurb: string; films: string[]; decks: { title: string; file: string; frame: string; note: string }[] }[];
+---
+
+{sections.map((s) => (
+  <section class="vs-section not-content" id={s.id} aria-label={s.name}>
+    <h2>{s.name}</h2>
+    <p class="vs-dim">{s.blurb}</p>
+    <ul class="vs-grid">
+      {s.films.map((slug) => videos.find((x) => x.slug === slug)).filter(Boolean).map((v) => (
+        <li class="vs-card">
+          <a href={url(`videos/${v!.slug}/`)} aria-label={`${v!.title} (${v!.revision})`}>
+            <div class="vs-thumb">
+              <img src={frame(v!.slug, 2)} alt="" loading="lazy" width="640" height="360" />
+              <span class="vs-dur">{mmss(v!.durationSec)}</span>
+              <span class="vs-play" aria-hidden="true">▶</span>
+            </div>
+            <div class="vs-body">
+              <div class="vs-meta"><span>Film</span><span>{niceDate(v!.date)}</span></div>
+              <h3>{v!.title}</h3>
+              <p>{v!.summary}</p>
+            </div>
+          </a>
+        </li>
+      ))}
+      {s.decks.map((d) => (
+        <li class="vs-card">
+          <a href={url(d.file)} aria-label={d.title}>
+            <div class="vs-thumb">
+              <img src={url(`frames/${d.frame}`)} alt="" loading="lazy" width="640" height="360" />
+              <span class="vs-dur">Deck</span>
+            </div>
+            <div class="vs-body">
+              <div class="vs-meta"><span>One-page HTML deck</span></div>
+              <h3>{d.title}</h3>
+              <p>{d.note}</p>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+))}

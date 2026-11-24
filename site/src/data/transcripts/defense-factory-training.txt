@@ -1,0 +1,177 @@
+This is a short training for the Defense Factory console.
+
+It runs on AWS, in our lab.
+
+We go page by page.
+
+The pages show sample data.
+
+Where Sample cannot show a step, we show a lab run with test people.
+
+The Notice page lists every notice the console has read.
+
+Search by file name.
+
+The State column says what is next.
+
+Notices arrive as a table, an email or a text.
+
+To add one, choose Read a notice, and drop your files.
+
+Several files together are read as one notice.
+
+Here we use tables.
+
+Text and email are read in the lab, by the AI reader.
+
+The reader says what it found, why, and the next step.
+
+It writes nothing.
+
+The scanner decides which servers are affected, not the reader.
+
+Where does your notice text go?
+
+A text or pasted notice goes to the AI reader, in the lab account.
+
+A scanned PDF is read on the bridge's Mac first, then its text goes to the AI reader.
+
+We make no claim about which region the model runs in.
+
+Tables are read by code, not by the AI.
+
+Not sure what a row means?
+
+Press Explain.
+
+Here it is the plain reading, built from the row's own fields.
+
+Not the AI.
+
+In the lab, the AI reader can explain it too.
+
+Its answer names a source under each line and a trace, and it writes nothing.
+
+Record it once.
+
+Tick the fixes.
+
+Then ask.
+
+A different manager decides.
+
+A manager opens Approvals.
+
+A change that was asked for waits here.
+
+Open the request.
+
+It names what was asked, who asked, and who decides.
+
+The plan was in the notice: what would run, on which servers, and how each one is read back.
+
+If you do not understand it, do not approve it.
+
+One person asks.
+
+A different manager decides.
+
+In the lab, a critical fix needs two approvals.
+
+Press Approve once, and the fix runs.
+
+There is no second confirm.
+
+Here is the same step in a lab run.
+
+Amit asked.
+
+A test agent, signed in as Kishore, a different manager, approved.
+
+The page marks it: a test approval, not a human one.
+
+The Audit page is the record of everything.
+
+Filter by kind or by person, or search the log.
+
+Open a row to see what ran and what the proof said.
+
+These rows are samples.
+
+Export keeps a copy of the lines you chose.
+
+In the lab run, the proof names who approved, and what each server said when it was read back.
+
+If a fix fails, the run stops.
+
+The page shows which servers stopped and which did not start.
+
+Then a roll back was asked and approved.
+
+Patching lists the servers that miss approved patches.
+
+A scan runs every Monday at 10:00, Singapore time.
+
+An install always waits for Approve.
+
+Explain works here too: on a missing patch, and on a server.
+
+The Fleet page shows how a restart rolls out.
+
+The example plan has 8 servers in 5 batches: one server first, then two at a time.
+
+A health check runs after each batch.
+
+Batch size and the restart window are the two settings.
+
+A change is asked for here.
+
+A manager who did not ask decides it, in Requests.
+
+Images, Rules, Containers, Functions and Costs.
+
+Each check only reads, and changes nothing on its own.
+
+A fix is asked for, and a manager approves it.
+
+Automation is earned.
+
+A fix type can run on its own only after five fixes in a row, from at least two runs, each read back and confirmed.
+
+It is asked for, and a manager who did not ask promotes it.
+
+So a person decided, once, in advance.
+
+The record on this page is a sample, and the page says it is invented.
+
+The person menu, top right, shows who you are and your role: ops engineer or manager.
+
+What you can do follows your role.
+
+Profile shows your own sign-in and your own actions.
+
+The Reply page is for the sender of a notice.
+
+It shows Open or Closed, one block for each row, and the 72-hour and 7-day clocks of a critical notice.
+
+When the fix is done and proven, the reply says so.
+
+Four things are coming.
+
+Scanner findings as rows, beside notices.
+
+Image scans in the registry.
+
+A choice of AI provider, and the choice decides where your text goes.
+
+And a second lab account with no AI service.
+
+That is the console.
+
+One page, one tab, one work.
+
+Ask fast.
+
+Approve once.
+
+Prove it.

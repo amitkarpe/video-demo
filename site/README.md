@@ -8,6 +8,7 @@
 | File | What it is |
 |---|---|
 | `src/data/videos.json` | The inventory of every film **shown** on the site (a public release that is not listed here is not shown), with its repository, family, look, length, date, release and lineage (`series`, `order`). Films that are not approved for publication are listed in the private `amitkarpe/video-factory` `docs/showcase-pending.json`, never here (this repository is public). |
+| `sections` in `videos.json` | The home page's product sections (PenTest Factory, Defense Factory): the films (slugs) and one-page HTML decks (`public/decks/*.html`, each under 2 MB, with a frame `public/frames/deck-*.jpg`). Rendered by `src/components/Sections.astro`. |
 | `public/frames/<slug>-1..4.jpg` | Four small JPG frames per public film (640 px, 12/37/63/88 %); frame 2 is the card poster. Made by `scripts/frames.py` from the release MP4. |
 | `src/data/transcripts/<slug>.txt` | Transcripts of factory films (public copies). Archived films use `../films/<repo>/<film>/transcript.txt` or `captions.srt`. |
 
