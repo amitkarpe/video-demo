@@ -1,0 +1,58 @@
+---
+// A pre-read page for one meeting: one film, one deck button. Plain and phone-friendly, no site chrome.
+import { videos, url, frame, mmss } from '../lib/videos';
+interface Props { title: string; slug: string; deck: string; minutes: string; extra?: { text: string; slug: string; label: string }; }
+const { title, slug, deck, minutes, extra } = Astro.props;
+const v = videos.find((x) => x.slug === slug)!;
+const x = extra ? videos.find((y) => y.slug === extra.slug)! : null;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>{title}</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #ffffff; --fg: #0f172a; --dim: #475569; --accent: #0f766e; --line: #e2e8f0; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #0b1220; --fg: #f1f5f9; --dim: #94a3b8; --accent: #14b8a6; --line: #1f2937; } }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 18px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
+    h1 { font-size: 1.7rem; line-height: 1.2; margin: 0 0 0.4rem; }
+    p { margin: 0.5rem 0; }
+    .dim { color: var(--dim); }
+    video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; border-radius: 12px; margin: 1.2rem 0 0.4rem; }
+    .btn { display: block; text-align: center; background: var(--accent); color: #fff; text-decoration: none; font-weight: 700; font-size: 1.3rem; padding: 1rem; border-radius: 12px; margin: 1.4rem 0 1rem; }
+    .btn:focus-visible { outline: 3px solid var(--fg); outline-offset: 3px; }
+    .small { font-size: 0.95rem; color: var(--dim); border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 1.6rem; }
+    .small a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>{title}</h1>
+    <p class="dim">About {minutes}. If you cannot attend, this covers most of the demo.</p>
+    {/* <source type="video/mp4"> is required for Safari: GitHub serves release assets as application/octet-stream. */}
+    <video id="film" controls preload="metadata" playsinline poster={frame(v.slug, 2)}>
+      <source src={v.mp4} type="video/mp4" />
+    </video>
+    <p class="dim">The film, {mmss(v.durationSec)}.</p>
+    <a class="btn" href={url(deck)}>Open the deck</a>
+    {x && <p class="small">Optional: <a href={url(`videos/${x.slug}/`)}>{extra!.label}</a> ({mmss(x.durationSec)}).</p>}
+  </main>
+  <script>
+    // Release downloads redirect to a signed URL that lasts about an hour: reload the source once if it expires.
+    const v = document.getElementById('film') as HTMLVideoElement | null;
+    let last = 0;
+    const retry = () => {
+      if (!v || Date.now() - last < 15000) return;
+      last = Date.now();
+      const t = v.currentTime, playing = !v.paused;
+      v.load();
+      v.addEventListener('loadedmetadata', () => { v.currentTime = t; if (playing) v.play().catch(() => {}); }, { once: true });
+    };
+    v?.addEventListener('error', retry);
+    v?.querySelector('source')?.addEventListener('error', retry);
+  </script>
+</body>
+</html>
